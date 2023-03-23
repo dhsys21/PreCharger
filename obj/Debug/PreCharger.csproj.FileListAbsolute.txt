@@ -432,3 +432,23 @@ D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.Propertie
 D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.TotalForm.resources
 D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.csproj.GenerateResource.cache
 D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.csproj.AssemblyReference.cache
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\Interop.ACTETHERLib.dll
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\Interop.ACTMULTILib.dll
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.csproj.ResolveComReference.cache
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\bin\Debug\PreCharger.exe.config
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\bin\Debug\PreCharger.exe
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\bin\Debug\PreCharger.pdb
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\bin\Debug\AxInterop.ActProgTypeLib.dll
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\bin\Debug\AxInterop.ActUtlTypeLib.dll
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.csproj.CopyComplete
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.exe
+C:\Users\Herald\Source\Repos\dhsys21\PreCharger\obj\Debug\PreCharger.pdb
