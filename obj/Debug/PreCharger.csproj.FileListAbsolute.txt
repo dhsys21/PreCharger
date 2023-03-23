@@ -1,0 +1,434 @@
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 29 006\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 11 30 003 code test\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 11 30 003 code test\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 11 30 003 code test\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 11 30 003 code test\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 11 30 004\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 01 004\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 01 004\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 01 004\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 01 004\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 01 006\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 01\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 01\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 01\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 01\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 02\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 02\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 02\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 02\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 02\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 05\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 05\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 05\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 05\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 07\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 07\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 07\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 07\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 07\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 08\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 08\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 08\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 08\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 08\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 09\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 09\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger 2021 12 09\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 09\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.ConfigForm.resources
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger 2021 12 09\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 10 AutoInspectionTimer\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_AutoInspectionTimer 2021 12 11\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger_Timer 2021 12 11\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger_Timer 2021 12 11\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger_Timer 2021 12 11\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.ConfigForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger_Timer 2021 12 11\obj\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger_Timer 2021 12 13\bin\Debug\PreCharger.exe.config
+D:\DHSYS\PreCharger_Timer 2021 12 13\bin\Debug\PreCharger.exe
+D:\DHSYS\PreCharger_Timer 2021 12 13\bin\Debug\PreCharger.pdb
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.ConfigForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.BaseForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.PLCForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.Properties.Resources.resources
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.TotalForm.resources
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.exe
+D:\DHSYS\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger_Timer 2021 12 13\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2022\0.ETC\PreCharger_PLC(Ether)\PreCharger_Timer 2021 12 13 008(fiber ver)\obj\Debug\PreCharger.pdb
+D:\Temp\PreCharger_Timer 2022 03 02\bin\Debug\PreCharger.exe.config
+D:\Temp\PreCharger_Timer 2022 03 02\bin\Debug\PreCharger.exe
+D:\Temp\PreCharger_Timer 2022 03 02\bin\Debug\PreCharger.pdb
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.csprojAssemblyReference.cache
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.ConfigForm.resources
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.BaseForm.resources
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.PLCForm.resources
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.Properties.Resources.resources
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.TotalForm.resources
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.exe
+D:\Temp\PreCharger_Timer 2022 03 02\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2022\9. Patech Reway\PreCharger_Timer 2022 03 17 002(Visual Studio)\bin\Debug\PreCharger.pdb
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\bin\Debug\PreCharger.exe.config
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\bin\Debug\PreCharger.exe
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\bin\Debug\PreCharger.pdb
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.exe
+C:\Users\DHSYS\Documents\Program\PreCharger_Timer 2022 06 28 (PLC Ethernet OK)\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\bin\Debug\PreCharger.exe.config
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\bin\Debug\PreCharger.exe
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\bin\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.exe
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.pdb
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\PreCharger.csproj.ResolveComReference.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\Interop.ACTETHERLib.dll
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 2022 07 11 002 (PLC Ethernet OK plc thread)\obj\Debug\Interop.ACTMULTILib.dll
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.csproj.ResolveComReference.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.ConfigForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2022\9. Patech Reway\visual studio version\PreCharger_Timer 20220919 001\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.csproj.AssemblyReference.cache
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\Interop.ACTETHERLib.dll
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\Interop.ACTMULTILib.dll
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.csproj.ResolveComReference.cache
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.ConfigForm.resources
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.FormMeasureInfo.resources
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.BaseForm.resources
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.PLCForm.resources
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.Properties.Resources.resources
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.TotalForm.resources
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.csproj.GenerateResource.cache
+D:\Project\Keysight\PreCharger_Timer 20221011 002\obj\Debug\PreCharger.csproj.CoreCompileInputs.cache

@@ -1,0 +1,13 @@
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\bin\Release\PreCharger.exe.config
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\bin\Release\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\bin\Release\PreCharger.pdb
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.csprojAssemblyReference.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.FormMeasureInfo.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.BaseForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.PLCForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.Properties.Resources.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.TotalForm.resources
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.csproj.GenerateResource.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.csproj.CoreCompileInputs.cache
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.exe
+C:\Users\herald\Documents\2021\07.Bestech Precharger (2108)\CSharp Version\PreCharger 2021 12 05\obj\Release\PreCharger.pdb
