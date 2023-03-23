@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreCharger", "PreCharger.csproj", "{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Debug|x86.ActiveCfg = Debug|x86
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Debug|x86.Build.0 = Debug|x86
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Release|x86.ActiveCfg = Release|x86
+		{42EBE533-CE17-425B-91EB-8AC3FD8CB50A}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F459E460-03E6-4959-973F-D9E47E249384}
+	EndGlobalSection
+EndGlobal
