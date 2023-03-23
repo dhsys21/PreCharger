@@ -149,13 +149,12 @@ namespace PreCharger
             string cmdResponse = string.Empty;
             try
             { 
-                if (session != null)
+                if (ioObject != null)
                 {
-                    MessageBasedFormattedIO formattedIO = new MessageBasedFormattedIO(session);
-                    formattedIO.WriteLine(cmd);
+                    ioObject.WriteString(cmd, true);
                     
                     util.SaveLog(STAGENO, "Send> " + cmd);
-                    cmdResponse = formattedIO.ReadLine();
+                    cmdResponse = ioObject.ReadString();
                 }
             }
             catch (Exception ex)
@@ -168,15 +167,14 @@ namespace PreCharger
             return cmdResponse;
 
         }
+        //* RUNCOMMANDWITHNORESULT
         private void RUNCOMMANDONLY(string cmd)
         {
-            string cmdResponse = string.Empty;
             try
             {
-                if (session != null)
+                if (ioObject != null)
                 {
-                    MessageBasedFormattedIO formattedIO = new MessageBasedFormattedIO(session);
-                    formattedIO.WriteLine(cmd);
+                    ioObject.WriteString(cmd, true);
 
                     util.SaveLog(STAGENO, "Send> " + cmd);
                 }
