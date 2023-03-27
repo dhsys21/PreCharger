@@ -137,12 +137,12 @@ namespace PreCharger.Common
             _pcEndAddress = _Constant.PC_D_LEN * 2;
 
             //Channel_N0, Mode, Station_No
-           // _Driver.Connect(sIPADDRESS, iPORT);
+            // _Driver.Connect(sIPADDRESS, iPORT);
 
-            //if (_bPLcState == true)
-            //{
+            if (_bPLcState == true)
+            {
                 StartScaning();
-            //}
+            }
         }
         public int Open(string sIPADDRESS)
         {
@@ -226,23 +226,23 @@ namespace PreCharger.Common
             int[] plc_iScan = new int[plc_count];
 
             #region PLC CONNECTION 
-            //int rtn = 0;
-            //try
-            //{
-            //    rtn = plc2.Open();
+            int rtn = 0;
+            try
+            {
+                rtn = plc2.Open();
 
-            //    if (rtn != 0)
-            //    {
-            //        plc2.Close();
-            //        Thread.Sleep(500);
-            //        rtn = plc2.Open();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.ToString());
-            //    rtn = -1;
-            //}
+                if (rtn != 0)
+                {
+                    plc2.Close();
+                    Thread.Sleep(500);
+                    rtn = plc2.Open();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                rtn = -1;
+            }
             #endregion
 
             #region Show PLC Data to DataGridView

@@ -158,6 +158,18 @@ namespace PreCharger
                 //* Measure Info Form
                 MeasureInfo[nIndex] = new FormMeasureInfo();
 
+                //* PreCharger
+                _PreCharger[nIndex] = CPreChargerBT2202.GetInstance(nIndex);
+                _PreCharger[nIndex].Open(HOST, PORT.ToString(), nIndex);
+
+                _PreCharger[nIndex].AUTOMODE = true;
+                _PreCharger[nIndex].EQUIPSTATUS = enumEquipStatus.StepVacancy;
+                _PreCharger[nIndex].OnReceived += _PreCharger_OnReceived;
+
+                //* PreCharger Data
+                // Precharger 수정필요
+                _PRECHARGERData[nIndex] = new CPreChargerBT2202Data();
+                _PRECHARGERData[nIndex].InitData(nIndex);
                 //* AutoInspectionTimer
                 //* 다른 곳으로 이동 ? 또는 방법을 바꿔야 함.
                 //* PLC 를 쓰레드로 처리 했기 때문에 이를 적용해야 함.
@@ -166,21 +178,6 @@ namespace PreCharger
                 AutoInspectionTimer[nIndex].Tag = nIndex;
                 AutoInspectionTimer[nIndex].Tick += new EventHandler(AutoInspectionTimer_Tick);
             }
-            #endregion
-
-            #region PreCharger
-            //* PreCharger
-            //_PreCharger[nIndex] = CPreChargerBT2202.GetInstance(nIndex);
-
-            //_PreCharger[nIndex].AUTOMODE = true;
-            //_PreCharger[nIndex].EQUIPSTATUS = enumEquipStatus.StepVacancy;
-            //_PreCharger[nIndex].OnReceived += _PreCharger_OnReceived;
-
-            //* PreCharger Data
-            // Precharger 수정필요
-            //_PRECHARGERData[nIndex] = new CPreChargerBT2202Data();
-            //_PRECHARGERData[nIndex].InitData(nIndex);
-
             #endregion
 
             #region PLC 

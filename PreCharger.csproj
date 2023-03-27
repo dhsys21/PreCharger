@@ -113,12 +113,12 @@
     <Compile Include="PLC\CMelsecLibrary.cs" />
     <Compile Include="PLC\CMelsecNetMemory.cs" />
     <Compile Include="Common\Constant.cs" />
-    <Compile Include="Socket\CEquipmentData.cs" />
-    <Compile Include="Socket\CPreChargerBT2202.cs" />
-    <Compile Include="Socket\CPreChargerBT2202Data.cs" />
-    <Compile Include="Socket\CPrechargerData.cs" />
-    <Compile Include="Socket\CPrechargerDriver.cs" />
-    <Compile Include="Socket\CSocketDriver.cs" />
+    <Compile Include="Equipment\CEquipmentData.cs" />
+    <Compile Include="Equipment\CPreChargerBT2202.cs" />
+    <Compile Include="Equipment\CPreChargerBT2202Data.cs" />
+    <Compile Include="Equipment\CPrechargerData.cs" />
+    <Compile Include="Equipment\CPrechargerDriver.cs" />
+    <Compile Include="Equipment\CSocketDriver.cs" />
     <Compile Include="Common\ini.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
