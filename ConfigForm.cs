@@ -16,13 +16,13 @@ namespace PreCharger
         Util util = new Util();
 
         CEquipmentData _system = null;
-        CPrechargerDriver[] _PreCharger = new CPrechargerDriver[_Constant.frmCount];
+        CPrecharger[] _PreCharger = new CPrecharger[_Constant.frmCount];
         public ConfigForm()
         {
             InitializeComponent();
             _system = CEquipmentData.GetInstance();
             for (int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
-                _PreCharger[nIndex] = new CPrechargerDriver();
+                _PreCharger[nIndex] = new CPrecharger();
 
         }
 
@@ -236,7 +236,7 @@ namespace PreCharger
         {
             Button btn = (Button)sender;
             int nIndex = int.Parse(btn.Tag.ToString());
-            _PreCharger[nIndex] = CPrechargerDriver.GetInstance(nIndex);
+            _PreCharger[nIndex] = CPrecharger.GetInstance(nIndex);
             _PreCharger[nIndex].Close();
             _PreCharger[nIndex].StopTimer();
         }
@@ -270,7 +270,7 @@ namespace PreCharger
             }
 
             //_PreCharger[nIndex] = null;
-            _PreCharger[nIndex] = CPrechargerDriver.GetInstance(nIndex);
+            _PreCharger[nIndex] = CPrecharger.GetInstance(nIndex);
             _PreCharger[nIndex].Open(sAddress, iPort, "ACTIVE");
             _PreCharger[nIndex].STAGE = nIndex;
             _PreCharger[nIndex].AUTOMODE = true;

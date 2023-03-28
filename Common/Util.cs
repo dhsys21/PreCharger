@@ -121,6 +121,20 @@ namespace PreCharger
 
         public void FileWrite(string filePath, string strData)
         {
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            {
+                using (StreamWriter streamWriter = new StreamWriter(fileStream, Encoding.UTF8))
+                {
+                    streamWriter.Write(strData);
+
+                    //다쓴 StreamWriter 와 FileStream 닫기
+                    streamWriter.Close();
+                    fileStream.Close();
+                }  
+            }
+        }
+        public void FileWrite_old(string filePath, string strData)
+        {
             FileStream fileStream = new FileStream(
                 filePath,              //저장경로
                 FileMode.Create,       //파일스트림 모드
@@ -134,7 +148,6 @@ namespace PreCharger
             streamWriter.Close();
             fileStream.Close();
         }
-
         public void FileAppend(string filePath, string timeData, double[,] spData, string forceData)
         {
             string strData = "";

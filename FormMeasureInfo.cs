@@ -209,7 +209,11 @@ namespace PreCharger
                 
             }
         }
-
+        private void RunManualStart()
+        {
+            BaseForm.frmMain.SetTrayInfo(this._iStage);
+            BaseForm.frmMain.StartPrecharging(this._iStage);
+        }
         private void RunSTART()
         {
             BaseForm.frmMain.SetTrayInfo(this._iStage);

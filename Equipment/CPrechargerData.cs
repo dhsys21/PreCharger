@@ -62,10 +62,16 @@ namespace PreCharger
         private string _sSetCurrent;
         private string _sSetTime;
         private string _sParam;
+        private double _dSetVoltage;
+        private double _dSetCurrent;
+        private int _iSetTime;
         public string SETVOLTAGE { get => _sSetVoltage; set => _sSetVoltage = value; }
         public string SETCURRENT { get => _sSetCurrent; set => _sSetCurrent = value; }
         public string SETTIME { get => _sSetTime; set => _sSetTime = value; }
         public string PARAM { get => _sParam; set => _sParam = value; }
+        public double DSETVOLTAGE { get => _dSetVoltage; set => _dSetVoltage = value; }
+        public double DSETCURRENT { get => _dSetCurrent; set => _dSetCurrent = value; }
+        public int ISETTIME { get => _iSetTime; set => _iSetTime = value; }
         #endregion
 
         public int STAGENO { get => _iStageNo; set => _iStageNo = value; }

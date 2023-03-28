@@ -8,7 +8,7 @@ using PreCharger.Common;
 
 namespace PreCharger
 {
-    public class CPrechargerDriver : CSocketDriver
+    public class CPrecharger : CSocketDriver
     {
         private bool _bAutoMode = false;
         public bool AUTOMODE { get => _bAutoMode; set => _bAutoMode = value; }
@@ -24,11 +24,11 @@ namespace PreCharger
         Util util = new Util();
 
         #region GetInstance()
-        private static CPrechargerDriver[] PrechargerDriver = new CPrechargerDriver[_Constant.frmCount];
+        private static CPrecharger[] PrechargerDriver = new CPrecharger[_Constant.frmCount];
 
-        public static CPrechargerDriver GetInstance(int nIndex)
+        public static CPrecharger GetInstance(int nIndex)
         {
-            if (PrechargerDriver[nIndex] == null) PrechargerDriver[nIndex] = new CPrechargerDriver();
+            if (PrechargerDriver[nIndex] == null) PrechargerDriver[nIndex] = new CPrecharger();
             return PrechargerDriver[nIndex];
         }
         #endregion
@@ -61,11 +61,11 @@ namespace PreCharger
 
         #endregion
 
-        public CPrechargerDriver()
+        public CPrecharger()
         {
 
         }
-        public CPrechargerDriver(string _strIP, int _iPort, string _strType)
+        public CPrecharger(string _strIP, int _iPort, string _strType)
             : base()
         {
             //_Logger.Log(Level.Info, "********** LabelPrintDriver Initialize Start **********");
@@ -87,7 +87,7 @@ namespace PreCharger
 
         }
 
-        ~CPrechargerDriver()
+        ~CPrecharger()
         {
             CloseSocket();
         }

@@ -27,8 +27,6 @@ namespace PreCharger
             }
         }
 
-        
-
         #region Message Queue
         public class CSocketMessage
         {
@@ -164,7 +162,6 @@ namespace PreCharger
                 //byte[] outvalue = new byte[10];
                 //_socketClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.KeepAlive, true);
                 //_socketClient.Client.IOControl(IOControlCode.KeepAliveValues, inValue, outvalue);
-
 
                 if (_socketClient.Connected)
                 {

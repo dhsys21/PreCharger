@@ -9,7 +9,7 @@ using PreCharger.Common;
 
 namespace PreCharger
 {
-    public class CPreChargerBT2202
+    public class KeysightBT2202
     {
         Util util = new Util();
         public string VISA_ADDRESS;
@@ -63,20 +63,20 @@ namespace PreCharger
         #endregion
 
         #region GetInstance()
-        private static CPreChargerBT2202[] PrechargerDriver = new CPreChargerBT2202[_Constant.frmCount];
+        private static KeysightBT2202[] PrechargerDriver = new KeysightBT2202[_Constant.frmCount];
 
-        public static CPreChargerBT2202 GetInstance(int nIndex)
+        public static KeysightBT2202 GetInstance(int nIndex)
         {
-            if (PrechargerDriver[nIndex] == null) PrechargerDriver[nIndex] = new CPreChargerBT2202();
+            if (PrechargerDriver[nIndex] == null) PrechargerDriver[nIndex] = new KeysightBT2202();
             return PrechargerDriver[nIndex];
         }
         #endregion
-        public CPreChargerBT2202()
+        public KeysightBT2202()
         {
            // _tmrReconnect.Elapsed += new System.Timers.ElapsedEventHandler(_tmrReconnect_Elapsed);
             //_tmrReconnect.Enabled = true;
         }
-        public CPreChargerBT2202(string ipaddress, string port, int stageno)
+        public KeysightBT2202(string ipaddress, string port, int stageno)
         {
             STAGENO = stageno;
             IPADDRESS = ipaddress;
@@ -136,9 +136,7 @@ namespace PreCharger
             catch { }
             try
             {
-#pragma warning disable CA1416 // 플랫폼 호환성 유효성 검사
                 Marshal.ReleaseComObject(ioObject);
-#pragma warning restore CA1416 // 플랫폼 호환성 유효성 검사
             }
             catch { }
         }

@@ -400,7 +400,19 @@ namespace PreCharger
             _PREData[stageno].SETTIME = sTime;
             _PREData[stageno].SetParms();
         }
-
+        public void StartPrecharging(int stageno)
+        {
+            try
+            {
+                //* Get Step Definition
+                //* Compare Setting value and Step Definition
+                //* if not equal, Set Step Definition
+                //* if equal, Start Precharging
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
         public void RunPreChargerCmd(string cmd, int stageno)
         {
             //switch(cmd)

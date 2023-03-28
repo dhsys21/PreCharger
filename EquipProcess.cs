@@ -117,7 +117,7 @@ namespace PreCharger
         public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
 
         #region PLC, Precharger 연결
-        private CPreChargerBT2202Data[] _PRECHARGERData = new CPreChargerBT2202Data[_Constant.frmCount];
+        private KeysightBT2202Data[] _PRECHARGERData = new KeysightBT2202Data[_Constant.frmCount];
         //private CMelsecDriver _PLCDriver = null;
         private CMelsecDriver3 _PLCDriver = null;
         
@@ -131,8 +131,8 @@ namespace PreCharger
             get { return _PLCDriver; }
         }
 
-        private CPreChargerBT2202[] _PreCharger = new CPreChargerBT2202[_Constant.frmCount];
-        public CPreChargerBT2202[] PRECHARGER
+        private KeysightBT2202[] _PreCharger = new KeysightBT2202[_Constant.frmCount];
+        public KeysightBT2202[] PRECHARGER
         {
             get { return _PreCharger; }
         }
@@ -159,7 +159,7 @@ namespace PreCharger
                 MeasureInfo[nIndex] = new FormMeasureInfo();
 
                 //* PreCharger
-                _PreCharger[nIndex] = CPreChargerBT2202.GetInstance(nIndex);
+                _PreCharger[nIndex] = KeysightBT2202.GetInstance(nIndex);
                 _PreCharger[nIndex].Open(HOST, PORT.ToString(), nIndex);
 
                 _PreCharger[nIndex].AUTOMODE = true;
@@ -168,7 +168,7 @@ namespace PreCharger
 
                 //* PreCharger Data
                 // Precharger 수정필요
-                _PRECHARGERData[nIndex] = new CPreChargerBT2202Data();
+                _PRECHARGERData[nIndex] = new KeysightBT2202Data();
                 _PRECHARGERData[nIndex].InitData(nIndex);
                 //* AutoInspectionTimer
                 //* 다른 곳으로 이동 ? 또는 방법을 바꿔야 함.

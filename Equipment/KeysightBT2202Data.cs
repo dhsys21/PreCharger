@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PreCharger
 {
-    class CPreChargerBT2202Data
+    class KeysightBT2202Data
     {
         private int _iStageNo;
         private bool _bAmf;
