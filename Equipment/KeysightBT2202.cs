@@ -18,19 +18,26 @@ namespace PreCharger
         private FormattedIO488 ioObject;
         private string IPADDRESS = string.Empty;
         private string PORT = string.Empty;
-        private string _voltage;
-        private string _current;
-        private string _time;
-        private int STAGENO = 0;
+        private double _preVoltage;
+        private double _preCurrent;
+        private int _preTime;
+        private double _voltage;
+        private double _current;
+        private int _time;
+        private int _stageno = 0;
         private bool _ConnectionState;
         private bool _bAutoMode = false;
         protected enumEquipStatus _EquipStatus = enumEquipStatus.StepVacancy;
         public bool AUTOMODE { get => _bAutoMode; set => _bAutoMode = value; }
-        public bool ConnectionState { get => _ConnectionState; set => _ConnectionState = value; }
-        public string Voltage { get => _voltage; set => _voltage = value; }
-        public string Current { get => _current; set => _current = value; }
-        public string Time { get => _time; set => _time = value; }
+        public bool CONNECTIONSTATE { get => _ConnectionState; set => _ConnectionState = value; }
+        public double VOLTAGE { get => _voltage; set => _voltage = value; }
+        public double CURRENT { get => _current; set => _current = value; }
+        public int TIME { get => _time; set => _time = value; }
+        public double PREVOLTAGE { get => _preVoltage; set => _preVoltage = value; }
+        public double PRECURRENT { get => _preCurrent; set => _preCurrent = value; }
+        public int PRETIME { get => _preTime; set => _preTime = value; }
         public enumEquipStatus EQUIPSTATUS { get => _EquipStatus; set => _EquipStatus = value; }
+        public int STAGENO { get => _stageno; set => _stageno = value; }
 
         protected System.Timers.Timer _tmrReconnect = new System.Timers.Timer(2000);
 
@@ -71,30 +78,21 @@ namespace PreCharger
             return PrechargerDriver[nIndex];
         }
         #endregion
+
         public KeysightBT2202()
         {
-           // _tmrReconnect.Elapsed += new System.Timers.ElapsedEventHandler(_tmrReconnect_Elapsed);
+            // _tmrReconnect.Elapsed += new System.Timers.ElapsedEventHandler(_tmrReconnect_Elapsed);
             //_tmrReconnect.Enabled = true;
         }
         public KeysightBT2202(string ipaddress, string port, int stageno)
         {
-            STAGENO = stageno;
-            IPADDRESS = ipaddress;
-            PORT = port;
-            VISA_ADDRESS = "TCPIP::" + IPADDRESS + "::" + PORT + "::SOCKET";
-            resourceManager = new ResourceManager();
-            ioObject = new FormattedIO488();
-            ioObject.IO = (IMessage)resourceManager.Open(VISA_ADDRESS, AccessMode.NO_LOCK, 0, "");
+            Open(ipaddress, port, stageno);
 
-
-            if (connect().Contains("Keysight Technologies")) _ConnectionState = true;
-            else _ConnectionState = false;
+            //* time, current (A), voltage (V)
+            //* 30초, 1000mA, 1000mV
+            SetPrechargeParameter(30, 1.0, 1.0);
         }
 
-        public bool Connected
-        {
-            get { return ConnectionState == true; }
-        }
         public void Open(string ipaddress, string port, int stageno)
         {
             STAGENO = stageno;
@@ -107,12 +105,12 @@ namespace PreCharger
             {
                 ioObject.IO = (IMessage)resourceManager.Open(VISA_ADDRESS, AccessMode.NO_LOCK, 0, "");
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
 
-            if (connect().Contains("Keysight Technologies")) _ConnectionState = true;
-            else _ConnectionState = false;
+            if (Connect().Contains("Keysight Technologies")) CONNECTIONSTATE = true;
+            else CONNECTIONSTATE = false;
         }
-        private string connect()
+        private string Connect()
         {
             string idnResponse = string.Empty;
             try
@@ -127,7 +125,7 @@ namespace PreCharger
 
             return idnResponse;
         }
-        public void disconnect()
+        public void Disconnect()
         {
             try
             {
@@ -140,21 +138,27 @@ namespace PreCharger
             }
             catch { }
         }
-        public void SETPARAMETER(string voltage, string current, string time)
+        public void SetChargeParameter(int time, double current, double voltage)
         {
             _voltage = voltage;
             _current = current;
             _time = time;
         }
-        private string RUNCOMMAND(string cmd)
+        public void SetPrechargeParameter(int time, double current, double voltage)
+        {
+            _preVoltage = voltage;
+            _preCurrent = current;
+            _preTime = time;
+        }
+        public string RUNCOMMAND(string cmd)
         {
             string cmdResponse = string.Empty;
             try
-            { 
+            {
                 if (ioObject != null)
                 {
                     ioObject.WriteString(cmd, true);
-                    
+
                     util.SaveLog(STAGENO, "Send> " + cmd);
                     cmdResponse = ioObject.ReadString();
                 }
@@ -164,13 +168,13 @@ namespace PreCharger
                 Console.WriteLine(ex.ToString());
             }
 
-            if(cmdResponse != string.Empty)
+            if (cmdResponse != string.Empty)
                 util.SaveLog(STAGENO, "Recv> " + cmdResponse);
             return cmdResponse;
 
         }
         //* RUNCOMMANDWITHNORESULT
-        private void RUNCOMMANDONLY(string cmd)
+        private void RunCommandOnly(string cmd)
         {
             try
             {
@@ -189,33 +193,72 @@ namespace PreCharger
 
         #region BT2202A COMMANDS
         string CMD = string.Empty;
+        
         private void runRST()
         {
             CMD = "*RST";
-            RUNCOMMANDONLY(CMD);
+            RunCommandOnly(CMD);
         }
         private void runABORT()
         {
             CMD = "SEQ:ABORT";
-            RUNCOMMANDONLY(CMD);
+            RunCommandOnly(CMD);
         }
         private void runCLEAR()
         {
             CMD = "SEQ:CLEar 1";
-            RUNCOMMANDONLY(CMD);
+            RunCommandOnly(CMD);
         }
         private void setDEFQuick()
         {
             CMD = "CELL:DEF:QUICk 1";
-            RUNCOMMANDONLY(CMD);
+            RunCommandOnly(CMD);
         }
         private void setPROBELIMIT(string resistance)
         {
             //CMD = "SYST:PROB:LIM 2,0";
             CMD = "SYST:PROB:LIM " + resistance + ",0";
-            RUNCOMMANDONLY(CMD);
+            RunCommandOnly(CMD);
         }
-        private bool CHECKSTEPDEFINITION(string seq_id, string step_id, string voltage, string current, string time)
+        #region Step Definition
+        public async Task<bool> CheckStepDefinition()
+        {
+            bool bPrecharge = false;
+            bool bCharge = false;
+            //* Precharge sequence -> 1, step -> 1
+            //* Charge sequence -> 1, step -> 2
+            string[] def_precharge = GetStepDefinition("1", "1");
+            await Task.Delay(500);
+            string[] def_charge = GetStepDefinition("1", "2");
+            await Task.Delay(500);
+
+            if (def_precharge[0] == "PRECHARGE" && Convert.ToDouble(def_precharge[1]) == PRETIME
+                && Convert.ToDouble(def_precharge[2]) == PRECURRENT && Convert.ToDouble(def_precharge[3]) == PREVOLTAGE)
+                bPrecharge = true;
+
+            if (def_charge[0] == "CHARGE" && Convert.ToDouble(def_charge[1]) == TIME
+                && Convert.ToDouble(def_charge[2]) == CURRENT && Convert.ToDouble(def_charge[3]) == VOLTAGE)
+                bCharge = true;
+
+            if (bPrecharge == false || bCharge == false) return false;
+
+            return true;
+        }
+        /// <summary>
+        /// splitData[0] - type (PRECHARGE, CHARGE)
+        /// splitData[1] - time
+        /// splitData[2] - current
+        /// splitData[3] - voltage
+        /// </summary>
+        public string[] GetStepDefinition(string seq_id, string step_id)
+        {
+            CMD = "SEQ:STEP:DEF? " + seq_id + "," + step_id;
+            var strData = RUNCOMMAND(CMD);
+
+            string[] splitData = strData.Split(',');
+            return splitData;
+        }
+        private bool CheckStepDefinition(string seq_id, string step_id, string voltage, string current, string time)
         {
             CMD = "SEQ:STEP:DEF ? " + seq_id + "," + step_id;
             string[] results = RUNCOMMAND(CMD).Split(',');
@@ -227,57 +270,56 @@ namespace PreCharger
             else
                 return false;
         }
-        private void SETCHARGE(string command, string step_id, string voltage, string current, string time)
+        private void SetStepDefinition(string type, string step_id, int time, double current, double voltage)
         {
-            CMD = "SEQ:STEP:DEF 1," + step_id + "," + command + "," + time + "," + current + "," + voltage;
-            //Command = "SEQ:STEP:DEF 1,1,CHARGE,30,2.0000,4.200";
-            RUNCOMMANDONLY(CMD);
+            //* Ex Command : "SEQ:STEP:DEF 1,1,PRECHARGE,30,1.0,1.0";
+            //* Ex Command : "SEQ:STEP:DEF 1,2,CHARGE,180,2.0,4.2";
+            CMD = "SEQ:STEP:DEF 1," + step_id + "," + type + "," + time.ToString() + "," + current.ToString() + "," + voltage.ToString();
+            RunCommandOnly(CMD);
         }
-        private void SETCHARGECONDITION(string step_id, string test_id, string condition1, string condition2, string ba, string time)
-        {
-            CMD = "SEQ:TEST:DEF 1," + step_id + "," + test_id + "," + condition1 + "," + condition2 + "," + ba + "," + time + ", FAIL";
-            RUNCOMMANDONLY(CMD);
-        }
-        private void SETPRECHARGE()
+        public async Task SetStepDefinition()
         {
             runCLEAR();
+            await Task.Delay(500);
             setDEFQuick();
-            SETCHARGE("PRECHARGE", "1", _voltage, _current, _time);
-            SETCHARGE("CHARGE", "2", _voltage, _current, _time);
+            await Task.Delay(500);
+            SetStepDefinition("PRECHARGE", "1", _preTime, _preCurrent, _preVoltage);
+            await Task.Delay(500);
+            SetStepDefinition("CHARGE", "2", _time, _current, _voltage);
+            await Task.Delay(500);
 
             //* 전압으로 판단할 때 애매한 경우가 있음
-//            if (chkCondition.Checked == true)
-//            {
-//                SETCHARGECONDITION("2", "1", "VOLT_LE", voltCondition.ToString(), "BEFORE", "90");
-//            }
+            //            if (chkCondition.Checked == true)
+            //            {
+            //                SETCHARGECONDITION("2", "1", "VOLT_LE", voltCondition.ToString(), "BEFORE", "90");
+            //            }
         }
-        private void STARTCHARGING()
+        #endregion
+        public void StartCharging()
         {
-            SETENABLE();
-            SETINIT();
+            SetEnable();
+            SetInit();
         }
-        private void SETENABLE()
+        private async void SetEnable()
         {
             for(int boardindex = 1; boardindex < 9; boardindex++)
             {
+                //* Ex Command : "CELL:ENABLE (@1001:1032),1";
                 CMD = "CELL:ENABLE (@" + boardindex + "001:" + boardindex + "032),1";
-                RUNCOMMANDONLY(CMD);
+                RunCommandOnly(CMD);
+                await Task.Delay(100);
             }
-
-            //CMD = "CELL:ENABLE (@1001:1032),1";
-            //RUNCOMMAND(CMD);
         }
 
-        private void SETINIT()
+        private async void SetInit()
         {
             for(int boardindex = 1; boardindex < 9; boardindex++)
             {
+                //* Ex Command : "CELL:INIT (@1001:1032)";
                 CMD = "CELL:INIT (@" + boardindex + "001:" + boardindex + "032)";
-                RUNCOMMANDONLY(CMD);
+                RunCommandOnly(CMD);
+                await Task.Delay(500);
             }
-
-            //CMD = "CELL:INIT (@1001:1032)";
-            //RUNCOMMAND(CMD);
         }
         private string GETVERBOSE(string channel)
         {

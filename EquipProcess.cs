@@ -117,7 +117,8 @@ namespace PreCharger
         public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
 
         #region PLC, Precharger 연결
-        private KeysightBT2202Data[] _PRECHARGERData = new KeysightBT2202Data[_Constant.frmCount];
+        private CPrechargerData[] _PreChargerData = new CPrechargerData[_Constant.frmCount];
+
         //private CMelsecDriver _PLCDriver = null;
         private CMelsecDriver3 _PLCDriver = null;
         
@@ -136,6 +137,8 @@ namespace PreCharger
         {
             get { return _PreCharger; }
         }
+
+        public CPrechargerData[] PRECHARGERDATA { get => _PreChargerData; set => _PreChargerData = value; }
         #endregion
         public EquipProcess()
         {
@@ -168,8 +171,8 @@ namespace PreCharger
 
                 //* PreCharger Data
                 // Precharger 수정필요
-                _PRECHARGERData[nIndex] = new KeysightBT2202Data();
-                _PRECHARGERData[nIndex].InitData(nIndex);
+                PRECHARGERDATA[nIndex] = new CPrechargerData();
+                PRECHARGERDATA[nIndex].InitData(nIndex);
                 //* AutoInspectionTimer
                 //* 다른 곳으로 이동 ? 또는 방법을 바꿔야 함.
                 //* PLC 를 쓰레드로 처리 했기 때문에 이를 적용해야 함.
@@ -182,7 +185,6 @@ namespace PreCharger
 
             #region PLC 
             int mode_no = -1;
-            //_PLCDriver = new CMelsecDriver(_system.PLCCHANNELNO, mode_no, _system.PLCSTATIONNUMBER);
             try
             {
                 _PLCDriver = new CMelsecDriver3(_system.PLCIPADDRESS, _system.PLCPORT);
@@ -199,6 +201,7 @@ namespace PreCharger
             SeqTimer.Tick += new EventHandler(SeqTimer_Tick);
             //SeqTimer.Start();
             #endregion
+            
             // makepanel();
 
             for(int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
@@ -271,7 +274,7 @@ namespace PreCharger
         }
         #endregion
 
-        #region PreCharger Main Working
+        #region PreCharger Main Working - Timer
         private void ErrorCheck()
         {
 
@@ -344,10 +347,10 @@ namespace PreCharger
         public void Initialization(int stageno)
         {
             util.SavePLCLog(stageno, "Init");
-            _PRECHARGERData[stageno].AMS = false;
-            _PRECHARGERData[stageno].AMF = false;
-            _PRECHARGERData[stageno].ENDCHARGING = false;
-            _PRECHARGERData[stageno].CHARGING = false;
+            PRECHARGERDATA[stageno].AMS = false;
+            PRECHARGERDATA[stageno].AMF = false;
+            PRECHARGERDATA[stageno].ENDCHARGING = false;
+            PRECHARGERDATA[stageno].CHARGING = false;
 
             if (PRECHARGER[stageno].AUTOMODE == true)
                 PRECHARGER[stageno].EQUIPSTATUS = enumEquipStatus.StepVacancy;
@@ -368,6 +371,33 @@ namespace PreCharger
             MeasureInfo[stageno].initGridView();
         }
         #endregion
+
+        #region PreCharger Command
+        
+        public async void StartPrecharging(int stageno)
+        {
+            try
+            {
+                //* Check Setting value and Step Definition
+                if(await PRECHARGER[stageno].CheckStepDefinition() == true)
+                {
+                    //* if equal, Start Charging
+                    PRECHARGER[stageno].StartCharging();
+                }
+                else
+                {
+                    //* if not equal, Set Step Definition
+                    await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
+                    StartPrecharging(stageno);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
         private void GetIPAddress(int nIndex, out string ipaddress, out int port)
         {
             switch(nIndex)
@@ -399,7 +429,7 @@ namespace PreCharger
         int oState = 0;
         private void _PreCharger_OnReceived(string strMessage, int stageno)
         {
-            if (PRECHARGER[stageno].ConnectionState == true)
+            if (PRECHARGER[stageno].CONNECTIONSTATE == true)
             {
                 iState = 1;
             }
@@ -562,7 +592,7 @@ namespace PreCharger
                 if(plcform != null)
                     plcform.SetDataToGrid(pc_iScanData, plc_iScanData, nIndex);
 
-                if (_PreCharger[nIndex].AUTOMODE == true && _PreCharger[nIndex].ConnectionState == true)
+                if (_PreCharger[nIndex].AUTOMODE == true && _PreCharger[nIndex].CONNECTIONSTATE == true)
                 {
                     switch (PRECHARGER[nIndex].EQUIPSTATUS)
                     {
@@ -625,10 +655,10 @@ namespace PreCharger
             _PLCDriver.ReadWord(nAddress, out nValue);
         }
 
-        public void close()
+        public void Close()
         {
             for (int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
-                if(_PreCharger[nIndex] != null) _PreCharger[nIndex].disconnect();
+                if(_PreCharger[nIndex] != null) _PreCharger[nIndex].Disconnect();
         }
     }
 }

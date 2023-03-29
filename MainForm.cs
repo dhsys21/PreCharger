@@ -98,7 +98,7 @@ namespace PreCharger
 
         private void BaseForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (_EQProcess != null) _EQProcess.close();
+            if (_EQProcess != null) _EQProcess.Close();
             Application.Exit();
         }
 
@@ -272,7 +272,7 @@ namespace PreCharger
             int iState = 0;
             for (int i = 0; i < _Constant.frmCount; i++)
             {
-                if (_EQProcess.PRECHARGER[i].ConnectionState == true)
+                if (_EQProcess.PRECHARGER[i].CONNECTIONSTATE == true)
                 {
                     iState = 1;
                     //_EQProcess.AutoInspectionTimer[i].Enabled = true;
@@ -402,16 +402,7 @@ namespace PreCharger
         }
         public void StartPrecharging(int stageno)
         {
-            try
-            {
-                //* Get Step Definition
-                //* Compare Setting value and Step Definition
-                //* if not equal, Set Step Definition
-                //* if equal, Start Precharging
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            _EQProcess.StartPrecharging(stageno);
         }
         public void RunPreChargerCmd(string cmd, int stageno)
         {
