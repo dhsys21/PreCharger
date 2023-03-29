@@ -113,20 +113,15 @@ namespace PreCharger
             }
         }
         #endregion
+
         public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
         public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
 
         #region PLC, Precharger 연결
         private CPrechargerData[] _PreChargerData = new CPrechargerData[_Constant.frmCount];
 
-        //private CMelsecDriver _PLCDriver = null;
         private CMelsecDriver3 _PLCDriver = null;
         
-        //public CMelsecDriver PLCDRIVER
-        //{
-        //    get { return _PLCDriver; }
-        //}
-
         public CMelsecDriver3 PLCDRIVER
         {
             get { return _PLCDriver; }
@@ -210,6 +205,7 @@ namespace PreCharger
                     SetPCAutoManual(nIndex, 1);
             }
         }
+
         public void makepanel()
         {
             DoubleBufferedPanel[] nPanel = new DoubleBufferedPanel[_Constant.frmCount];

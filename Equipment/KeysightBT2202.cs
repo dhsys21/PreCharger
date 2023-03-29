@@ -40,6 +40,7 @@ namespace PreCharger
         public int STAGENO { get => _stageno; set => _stageno = value; }
 
         protected System.Timers.Timer _tmrReconnect = new System.Timers.Timer(2000);
+        private System.Timers.Timer _tmrGetDataLog = new System.Timers.Timer(1000);
 
         #region delegate
         //Connection State는 공통적으로 사용
@@ -86,6 +87,9 @@ namespace PreCharger
         }
         public KeysightBT2202(string ipaddress, string port, int stageno)
         {
+            _tmrGetDataLog.Interval = 1000;
+            _tmrGetDataLog.Elapsed += new System.Timers.ElapsedEventHandler(_tmrGetDataLog_Elapsed);
+
             Open(ipaddress, port, stageno);
 
             //* time, current (A), voltage (V)
@@ -150,7 +154,7 @@ namespace PreCharger
             _preCurrent = current;
             _preTime = time;
         }
-        public string RUNCOMMAND(string cmd)
+        public string RunCommand(string cmd)
         {
             string cmdResponse = string.Empty;
             try
@@ -173,7 +177,6 @@ namespace PreCharger
             return cmdResponse;
 
         }
-        //* RUNCOMMANDWITHNORESULT
         private void RunCommandOnly(string cmd)
         {
             try
@@ -220,6 +223,8 @@ namespace PreCharger
             CMD = "SYST:PROB:LIM " + resistance + ",0";
             RunCommandOnly(CMD);
         }
+        #endregion
+
         #region Step Definition
         public async Task<bool> CheckStepDefinition()
         {
@@ -253,7 +258,7 @@ namespace PreCharger
         public string[] GetStepDefinition(string seq_id, string step_id)
         {
             CMD = "SEQ:STEP:DEF? " + seq_id + "," + step_id;
-            var strData = RUNCOMMAND(CMD);
+            var strData = RunCommand(CMD);
 
             string[] splitData = strData.Split(',');
             return splitData;
@@ -261,7 +266,7 @@ namespace PreCharger
         private bool CheckStepDefinition(string seq_id, string step_id, string voltage, string current, string time)
         {
             CMD = "SEQ:STEP:DEF ? " + seq_id + "," + step_id;
-            string[] results = RUNCOMMAND(CMD).Split(',');
+            string[] results = RunCommand(CMD).Split(',');
             //0 : type, 1 : time, 2 : current, 3 : voltage
             if (step_id == "1" && results[0] == "PRECHARGE" && results[1] == time && results[2] == current && results[3] == voltage)
                 return true;
@@ -295,6 +300,8 @@ namespace PreCharger
             //            }
         }
         #endregion
+
+        #region Charging
         public void StartCharging()
         {
             SetEnable();
@@ -321,28 +328,47 @@ namespace PreCharger
                 await Task.Delay(500);
             }
         }
-        private string GETVERBOSE(string channel)
+        #endregion
+
+        #region Get Data Command
+        private void GetDataLog()
+        {
+            CMD = "DATA:LOG?";
+            string strDataLog = RunCommand(CMD);
+
+            util.SaveLog(STAGENO, strDataLog);
+        }
+        private string GetVerbose(string channel)
         {
             //CMD = "STAT:CELL:VERBose? 1001";
             CMD = "STAT:CELL:VERBose? " + channel;
                 //# Returns IDLE|RUNNING,<seq>,<step>,<Vsense>,<Imon>,NONE|OK|FAIL|ABORTED,<testId>,<testType>,<expected limit>,<measured limit>
-            string[] result = RUNCOMMAND(CMD).Split(',');
+            string[] result = RunCommand(CMD).Split(',');
             if (result.Length > 5)
                 return result[0] + "," + result[3] + "," + result[4] + "," + result[5];
             else
                 return ",,,";
         }
-        private string GETVOLTAGE()
+        private string[] GetVoltage()
         {
             //Voltage
             CMD = "MEAS:VOLT? 0000";
-            return RUNCOMMAND(CMD);
+            string[] results = RunCommand(CMD).Split(',');
+            return results;
         }
-        private string GETCURRENT()
+        private string[] GetCurrent()
         {
             //Current
             CMD = "MEAS:CURR? 0000";
-            return RUNCOMMAND(CMD);
+            string[] results = RunCommand(CMD).Split(',');
+            return results;
+        }
+        #endregion
+
+        #region Data Log Timer
+        private void _tmrGetDataLog_Elapsed(object sender, EventArgs e)
+        {
+            GetDataLog();
         }
         #endregion
     }
