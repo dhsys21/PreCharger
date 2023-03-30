@@ -40,7 +40,6 @@ namespace PreCharger
         public int STAGENO { get => _stageno; set => _stageno = value; }
 
         protected System.Timers.Timer _tmrReconnect = new System.Timers.Timer(2000);
-        private System.Timers.Timer _tmrGetDataLog = new System.Timers.Timer(1000);
 
         #region delegate
         //Connection State는 공통적으로 사용
@@ -87,9 +86,6 @@ namespace PreCharger
         }
         public KeysightBT2202(string ipaddress, string port, int stageno)
         {
-            _tmrGetDataLog.Interval = 1000;
-            _tmrGetDataLog.Elapsed += new System.Timers.ElapsedEventHandler(_tmrGetDataLog_Elapsed);
-
             Open(ipaddress, port, stageno);
 
             //* time, current (A), voltage (V)
@@ -237,17 +233,26 @@ namespace PreCharger
             string[] def_charge = GetStepDefinition("1", "2");
             await Task.Delay(500);
 
-            if (def_precharge[0] == "PRECHARGE" && Convert.ToDouble(def_precharge[1]) == PRETIME
-                && Convert.ToDouble(def_precharge[2]) == PRECURRENT && Convert.ToDouble(def_precharge[3]) == PREVOLTAGE)
-                bPrecharge = true;
+            if (CheckPrechargeDefinition(def_precharge) == true && CheckChargeDefinition(def_charge) == true)
+                return true;
 
-            if (def_charge[0] == "CHARGE" && Convert.ToDouble(def_charge[1]) == TIME
-                && Convert.ToDouble(def_charge[2]) == CURRENT && Convert.ToDouble(def_charge[3]) == VOLTAGE)
-                bCharge = true;
+            return false;
+        }
+        public bool CheckPrechargeDefinition(string[] def_values)
+        {
+            if (def_values[0] == "PRECHARGE" && Convert.ToDouble(def_values[1]) == PRETIME
+                && Convert.ToDouble(def_values[2]) == PRECURRENT && Convert.ToDouble(def_values[3]) == PREVOLTAGE)
+                return true;
 
-            if (bPrecharge == false || bCharge == false) return false;
+            return false;
+        }
+        public bool CheckChargeDefinition(string[] def_values)
+        {
+            if (def_values[0] == "CHARGE" && Convert.ToDouble(def_values[1]) == TIME
+                && Convert.ToDouble(def_values[2]) == CURRENT && Convert.ToDouble(def_values[3]) == VOLTAGE)
+                return true;
 
-            return true;
+            return false;
         }
         /// <summary>
         /// splitData[0] - type (PRECHARGE, CHARGE)
@@ -262,18 +267,6 @@ namespace PreCharger
 
             string[] splitData = strData.Split(',');
             return splitData;
-        }
-        private bool CheckStepDefinition(string seq_id, string step_id, string voltage, string current, string time)
-        {
-            CMD = "SEQ:STEP:DEF ? " + seq_id + "," + step_id;
-            string[] results = RunCommand(CMD).Split(',');
-            //0 : type, 1 : time, 2 : current, 3 : voltage
-            if (step_id == "1" && results[0] == "PRECHARGE" && results[1] == time && results[2] == current && results[3] == voltage)
-                return true;
-            else if (step_id == "2" && results[0] == "CHARGE" && results[1] == time && results[2] == current && results[3] == voltage)
-                return true;
-            else
-                return false;
         }
         private void SetStepDefinition(string type, string step_id, int time, double current, double voltage)
         {
@@ -331,12 +324,34 @@ namespace PreCharger
         #endregion
 
         #region Get Data Command
-        private void GetDataLog()
+        public byte[] GetDataLog()
         {
             CMD = "DATA:LOG?";
-            string strDataLog = RunCommand(CMD);
+            string cmdResponse = string.Empty;
+            try
+            {
+                if (ioObject != null)
+                {
+                    ioObject.WriteString(CMD, true);
 
-            util.SaveLog(STAGENO, strDataLog);
+                    util.SaveLog(STAGENO, "Send> " + CMD);
+                    //cmdResponse = ioObject.ReadString();
+
+                    byte[] header = ioObject.IO.Read(11);
+                    Int32 dataCount = Int32.Parse(System.Text.Encoding.ASCII.GetString(header).Substring(2));
+
+                    byte[] ResultsArray = ioObject.IO.Read(dataCount);
+
+                    return ResultsArray;
+                }
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(STAGENO, "GetDataLog Error > " + ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+
+            return null;
         }
         private string GetVerbose(string channel)
         {
@@ -365,11 +380,5 @@ namespace PreCharger
         }
         #endregion
 
-        #region Data Log Timer
-        private void _tmrGetDataLog_Elapsed(object sender, EventArgs e)
-        {
-            GetDataLog();
-        }
-        #endregion
     }
 }

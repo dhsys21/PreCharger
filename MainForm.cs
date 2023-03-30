@@ -400,9 +400,9 @@ namespace PreCharger
             _PREData[stageno].SETTIME = sTime;
             _PREData[stageno].SetParms();
         }
-        public void StartPrecharging(int stageno)
+        public void StartCharging(int stageno)
         {
-            _EQProcess.StartPrecharging(stageno);
+            _EQProcess.StartCharging(stageno);
         }
         public void RunPreChargerCmd(string cmd, int stageno)
         {

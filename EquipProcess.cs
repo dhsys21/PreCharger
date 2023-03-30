@@ -15,7 +15,8 @@ namespace PreCharger
         Util util;
         CEquipmentData _system;
         PLCForm plcform = null;
-        public System.Windows.Forms.Timer[] AutoInspectionTimer = new Timer[_Constant.frmCount];
+        public Timer[] AutoInspectionTimer = new Timer[_Constant.frmCount];
+        public Timer[] _tmrGetDataLog = new Timer[_Constant.frmCount];
         TotalForm[] _nForm = new TotalForm[_Constant.frmCount];
         int AutoInspectionIndex = 0;
         public enumInspectionType enumInspType;
@@ -171,10 +172,15 @@ namespace PreCharger
                 //* AutoInspectionTimer
                 //* 다른 곳으로 이동 ? 또는 방법을 바꿔야 함.
                 //* PLC 를 쓰레드로 처리 했기 때문에 이를 적용해야 함.
-                AutoInspectionTimer[nIndex] = new System.Windows.Forms.Timer();
+                AutoInspectionTimer[nIndex] = new Timer();
                 AutoInspectionTimer[nIndex].Interval = 1000;
                 AutoInspectionTimer[nIndex].Tag = nIndex;
                 AutoInspectionTimer[nIndex].Tick += new EventHandler(AutoInspectionTimer_Tick);
+                //* Get Data Log Timer
+                _tmrGetDataLog[nIndex] = new Timer();
+                _tmrGetDataLog[nIndex].Interval = 1000;
+                _tmrGetDataLog[nIndex].Tag = nIndex;
+                _tmrGetDataLog[nIndex].Tick += new EventHandler(_tmrGetDataLog_Tick);
             }
             #endregion
 
@@ -268,9 +274,7 @@ namespace PreCharger
             //    }
             //}
         }
-        #endregion
 
-        #region PreCharger Main Working - Timer
         private void ErrorCheck()
         {
 
@@ -280,7 +284,7 @@ namespace PreCharger
             ushort trayin = 0;
             //_PLCDriver.ReadWord(_Constant.PLC_D_START_NUM + _Constant.PLC_PRE_TRAY_IN[stageno], out trayin);
 
-            if(trayin == 0)
+            if (trayin == 0)
             {
                 PLCInit(stageno);
                 PRECHARGER[stageno].EQUIPSTATUS = enumEquipStatus.StepVacancy;
@@ -291,7 +295,7 @@ namespace PreCharger
         {
             int trayin = 0;
             trayin = PLCSCANDATA[_Constant.PLC_D_START_NUM[stageno] + _Constant.PLC_PRE_TRAY_IN];
-            if(trayin == 1)
+            if (trayin == 1)
             {
                 //* Display Label State
                 //* WriteLog();
@@ -317,7 +321,7 @@ namespace PreCharger
             ushort probeclose = 0;
             //_PLCDriver.ReadWord(_Constant.PLC_D_START_NUM + _Constant.PLC_PRE_PROB_CLOSE[stageno], out probeclose);
 
-            if(probeclose == 1)
+            if (probeclose == 1)
                 RaiseOnStepCharging(stageno);
         }
 
@@ -330,8 +334,8 @@ namespace PreCharger
         {
             ushort probeopen = 0;
             _PLCDriver.ReadWord(_Constant.PLC_D_START_NUM[stageno] + _Constant.PLC_PRE_PROB_OPEN, out probeopen);
-            
-            if(probeopen == 1)
+
+            if (probeopen == 1)
                 RaiseOnStepFinish(stageno);
             //BadInfomation();
             //ReadCellInfo();
@@ -370,7 +374,7 @@ namespace PreCharger
 
         #region PreCharger Command
         
-        public async void StartPrecharging(int stageno)
+        public async void StartCharging(int stageno)
         {
             try
             {
@@ -384,13 +388,20 @@ namespace PreCharger
                 {
                     //* if not equal, Set Step Definition
                     await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
-                    StartPrecharging(stageno);
+                    StartCharging(stageno);
                 }
             }
             catch (Exception ex)
             {
+                util.SaveLog(stageno, "StartPrecharging error => " + ex.ToString());
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+        private void _tmrGetDataLog_Tick(object sender, EventArgs e)
+        {
+            int stageno = int.Parse(((Timer)sender).Tag.ToString());
+            PRECHARGER[stageno].GetDataLog();
         }
         #endregion
 
