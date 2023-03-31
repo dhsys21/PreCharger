@@ -108,21 +108,26 @@ namespace PreCharger
             }
             catch (Exception ex) { }
 
-            if (Connect().Contains("Keysight Technologies")) CONNECTIONSTATE = true;
+            string strResult = Connect();
+            if (strResult.Contains("Keysight Technologies")) CONNECTIONSTATE = true;
             else CONNECTIONSTATE = false;
         }
         private string Connect()
         {
-            string idnResponse = string.Empty;
-            try
-            {
-                ioObject.WriteString("*IDN?");
-                idnResponse = ioObject.ReadString();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            //string idnResponse = string.Empty;
+            //try
+            //{
+            //    ioObject.WriteString("*IDN?");
+            //    idnResponse = ioObject.ReadString();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.ToString());
+            //}
+
+            string idnResponse;
+            CMD = "*IDN?";
+            idnResponse = RunCommand(CMD);
 
             return idnResponse;
         }
@@ -152,6 +157,9 @@ namespace PreCharger
             _preCurrent = current;
             _preTime = time;
         }
+
+        #region BT2202A COMMANDS
+        string CMD = string.Empty;
         public string RunCommand(string cmd)
         {
             string cmdResponse = string.Empty;
@@ -159,8 +167,8 @@ namespace PreCharger
             {
                 if (ioObject != null)
                 {
-                    ioObject.WriteString(cmd, true);
-
+                    //ioObject.WriteString(cmd, true);
+                    ioObject.WriteString(cmd);
                     util.SaveLog(STAGENO, "Send> " + cmd);
                     cmdResponse = ioObject.ReadString();
                 }
@@ -168,6 +176,7 @@ namespace PreCharger
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                util.SaveLog(STAGENO, "Command Error (" + cmd + ") > " + ex.ToString());
             }
 
             if (cmdResponse != string.Empty)
@@ -189,12 +198,9 @@ namespace PreCharger
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                util.SaveLog(STAGENO, "Command Error (" + cmd + ") > " + ex.ToString());
             }
         }
-
-        #region BT2202A COMMANDS
-        string CMD = string.Empty;
-        
         private void runRST()
         {
             CMD = "*RST";
