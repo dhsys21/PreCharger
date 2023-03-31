@@ -295,10 +295,12 @@ namespace PreCharger
         #endregion
 
         #region Charging
-        public void StartCharging()
+        public bool StartCharging()
         {
             SetEnable();
             SetInit();
+
+            return true;
         }
         private async void SetEnable()
         {

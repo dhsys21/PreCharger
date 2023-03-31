@@ -382,7 +382,8 @@ namespace PreCharger
                 if(await PRECHARGER[stageno].CheckStepDefinition() == true)
                 {
                     //* if equal, Start Charging
-                    PRECHARGER[stageno].StartCharging();
+                    if (PRECHARGER[stageno].StartCharging() == true)
+                        _tmrGetDataLog[stageno].Enabled = true;
                 }
                 else
                 {

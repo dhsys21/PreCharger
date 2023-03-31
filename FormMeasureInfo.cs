@@ -217,7 +217,8 @@ namespace PreCharger
         private void RunSTART()
         {
             BaseForm.frmMain.SetTrayInfo(this._iStage);
-            BaseForm.frmMain.RunPreChargerCmd("AMS", this._iStage);
+            //BaseForm.frmMain.RunPreChargerCmd("AMS", this._iStage);
+            BaseForm.frmMain.StartCharging(this._iStage);
         }
 
         private void RunSTOP()
