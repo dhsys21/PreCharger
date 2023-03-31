@@ -98,7 +98,8 @@ namespace PreCharger
             STAGENO = stageno;
             IPADDRESS = ipaddress;
             PORT = port;
-            VISA_ADDRESS = "TCPIP::" + IPADDRESS + "::" + PORT + "::SOCKET";
+            VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::" + PORT + "::SOCKET";
+            VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::inst0::INSTR";
             resourceManager = new ResourceManager();
             ioObject = new FormattedIO488();
             try
@@ -153,8 +154,8 @@ namespace PreCharger
         }
         public void SetPrechargeParameter(int time, double current, double voltage)
         {
-            _preVoltage = voltage;
-            _preCurrent = current;
+            _preVoltage = (voltage / 1000.0);
+            _preCurrent = (current / 1000.0);
             _preTime = time;
         }
 
@@ -169,7 +170,7 @@ namespace PreCharger
                 {
                     //ioObject.WriteString(cmd, true);
                     util.SaveLog(STAGENO, "Send> " + cmd);
-                    ioObject.WriteString(cmd);
+                    ioObject.WriteString(cmd, true);
                     cmdResponse = ioObject.ReadString();
                 }
             }
@@ -303,10 +304,30 @@ namespace PreCharger
         #endregion
 
         #region Charging
-        public bool StartCharging()
+        public async Task<bool> StartCharging()
         {
-            SetEnable();
-            SetInit();
+            //SetEnable();
+            //SetInit();
+
+            string enableCMD = string.Empty;
+            string initCMD = string.Empty;
+
+            //for (int boardindex = 1; boardindex < 9; boardindex++)
+            //{
+            //    enableCMD = "CELL:ENABLE (@" + boardindex + "001:" + boardindex + "032),1";
+            //    RunCommandOnly(enableCMD);
+
+            //    initCMD = "CELL:INIT (@" + boardindex + "001:" + boardindex + "032)";
+            //    RunCommandOnly(initCMD);
+            //}
+
+            enableCMD = "CELL:ENABLE (@1001:8032),1";
+            RunCommandOnly(enableCMD);
+            await Task.Delay(100);
+            
+            initCMD = "CELL:INIT (@1001:8032)";
+            RunCommandOnly(initCMD);
+            await Task.Delay(1000);
 
             return true;
         }
