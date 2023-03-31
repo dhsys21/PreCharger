@@ -363,16 +363,17 @@ namespace PreCharger
             {
                 if (ioObject != null)
                 {
-                    ioObject.WriteString(CMD, true);
-
                     util.SaveLog(STAGENO, "Send> " + CMD);
+                    ioObject.WriteString(CMD, true);
                     //cmdResponse = ioObject.ReadString();
 
-                    byte[] header = ioObject.IO.Read(11);
-                    Int32 dataCount = Int32.Parse(System.Text.Encoding.ASCII.GetString(header).Substring(2));
+                    byte[] ResultsArray = (byte[])ioObject.ReadIEEEBlock(IEEEBinaryType.BinaryType_UI1, true, true);
 
-                    byte[] ResultsArray = ioObject.IO.Read(dataCount);
+                    //byte[] header = ioObject.IO.Read(11);
+                    //Int32 dataCount = Int32.Parse(System.Text.Encoding.ASCII.GetString(header).Substring(2));
 
+                    //byte[] ResultsArray = ioObject.IO.Read(dataCount);
+                    util.SaveLog(STAGENO, "Recv> " + ResultsArray.ToString());
                     return ResultsArray;
                 }
             }
