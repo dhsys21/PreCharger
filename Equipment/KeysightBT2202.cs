@@ -104,6 +104,7 @@ namespace PreCharger
             try
             {
                 ioObject.IO = (IMessage)resourceManager.Open(VISA_ADDRESS, AccessMode.NO_LOCK, 0, "");
+                ioObject.IO.Timeout = 5 * 1000;
             }
             catch (Exception ex) { }
 

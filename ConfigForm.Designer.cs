@@ -118,6 +118,16 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbMaxTime = new System.Windows.Forms.TextBox();
             this.btnMaxSet = new System.Windows.Forms.Button();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbPreVoltage = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbPreCurrent = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbPreTime = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -143,6 +153,9 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.gbMaxSetting.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.flowLayoutPanel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,18 +176,21 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Location = new System.Drawing.Point(6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1187, 751);
+            this.panel1.Size = new System.Drawing.Size(1353, 1190);
             this.panel1.TabIndex = 0;
             // 
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.flowLayoutPanel7);
             this.groupBox11.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox11.Location = new System.Drawing.Point(22, 635);
+            this.groupBox11.Location = new System.Drawing.Point(25, 991);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(816, 90);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox11.Size = new System.Drawing.Size(933, 112);
             this.groupBox11.TabIndex = 22;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "PRECHARGER 4";
@@ -188,21 +204,21 @@
             this.flowLayoutPanel7.Controls.Add(this.tbPort04);
             this.flowLayoutPanel7.Controls.Add(this.btnConn04);
             this.flowLayoutPanel7.Controls.Add(this.btnDisconn04);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(7, 35);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(8, 44);
             this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(788, 41);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(901, 60);
             this.flowLayoutPanel7.TabIndex = 6;
             // 
             // label21
             // 
             this.label21.BackColor = System.Drawing.Color.SkyBlue;
             this.label21.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(5, 3);
-            this.label21.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label21.Location = new System.Drawing.Point(6, 4);
+            this.label21.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label21.Name = "label21";
             this.label21.Padding = new System.Windows.Forms.Padding(1);
-            this.label21.Size = new System.Drawing.Size(134, 35);
+            this.label21.Size = new System.Drawing.Size(153, 44);
             this.label21.TabIndex = 0;
             this.label21.Text = "IP ADDRESS";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,9 +226,10 @@
             // tbIPAddress04
             // 
             this.tbIPAddress04.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbIPAddress04.Location = new System.Drawing.Point(142, 3);
+            this.tbIPAddress04.Location = new System.Drawing.Point(162, 4);
+            this.tbIPAddress04.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbIPAddress04.Name = "tbIPAddress04";
-            this.tbIPAddress04.Size = new System.Drawing.Size(214, 35);
+            this.tbIPAddress04.Size = new System.Drawing.Size(244, 42);
             this.tbIPAddress04.TabIndex = 6;
             this.tbIPAddress04.Text = "192.168.250.104";
             this.tbIPAddress04.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -221,11 +238,11 @@
             // 
             this.label22.BackColor = System.Drawing.Color.SkyBlue;
             this.label22.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label22.Location = new System.Drawing.Point(359, 3);
-            this.label22.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label22.Location = new System.Drawing.Point(409, 4);
+            this.label22.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label22.Name = "label22";
             this.label22.Padding = new System.Windows.Forms.Padding(1);
-            this.label22.Size = new System.Drawing.Size(90, 35);
+            this.label22.Size = new System.Drawing.Size(103, 44);
             this.label22.TabIndex = 11;
             this.label22.Text = "PORT";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,9 +250,10 @@
             // tbPort04
             // 
             this.tbPort04.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPort04.Location = new System.Drawing.Point(452, 3);
+            this.tbPort04.Location = new System.Drawing.Point(515, 4);
+            this.tbPort04.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPort04.Name = "tbPort04";
-            this.tbPort04.Size = new System.Drawing.Size(102, 35);
+            this.tbPort04.Size = new System.Drawing.Size(116, 42);
             this.tbPort04.TabIndex = 8;
             this.tbPort04.Text = "45000";
             this.tbPort04.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -244,9 +262,10 @@
             // 
             this.btnConn04.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnConn04.ForeColor = System.Drawing.Color.Black;
-            this.btnConn04.Location = new System.Drawing.Point(560, 3);
+            this.btnConn04.Location = new System.Drawing.Point(637, 4);
+            this.btnConn04.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConn04.Name = "btnConn04";
-            this.btnConn04.Size = new System.Drawing.Size(90, 35);
+            this.btnConn04.Size = new System.Drawing.Size(103, 44);
             this.btnConn04.TabIndex = 5;
             this.btnConn04.Tag = "3";
             this.btnConn04.Text = "CONNECT";
@@ -257,9 +276,10 @@
             // 
             this.btnDisconn04.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDisconn04.ForeColor = System.Drawing.Color.Black;
-            this.btnDisconn04.Location = new System.Drawing.Point(656, 3);
+            this.btnDisconn04.Location = new System.Drawing.Point(746, 4);
+            this.btnDisconn04.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisconn04.Name = "btnDisconn04";
-            this.btnDisconn04.Size = new System.Drawing.Size(129, 35);
+            this.btnDisconn04.Size = new System.Drawing.Size(147, 44);
             this.btnDisconn04.TabIndex = 7;
             this.btnDisconn04.Tag = "3";
             this.btnDisconn04.Text = "DISCONNECT";
@@ -270,9 +290,11 @@
             // 
             this.groupBox10.Controls.Add(this.flowLayoutPanel11);
             this.groupBox10.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox10.Location = new System.Drawing.Point(853, 347);
+            this.groupBox10.Location = new System.Drawing.Point(975, 799);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(297, 90);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox10.Size = new System.Drawing.Size(339, 112);
             this.groupBox10.TabIndex = 21;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "REMEASURE ALARM COUNT";
@@ -282,10 +304,10 @@
             this.flowLayoutPanel11.AutoSize = true;
             this.flowLayoutPanel11.Controls.Add(this.label3);
             this.flowLayoutPanel11.Controls.Add(this.tbRemeasureAlarmCount);
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(31, 38);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(35, 48);
             this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(242, 41);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(277, 60);
             this.flowLayoutPanel11.TabIndex = 23;
             // 
             // label3
@@ -293,10 +315,10 @@
             this.label3.BackColor = System.Drawing.Color.SkyBlue;
             this.label3.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 3);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Location = new System.Drawing.Point(3, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 35);
+            this.label3.Size = new System.Drawing.Size(177, 44);
             this.label3.TabIndex = 16;
             this.label3.Text = "ALARM COUNT";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -304,9 +326,10 @@
             // tbRemeasureAlarmCount
             // 
             this.tbRemeasureAlarmCount.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbRemeasureAlarmCount.Location = new System.Drawing.Point(164, 3);
+            this.tbRemeasureAlarmCount.Location = new System.Drawing.Point(186, 4);
+            this.tbRemeasureAlarmCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbRemeasureAlarmCount.Name = "tbRemeasureAlarmCount";
-            this.tbRemeasureAlarmCount.Size = new System.Drawing.Size(75, 35);
+            this.tbRemeasureAlarmCount.Size = new System.Drawing.Size(85, 42);
             this.tbRemeasureAlarmCount.TabIndex = 17;
             this.tbRemeasureAlarmCount.Text = "3";
             this.tbRemeasureAlarmCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -315,9 +338,11 @@
             // 
             this.groupBox9.Controls.Add(this.flowLayoutPanel10);
             this.groupBox9.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox9.Location = new System.Drawing.Point(853, 443);
+            this.groupBox9.Location = new System.Drawing.Point(975, 554);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(297, 90);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox9.Size = new System.Drawing.Size(339, 112);
             this.groupBox9.TabIndex = 20;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "AGING";
@@ -329,20 +354,20 @@
             this.flowLayoutPanel10.Controls.Add(this.chkAgingUse);
             this.flowLayoutPanel10.Controls.Add(this.label9);
             this.flowLayoutPanel10.Controls.Add(this.tbAgingTime);
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(29, 36);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(33, 45);
             this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(256, 41);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(305, 60);
             this.flowLayoutPanel10.TabIndex = 8;
             // 
             // chkAgingUse
             // 
             this.chkAgingUse.AutoSize = true;
             this.chkAgingUse.ForeColor = System.Drawing.Color.Black;
-            this.chkAgingUse.Location = new System.Drawing.Point(10, 10);
-            this.chkAgingUse.Margin = new System.Windows.Forms.Padding(10);
+            this.chkAgingUse.Location = new System.Drawing.Point(11, 12);
+            this.chkAgingUse.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.chkAgingUse.Name = "chkAgingUse";
-            this.chkAgingUse.Size = new System.Drawing.Size(61, 20);
+            this.chkAgingUse.Size = new System.Drawing.Size(72, 24);
             this.chkAgingUse.TabIndex = 0;
             this.chkAgingUse.Text = "USE";
             this.chkAgingUse.UseVisualStyleBackColor = true;
@@ -351,11 +376,11 @@
             // 
             this.label9.BackColor = System.Drawing.Color.SkyBlue;
             this.label9.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(86, 3);
-            this.label9.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label9.Location = new System.Drawing.Point(100, 4);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(1);
-            this.label9.Size = new System.Drawing.Size(86, 35);
+            this.label9.Size = new System.Drawing.Size(98, 44);
             this.label9.TabIndex = 0;
             this.label9.Text = "TIME";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,9 +388,10 @@
             // tbAgingTime
             // 
             this.tbAgingTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbAgingTime.Location = new System.Drawing.Point(175, 3);
+            this.tbAgingTime.Location = new System.Drawing.Point(201, 4);
+            this.tbAgingTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbAgingTime.Name = "tbAgingTime";
-            this.tbAgingTime.Size = new System.Drawing.Size(78, 35);
+            this.tbAgingTime.Size = new System.Drawing.Size(89, 42);
             this.tbAgingTime.TabIndex = 2;
             this.tbAgingTime.Text = "100";
             this.tbAgingTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -374,9 +400,11 @@
             // 
             this.groupBox8.Controls.Add(this.chkSaveAllLog);
             this.groupBox8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox8.Location = new System.Drawing.Point(853, 539);
+            this.groupBox8.Location = new System.Drawing.Point(975, 674);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(297, 90);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox8.Size = new System.Drawing.Size(339, 112);
             this.groupBox8.TabIndex = 19;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "LOG";
@@ -386,9 +414,10 @@
             // 
             this.chkSaveAllLog.AutoSize = true;
             this.chkSaveAllLog.ForeColor = System.Drawing.Color.Black;
-            this.chkSaveAllLog.Location = new System.Drawing.Point(94, 38);
+            this.chkSaveAllLog.Location = new System.Drawing.Point(107, 48);
+            this.chkSaveAllLog.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkSaveAllLog.Name = "chkSaveAllLog";
-            this.chkSaveAllLog.Size = new System.Drawing.Size(168, 20);
+            this.chkSaveAllLog.Size = new System.Drawing.Size(196, 24);
             this.chkSaveAllLog.TabIndex = 0;
             this.chkSaveAllLog.Text = "SAVE All Channel";
             this.chkSaveAllLog.UseVisualStyleBackColor = true;
@@ -397,9 +426,11 @@
             // 
             this.groupBox7.Controls.Add(this.flowLayoutPanel6);
             this.groupBox7.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox7.Location = new System.Drawing.Point(22, 539);
+            this.groupBox7.Location = new System.Drawing.Point(25, 871);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(816, 90);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox7.Size = new System.Drawing.Size(933, 112);
             this.groupBox7.TabIndex = 18;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "PRECHARGER 3";
@@ -413,21 +444,21 @@
             this.flowLayoutPanel6.Controls.Add(this.tbPort03);
             this.flowLayoutPanel6.Controls.Add(this.btnConn03);
             this.flowLayoutPanel6.Controls.Add(this.btnDisconn03);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(7, 35);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(8, 44);
             this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(788, 41);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(901, 60);
             this.flowLayoutPanel6.TabIndex = 6;
             // 
             // label19
             // 
             this.label19.BackColor = System.Drawing.Color.SkyBlue;
             this.label19.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.Location = new System.Drawing.Point(5, 3);
-            this.label19.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label19.Location = new System.Drawing.Point(6, 4);
+            this.label19.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(1);
-            this.label19.Size = new System.Drawing.Size(134, 35);
+            this.label19.Size = new System.Drawing.Size(153, 44);
             this.label19.TabIndex = 0;
             this.label19.Text = "IP ADDRESS";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,9 +466,10 @@
             // tbIPAddress03
             // 
             this.tbIPAddress03.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbIPAddress03.Location = new System.Drawing.Point(142, 3);
+            this.tbIPAddress03.Location = new System.Drawing.Point(162, 4);
+            this.tbIPAddress03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbIPAddress03.Name = "tbIPAddress03";
-            this.tbIPAddress03.Size = new System.Drawing.Size(214, 35);
+            this.tbIPAddress03.Size = new System.Drawing.Size(244, 42);
             this.tbIPAddress03.TabIndex = 6;
             this.tbIPAddress03.Text = "192.168.250.103";
             this.tbIPAddress03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -446,11 +478,11 @@
             // 
             this.label20.BackColor = System.Drawing.Color.SkyBlue;
             this.label20.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label20.Location = new System.Drawing.Point(359, 3);
-            this.label20.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label20.Location = new System.Drawing.Point(409, 4);
+            this.label20.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(1);
-            this.label20.Size = new System.Drawing.Size(90, 35);
+            this.label20.Size = new System.Drawing.Size(103, 44);
             this.label20.TabIndex = 11;
             this.label20.Text = "PORT";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,9 +490,10 @@
             // tbPort03
             // 
             this.tbPort03.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPort03.Location = new System.Drawing.Point(452, 3);
+            this.tbPort03.Location = new System.Drawing.Point(515, 4);
+            this.tbPort03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPort03.Name = "tbPort03";
-            this.tbPort03.Size = new System.Drawing.Size(102, 35);
+            this.tbPort03.Size = new System.Drawing.Size(116, 42);
             this.tbPort03.TabIndex = 8;
             this.tbPort03.Text = "45000";
             this.tbPort03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -469,9 +502,10 @@
             // 
             this.btnConn03.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnConn03.ForeColor = System.Drawing.Color.Black;
-            this.btnConn03.Location = new System.Drawing.Point(560, 3);
+            this.btnConn03.Location = new System.Drawing.Point(637, 4);
+            this.btnConn03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConn03.Name = "btnConn03";
-            this.btnConn03.Size = new System.Drawing.Size(90, 35);
+            this.btnConn03.Size = new System.Drawing.Size(103, 44);
             this.btnConn03.TabIndex = 5;
             this.btnConn03.Tag = "2";
             this.btnConn03.Text = "CONNECT";
@@ -482,9 +516,10 @@
             // 
             this.btnDisconn03.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDisconn03.ForeColor = System.Drawing.Color.Black;
-            this.btnDisconn03.Location = new System.Drawing.Point(656, 3);
+            this.btnDisconn03.Location = new System.Drawing.Point(746, 4);
+            this.btnDisconn03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisconn03.Name = "btnDisconn03";
-            this.btnDisconn03.Size = new System.Drawing.Size(129, 35);
+            this.btnDisconn03.Size = new System.Drawing.Size(147, 44);
             this.btnDisconn03.TabIndex = 7;
             this.btnDisconn03.Tag = "2";
             this.btnDisconn03.Text = "DISCONNECT";
@@ -495,9 +530,11 @@
             // 
             this.groupBox6.Controls.Add(this.flowLayoutPanel5);
             this.groupBox6.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox6.Location = new System.Drawing.Point(22, 443);
+            this.groupBox6.Location = new System.Drawing.Point(25, 751);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(816, 90);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox6.Size = new System.Drawing.Size(933, 112);
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "PRECHARGER 2";
@@ -511,21 +548,21 @@
             this.flowLayoutPanel5.Controls.Add(this.tbPort02);
             this.flowLayoutPanel5.Controls.Add(this.btnConn02);
             this.flowLayoutPanel5.Controls.Add(this.btnDisconn02);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(7, 35);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 44);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(788, 41);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(901, 60);
             this.flowLayoutPanel5.TabIndex = 6;
             // 
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.SkyBlue;
             this.label17.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label17.Location = new System.Drawing.Point(5, 3);
-            this.label17.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label17.Location = new System.Drawing.Point(6, 4);
+            this.label17.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(1);
-            this.label17.Size = new System.Drawing.Size(134, 35);
+            this.label17.Size = new System.Drawing.Size(153, 44);
             this.label17.TabIndex = 0;
             this.label17.Text = "IP ADDRESS";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -533,9 +570,10 @@
             // tbIPAddress02
             // 
             this.tbIPAddress02.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbIPAddress02.Location = new System.Drawing.Point(142, 3);
+            this.tbIPAddress02.Location = new System.Drawing.Point(162, 4);
+            this.tbIPAddress02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbIPAddress02.Name = "tbIPAddress02";
-            this.tbIPAddress02.Size = new System.Drawing.Size(214, 35);
+            this.tbIPAddress02.Size = new System.Drawing.Size(244, 42);
             this.tbIPAddress02.TabIndex = 6;
             this.tbIPAddress02.Text = "192.168.250.102";
             this.tbIPAddress02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -544,11 +582,11 @@
             // 
             this.label18.BackColor = System.Drawing.Color.SkyBlue;
             this.label18.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label18.Location = new System.Drawing.Point(359, 3);
-            this.label18.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label18.Location = new System.Drawing.Point(409, 4);
+            this.label18.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(1);
-            this.label18.Size = new System.Drawing.Size(90, 35);
+            this.label18.Size = new System.Drawing.Size(103, 44);
             this.label18.TabIndex = 11;
             this.label18.Text = "PORT";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -556,9 +594,10 @@
             // tbPort02
             // 
             this.tbPort02.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPort02.Location = new System.Drawing.Point(452, 3);
+            this.tbPort02.Location = new System.Drawing.Point(515, 4);
+            this.tbPort02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPort02.Name = "tbPort02";
-            this.tbPort02.Size = new System.Drawing.Size(102, 35);
+            this.tbPort02.Size = new System.Drawing.Size(116, 42);
             this.tbPort02.TabIndex = 8;
             this.tbPort02.Text = "45000";
             this.tbPort02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -567,9 +606,10 @@
             // 
             this.btnConn02.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnConn02.ForeColor = System.Drawing.Color.Black;
-            this.btnConn02.Location = new System.Drawing.Point(560, 3);
+            this.btnConn02.Location = new System.Drawing.Point(637, 4);
+            this.btnConn02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConn02.Name = "btnConn02";
-            this.btnConn02.Size = new System.Drawing.Size(90, 35);
+            this.btnConn02.Size = new System.Drawing.Size(103, 44);
             this.btnConn02.TabIndex = 5;
             this.btnConn02.Tag = "1";
             this.btnConn02.Text = "CONNECT";
@@ -580,9 +620,10 @@
             // 
             this.btnDisconn02.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDisconn02.ForeColor = System.Drawing.Color.Black;
-            this.btnDisconn02.Location = new System.Drawing.Point(656, 3);
+            this.btnDisconn02.Location = new System.Drawing.Point(746, 4);
+            this.btnDisconn02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisconn02.Name = "btnDisconn02";
-            this.btnDisconn02.Size = new System.Drawing.Size(129, 35);
+            this.btnDisconn02.Size = new System.Drawing.Size(147, 44);
             this.btnDisconn02.TabIndex = 7;
             this.btnDisconn02.Tag = "1";
             this.btnDisconn02.Text = "DISCONNECT";
@@ -594,9 +635,9 @@
             this.label10.BackColor = System.Drawing.Color.Blue;
             this.label10.Font = new System.Drawing.Font("굴림", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(446, 13);
+            this.label10.Location = new System.Drawing.Point(510, 16);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(317, 44);
+            this.label10.Size = new System.Drawing.Size(362, 55);
             this.label10.TabIndex = 12;
             this.label10.Text = "CONFIGURATION";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -605,9 +646,10 @@
             // 
             this.btnSaveConfig.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSaveConfig.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveConfig.Location = new System.Drawing.Point(1000, 17);
+            this.btnSaveConfig.Location = new System.Drawing.Point(1143, 21);
+            this.btnSaveConfig.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveConfig.Name = "btnSaveConfig";
-            this.btnSaveConfig.Size = new System.Drawing.Size(80, 40);
+            this.btnSaveConfig.Size = new System.Drawing.Size(91, 50);
             this.btnSaveConfig.TabIndex = 11;
             this.btnSaveConfig.Text = "SAVE";
             this.btnSaveConfig.UseVisualStyleBackColor = true;
@@ -617,9 +659,11 @@
             // 
             this.groupBox5.Controls.Add(this.flowLayoutPanel4);
             this.groupBox5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox5.Location = new System.Drawing.Point(22, 347);
+            this.groupBox5.Location = new System.Drawing.Point(25, 631);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(816, 90);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox5.Size = new System.Drawing.Size(933, 112);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "PRECHARGER 1";
@@ -633,21 +677,21 @@
             this.flowLayoutPanel4.Controls.Add(this.tbPort01);
             this.flowLayoutPanel4.Controls.Add(this.btnConn01);
             this.flowLayoutPanel4.Controls.Add(this.btnDisconn01);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(7, 35);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(8, 44);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(788, 41);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(901, 60);
             this.flowLayoutPanel4.TabIndex = 6;
             // 
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.SkyBlue;
             this.label15.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.Location = new System.Drawing.Point(5, 3);
-            this.label15.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label15.Location = new System.Drawing.Point(6, 4);
+            this.label15.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(1);
-            this.label15.Size = new System.Drawing.Size(134, 35);
+            this.label15.Size = new System.Drawing.Size(153, 44);
             this.label15.TabIndex = 0;
             this.label15.Text = "IP ADDRESS";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -655,9 +699,10 @@
             // tbIPAddress01
             // 
             this.tbIPAddress01.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbIPAddress01.Location = new System.Drawing.Point(142, 3);
+            this.tbIPAddress01.Location = new System.Drawing.Point(162, 4);
+            this.tbIPAddress01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbIPAddress01.Name = "tbIPAddress01";
-            this.tbIPAddress01.Size = new System.Drawing.Size(214, 35);
+            this.tbIPAddress01.Size = new System.Drawing.Size(244, 42);
             this.tbIPAddress01.TabIndex = 6;
             this.tbIPAddress01.Text = "192.168.250.101";
             this.tbIPAddress01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -666,11 +711,11 @@
             // 
             this.label16.BackColor = System.Drawing.Color.SkyBlue;
             this.label16.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label16.Location = new System.Drawing.Point(359, 3);
-            this.label16.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label16.Location = new System.Drawing.Point(409, 4);
+            this.label16.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(1);
-            this.label16.Size = new System.Drawing.Size(90, 35);
+            this.label16.Size = new System.Drawing.Size(103, 44);
             this.label16.TabIndex = 11;
             this.label16.Text = "PORT";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -678,9 +723,10 @@
             // tbPort01
             // 
             this.tbPort01.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPort01.Location = new System.Drawing.Point(452, 3);
+            this.tbPort01.Location = new System.Drawing.Point(515, 4);
+            this.tbPort01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPort01.Name = "tbPort01";
-            this.tbPort01.Size = new System.Drawing.Size(102, 35);
+            this.tbPort01.Size = new System.Drawing.Size(116, 42);
             this.tbPort01.TabIndex = 8;
             this.tbPort01.Text = "45000";
             this.tbPort01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -689,9 +735,10 @@
             // 
             this.btnConn01.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnConn01.ForeColor = System.Drawing.Color.Black;
-            this.btnConn01.Location = new System.Drawing.Point(560, 3);
+            this.btnConn01.Location = new System.Drawing.Point(637, 4);
+            this.btnConn01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConn01.Name = "btnConn01";
-            this.btnConn01.Size = new System.Drawing.Size(90, 35);
+            this.btnConn01.Size = new System.Drawing.Size(103, 44);
             this.btnConn01.TabIndex = 5;
             this.btnConn01.Tag = "0";
             this.btnConn01.Text = "CONNECT";
@@ -702,9 +749,10 @@
             // 
             this.btnDisconn01.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDisconn01.ForeColor = System.Drawing.Color.Black;
-            this.btnDisconn01.Location = new System.Drawing.Point(656, 3);
+            this.btnDisconn01.Location = new System.Drawing.Point(746, 4);
+            this.btnDisconn01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisconn01.Name = "btnDisconn01";
-            this.btnDisconn01.Size = new System.Drawing.Size(129, 35);
+            this.btnDisconn01.Size = new System.Drawing.Size(147, 44);
             this.btnDisconn01.TabIndex = 7;
             this.btnDisconn01.Tag = "0";
             this.btnDisconn01.Text = "DISCONNECT";
@@ -715,9 +763,10 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(1085, 17);
+            this.btnClose.Location = new System.Drawing.Point(1240, 21);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 40);
+            this.btnClose.Size = new System.Drawing.Size(91, 50);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -727,9 +776,11 @@
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanel8);
             this.groupBox4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox4.Location = new System.Drawing.Point(22, 80);
+            this.groupBox4.Location = new System.Drawing.Point(25, 100);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(561, 72);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox4.Size = new System.Drawing.Size(641, 90);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "LINE NO.";
@@ -739,21 +790,21 @@
             this.flowLayoutPanel8.AutoSize = true;
             this.flowLayoutPanel8.Controls.Add(this.label23);
             this.flowLayoutPanel8.Controls.Add(this.tbLineNo);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(201, 20);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(230, 25);
             this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(352, 41);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(402, 60);
             this.flowLayoutPanel8.TabIndex = 7;
             // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.SkyBlue;
             this.label23.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label23.Location = new System.Drawing.Point(5, 3);
-            this.label23.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label23.Location = new System.Drawing.Point(6, 4);
+            this.label23.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label23.Name = "label23";
             this.label23.Padding = new System.Windows.Forms.Padding(1);
-            this.label23.Size = new System.Drawing.Size(86, 35);
+            this.label23.Size = new System.Drawing.Size(98, 44);
             this.label23.TabIndex = 0;
             this.label23.Text = "LINE NO.";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -761,9 +812,10 @@
             // tbLineNo
             // 
             this.tbLineNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbLineNo.Location = new System.Drawing.Point(94, 3);
+            this.tbLineNo.Location = new System.Drawing.Point(107, 4);
+            this.tbLineNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbLineNo.Name = "tbLineNo";
-            this.tbLineNo.Size = new System.Drawing.Size(255, 35);
+            this.tbLineNo.Size = new System.Drawing.Size(291, 42);
             this.tbLineNo.TabIndex = 1;
             this.tbLineNo.Text = "1";
             this.tbLineNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -775,9 +827,11 @@
             this.groupBox3.Controls.Add(this.flowLayoutPanel1);
             this.groupBox3.Controls.Add(this.btnPLCConnect);
             this.groupBox3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox3.Location = new System.Drawing.Point(22, 167);
+            this.groupBox3.Location = new System.Drawing.Point(25, 406);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(561, 174);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(641, 218);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PLC SETTING";
@@ -789,21 +843,21 @@
             this.flowLayoutPanel12.Controls.Add(this.tbPLCIPAddress);
             this.flowLayoutPanel12.Controls.Add(this.label24);
             this.flowLayoutPanel12.Controls.Add(this.tbPLCPort);
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(7, 67);
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(8, 84);
             this.flowLayoutPanel12.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(546, 41);
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(624, 60);
             this.flowLayoutPanel12.TabIndex = 8;
             // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.SkyBlue;
             this.label11.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(5, 3);
-            this.label11.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label11.Location = new System.Drawing.Point(6, 4);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(1);
-            this.label11.Size = new System.Drawing.Size(134, 35);
+            this.label11.Size = new System.Drawing.Size(153, 44);
             this.label11.TabIndex = 0;
             this.label11.Text = "IP ADDRESS";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -811,9 +865,10 @@
             // tbPLCIPAddress
             // 
             this.tbPLCIPAddress.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPLCIPAddress.Location = new System.Drawing.Point(142, 3);
+            this.tbPLCIPAddress.Location = new System.Drawing.Point(162, 4);
+            this.tbPLCIPAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPLCIPAddress.Name = "tbPLCIPAddress";
-            this.tbPLCIPAddress.Size = new System.Drawing.Size(244, 35);
+            this.tbPLCIPAddress.Size = new System.Drawing.Size(278, 42);
             this.tbPLCIPAddress.TabIndex = 6;
             this.tbPLCIPAddress.Text = "17.91.80.220";
             this.tbPLCIPAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -822,11 +877,11 @@
             // 
             this.label24.BackColor = System.Drawing.Color.SkyBlue;
             this.label24.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label24.Location = new System.Drawing.Point(389, 3);
-            this.label24.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label24.Location = new System.Drawing.Point(443, 4);
+            this.label24.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label24.Name = "label24";
             this.label24.Padding = new System.Windows.Forms.Padding(1);
-            this.label24.Size = new System.Drawing.Size(76, 35);
+            this.label24.Size = new System.Drawing.Size(87, 44);
             this.label24.TabIndex = 11;
             this.label24.Text = "PORT";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -834,9 +889,10 @@
             // tbPLCPort
             // 
             this.tbPLCPort.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPLCPort.Location = new System.Drawing.Point(468, 3);
+            this.tbPLCPort.Location = new System.Drawing.Point(533, 4);
+            this.tbPLCPort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPLCPort.Name = "tbPLCPort";
-            this.tbPLCPort.Size = new System.Drawing.Size(75, 35);
+            this.tbPLCPort.Size = new System.Drawing.Size(85, 42);
             this.tbPLCPort.TabIndex = 8;
             this.tbPLCPort.Text = "5005";
             this.tbPLCPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -844,9 +900,10 @@
             // btnPLCDisconnect
             // 
             this.btnPLCDisconnect.ForeColor = System.Drawing.Color.Black;
-            this.btnPLCDisconnect.Location = new System.Drawing.Point(282, 126);
+            this.btnPLCDisconnect.Location = new System.Drawing.Point(322, 158);
+            this.btnPLCDisconnect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPLCDisconnect.Name = "btnPLCDisconnect";
-            this.btnPLCDisconnect.Size = new System.Drawing.Size(169, 35);
+            this.btnPLCDisconnect.Size = new System.Drawing.Size(193, 44);
             this.btnPLCDisconnect.TabIndex = 7;
             this.btnPLCDisconnect.Text = "DISCONNECT";
             this.btnPLCDisconnect.UseVisualStyleBackColor = true;
@@ -860,10 +917,10 @@
             this.flowLayoutPanel1.Controls.Add(this.tbPLCNetworkNumber);
             this.flowLayoutPanel1.Controls.Add(this.label8);
             this.flowLayoutPanel1.Controls.Add(this.tbPLCStationNumber);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 23);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 29);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(546, 41);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(624, 60);
             this.flowLayoutPanel1.TabIndex = 6;
             this.flowLayoutPanel1.Visible = false;
             // 
@@ -871,11 +928,11 @@
             // 
             this.label6.BackColor = System.Drawing.Color.SkyBlue;
             this.label6.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(5, 3);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label6.Location = new System.Drawing.Point(6, 4);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(1);
-            this.label6.Size = new System.Drawing.Size(86, 35);
+            this.label6.Size = new System.Drawing.Size(98, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CHANNEL";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -883,9 +940,10 @@
             // tbPLCChannel
             // 
             this.tbPLCChannel.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPLCChannel.Location = new System.Drawing.Point(94, 3);
+            this.tbPLCChannel.Location = new System.Drawing.Point(107, 4);
+            this.tbPLCChannel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPLCChannel.Name = "tbPLCChannel";
-            this.tbPLCChannel.Size = new System.Drawing.Size(75, 35);
+            this.tbPLCChannel.Size = new System.Drawing.Size(85, 42);
             this.tbPLCChannel.TabIndex = 6;
             this.tbPLCChannel.Text = "151";
             this.tbPLCChannel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -894,11 +952,11 @@
             // 
             this.label7.BackColor = System.Drawing.Color.SkyBlue;
             this.label7.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(172, 3);
-            this.label7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label7.Location = new System.Drawing.Point(195, 4);
+            this.label7.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(1);
-            this.label7.Size = new System.Drawing.Size(136, 35);
+            this.label7.Size = new System.Drawing.Size(155, 44);
             this.label7.TabIndex = 11;
             this.label7.Text = "NETWORK NUMBER";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -906,9 +964,10 @@
             // tbPLCNetworkNumber
             // 
             this.tbPLCNetworkNumber.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPLCNetworkNumber.Location = new System.Drawing.Point(311, 3);
+            this.tbPLCNetworkNumber.Location = new System.Drawing.Point(353, 4);
+            this.tbPLCNetworkNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPLCNetworkNumber.Name = "tbPLCNetworkNumber";
-            this.tbPLCNetworkNumber.Size = new System.Drawing.Size(75, 35);
+            this.tbPLCNetworkNumber.Size = new System.Drawing.Size(85, 42);
             this.tbPLCNetworkNumber.TabIndex = 8;
             this.tbPLCNetworkNumber.Text = "11";
             this.tbPLCNetworkNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -917,11 +976,11 @@
             // 
             this.label8.BackColor = System.Drawing.Color.SkyBlue;
             this.label8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(389, 3);
-            this.label8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label8.Location = new System.Drawing.Point(441, 4);
+            this.label8.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(1);
-            this.label8.Size = new System.Drawing.Size(76, 35);
+            this.label8.Size = new System.Drawing.Size(87, 44);
             this.label8.TabIndex = 12;
             this.label8.Text = "STATION NUMBER";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -929,9 +988,10 @@
             // tbPLCStationNumber
             // 
             this.tbPLCStationNumber.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPLCStationNumber.Location = new System.Drawing.Point(468, 3);
+            this.tbPLCStationNumber.Location = new System.Drawing.Point(531, 4);
+            this.tbPLCStationNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPLCStationNumber.Name = "tbPLCStationNumber";
-            this.tbPLCStationNumber.Size = new System.Drawing.Size(75, 35);
+            this.tbPLCStationNumber.Size = new System.Drawing.Size(85, 42);
             this.tbPLCStationNumber.TabIndex = 10;
             this.tbPLCStationNumber.Text = "1";
             this.tbPLCStationNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -939,9 +999,10 @@
             // btnPLCConnect
             // 
             this.btnPLCConnect.ForeColor = System.Drawing.Color.Black;
-            this.btnPLCConnect.Location = new System.Drawing.Point(96, 126);
+            this.btnPLCConnect.Location = new System.Drawing.Point(110, 158);
+            this.btnPLCConnect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPLCConnect.Name = "btnPLCConnect";
-            this.btnPLCConnect.Size = new System.Drawing.Size(169, 35);
+            this.btnPLCConnect.Size = new System.Drawing.Size(193, 44);
             this.btnPLCConnect.TabIndex = 5;
             this.btnPLCConnect.Text = "CONNECT";
             this.btnPLCConnect.UseVisualStyleBackColor = true;
@@ -951,9 +1012,11 @@
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel9);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(589, 80);
+            this.groupBox1.Location = new System.Drawing.Point(25, 217);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 72);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(641, 90);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CELL INFO.";
@@ -965,10 +1028,10 @@
             this.flowLayoutPanel9.Controls.Add(this.tbCellModel);
             this.flowLayoutPanel9.Controls.Add(this.label2);
             this.flowLayoutPanel9.Controls.Add(this.tbLotNumber);
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(10, 27);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(11, 34);
             this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(541, 41);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(618, 60);
             this.flowLayoutPanel9.TabIndex = 8;
             // 
             // label1
@@ -976,10 +1039,10 @@
             this.label1.BackColor = System.Drawing.Color.SkyBlue;
             this.label1.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 4, 0, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 35);
+            this.label1.Size = new System.Drawing.Size(129, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "CELL MODEL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -987,10 +1050,10 @@
             // tbCellModel
             // 
             this.tbCellModel.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbCellModel.Location = new System.Drawing.Point(119, 3);
-            this.tbCellModel.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
+            this.tbCellModel.Location = new System.Drawing.Point(135, 4);
+            this.tbCellModel.Margin = new System.Windows.Forms.Padding(3, 4, 1, 4);
             this.tbCellModel.Name = "tbCellModel";
-            this.tbCellModel.Size = new System.Drawing.Size(95, 35);
+            this.tbCellModel.Size = new System.Drawing.Size(108, 42);
             this.tbCellModel.TabIndex = 1;
             this.tbCellModel.Text = "A1";
             this.tbCellModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1000,10 +1063,10 @@
             this.label2.BackColor = System.Drawing.Color.SkyBlue;
             this.label2.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(218, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.label2.Location = new System.Drawing.Point(247, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 4, 0, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 35);
+            this.label2.Size = new System.Drawing.Size(133, 44);
             this.label2.TabIndex = 2;
             this.label2.Text = "LOT NUMBER";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1011,21 +1074,25 @@
             // tbLotNumber
             // 
             this.tbLotNumber.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbLotNumber.Location = new System.Drawing.Point(337, 3);
+            this.tbLotNumber.Location = new System.Drawing.Point(383, 4);
+            this.tbLotNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbLotNumber.Name = "tbLotNumber";
-            this.tbLotNumber.Size = new System.Drawing.Size(201, 35);
+            this.tbLotNumber.Size = new System.Drawing.Size(229, 42);
             this.tbLotNumber.TabIndex = 3;
             this.tbLotNumber.Text = "-";
             this.tbLotNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox2.Controls.Add(this.groupBox13);
+            this.groupBox2.Controls.Add(this.groupBox12);
             this.groupBox2.Controls.Add(this.gbMaxSetting);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(589, 167);
+            this.groupBox2.Location = new System.Drawing.Point(672, 100);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(561, 174);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(641, 436);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PRECHARGER SETTING";
@@ -1040,21 +1107,21 @@
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.tbTime);
             this.flowLayoutPanel2.Controls.Add(this.btnSet);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(26, 40);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(16, 25);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(517, 41);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(591, 60);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // lblVoltage
             // 
             this.lblVoltage.BackColor = System.Drawing.Color.SkyBlue;
             this.lblVoltage.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblVoltage.Location = new System.Drawing.Point(5, 3);
-            this.lblVoltage.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.lblVoltage.Location = new System.Drawing.Point(6, 4);
+            this.lblVoltage.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.lblVoltage.Name = "lblVoltage";
             this.lblVoltage.Padding = new System.Windows.Forms.Padding(1);
-            this.lblVoltage.Size = new System.Drawing.Size(65, 35);
+            this.lblVoltage.Size = new System.Drawing.Size(74, 44);
             this.lblVoltage.TabIndex = 0;
             this.lblVoltage.Text = "Voltage";
             this.lblVoltage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1063,9 +1130,10 @@
             // tbVoltage
             // 
             this.tbVoltage.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbVoltage.Location = new System.Drawing.Point(73, 3);
+            this.tbVoltage.Location = new System.Drawing.Point(83, 4);
+            this.tbVoltage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbVoltage.Name = "tbVoltage";
-            this.tbVoltage.Size = new System.Drawing.Size(75, 35);
+            this.tbVoltage.Size = new System.Drawing.Size(85, 42);
             this.tbVoltage.TabIndex = 6;
             this.tbVoltage.Text = "4200";
             this.tbVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1074,11 +1142,11 @@
             // 
             this.label4.BackColor = System.Drawing.Color.SkyBlue;
             this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(151, 3);
-            this.label4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label4.Location = new System.Drawing.Point(171, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(1);
-            this.label4.Size = new System.Drawing.Size(65, 35);
+            this.label4.Size = new System.Drawing.Size(74, 44);
             this.label4.TabIndex = 11;
             this.label4.Text = "Current";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1086,9 +1154,10 @@
             // tbCurrent
             // 
             this.tbCurrent.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbCurrent.Location = new System.Drawing.Point(219, 3);
+            this.tbCurrent.Location = new System.Drawing.Point(248, 4);
+            this.tbCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbCurrent.Name = "tbCurrent";
-            this.tbCurrent.Size = new System.Drawing.Size(75, 35);
+            this.tbCurrent.Size = new System.Drawing.Size(85, 42);
             this.tbCurrent.TabIndex = 8;
             this.tbCurrent.Text = "1600";
             this.tbCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1097,11 +1166,11 @@
             // 
             this.label5.BackColor = System.Drawing.Color.SkyBlue;
             this.label5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(297, 3);
-            this.label5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label5.Location = new System.Drawing.Point(336, 4);
+            this.label5.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(1);
-            this.label5.Size = new System.Drawing.Size(65, 35);
+            this.label5.Size = new System.Drawing.Size(74, 44);
             this.label5.TabIndex = 12;
             this.label5.Text = "Time";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1109,9 +1178,10 @@
             // tbTime
             // 
             this.tbTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbTime.Location = new System.Drawing.Point(365, 3);
+            this.tbTime.Location = new System.Drawing.Point(413, 4);
+            this.tbTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(75, 35);
+            this.tbTime.Size = new System.Drawing.Size(85, 42);
             this.tbTime.TabIndex = 10;
             this.tbTime.Text = "30";
             this.tbTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1119,9 +1189,10 @@
             // btnSet
             // 
             this.btnSet.ForeColor = System.Drawing.Color.Black;
-            this.btnSet.Location = new System.Drawing.Point(446, 3);
+            this.btnSet.Location = new System.Drawing.Point(504, 4);
+            this.btnSet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(65, 35);
+            this.btnSet.Size = new System.Drawing.Size(74, 44);
             this.btnSet.TabIndex = 5;
             this.btnSet.Text = "SET";
             this.btnSet.UseVisualStyleBackColor = true;
@@ -1131,13 +1202,14 @@
             // 
             this.gbMaxSetting.Controls.Add(this.flowLayoutPanel3);
             this.gbMaxSetting.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.gbMaxSetting.Location = new System.Drawing.Point(11, 94);
+            this.gbMaxSetting.Location = new System.Drawing.Point(11, 282);
+            this.gbMaxSetting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbMaxSetting.Name = "gbMaxSetting";
-            this.gbMaxSetting.Size = new System.Drawing.Size(538, 72);
+            this.gbMaxSetting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbMaxSetting.Size = new System.Drawing.Size(615, 90);
             this.gbMaxSetting.TabIndex = 15;
             this.gbMaxSetting.TabStop = false;
             this.gbMaxSetting.Text = "PRECHARGER MAX SETTING";
-            this.gbMaxSetting.Visible = false;
             // 
             // flowLayoutPanel3
             // 
@@ -1149,21 +1221,21 @@
             this.flowLayoutPanel3.Controls.Add(this.label14);
             this.flowLayoutPanel3.Controls.Add(this.tbMaxTime);
             this.flowLayoutPanel3.Controls.Add(this.btnMaxSet);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(14, 23);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(16, 29);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(514, 41);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(587, 60);
             this.flowLayoutPanel3.TabIndex = 6;
             // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.Color.SkyBlue;
             this.label12.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(5, 3);
-            this.label12.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.label12.Location = new System.Drawing.Point(6, 4);
+            this.label12.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(1);
-            this.label12.Size = new System.Drawing.Size(65, 35);
+            this.label12.Size = new System.Drawing.Size(74, 44);
             this.label12.TabIndex = 0;
             this.label12.Text = "Voltage";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1171,9 +1243,10 @@
             // tbMaxVoltage
             // 
             this.tbMaxVoltage.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbMaxVoltage.Location = new System.Drawing.Point(73, 3);
+            this.tbMaxVoltage.Location = new System.Drawing.Point(83, 4);
+            this.tbMaxVoltage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMaxVoltage.Name = "tbMaxVoltage";
-            this.tbMaxVoltage.Size = new System.Drawing.Size(75, 35);
+            this.tbMaxVoltage.Size = new System.Drawing.Size(85, 42);
             this.tbMaxVoltage.TabIndex = 6;
             this.tbMaxVoltage.Text = "4200";
             this.tbMaxVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1182,11 +1255,11 @@
             // 
             this.label13.BackColor = System.Drawing.Color.SkyBlue;
             this.label13.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(151, 3);
-            this.label13.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label13.Location = new System.Drawing.Point(171, 4);
+            this.label13.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(1);
-            this.label13.Size = new System.Drawing.Size(65, 35);
+            this.label13.Size = new System.Drawing.Size(74, 44);
             this.label13.TabIndex = 11;
             this.label13.Text = "Current";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1194,9 +1267,10 @@
             // tbMaxCurrent
             // 
             this.tbMaxCurrent.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbMaxCurrent.Location = new System.Drawing.Point(219, 3);
+            this.tbMaxCurrent.Location = new System.Drawing.Point(248, 4);
+            this.tbMaxCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMaxCurrent.Name = "tbMaxCurrent";
-            this.tbMaxCurrent.Size = new System.Drawing.Size(75, 35);
+            this.tbMaxCurrent.Size = new System.Drawing.Size(85, 42);
             this.tbMaxCurrent.TabIndex = 8;
             this.tbMaxCurrent.Text = "1600";
             this.tbMaxCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1205,11 +1279,11 @@
             // 
             this.label14.BackColor = System.Drawing.Color.SkyBlue;
             this.label14.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label14.Location = new System.Drawing.Point(297, 3);
-            this.label14.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label14.Location = new System.Drawing.Point(336, 4);
+            this.label14.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(1);
-            this.label14.Size = new System.Drawing.Size(65, 35);
+            this.label14.Size = new System.Drawing.Size(74, 44);
             this.label14.TabIndex = 12;
             this.label14.Text = "Time";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1217,9 +1291,10 @@
             // tbMaxTime
             // 
             this.tbMaxTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbMaxTime.Location = new System.Drawing.Point(365, 3);
+            this.tbMaxTime.Location = new System.Drawing.Point(413, 4);
+            this.tbMaxTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMaxTime.Name = "tbMaxTime";
-            this.tbMaxTime.Size = new System.Drawing.Size(75, 35);
+            this.tbMaxTime.Size = new System.Drawing.Size(85, 42);
             this.tbMaxTime.TabIndex = 10;
             this.tbMaxTime.Text = "180";
             this.tbMaxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1227,24 +1302,151 @@
             // btnMaxSet
             // 
             this.btnMaxSet.ForeColor = System.Drawing.Color.Black;
-            this.btnMaxSet.Location = new System.Drawing.Point(446, 3);
+            this.btnMaxSet.Location = new System.Drawing.Point(504, 4);
+            this.btnMaxSet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMaxSet.Name = "btnMaxSet";
-            this.btnMaxSet.Size = new System.Drawing.Size(65, 35);
+            this.btnMaxSet.Size = new System.Drawing.Size(74, 44);
             this.btnMaxSet.TabIndex = 5;
             this.btnMaxSet.Text = "SET";
             this.btnMaxSet.UseVisualStyleBackColor = true;
             this.btnMaxSet.Click += new System.EventHandler(this.btnMaxSet_Click);
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox12.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox12.Location = new System.Drawing.Point(11, 179);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox12.Size = new System.Drawing.Size(615, 90);
+            this.groupBox12.TabIndex = 16;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "CHARGING SETTING";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.flowLayoutPanel13);
+            this.groupBox13.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox13.Location = new System.Drawing.Point(11, 76);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox13.Size = new System.Drawing.Size(615, 90);
+            this.groupBox13.TabIndex = 17;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "PRECHARGING SETTING";
+            // 
+            // flowLayoutPanel13
+            // 
+            this.flowLayoutPanel13.AutoSize = true;
+            this.flowLayoutPanel13.Controls.Add(this.label25);
+            this.flowLayoutPanel13.Controls.Add(this.tbPreVoltage);
+            this.flowLayoutPanel13.Controls.Add(this.label26);
+            this.flowLayoutPanel13.Controls.Add(this.tbPreCurrent);
+            this.flowLayoutPanel13.Controls.Add(this.label27);
+            this.flowLayoutPanel13.Controls.Add(this.tbPreTime);
+            this.flowLayoutPanel13.Controls.Add(this.button1);
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(16, 25);
+            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(1);
+            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(591, 60);
+            this.flowLayoutPanel13.TabIndex = 6;
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.SkyBlue;
+            this.label25.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label25.Location = new System.Drawing.Point(6, 4);
+            this.label25.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
+            this.label25.Name = "label25";
+            this.label25.Padding = new System.Windows.Forms.Padding(1);
+            this.label25.Size = new System.Drawing.Size(74, 44);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Voltage";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPreVoltage
+            // 
+            this.tbPreVoltage.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbPreVoltage.Location = new System.Drawing.Point(83, 4);
+            this.tbPreVoltage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbPreVoltage.Name = "tbPreVoltage";
+            this.tbPreVoltage.Size = new System.Drawing.Size(85, 42);
+            this.tbPreVoltage.TabIndex = 6;
+            this.tbPreVoltage.Text = "4200";
+            this.tbPreVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.SkyBlue;
+            this.label26.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label26.Location = new System.Drawing.Point(171, 4);
+            this.label26.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label26.Name = "label26";
+            this.label26.Padding = new System.Windows.Forms.Padding(1);
+            this.label26.Size = new System.Drawing.Size(74, 44);
+            this.label26.TabIndex = 11;
+            this.label26.Text = "Current";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPreCurrent
+            // 
+            this.tbPreCurrent.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbPreCurrent.Location = new System.Drawing.Point(248, 4);
+            this.tbPreCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbPreCurrent.Name = "tbPreCurrent";
+            this.tbPreCurrent.Size = new System.Drawing.Size(85, 42);
+            this.tbPreCurrent.TabIndex = 8;
+            this.tbPreCurrent.Text = "1600";
+            this.tbPreCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.SkyBlue;
+            this.label27.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label27.Location = new System.Drawing.Point(336, 4);
+            this.label27.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label27.Name = "label27";
+            this.label27.Padding = new System.Windows.Forms.Padding(1);
+            this.label27.Size = new System.Drawing.Size(74, 44);
+            this.label27.TabIndex = 12;
+            this.label27.Text = "Time";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPreTime
+            // 
+            this.tbPreTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbPreTime.Location = new System.Drawing.Point(413, 4);
+            this.tbPreTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbPreTime.Name = "tbPreTime";
+            this.tbPreTime.Size = new System.Drawing.Size(85, 42);
+            this.tbPreTime.TabIndex = 10;
+            this.tbPreTime.Text = "30";
+            this.tbPreTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(504, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 44);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "SET";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ConfigForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1197, 761);
+            this.ClientSize = new System.Drawing.Size(1365, 1202);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ConfigForm";
-            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigForm";
             this.panel1.ResumeLayout(false);
@@ -1289,13 +1491,18 @@
             this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel9.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.gbMaxSetting.ResumeLayout(false);
             this.gbMaxSetting.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.flowLayoutPanel13.ResumeLayout(false);
+            this.flowLayoutPanel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1392,5 +1599,15 @@
         private System.Windows.Forms.TextBox tbPLCIPAddress;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox tbPLCPort;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox tbPreVoltage;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tbPreCurrent;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbPreTime;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox12;
     }
 }

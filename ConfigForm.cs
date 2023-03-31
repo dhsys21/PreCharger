@@ -45,6 +45,10 @@ namespace PreCharger
             util.saveConfig(filename1, "CONDITION", "2", tbCurrent.Text);
             util.saveConfig(filename1, "CONDITION", "3", tbTime.Text);
 
+            util.saveConfig(filename1, "PRE_CONDITION", "1", tbPreVoltage.Text);
+            util.saveConfig(filename1, "PRE_CONDITION", "2", tbPreCurrent.Text);
+            util.saveConfig(filename1, "PRE_CONDITION ", "3", tbPreTime.Text);
+
             util.saveConfig(filename1, "MAX_CONDITION", "volt", tbMaxVoltage.Text);
             util.saveConfig(filename1, "MAX_CONDITION", "curr", tbMaxCurrent.Text);
             util.saveConfig(filename1, "MAX_CONDITION", "time", tbMaxTime.Text);
@@ -101,6 +105,15 @@ namespace PreCharger
             tbVoltage.Text = _system.IVoltage.ToString();
             tbCurrent.Text = _system.ICurrent.ToString();
             tbTime.Text = _system.ITime.ToString();
+
+            //* Precharge Setting Value
+            _system.IPREVOLTAGE = util.TryParseInt(util.readConfig(filename1, "PRE_CONDITION", "1"), 2000);
+            _system.IPRECURRENT = util.TryParseInt(util.readConfig(filename1, "PRE_CONDITION", "2"), 1000);
+            _system.IPRETIME = util.TryParseInt(util.readConfig(filename1, "PRE_CONDITION", "3"), 60);
+
+            tbPreVoltage.Text = _system.IPREVOLTAGE.ToString();
+            tbPreCurrent.Text = _system.IPRECURRENT.ToString();
+            tbPreTime.Text = _system.IPRETIME.ToString();
 
             //* PreCharger IP Address
             _system.SIPAddress01 = util.readConfig(filename1, "COMMUNICATION", "IP01");
