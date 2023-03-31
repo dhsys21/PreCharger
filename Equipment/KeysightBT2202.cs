@@ -168,8 +168,8 @@ namespace PreCharger
                 if (ioObject != null)
                 {
                     //ioObject.WriteString(cmd, true);
-                    ioObject.WriteString(cmd);
                     util.SaveLog(STAGENO, "Send> " + cmd);
+                    ioObject.WriteString(cmd);
                     cmdResponse = ioObject.ReadString();
                 }
             }
