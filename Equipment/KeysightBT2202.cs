@@ -138,10 +138,11 @@ namespace PreCharger
             }
             catch { }
         }
+
         public void SetChargeParameter(int time, double current, double voltage)
         {
-            _voltage = voltage;
-            _current = current;
+            _voltage = (voltage / 1000.0);
+            _current = (current / 1000.0);
             _time = time;
         }
         public void SetPrechargeParameter(int time, double current, double voltage)

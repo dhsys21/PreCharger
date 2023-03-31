@@ -160,6 +160,7 @@ namespace PreCharger
                 //* PreCharger
                 _PreCharger[nIndex] = KeysightBT2202.GetInstance(nIndex);
                 _PreCharger[nIndex].Open(HOST, PORT.ToString(), nIndex);
+                _PreCharger[nIndex].SetChargeParameter(_system.ITime, _system.ICurrent, _system.IVoltage);
 
                 _PreCharger[nIndex].AUTOMODE = true;
                 _PreCharger[nIndex].EQUIPSTATUS = enumEquipStatus.StepVacancy;

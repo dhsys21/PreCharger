@@ -69,7 +69,6 @@
             this.tbCurrent = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbTime = new System.Windows.Forms.TextBox();
-            this.btnSet = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAutoMode = new System.Windows.Forms.Button();
@@ -489,13 +488,12 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox2.Controls.Add(this.btnSet);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(11, 205);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(514, 111);
+            this.groupBox2.Size = new System.Drawing.Size(514, 95);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PreCharger Setting";
@@ -509,7 +507,7 @@
             this.flowLayoutPanel2.Controls.Add(this.tbCurrent);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.tbTime);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 55);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 24);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(507, 60);
@@ -586,17 +584,6 @@
             this.tbTime.TabIndex = 10;
             this.tbTime.Text = "30";
             this.tbTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnSet
-            // 
-            this.btnSet.Location = new System.Drawing.Point(438, 15);
-            this.btnSet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(73, 38);
-            this.btnSet.TabIndex = 5;
-            this.btnSet.Text = "SET";
-            this.btnSet.UseVisualStyleBackColor = true;
-            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
             // groupBox1
             // 
@@ -779,7 +766,6 @@
         private System.Windows.Forms.TextBox tbCurrent;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbVoltage;
-        private System.Windows.Forms.Button btnSet;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTrayOut;
         private System.Windows.Forms.Panel panel2;

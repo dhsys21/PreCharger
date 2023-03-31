@@ -502,11 +502,6 @@ namespace PreCharger
 			EquipProcess.equipprocess.MeasureInfo[this.stage].SetManualMode(bValue);
 		}
 
-        private void btnSet_Click(object sender, EventArgs e)
-        {
-			CmdSet();
-        }
-
         private void btnViewMeasureInfo_Click(object sender, EventArgs e)
         {
 			ViewMeasureInfo(false);
