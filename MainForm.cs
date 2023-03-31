@@ -404,6 +404,10 @@ namespace PreCharger
         {
             _EQProcess.StartCharging(stageno);
         }
+        public void StopCharging(int stageno)
+        {
+            _EQProcess.StopCharging(stageno);
+        }
         public void RunPreChargerCmd(string cmd, int stageno)
         {
             //switch(cmd)

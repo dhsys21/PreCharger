@@ -403,6 +403,11 @@ namespace PreCharger
                 Console.WriteLine(ex.ToString());
             }
         }
+        public void StopCharging(int stageno)
+        {
+            PRECHARGER[stageno].StopCharging();
+            _tmrGetDataLog[stageno].Enabled = false;
+        }
 
         private void _tmrGetDataLog_Tick(object sender, EventArgs e)
         {

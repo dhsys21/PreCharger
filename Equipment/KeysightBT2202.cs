@@ -304,6 +304,11 @@ namespace PreCharger
         #endregion
 
         #region Charging
+        public void StopCharging()
+        {
+            CMD = "SEQ:ABORT";
+            RunCommandOnly(CMD);
+        }
         public async Task<bool> StartCharging()
         {
             //SetEnable();
@@ -359,6 +364,7 @@ namespace PreCharger
         {
             CMD = "DATA:LOG?";
             string cmdResponse = string.Empty;
+            byte[] ResultsArray = null;
             try
             {
                 if (ioObject != null)
@@ -367,13 +373,19 @@ namespace PreCharger
                     ioObject.WriteString(CMD, true);
                     //cmdResponse = ioObject.ReadString();
 
-                    byte[] ResultsArray = (byte[])ioObject.ReadIEEEBlock(IEEEBinaryType.BinaryType_UI1, true, true);
+                    //byte[] ResultsArray = (byte[])ioObject.ReadIEEEBlock(IEEEBinaryType.BinaryType_UI1, true, true);
+                    //util.SaveLog(STAGENO, "Recv Length> " + ResultsArray.Length);
+                    //util.SaveLog(STAGENO, "Recv> " + ResultsArray.ToString());
+
+                    cmdResponse = ioObject.ReadString();
+                    util.SaveLog(STAGENO, "Recv> " + cmdResponse.ToString());
 
                     //byte[] header = ioObject.IO.Read(11);
                     //Int32 dataCount = Int32.Parse(System.Text.Encoding.ASCII.GetString(header).Substring(2));
-
                     //byte[] ResultsArray = ioObject.IO.Read(dataCount);
-                    util.SaveLog(STAGENO, "Recv> " + ResultsArray.ToString());
+                    //util.SaveLog(STAGENO, "Recv Length> " + ResultsArray.Length);
+                    //util.SaveLog(STAGENO, "Recv> " + ResultsArray.ToString());
+
                     return ResultsArray;
                 }
             }

@@ -223,7 +223,7 @@ namespace PreCharger
 
         private void RunSTOP()
         {
-            BaseForm.frmMain.CmdStop(this._iStage);
+            BaseForm.frmMain.StopCharging(this._iStage);
            // BaseForm.frmMain.RunPreChargerCmd("AMF", this._iStage);
             RunProbeOpen();
             //BaseForm.frmMain.SetBitPLC(this._iStage, "PROBEOPEN", 1);
