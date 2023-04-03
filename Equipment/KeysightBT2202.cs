@@ -4,7 +4,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Ivi.Visa.Interop;
+using Ivi.Visa;
+using Keysight.Visa;
 using PreCharger.Common;
 
 namespace PreCharger
@@ -13,11 +14,13 @@ namespace PreCharger
     {
         Util util = new Util();
         public string VISA_ADDRESS;
-        private ResourceManager resourceManager;
-        //private FormattedIO488Class ioObject;
-        private FormattedIO488 ioObject;
+        private ResourceManager manager;
+        private TcpipSession session;
+        private IMessageBasedFormattedIO GG;
+        private IMessageBasedRawIO GGraw;
         private string IPADDRESS = string.Empty;
         private string PORT = string.Empty;
+        private int TIMEOUT = 1000;
         private double _preVoltage;
         private double _preCurrent;
         private int _preTime;
@@ -93,19 +96,29 @@ namespace PreCharger
             SetPrechargeParameter(30, 1.0, 1.0);
         }
 
-        public void Open(string ipaddress, string port, int stageno)
+        public async void Open(string ipaddress, string port, int stageno)
         {
             STAGENO = stageno;
             IPADDRESS = ipaddress;
             PORT = port;
             VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::" + PORT + "::SOCKET";
             VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::inst0::INSTR";
-            resourceManager = new ResourceManager();
-            ioObject = new FormattedIO488();
+            manager = new ResourceManager();
+            
+
             try
             {
-                ioObject.IO = (IMessage)resourceManager.Open(VISA_ADDRESS, AccessMode.NO_LOCK, 0, "");
-                ioObject.IO.Timeout = 5 * 1000;
+                session = (TcpipSession)manager.Open(VISA_ADDRESS, Ivi.Visa.AccessModes.None, TIMEOUT);
+                GG = session.FormattedIO;
+                GGraw = session.RawIO;
+                //timeout does not seem to stick when opening so set it explicitly
+                session.TimeoutMilliseconds = 10000;
+
+                runRST();
+                await Task.Delay(5000);
+
+                runCLEAR();
+                await Task.Delay(1000);
             }
             catch (Exception ex) { }
 
@@ -134,16 +147,9 @@ namespace PreCharger
         }
         public void Disconnect()
         {
-            try
-            {
-                ioObject.IO.Close();
-            }
-            catch { }
-            try
-            {
-                Marshal.ReleaseComObject(ioObject);
-            }
-            catch { }
+            session.Dispose();
+            session = null;
+            //connectionOpened = true;
         }
 
         public void SetChargeParameter(int time, double current, double voltage)
@@ -161,18 +167,99 @@ namespace PreCharger
 
         #region BT2202A COMMANDS
         string CMD = string.Empty;
+        public bool sendSCPI(string scpi, bool checkError = true)
+        {
+            try
+            {
+                bool ret = true;
+
+                util.SaveLog(STAGENO, "Send> " + scpi);
+                GG.WriteLine(scpi);
+
+                errorCheck();
+                return ret;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("sendSCPI(): " + scpi + ". Caught exception " + e.Message);
+                return false;
+            }
+        }
+        public byte[] readBinaryBlock()
+        {
+
+            DateTime oStart = DateTime.Now;
+
+            // wait for the the # char.
+            int iPoundChar = 0;
+            do
+            {
+                iPoundChar = GGraw.Read(1)[0];
+            }
+            while (iPoundChar != 35);
+
+            // Now read the number of digits that indicate the size
+            int iDigitsForBlockSize = readAsInt(1);
+            // Message.Generate("Digits in Block Size = " + iDigitsForBlockSize);
+
+            // Now read the size of the block
+            int iBlockSize = readAsInt(iDigitsForBlockSize);
+            // Message.Generate("BlockSize = " + iBlockSize);
+
+            // Read the Block with all the data
+            int iChunkSize = 3 * 1024;
+            int iWaitBetweenChuckReadsMs = 2;
+            byte[] bBlock = new byte[iBlockSize];
+
+            int iBlockIndex = 0;
+            int iBlockSizeLeft = iBlockSize;
+            while (iBlockSizeLeft > 0)
+            {
+                System.Threading.Thread.Sleep(iWaitBetweenChuckReadsMs);
+                int iWantedReadSize = (iChunkSize < iBlockSizeLeft) ? iChunkSize : iBlockSizeLeft;
+                // Message.Generate("iChunkSize = " + iChunkSize + " iBlockSizeLeft = " + iBlockSizeLeft);
+                byte[] bChunk = GGraw.Read(iWantedReadSize);
+                int iChunkSizeRead = bChunk.GetLength(0);
+                iBlockSizeLeft -= iChunkSizeRead;
+                for (int i = 0; i < iChunkSizeRead; i++)
+                    bBlock[iBlockIndex++] = bChunk[i];
+            }
+
+
+            // Message.Generate("bBlock Size = " + bBlock.GetLength(0));
+            if (bBlock.GetLength(0) != iBlockSize)
+            {
+                util.SaveLog(STAGENO, "readBinaryBlock: BlockSize is incoreect");
+                Console.WriteLine("readBinaryBlock: BlockSize is incoreect");
+            }
+
+            //throw away a byte
+            byte[] bThrowAway = GGraw.Read(1);
+            TimeSpan oSpan = DateTime.Now - oStart;
+            // Message.Generate("Time to read block(ms) = " + oSpan.Milliseconds);
+            return bBlock;
+        }
+        private int readAsInt(int iSize)
+        {
+            byte[] bDigits = GGraw.Read(iSize);
+            System.Text.ASCIIEncoding oAsciiEncoding = new System.Text.ASCIIEncoding();
+            String sDigits = oAsciiEncoding.GetString(bDigits);
+            int iDigits = Int32.Parse(sDigits);
+            return iDigits;
+        }
         public string RunCommand(string cmd)
         {
             string cmdResponse = string.Empty;
             try
             {
-                if (ioObject != null)
+                util.SaveLog(STAGENO, "Send> " + cmd);
+                if (GG != null)
                 {
-                    //ioObject.WriteString(cmd, true);
-                    util.SaveLog(STAGENO, "Send> " + cmd);
-                    ioObject.WriteString(cmd, true);
-                    cmdResponse = ioObject.ReadString();
+                    GG.WriteLine(cmd);
+                    cmdResponse = GG.ReadLine();
                 }
+                else
+                    util.SaveLog(STAGENO, "RunCommand Error : Keysight BT2200 is not connected!");
             }
             catch (Exception ex)
             {
@@ -182,6 +269,8 @@ namespace PreCharger
 
             if (cmdResponse != string.Empty)
                 util.SaveLog(STAGENO, "Recv> " + cmdResponse);
+            else
+                util.SaveLog(STAGENO, "Recv> " + "No Resut.");
             return cmdResponse;
 
         }
@@ -189,12 +278,11 @@ namespace PreCharger
         {
             try
             {
-                if (ioObject != null)
-                {
-                    ioObject.WriteString(cmd, true);
-
-                    util.SaveLog(STAGENO, "Send> " + cmd);
-                }
+                util.SaveLog(STAGENO, "Send> " + cmd);
+                if(GG != null)
+                    GG.PrintfAndFlush(cmd);
+                else
+                    util.SaveLog(STAGENO, "RunCommandOnly Error : Keysight BT2200 is not connected!");
             }
             catch (Exception ex)
             {
@@ -227,6 +315,27 @@ namespace PreCharger
             //CMD = "SYST:PROB:LIM 2,0";
             CMD = "SYST:PROB:LIM " + resistance + ",0";
             RunCommandOnly(CMD);
+        }
+        public bool errorCheck()
+        {
+            string errorMessage = string.Empty;
+            try
+            {
+                GG.WriteLine("SYST:ERR?");
+                errorMessage = GG.ReadLine();
+                util.SaveLog(STAGENO, "SYST:ERR?> " + errorMessage.ToString());
+            }
+            catch (Exception e)
+            {
+                util.SaveLog(STAGENO, "errorCheck(): Caught exception " + e.ToString());
+                //Console.WriteLine("errorCheck(): Caught exception " + e.Message);
+            }
+
+            if (errorMessage.Contains("No error"))
+                return true;
+
+            else
+                return false;
         }
         #endregion
 
@@ -367,27 +476,40 @@ namespace PreCharger
             byte[] ResultsArray = null;
             try
             {
-                if (ioObject != null)
+                sendSCPI(CMD);
+                byte[] bBlock = readBinaryBlock();
+
+                List<GgDataLogNamespace.GgBinData> oDataLogQuery = GgDataLogNamespace.DataLogQueryClass.dataLogQuery(bBlock);
+                //Console.WriteLine("TimeStamp\tIMon\tVSense\tVLocal\tDCIR1\tDCIR2\tCellId\tSeqState ");
+                //for (int i = 0; i < oDataLogQuery.Count; i++)
+                //{
+                //    Console.Write(oDataLogQuery[i].TimeStamp + "\t");
+                //    Console.Write(oDataLogQuery[i].IMon[0] + "\t");
+                //    Console.Write(oDataLogQuery[i].VSense[0] + "\t");
+                //    Console.Write(oDataLogQuery[i].VLocal[0] + "\t");
+                //    Console.Write(oDataLogQuery[i].Dcir1[0] + "\t");
+                //    Console.Write(oDataLogQuery[i].Dcir2[0] + "\t");
+                //    Console.Write(oDataLogQuery[i].CellId[0] + "\t");
+                //    Console.WriteLine(oDataLogQuery[i].SequenceState[0]);
+                //    Console.WriteLine("----------------------------------------------");
+                //}
+                string strString = string.Empty;
+                strString = "log:data?> ";
+                for(int i = 0; i < oDataLogQuery.Count; i++)
                 {
-                    util.SaveLog(STAGENO, "Send> " + CMD);
-                    ioObject.WriteString(CMD, true);
-                    //cmdResponse = ioObject.ReadString();
+                    strString += oDataLogQuery[i].CellId[0] + "-";
+                    strString += oDataLogQuery[i].TimeStamp + "-";
+                    strString += oDataLogQuery[i].IMon[0] + "-";
+                    strString += oDataLogQuery[i].VSense[0] + "-";
+                    strString += oDataLogQuery[i].VLocal[0] + "-";
+                    strString += oDataLogQuery[i].Dcir1[0] + "-";
+                    strString += oDataLogQuery[i].Dcir2[0] + "-";
+                    strString += oDataLogQuery[i].SequenceState[0] + "\t";
 
-                    //byte[] ResultsArray = (byte[])ioObject.ReadIEEEBlock(IEEEBinaryType.BinaryType_UI1, true, true);
-                    //util.SaveLog(STAGENO, "Recv Length> " + ResultsArray.Length);
-                    //util.SaveLog(STAGENO, "Recv> " + ResultsArray.ToString());
-
-                    cmdResponse = ioObject.ReadString();
-                    util.SaveLog(STAGENO, "Recv> " + cmdResponse.ToString());
-
-                    //byte[] header = ioObject.IO.Read(11);
-                    //Int32 dataCount = Int32.Parse(System.Text.Encoding.ASCII.GetString(header).Substring(2));
-                    //byte[] ResultsArray = ioObject.IO.Read(dataCount);
-                    //util.SaveLog(STAGENO, "Recv Length> " + ResultsArray.Length);
-                    //util.SaveLog(STAGENO, "Recv> " + ResultsArray.ToString());
-
-                    return ResultsArray;
+                    util.SaveLog(STAGENO, strString);
+                    strString = string.Empty;
                 }
+
             }
             catch (Exception ex)
             {

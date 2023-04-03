@@ -490,3 +490,7 @@ C:\Users\DHS_2\Source\Repos\Precharger\obj\Debug\PreCharger.csproj.CoreCompileIn
 C:\Users\DHS_2\Source\Repos\Precharger\obj\Debug\PreCharger.csproj.CopyComplete
 C:\Users\DHS_2\Source\Repos\Precharger\obj\Debug\PreCharger.exe
 C:\Users\DHS_2\Source\Repos\Precharger\obj\Debug\PreCharger.pdb
+D:\Project\Keysight\git_dhsys21\PreCharger\obj\Debug\PreCharger.exe.config
+D:\Project\Keysight\git_dhsys21\PreCharger\bin\Debug\Ivi.Visa.dll
+D:\Project\Keysight\git_dhsys21\PreCharger\bin\Debug\Keysight.Visa.dll
+D:\Project\Keysight\git_dhsys21\PreCharger\bin\Debug\Keysight.Visa.xml

@@ -1,5 +1,4 @@
-﻿using Ivi.Visa.Interop;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,9 +27,6 @@ namespace PreCharger
 
 		bool TraceUpdateOn = true;
 
-
-		FormattedIO488 BT2200 = new FormattedIO488();
-		ResourceManager rm = new ResourceManager();
 		string returnValue = @"";
 
 
