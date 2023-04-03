@@ -274,6 +274,12 @@ namespace PreCharger
             return cmdResponse;
 
         }
+        public double GetDoubleResult(string cmd)
+        {
+            string strResult = RunCommand(cmd);
+            double d = Double.Parse(strResult);
+            return d;
+        }
         private void RunCommandOnly(string cmd)
         {
             try
@@ -469,10 +475,10 @@ namespace PreCharger
         #endregion
 
         #region Get Data Command
-        private int GetDataLogCount()
+        public double GetLogCount()
         {
-             logCount = 0;
-            double dRecordsAvailable = QueryDouble("Data:log:records:available?", theGG);
+            double logCount = GetDoubleResult("Data:log:records:available?");
+            return logCount;
         }
         public byte[] GetDataLog()
         {

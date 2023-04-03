@@ -416,7 +416,9 @@ namespace PreCharger
         {
             while (isRead)
             {
-                PRECHARGER[stageno].GetDataLog();
+                double logCount = PRECHARGER[stageno].GetLogCount();
+                if(logCount > 0)
+                    PRECHARGER[stageno].GetDataLog();
             }
         }
         public void StopCharging(int stageno)
