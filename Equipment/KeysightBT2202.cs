@@ -20,7 +20,7 @@ namespace PreCharger
         private IMessageBasedRawIO GGraw;
         private string IPADDRESS = string.Empty;
         private string PORT = string.Empty;
-        private int TIMEOUT = 1000;
+        private int TIMEOUT = 5000;
         private double _preVoltage;
         private double _preCurrent;
         private int _preTime;
@@ -176,7 +176,7 @@ namespace PreCharger
                 util.SaveLog(STAGENO, "Send> " + scpi);
                 GG.WriteLine(scpi);
 
-                errorCheck();
+                //errorCheck();
                 return ret;
             }
             catch (Exception e)
@@ -441,7 +441,7 @@ namespace PreCharger
             
             initCMD = "CELL:INIT (@1001:8032)";
             RunCommandOnly(initCMD);
-            await Task.Delay(8000);
+            //await Task.Delay(1000);
 
             return true;
         }
@@ -469,6 +469,11 @@ namespace PreCharger
         #endregion
 
         #region Get Data Command
+        private int GetDataLogCount()
+        {
+             logCount = 0;
+            double dRecordsAvailable = QueryDouble("Data:log:records:available?", theGG);
+        }
         public byte[] GetDataLog()
         {
             CMD = "DATA:LOG?";
@@ -515,6 +520,7 @@ namespace PreCharger
             {
                 util.SaveLog(STAGENO, "GetDataLog Error > " + ex.ToString());
                 Console.WriteLine(ex.ToString());
+                sendSCPI("DATA:LOG:CLE");
             }
 
             return null;

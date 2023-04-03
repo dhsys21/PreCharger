@@ -381,21 +381,29 @@ namespace PreCharger
             try
             {
                 //* Check Setting value and Step Definition
-                if(await PRECHARGER[stageno].CheckStepDefinition() == true)
-                {
-                    //* if equal, Start Charging
-                    if (await PRECHARGER[stageno].StartCharging() == true)
-                    {
-                        _tmrGetDataLog[stageno].Enabled = true;
-                    }
-                        
-                }
-                else
-                {
-                    //* if not equal, Set Step Definition
-                    await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
-                    StartCharging(stageno);
-                }
+                //if(await PRECHARGER[stageno].CheckStepDefinition() == true)
+                //{
+                //    //* if equal, Start Charging
+                //    if (await PRECHARGER[stageno].StartCharging() == true)
+                //    {
+                //        //_tmrGetDataLog[stageno].Enabled = true;
+                //        PRECHARGER[stageno].sendSCPI("CELL:CLEar ");
+                //        PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
+                //        isRead = true;
+                //        GetDateLogWhile(stageno);
+                //    }
+
+                //}
+                //else
+                //{
+                //    //* if not equal, Set Step Definition
+                //    await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
+                //    StartCharging(stageno);
+                //}
+                //* for test
+                PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
+                isRead = true;
+                GetDateLogWhile(stageno);
             }
             catch (Exception ex)
             {
@@ -403,10 +411,19 @@ namespace PreCharger
                 Console.WriteLine(ex.ToString());
             }
         }
+        bool isRead = false;
+        private void GetDateLogWhile(int stageno)
+        {
+            while (isRead)
+            {
+                PRECHARGER[stageno].GetDataLog();
+            }
+        }
         public void StopCharging(int stageno)
         {
             PRECHARGER[stageno].StopCharging();
-            _tmrGetDataLog[stageno].Enabled = false;
+            isRead = false;
+            //_tmrGetDataLog[stageno].Enabled = false;
         }
 
         private void _tmrGetDataLog_Tick(object sender, EventArgs e)
