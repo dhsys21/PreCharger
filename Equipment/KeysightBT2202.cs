@@ -101,7 +101,8 @@ namespace PreCharger
             STAGENO = stageno;
             IPADDRESS = ipaddress;
             PORT = port;
-            VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::" + PORT + "::SOCKET";
+            //VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::" + PORT + "::SOCKET";
+            VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::5025::SOCKET";
             VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::inst0::INSTR";
             manager = new ResourceManager();
             
@@ -112,7 +113,7 @@ namespace PreCharger
                 GG = session.FormattedIO;
                 GGraw = session.RawIO;
                 //timeout does not seem to stick when opening so set it explicitly
-                session.TimeoutMilliseconds = 10000;
+                session.TimeoutMilliseconds = 3000;
 
                 runRST();
                 await Task.Delay(5000);
@@ -120,7 +121,9 @@ namespace PreCharger
                 runCLEAR();
                 await Task.Delay(1000);
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                util.SaveLog(STAGENO, "Connection Error : " + VISA_ADDRESS);
+            }
 
             string strResult = Connect();
             if (strResult.Contains("Keysight Technologies")) CONNECTIONSTATE = true;
@@ -508,15 +511,18 @@ namespace PreCharger
                 strString = "log:data?> ";
                 for(int i = 0; i < oDataLogQuery.Count; i++)
                 {
-                    strString += oDataLogQuery[i].CellId[0] + "-";
-                    strString += oDataLogQuery[i].TimeStamp + "-";
-                    strString += oDataLogQuery[i].IMon[0] + "-";
-                    strString += oDataLogQuery[i].VSense[0] + "-";
-                    strString += oDataLogQuery[i].VLocal[0] + "-";
-                    strString += oDataLogQuery[i].Dcir1[0] + "-";
-                    strString += oDataLogQuery[i].Dcir2[0] + "-";
-                    strString += oDataLogQuery[i].SequenceState[0] + "\t";
-
+                    for(int cIndex = 0; cIndex < 256; cIndex++)
+                    {
+                        //strString += oDataLogQuery[i].CellId[cIndex] + "-";
+                        strString += (cIndex + 1).ToString("D3");
+                        strString += oDataLogQuery[i].TimeStamp + "-";
+                        strString += oDataLogQuery[i].IMon[cIndex] + "-";
+                        strString += oDataLogQuery[i].VSense[cIndex] + "-";
+                        strString += oDataLogQuery[i].VLocal[cIndex] + "-";
+                        strString += oDataLogQuery[i].Dcir1[cIndex] + "-";
+                        strString += oDataLogQuery[i].Dcir2[cIndex] + "-";
+                        strString += oDataLogQuery[i].SequenceState[cIndex] + "\t";
+                    }
                     util.SaveLog(STAGENO, strString);
                     strString = string.Empty;
                 }

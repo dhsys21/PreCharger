@@ -402,8 +402,9 @@ namespace PreCharger
                 //}
                 //* for test
                 PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
-                isRead = true;
-                GetDateLogWhile(stageno);
+                //isRead = true;
+                //GetDateLogWhile(stageno);
+                _tmrGetDataLog[stageno].Enabled = true;
             }
             catch (Exception ex)
             {
@@ -419,6 +420,7 @@ namespace PreCharger
                 double logCount = PRECHARGER[stageno].GetLogCount();
                 if(logCount > 0)
                     PRECHARGER[stageno].GetDataLog();
+
             }
         }
         public void StopCharging(int stageno)
@@ -431,7 +433,10 @@ namespace PreCharger
         private void _tmrGetDataLog_Tick(object sender, EventArgs e)
         {
             int stageno = int.Parse(((Timer)sender).Tag.ToString());
-            PRECHARGER[stageno].GetDataLog();
+
+            double logCount = PRECHARGER[stageno].GetLogCount();
+            if (logCount > 0)
+                PRECHARGER[stageno].GetDataLog();
         }
         #endregion
 
