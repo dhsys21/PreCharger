@@ -441,7 +441,7 @@ namespace PreCharger
             
             initCMD = "CELL:INIT (@1001:8032)";
             RunCommandOnly(initCMD);
-            await Task.Delay(1000);
+            await Task.Delay(8000);
 
             return true;
         }
