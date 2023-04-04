@@ -489,8 +489,8 @@ namespace PreCharger
                 string[] results = RunCommand(CMD).Split(',');
                 for(int cIndex = 0; cIndex < 32; cIndex++)
                 {
-                    strString += (cIndex + 1).ToString("D3") + "-";
-                    strString += results[cIndex];
+                    strString += (i * 32 + cIndex + 1).ToString("D3") + "-";
+                    strString += results[cIndex] + "\t";
                 }
             }
             util.SaveLog(STAGENO, strString);
