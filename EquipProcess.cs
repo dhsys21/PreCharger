@@ -425,8 +425,10 @@ namespace PreCharger
 
                 //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();
-                if(logCount > 0)
+                if (logCount == 1)
                     PRECHARGER[stageno].GetDataLog();
+                else
+                    PRECHARGER[stageno].ClearDataLog();
                 
                 await Task.Delay(100);
             }
