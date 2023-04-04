@@ -271,7 +271,7 @@ namespace PreCharger
             }
 
             if (cmdResponse != string.Empty)
-                util.SaveLog(STAGENO, "Recv> " + cmdResponse);
+                util.SaveLog(STAGENO, "Recv> " + cmdResponse.Replace("\n", ""));
             else
                 util.SaveLog(STAGENO, "Recv> " + "No Resut.");
             return cmdResponse;
@@ -526,7 +526,7 @@ namespace PreCharger
                     }
                 }
             }
-            util.SaveLog(STAGENO, "RECV> " + strString);
+            util.SaveLog(STAGENO, "RECV> " + strString.Replace("\n", ""));
         }
         public void ClearDataLog()
         {

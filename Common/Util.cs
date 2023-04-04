@@ -364,7 +364,7 @@ namespace PreCharger
 
             strMonitoring = strMessage;
 
-            strMonitoring = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t" + strMonitoring;
+            strMonitoring = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "\t" + strMonitoring;
             if (System.IO.File.Exists(filename) == false) FileWrite(filename, strMonitoring);
             else FileAppend(filename, strMonitoring);
 
