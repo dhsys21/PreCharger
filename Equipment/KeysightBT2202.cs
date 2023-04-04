@@ -405,13 +405,13 @@ namespace PreCharger
         public async Task SetStepDefinition()
         {
             runCLEAR();
-            await Task.Delay(500);
+            await Task.Delay(100);
             setDEFQuick();
-            await Task.Delay(500);
+            await Task.Delay(100);
             SetStepDefinition("PRECHARGE", "1", _preTime, _preCurrent, _preVoltage);
-            await Task.Delay(500);
+            await Task.Delay(200);
             SetStepDefinition("CHARGE", "2", _time, _current, _voltage);
-            await Task.Delay(500);
+            await Task.Delay(200);
 
             //* 전압으로 판단할 때 애매한 경우가 있음
             //            if (chkCondition.Checked == true)
@@ -495,6 +495,43 @@ namespace PreCharger
             }
             util.SaveLog(STAGENO, strString);
         }
+        public void GetCellReports(int BOARDCOUNT)
+        {
+            string[] cmdResponse;
+            string[] results = new string[BOARDCOUNT * 32];
+            string strString = string.Empty;
+            util.SaveLog(STAGENO, "SEND> STAT:CELL:REP? (@1001:" + BOARDCOUNT + "032)");
+            for(int boardIndex = 0; boardIndex < BOARDCOUNT; boardIndex++)
+            {
+                CMD = "STAT:CELL:REP? (@" + (boardIndex + 1) + "001:" + (boardIndex + 1) + "032)";
+                GG.WriteLine(CMD);
+                cmdResponse = GG.ReadLine().Split(',');
+
+                if (cmdResponse.Length == 32)
+                {
+                    for (int i = 0; i < 32; i++)
+                    {
+                        results[boardIndex * 32 + i] = cmdResponse[i];
+                        strString += (boardIndex * 32 + i + 1).ToString("D3") + "-";
+                        strString += cmdResponse[i] + "\t";
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 32; i++)
+                    {
+                        results[boardIndex * 32 + i] = "0";
+                        strString += (boardIndex * 32 + i + 1).ToString("D3") + "-";
+                        strString += "0\t";
+                    }
+                }
+            }
+            util.SaveLog(STAGENO, "RECV> " + strString);
+        }
+        public void ClearDataLog()
+        {
+            sendSCPI("DATA:LOG:CLE");
+        }
         public double GetLogCount()
         {
             double logCount = GetDoubleResult("Data:log:records:available?");
@@ -511,21 +548,8 @@ namespace PreCharger
                 byte[] bBlock = readBinaryBlock();
 
                 List<GgDataLogNamespace.GgBinData> oDataLogQuery = GgDataLogNamespace.DataLogQueryClass.dataLogQuery(bBlock);
-                //Console.WriteLine("TimeStamp\tIMon\tVSense\tVLocal\tDCIR1\tDCIR2\tCellId\tSeqState ");
-                //for (int i = 0; i < oDataLogQuery.Count; i++)
-                //{
-                //    Console.Write(oDataLogQuery[i].TimeStamp + "\t");
-                //    Console.Write(oDataLogQuery[i].IMon[0] + "\t");
-                //    Console.Write(oDataLogQuery[i].VSense[0] + "\t");
-                //    Console.Write(oDataLogQuery[i].VLocal[0] + "\t");
-                //    Console.Write(oDataLogQuery[i].Dcir1[0] + "\t");
-                //    Console.Write(oDataLogQuery[i].Dcir2[0] + "\t");
-                //    Console.Write(oDataLogQuery[i].CellId[0] + "\t");
-                //    Console.WriteLine(oDataLogQuery[i].SequenceState[0]);
-                //    Console.WriteLine("----------------------------------------------");
-                //}
                 string strString = string.Empty;
-                strString = "log:data?> ";
+                strString = "Recv (log:data?) [CellId-TimeStamp-IMon-VSense-VLocal-Dcir1-Dcir2-SeqState]\n";
                 for(int i = 0; i < oDataLogQuery.Count; i++)
                 {
                     for(int cIndex = 0; cIndex < 256; cIndex++)

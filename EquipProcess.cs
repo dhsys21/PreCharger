@@ -388,7 +388,7 @@ namespace PreCharger
                     {
                         //_tmrGetDataLog[stageno].Enabled = true;
                         //PRECHARGER[stageno].sendSCPI("CELL:CLEar ");
-                        PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
+                        PRECHARGER[stageno].ClearDataLog();
                         isRead = true;
                         GetDateLogWhile(stageno);
                     }
@@ -420,7 +420,8 @@ namespace PreCharger
             while (isRead)
             {
                 //* stat:cell:rep? (@1001:1032)
-                PRECHARGER[stageno].GetCellReport();
+                //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
+                PRECHARGER[stageno].GetCellReports(8);
 
                 //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();
