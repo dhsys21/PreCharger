@@ -514,7 +514,7 @@ namespace PreCharger
                     for(int cIndex = 0; cIndex < 256; cIndex++)
                     {
                         //strString += oDataLogQuery[i].CellId[cIndex] + "-";
-                        strString += (cIndex + 1).ToString("D3");
+                        strString += (cIndex + 1).ToString("D3") + "-";
                         strString += oDataLogQuery[i].TimeStamp + "-";
                         strString += oDataLogQuery[i].IMon[cIndex] + "-";
                         strString += oDataLogQuery[i].VSense[cIndex] + "-";

@@ -381,30 +381,32 @@ namespace PreCharger
             try
             {
                 //* Check Setting value and Step Definition
-                //if(await PRECHARGER[stageno].CheckStepDefinition() == true)
-                //{
-                //    //* if equal, Start Charging
-                //    if (await PRECHARGER[stageno].StartCharging() == true)
-                //    {
-                //        //_tmrGetDataLog[stageno].Enabled = true;
-                //        PRECHARGER[stageno].sendSCPI("CELL:CLEar ");
-                //        PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
-                //        isRead = true;
-                //        GetDateLogWhile(stageno);
-                //    }
+                if (await PRECHARGER[stageno].CheckStepDefinition() == true)
+                {
+                    //* if equal, Start Charging
+                    if (await PRECHARGER[stageno].StartCharging() == true)
+                    {
+                        //_tmrGetDataLog[stageno].Enabled = true;
+                        //PRECHARGER[stageno].sendSCPI("CELL:CLEar ");
+                        PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
+                        isRead = true;
+                        GetDateLogWhile(stageno);
+                    }
+                }
+                else
+                {
+                    //* if not equal, Set Step Definition
+                    await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
+                    StartCharging(stageno);
+                }
 
-                //}
-                //else
-                //{
-                //    //* if not equal, Set Step Definition
-                //    await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
-                //    StartCharging(stageno);
-                //}
+
+
                 //* for test
-                PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
+                //PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
                 //isRead = true;
                 //GetDateLogWhile(stageno);
-                _tmrGetDataLog[stageno].Enabled = true;
+                //_tmrGetDataLog[stageno].Enabled = true;
             }
             catch (Exception ex)
             {
@@ -413,14 +415,15 @@ namespace PreCharger
             }
         }
         bool isRead = false;
-        private void GetDateLogWhile(int stageno)
+        private async void GetDateLogWhile(int stageno)
         {
             while (isRead)
             {
                 double logCount = PRECHARGER[stageno].GetLogCount();
                 if(logCount > 0)
                     PRECHARGER[stageno].GetDataLog();
-
+                
+                await Task.Delay(1000);
             }
         }
         public void StopCharging(int stageno)
@@ -434,6 +437,9 @@ namespace PreCharger
         {
             int stageno = int.Parse(((Timer)sender).Tag.ToString());
 
+            //* stat:cell:rep? (@1001:1032)
+            
+            //* data:log?
             double logCount = PRECHARGER[stageno].GetLogCount();
             if (logCount > 0)
                 PRECHARGER[stageno].GetDataLog();
