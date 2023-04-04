@@ -425,10 +425,10 @@ namespace PreCharger
 
                 //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();
-                if(logCount > 0)
+                if (logCount > 0)
                     PRECHARGER[stageno].GetDataLog();
                 
-                await Task.Delay(100);
+                //await Task.Delay(100);
             }
         }
         public void StopCharging(int stageno)
