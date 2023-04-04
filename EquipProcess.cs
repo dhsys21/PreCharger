@@ -419,11 +419,15 @@ namespace PreCharger
         {
             while (isRead)
             {
+                //* stat:cell:rep? (@1001:1032)
+                PRECHARGER[stageno].GetCellReport();
+
+                //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();
                 if(logCount > 0)
                     PRECHARGER[stageno].GetDataLog();
                 
-                await Task.Delay(1000);
+                await Task.Delay(500);
             }
         }
         public void StopCharging(int stageno)

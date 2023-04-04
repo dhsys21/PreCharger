@@ -478,6 +478,23 @@ namespace PreCharger
         #endregion
 
         #region Get Data Command
+        public void GetCellReport()
+        {
+            int boardCount = 8;
+            string strString = string.Empty;
+            for(int i = 0; i < boardCount; i++)
+            {
+                CMD = "STAT:CELL:REP? (@" + (i + 1) + "001:" + (i + 1) + "032)";
+
+                string[] results = RunCommand(CMD).Split(',');
+                for(int cIndex = 0; cIndex < 32; cIndex++)
+                {
+                    strString += (cIndex + 1).ToString("D3") + "-";
+                    strString += results[cIndex];
+                }
+            }
+            util.SaveLog(STAGENO, strString);
+        }
         public double GetLogCount()
         {
             double logCount = GetDoubleResult("Data:log:records:available?");
@@ -513,8 +530,8 @@ namespace PreCharger
                 {
                     for(int cIndex = 0; cIndex < 256; cIndex++)
                     {
-                        //strString += oDataLogQuery[i].CellId[cIndex] + "-";
                         strString += (cIndex + 1).ToString("D3") + "-";
+                        strString += oDataLogQuery[i].CellId[cIndex] + "-";
                         strString += oDataLogQuery[i].TimeStamp + "-";
                         strString += oDataLogQuery[i].IMon[cIndex] + "-";
                         strString += oDataLogQuery[i].VSense[cIndex] + "-";
@@ -526,7 +543,6 @@ namespace PreCharger
                     util.SaveLog(STAGENO, strString);
                     strString = string.Empty;
                 }
-
             }
             catch (Exception ex)
             {
