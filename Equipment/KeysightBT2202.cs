@@ -114,7 +114,7 @@ namespace PreCharger
                 GGraw = session.RawIO;
                 //timeout does not seem to stick when opening so set it explicitly
                 session.TimeoutMilliseconds = 3000;
-
+                
                 runRST();
                 await Task.Delay(5000);
 
@@ -319,10 +319,10 @@ namespace PreCharger
             CMD = "CELL:DEF:QUICk 1";
             RunCommandOnly(CMD);
         }
-        private void setPROBELIMIT(string resistance)
+        private void setPROBELIMIT(int resistance)
         {
             //CMD = "SYST:PROB:LIM 2,0";
-            CMD = "SYST:PROB:LIM " + resistance + ",0";
+            CMD = "SYST:PROB:LIM " + resistance.ToString() + ",0";
             RunCommandOnly(CMD);
         }
         public bool errorCheck()
@@ -330,13 +330,14 @@ namespace PreCharger
             string errorMessage = string.Empty;
             try
             {
+                util.SaveLog(STAGENO, "Send> SYST:ERR?");
                 GG.WriteLine("SYST:ERR?");
                 errorMessage = GG.ReadLine();
-                util.SaveLog(STAGENO, "SYST:ERR?> " + errorMessage.ToString());
+                util.SaveLog(STAGENO, "Recv> (SYST:ERR?) " + errorMessage.ToString());
             }
             catch (Exception e)
             {
-                util.SaveLog(STAGENO, "errorCheck(): Caught exception " + e.ToString());
+                util.SaveLog(STAGENO, "errorCheck(SYST:ERR?): Caught exception " + e.ToString());
                 //Console.WriteLine("errorCheck(): Caught exception " + e.Message);
             }
 
@@ -345,6 +346,26 @@ namespace PreCharger
 
             else
                 return false;
+        }
+        public bool ConnectionCheck()
+        {
+            string strResult = Connect();
+            if (strResult.Contains("Keysight Technologies")) return true;
+            else return false;
+        }
+        public bool DeviceClear()
+        {
+            try
+            {
+                util.SaveLog(STAGENO, "Send> Device Clear : " + VISA_ADDRESS);
+                session.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(STAGENO, "Device Clear Error : " + VISA_ADDRESS);
+            }
+            return false;
         }
         #endregion
 
@@ -405,6 +426,8 @@ namespace PreCharger
         public async Task SetStepDefinition()
         {
             runCLEAR();
+            await Task.Delay(100);
+            setPROBELIMIT(2);
             await Task.Delay(100);
             setDEFQuick();
             await Task.Delay(100);

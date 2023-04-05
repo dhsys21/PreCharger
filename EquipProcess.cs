@@ -15,9 +15,13 @@ namespace PreCharger
         Util util;
         CEquipmentData _system;
         PLCForm plcform = null;
+        public int[] _deviceClearCount = new int[_Constant.frmCount];
         public Timer[] AutoInspectionTimer = new Timer[_Constant.frmCount];
         public Timer[] _tmrGetDataLog = new Timer[_Constant.frmCount];
-        TotalForm[] _nForm = new TotalForm[_Constant.frmCount];
+        public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
+
+        public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
+        public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
         int AutoInspectionIndex = 0;
         public enumInspectionType enumInspType;
 
@@ -115,12 +119,7 @@ namespace PreCharger
         }
         #endregion
 
-        public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
-        public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
-
         #region PLC, Precharger 연결
-        private CPrechargerData[] _PreChargerData = new CPrechargerData[_Constant.frmCount];
-
         private CMelsecDriver3 _PLCDriver = null;
         
         public CMelsecDriver3 PLCDRIVER
@@ -134,6 +133,7 @@ namespace PreCharger
             get { return _PreCharger; }
         }
 
+        private CPrechargerData[] _PreChargerData = new CPrechargerData[_Constant.frmCount];
         public CPrechargerData[] PRECHARGERDATA { get => _PreChargerData; set => _PreChargerData = value; }
         #endregion
         public EquipProcess()
@@ -183,6 +183,13 @@ namespace PreCharger
                 _tmrGetDataLog[nIndex].Interval = 1000;
                 _tmrGetDataLog[nIndex].Tag = nIndex;
                 _tmrGetDataLog[nIndex].Tick += new EventHandler(_tmrGetDataLog_Tick);
+                //* *IDN? - Keysight 장비 연결 확인용
+                _tmrIDN[nIndex] = new Timer();
+                _tmrIDN[nIndex].Interval = 3000;
+                _tmrIDN[nIndex].Tag = nIndex;
+                _tmrIDN[nIndex].Tick += new EventHandler(_tmrIDN_Tick);
+
+                _deviceClearCount[nIndex] = 0;
             }
             #endregion
 
@@ -453,6 +460,21 @@ namespace PreCharger
             double logCount = PRECHARGER[stageno].GetLogCount();
             if (logCount > 0)
                 PRECHARGER[stageno].GetDataLog();
+        }
+        private async void _tmrIDN_Tick(object sender, EventArgs e)
+        {
+            int stageno = int.Parse(((Timer)sender).Tag.ToString());
+            PRECHARGER[stageno].CONNECTIONSTATE = PRECHARGER[stageno].ConnectionCheck();
+            if(PRECHARGER[stageno].CONNECTIONSTATE == false)
+            {
+                _deviceClearCount[stageno]++;
+                if(_deviceClearCount[stageno] > 5)
+                {
+                    PRECHARGER[stageno].DeviceClear();
+                    _deviceClearCount[stageno] = 0;
+                    await Task.Delay(500);
+                }
+            }
         }
         #endregion
 
