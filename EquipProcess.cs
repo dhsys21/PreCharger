@@ -380,7 +380,6 @@ namespace PreCharger
         {
             try
             {
-                /*
                 //* Check Setting value and Step Definition
                 if (await PRECHARGER[stageno].CheckStepDefinition() == true)
                 {
@@ -399,13 +398,12 @@ namespace PreCharger
                     await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
                     StartCharging(stageno);
                 }
-                */
 
 
                 //* for test
-                PRECHARGER[stageno].ClearDataLog();
-                isRead = true;
-                GetDateLogWhile(stageno);
+                //PRECHARGER[stageno].ClearDataLog();
+                //isRead = true;
+                //GetDateLogWhile(stageno);
                 //_tmrGetDataLog[stageno].Enabled = true;
             }
             catch (Exception ex)

@@ -481,12 +481,16 @@ namespace PreCharger
         public bool GetCellVerbose(int cellIndex)
         {
             string[] results;
-            int iBoardno = cellIndex / 32 + 1;
-            int iChannelno = cellIndex % 32 + 1;
+            int iBoardno = (cellIndex - 1) / 32;
+            int iChannelno = cellIndex % 32;
             CMD = "STAT:CELL:VERBOSE? " + iBoardno.ToString() + "0" + iChannelno.ToString("D2");
             try
             {
-                results = RunCommand(CMD).Split(',');
+                util.SaveLog(STAGENO, "Send> " + CMD);
+                GG.WriteLine(CMD);
+                string cmdResponse = GG.ReadLine();
+                results = cmdResponse.Split(','); ;
+                util.SaveLog(STAGENO, "Recv> " + cmdResponse);
                 return true;
             }
             catch(Exception ex)
