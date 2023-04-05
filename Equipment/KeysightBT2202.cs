@@ -486,22 +486,20 @@ namespace PreCharger
             CMD = "STAT:CELL:VERBOSE? " + iBoardno.ToString() + "0" + iChannelno.ToString("D2");
             results = RunCommand(CMD).Split(',');
         }
-        public void GetCellReport()
+        public string[] GetCellReport(string cmd)
         {
-            int boardCount = 8;
-            string strString = string.Empty;
-            for(int i = 0; i < boardCount; i++)
+            string[] errorresult = new string[1];
+            try
             {
-                CMD = "STAT:CELL:REP? (@" + (i + 1) + "001:" + (i + 1) + "032)";
-
-                string[] results = RunCommand(CMD).Split(',');
-                for(int cIndex = 0; cIndex < 32; cIndex++)
-                {
-                    strString += (i * 32 + cIndex + 1).ToString("D3") + "-";
-                    strString += results[cIndex] + "\t";
-                }
+                GG.WriteLine(cmd);
+                string[] cmdResponse = GG.ReadLine().Split(',');
+                return cmdResponse;
+            }catch(Exception ex)
+            {
+                util.SaveLog(STAGENO, "GetCellReport Error. : " + ex.ToString());
             }
-            util.SaveLog(STAGENO, strString);
+
+            return errorresult;
         }
         public bool GetCellReports(int BOARDCOUNT)
         {
@@ -513,8 +511,9 @@ namespace PreCharger
             for(int boardIndex = 0; boardIndex < BOARDCOUNT; boardIndex++)
             {
                 CMD = "STAT:CELL:REP? (@" + (boardIndex + 1) + "001:" + (boardIndex + 1) + "032)";
-                GG.WriteLine(CMD);
-                cmdResponse = GG.ReadLine().Split(',');
+                //GG.WriteLine(CMD);
+                //cmdResponse = GG.ReadLine().Split(',');
+                cmdResponse = GetCellReport(CMD);
 
                 if (cmdResponse.Length == 32)
                 {
