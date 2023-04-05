@@ -25,9 +25,6 @@ namespace PreCharger
                 _PreCharger[nIndex] = new CPrecharger();
 
         }
-
-        
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Visible = false;

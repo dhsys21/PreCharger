@@ -136,6 +136,12 @@ namespace PreCharger
         private CPrechargerData[] _PreChargerData = new CPrechargerData[_Constant.frmCount];
         public CPrechargerData[] PRECHARGERDATA { get => _PreChargerData; set => _PreChargerData = value; }
         #endregion
+
+        public static EquipProcess GetInstance()
+        {
+            if (equipprocess == null) equipprocess = new EquipProcess();
+            return equipprocess;
+        }
         public EquipProcess()
         {
             equipprocess = this;

@@ -83,7 +83,8 @@ namespace PreCharger
 
         private void BaseForm_Load(object sender, EventArgs e)
         {
-            _EQProcess = new EquipProcess();
+            //_EQProcess = new EquipProcess();
+            _EQProcess = EquipProcess.GetInstance();
             _EQProcess.OnAddPanel += _EQProcess_OnAddPanel;
             _EQProcess.OnPLCSignalStatus += _EQProcess_OnPLCStatus;
            // _EQProcess.OnStepInit += _EQProcess_OnStepInit;
