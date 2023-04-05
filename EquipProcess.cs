@@ -380,6 +380,7 @@ namespace PreCharger
         {
             try
             {
+                /*
                 //* Check Setting value and Step Definition
                 if (await PRECHARGER[stageno].CheckStepDefinition() == true)
                 {
@@ -387,7 +388,6 @@ namespace PreCharger
                     if (await PRECHARGER[stageno].StartCharging() == true)
                     {
                         //_tmrGetDataLog[stageno].Enabled = true;
-                        //PRECHARGER[stageno].sendSCPI("CELL:CLEar ");
                         PRECHARGER[stageno].ClearDataLog();
                         isRead = true;
                         GetDateLogWhile(stageno);
@@ -399,13 +399,13 @@ namespace PreCharger
                     await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
                     StartCharging(stageno);
                 }
-
+                */
 
 
                 //* for test
-                //PRECHARGER[stageno].sendSCPI("DATA:LOG:CLE");
-                //isRead = true;
-                //GetDateLogWhile(stageno);
+                PRECHARGER[stageno].ClearDataLog();
+                isRead = true;
+                GetDateLogWhile(stageno);
                 //_tmrGetDataLog[stageno].Enabled = true;
             }
             catch (Exception ex)
@@ -421,7 +421,11 @@ namespace PreCharger
             {
                 //* stat:cell:rep? (@1001:1032)
                 //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
-                PRECHARGER[stageno].GetCellReports(8);
+                if (PRECHARGER[stageno].GetCellReports(8) == false)
+                    StopCharging(stageno);
+
+                //* verbose 현재 sequence step 확인위해 - 테스트용
+                PRECHARGER[stageno].GetCellVerbose(1);
 
                 //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();

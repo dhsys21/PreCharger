@@ -478,6 +478,14 @@ namespace PreCharger
         #endregion
 
         #region Get Data Command
+        public void GetCellVerbose(int cellIndex)
+        {
+            string[] results;
+            int iBoardno = cellIndex / 32 + 1;
+            int iChannelno = cellIndex % 32 + 1;
+            CMD = "STAT:CELL:VERBOSE? " + iBoardno.ToString() + "0" + iChannelno.ToString("D2");
+            results = RunCommand(CMD).Split(',');
+        }
         public void GetCellReport()
         {
             int boardCount = 8;
@@ -495,8 +503,9 @@ namespace PreCharger
             }
             util.SaveLog(STAGENO, strString);
         }
-        public void GetCellReports(int BOARDCOUNT)
+        public bool GetCellReports(int BOARDCOUNT)
         {
+            bool bCharging = false;
             string[] cmdResponse;
             string[] results = new string[BOARDCOUNT * 32];
             string strString = string.Empty;
@@ -511,6 +520,7 @@ namespace PreCharger
                 {
                     for (int i = 0; i < 32; i++)
                     {
+                        if (cmdResponse[i].Trim() == "1") bCharging = true;
                         results[boardIndex * 32 + i] = cmdResponse[i];
                         strString += (boardIndex * 32 + i + 1).ToString("D3") + "-";
                         strString += cmdResponse[i] + "\t";
@@ -527,6 +537,7 @@ namespace PreCharger
                 }
             }
             util.SaveLog(STAGENO, "RECV> " + strString.Replace("\n", ""));
+            return bCharging;
         }
         public void ClearDataLog()
         {
@@ -549,19 +560,19 @@ namespace PreCharger
 
                 List<GgDataLogNamespace.GgBinData> oDataLogQuery = GgDataLogNamespace.DataLogQueryClass.dataLogQuery(bBlock);
                 string strString = string.Empty;
-                strString = "Recv (log:data?) [CellId-TimeStamp-IMon-VSense-VLocal-Dcir1-Dcir2-SeqState]\n";
+                strString = "Recv (log:data?) [CellId-IMon-VSense-VLocal-Dcir1-Dcir2-SeqState]\n";
                 for(int i = 0; i < oDataLogQuery.Count; i++)
                 {
                     for(int cIndex = 0; cIndex < 256; cIndex++)
                     {
-                        strString += (cIndex + 1).ToString("D3") + "-";
+                        //strString += (cIndex + 1).ToString("D3") + "-";
                         strString += oDataLogQuery[i].CellId[cIndex] + "-";
-                        strString += oDataLogQuery[i].TimeStamp + "-";
-                        strString += oDataLogQuery[i].IMon[cIndex] + "-";
-                        strString += oDataLogQuery[i].VSense[cIndex] + "-";
-                        strString += oDataLogQuery[i].VLocal[cIndex] + "-";
-                        strString += oDataLogQuery[i].Dcir1[cIndex] + "-";
-                        strString += oDataLogQuery[i].Dcir2[cIndex] + "-";
+                        //strString += oDataLogQuery[i].TimeStamp + "-";
+                        strString += oDataLogQuery[i].IMon[cIndex].ToString("F3") + "-";
+                        strString += oDataLogQuery[i].VSense[cIndex].ToString("F5") + "-";
+                        strString += oDataLogQuery[i].VLocal[cIndex].ToString("F5") + "-";
+                        strString += oDataLogQuery[i].Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir1[cIndex] + "-";
+                        strString += oDataLogQuery[i].Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir2[cIndex] + "-";
                         strString += oDataLogQuery[i].SequenceState[cIndex] + "\t";
                     }
                     util.SaveLog(STAGENO, strString);
