@@ -478,13 +478,22 @@ namespace PreCharger
         #endregion
 
         #region Get Data Command
-        public void GetCellVerbose(int cellIndex)
+        public bool GetCellVerbose(int cellIndex)
         {
             string[] results;
             int iBoardno = cellIndex / 32 + 1;
             int iChannelno = cellIndex % 32 + 1;
             CMD = "STAT:CELL:VERBOSE? " + iBoardno.ToString() + "0" + iChannelno.ToString("D2");
-            results = RunCommand(CMD).Split(',');
+            try
+            {
+                results = RunCommand(CMD).Split(',');
+                return true;
+            }
+            catch(Exception ex)
+            {
+                util.SaveLog(STAGENO, "GetCellVerbose Error : " + ex.ToString());
+            }
+            return false;
         }
         public string[] GetCellReport(string cmd)
         {

@@ -419,19 +419,22 @@ namespace PreCharger
         {
             while (isRead)
             {
-                //* stat:cell:rep? (@1001:1032)
-                //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
-                if (PRECHARGER[stageno].GetCellReports(8) == false)
-                    StopCharging(stageno);
-
                 //* verbose 현재 sequence step 확인위해 - 테스트용
-                PRECHARGER[stageno].GetCellVerbose(1);
+                if(PRECHARGER[stageno].GetCellVerbose(1) == true)
+                {
+                    //* stat:cell:rep? (@1001:1032)
+                    //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
+                    if (PRECHARGER[stageno].GetCellReports(8) == false)
+                        StopCharging(stageno);
+                }
 
                 //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();
                 if(logCount > 0)
+                {
                     PRECHARGER[stageno].GetDataLog();
-                
+                }
+
                 //await Task.Delay(100);
             }
         }
