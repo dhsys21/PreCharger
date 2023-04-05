@@ -504,7 +504,7 @@ namespace PreCharger
         public bool GetCellVerbose(int cellIndex)
         {
             string[] results;
-            int iBoardno = (cellIndex - 1) / 32;
+            int iBoardno = cellIndex / 32 + 1;
             int iChannelno = cellIndex % 32;
             CMD = "STAT:CELL:VERBOSE? " + iBoardno.ToString() + "0" + iChannelno.ToString("D2");
             try
