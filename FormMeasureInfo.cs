@@ -17,11 +17,13 @@ namespace PreCharger
         public int _iStage;
         public bool _bManualMode;
         Util util;
+        private EquipProcess _EQProcess = null;
         public FormMeasureInfo()
         {
             InitializeComponent();
 
             util = new Util();
+            _EQProcess = EquipProcess.GetInstance();
 
             makeGridView();
             initGridView();
@@ -209,21 +211,15 @@ namespace PreCharger
                 
             }
         }
-        private void RunManualStart()
-        {
-            BaseForm.frmMain.SetTrayInfo(this._iStage);
-            BaseForm.frmMain.StartCharging(this._iStage);
-        }
         private void RunSTART()
         {
-            BaseForm.frmMain.SetTrayInfo(this._iStage);
-            //BaseForm.frmMain.RunPreChargerCmd("AMS", this._iStage);
-            BaseForm.frmMain.StartCharging(this._iStage);
+            _EQProcess.SetTrayInfo(this._iStage);
+            _EQProcess.StartCharging(this._iStage);
         }
 
         private void RunSTOP()
         {
-            BaseForm.frmMain.StopCharging(this._iStage);
+            _EQProcess.StopCharging(this._iStage);
            // BaseForm.frmMain.RunPreChargerCmd("AMF", this._iStage);
             RunProbeOpen();
             //BaseForm.frmMain.SetBitPLC(this._iStage, "PROBEOPEN", 1);
@@ -231,7 +227,8 @@ namespace PreCharger
 
         private void RunSET()
         {
-            BaseForm.frmMain.RunPreChargerCmd("SET", this._iStage);
+            _EQProcess.SetPrecharger(this._iStage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
+            //BaseForm.frmMain.RunPreChargerCmd("SET", this._iStage);
         }
 
         private void RunProbeOpen()
@@ -271,9 +268,9 @@ namespace PreCharger
 
         private void btnSet_Click(object sender, EventArgs e)
         {
-             //RunSET();
-            BaseForm.frmMain.CmdSet(this._iStage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
-            BaseForm.frmMain.CmdSet(this._iStage);
+             RunSET();
+            //BaseForm.frmMain.CmdSet(this._iStage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
+            //BaseForm.frmMain.CmdSet(this._iStage);
         }
 
         private void btnInit_Click(object sender, EventArgs e)

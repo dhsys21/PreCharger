@@ -135,6 +135,33 @@ namespace PreCharger
 
         private CPrechargerData[] _PreChargerData = new CPrechargerData[_Constant.frmCount];
         public CPrechargerData[] PRECHARGERDATA { get => _PreChargerData; set => _PreChargerData = value; }
+
+        private void GetIPAddress(int nIndex, out string ipaddress, out int port)
+        {
+            switch (nIndex)
+            {
+                case 0:
+                    ipaddress = _system.SIPAddress01;
+                    port = _system.IPort01;
+                    break;
+                case 1:
+                    ipaddress = _system.SIPAddress02;
+                    port = _system.IPort02;
+                    break;
+                case 2:
+                    ipaddress = _system.SIPAddress03;
+                    port = _system.IPort03;
+                    break;
+                case 3:
+                    ipaddress = _system.SIPAddress04;
+                    port = _system.IPort04;
+                    break;
+                default:
+                    ipaddress = "192.168.0.1";
+                    port = 10000;
+                    break;
+            }
+        }
         #endregion
 
         public static EquipProcess GetInstance()
@@ -175,8 +202,8 @@ namespace PreCharger
 
                 //* PreCharger Data
                 // Precharger 수정필요
-                PRECHARGERDATA[nIndex] = new CPrechargerData();
-                PRECHARGERDATA[nIndex].InitData(nIndex);
+                _PreChargerData[nIndex] = new CPrechargerData();
+                _PreChargerData[nIndex].InitData(nIndex);
                 //* AutoInspectionTimer
                 //* 다른 곳으로 이동 ? 또는 방법을 바꿔야 함.
                 //* PLC 를 쓰레드로 처리 했기 때문에 이를 적용해야 함.
@@ -328,7 +355,31 @@ namespace PreCharger
 
         private void AutoInspection_LoadTrayInfo(int stageno)
         {
-            RaiseOnStepTrayInfo(stageno);
+            /// Tray Id reading => load try info => probe close
+            /// oldTrayIn != newTrayIn (tray in 신호 들어올 때 한번만 실행해야함)
+            /// 초기화 시 oldTrayIn 신호 0으로 
+
+            string trayid = string.Empty;
+
+            if (ReadTrayId(stageno, out trayid) == false)
+            {
+                // BCR ERROR
+                MessageBox.Show("TRAY ID ERROR", "Tray ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // BCR OK
+                ReadCellInfo(stageno);
+                if (LoadTrayInfo(stageno, trayid) == false)
+                {
+                    MessageBox.Show(trayid + ".tray File is no exist", "Tray Infomation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    _PreCharger[stageno].EQUIPSTATUS = enumEquipStatus.StepReady;
+                    SetProbeClose(stageno, 1);
+                }
+            }
         }
 
         private void AutoInspection_Charging(int stageno)
@@ -388,7 +439,13 @@ namespace PreCharger
         #endregion
 
         #region PreCharger Command
-        
+        public void SetPrecharger(int stageno, string sVolt, string sCurr, string sTime)
+        {
+            _PreChargerData[stageno].SETVOLTAGE = sVolt;
+            _PreChargerData[stageno].SETCURRENT = sCurr;
+            _PreChargerData[stageno].SETTIME = sTime;
+            _PreChargerData[stageno].SetParms();
+        }
         public async void StartCharging(int stageno)
         {
             try
@@ -483,33 +540,6 @@ namespace PreCharger
             }
         }
         #endregion
-
-        private void GetIPAddress(int nIndex, out string ipaddress, out int port)
-        {
-            switch(nIndex)
-            {
-                case 0:
-                    ipaddress = _system.SIPAddress01;
-                    port = _system.IPort01;
-                    break;
-                case 1:
-                    ipaddress = _system.SIPAddress02;
-                    port = _system.IPort02;
-                    break;
-                case 2:
-                    ipaddress = _system.SIPAddress03;
-                    port = _system.IPort03;
-                    break;
-                case 3:
-                    ipaddress = _system.SIPAddress04;
-                    port = _system.IPort04;
-                    break;
-                default:
-                    ipaddress = "192.168.0.1";
-                    port = 10000;
-                    break;
-            }
-        }
 
         int iState = 0;     // 1 = Normal, 2 = Error
         int oState = 0;
@@ -723,7 +753,88 @@ namespace PreCharger
         }
         #endregion
 
-        public void ReadTrayId(int nIndex, out string trayid)
+        #region TRAY Info
+        public void SetTrayInfo(int stageno)
+        {
+            for (int nIndex = 0; nIndex < 256; nIndex++)
+                _PreChargerData[stageno].CELL[nIndex] = true;
+        }
+
+        public void SetTrayInfo(int stageno, string filename)
+        {
+            try
+            {
+                _PreChargerData[stageno].CELLCOUNT = 0;
+                IniFile ini = new IniFile();
+                ini.Load(filename);
+                string data = string.Empty;
+                for (int i = 0; i < 256; i++)
+                {
+                    data = ini[i.ToString()]["CELL_SERIAL"].ToString();
+                    if (data == string.Empty)
+                    {
+                        _PreChargerData[stageno].CELL[i] = false;
+                        _PreChargerData[stageno].CELLSERIAL[i] = "-";
+                        _PreChargerData[stageno].CHANNELCOLOR[i] = _Constant.ColorNoCell;
+                        //MeasureInfo[stageno].SetValueToGridView(i, "No", "Cell");
+                    }
+                    else
+                    {
+                        _PreChargerData[stageno].CELL[i] = true;
+                        _PreChargerData[stageno].CELLSERIAL[i] = data;
+                        _PreChargerData[stageno].CHANNELCOLOR[i] = _Constant.ColorReady;
+                        _PreChargerData[stageno].CELLCOUNT++;
+                    }
+                }
+                _PreChargerData[stageno].ARRIVETIME = DateTime.Now;
+                //nForm[stageno].DisplayChannelInfo(_PREData[stageno], _EQProcess.PRECHARGER[stageno].EQUIPSTATUS);
+                //MeasureInfo[stageno].DisplayChannelInfo(_PREData[stageno]);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public bool LoadTrayInfo(int nIndex, string trayid)
+        {
+            string fileName = _Constant.TRAY_PATH + trayid + ".Tray";
+
+            if (File.Exists(fileName))
+            {
+                SetTrayInfo(nIndex, fileName);
+
+                return true;
+            }
+            else return false;
+        }
+        public bool ReadTrayId(int nIndex, out string trayid)
+        {
+            ReadTrayIdFromPLC(nIndex, out trayid);
+            //* 2023 04 06 아래 코드는 대체하여 구현해야 함
+            //RaiseOnOnLabelTrayId(nIndex, trayid);
+
+            if (trayid == string.Empty || trayid.Length == 0)
+                return false;
+
+            return true;
+        }
+
+
+
+        public void ReadCellInfo(int stageno)
+        {
+            string file = string.Empty;
+            file = _Constant.BIN_PATH + "SystemInfo_" + stageno.ToString() + ".inf";
+            IniFile ini = new IniFile();
+            ini.Load(file);
+            _PreChargerData[stageno].CELLMODEL = ini["CELL_INFO"]["CELL_MODEL"].ToString();
+            _PreChargerData[stageno].LOTNUMBER = ini["CELL_INFO"]["LOT_NUMBER"].ToString();
+        }
+        #endregion
+
+        #region PLC Command
+        public void ReadTrayIdFromPLC(int nIndex, out string trayid)
         {
             _PLCDriver.ReadString(_Constant.PLC_D_START_NUM[nIndex] + _Constant.PLC_PRE_TRAY_ID, _Constant.PLC_TRAY_ID_SIZE * 2, out trayid);
         }
@@ -740,6 +851,7 @@ namespace PreCharger
         {
             _PLCDriver.ReadWord(nAddress, out nValue);
         }
+        #endregion
 
         public void Close()
         {

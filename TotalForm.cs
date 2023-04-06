@@ -32,6 +32,7 @@ namespace PreCharger
 
 		//public static TotalForm totalForm = null;
 		private Util util;
+		private EquipProcess _EQProcess = null;
 		//public DoubleBufferedPanel[] panel = null;
 
 		//delegate void ctrlTextBox_Invoke(TextBox ctrlTextBox, String message, String Netmessage);
@@ -49,6 +50,7 @@ namespace PreCharger
             InitializeComponent();
 			//totalForm = this;
 			util = new Util();
+			_EQProcess = EquipProcess.GetInstance();
 			//panel = new DoubleBufferedPanel[256];
 
 			gridView.DoubleBuffered(true);
@@ -481,7 +483,7 @@ namespace PreCharger
 
 		public void CmdSet()
         {
-			BaseForm.frmMain.CmdSet(this.stage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
+			_EQProcess.SetPrecharger(this.stage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
 		}
         #endregion
 

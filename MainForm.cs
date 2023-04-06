@@ -120,56 +120,7 @@ namespace PreCharger
         }
 
 
-        #region TRAY Info
-        public void SetTrayInfo(int stageno)
-        {
-            for (int nIndex = 0; nIndex < 256; nIndex++)
-                _PREData[stageno].CELL[nIndex] = true;
-        }
-
-        public void SetTrayInfo(int stageno, string filename)
-        {
-            try
-            {
-                _PREData[stageno].CELLCOUNT = 0;
-                IniFile ini = new IniFile();
-                ini.Load(filename);
-                string data = string.Empty;
-                for(int i = 0; i < 256; i++)
-                {
-                    data = ini[i.ToString()]["CELL_SERIAL"].ToString();
-                    if(data == string.Empty)
-                    {
-                        _PREData[stageno].CELL[i] = false;
-                        _PREData[stageno].CELLSERIAL[i] = "-";
-                        _PREData[stageno].CHANNELCOLOR[i] = _Constant.ColorNoCell;
-                        //MeasureInfo[stageno].SetValueToGridView(i, "No", "Cell");
-                    }
-                    else
-                    {
-                        _PREData[stageno].CELL[i] = true;
-                        _PREData[stageno].CELLSERIAL[i] = data;
-                        _PREData[stageno].CHANNELCOLOR[i] = _Constant.ColorReady;
-                        _PREData[stageno].CELLCOUNT++;
-                    }
-                }
-                _PREData[stageno].ARRIVETIME = DateTime.Now;
-                //nForm[stageno].DisplayChannelInfo(_PREData[stageno], _EQProcess.PRECHARGER[stageno].EQUIPSTATUS);
-                //MeasureInfo[stageno].DisplayChannelInfo(_PREData[stageno]);
-            }
-            catch(Exception ex)
-            {
-
-            }
-        }
-
-        /// <summary>
-        /// FormTotal, MeasureInfoForm 초기화
-        /// CPreChargerData 초기화
-        /// </summary>
-        /// <param name="stageno"></param>
         
-        #endregion
 
         #region Event
 
@@ -198,31 +149,7 @@ namespace PreCharger
 
         private void _EQProcess_OnStepTrayInfo(int nIndex)
         {
-            /// Tray Id reading => load try info => probe close
-            /// oldTrayIn != newTrayIn (tray in 신호 들어올 때 한번만 실행해야함)
-            /// 초기화 시 oldTrayIn 신호 0으로 
-
-            string trayid = string.Empty;
-
-            if (ReadTrayId(nIndex, out trayid) == false)
-            {
-                // BCR ERROR
-                MessageBox.Show("TRAY ID ERROR", "Tray ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                // BCR OK
-                ReadCellInfo(nIndex);
-                if (LoadTrayInfo(nIndex, trayid) == false)
-                {
-                    MessageBox.Show(trayid + ".tray File is no exist", "Tray Infomation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    _EQProcess.PRECHARGER[nIndex].EQUIPSTATUS = enumEquipStatus.StepReady;
-                    _EQProcess.SetProbeClose(nIndex, 1);
-                }
-            }
+            
             
         }
 
@@ -352,21 +279,6 @@ namespace PreCharger
             RunPreChargerCmd("MAN", stageno);
         }
 
-        public void CmdSet(int stageno)
-        {
-            RunPreChargerCmd("SET", stageno);
-        }
-
-        public void CmdSet(int stageno, string svolt, string scurr, string stime)
-        {
-            SetPreChargerValues(stageno, svolt, scurr, stime);
-        }
-
-        public void CmdStart(int stageno)
-        {
-            RunPreChargerCmd("AMS", stageno);
-        }
-
         public void CmdStop(int stageno)
         {
             CmdStop(stageno, null);
@@ -392,22 +304,6 @@ namespace PreCharger
             if (CPreData != null)
                 CPreData.SetResultData(stageno, _PREData[stageno]);
 
-        }
-
-        public void SetPreChargerValues(int stageno, string sVolt, string sCurr, string sTime)
-        {
-            _PREData[stageno].SETVOLTAGE = sVolt;
-            _PREData[stageno].SETCURRENT = sCurr;
-            _PREData[stageno].SETTIME = sTime;
-            _PREData[stageno].SetParms();
-        }
-        public void StartCharging(int stageno)
-        {
-            _EQProcess.StartCharging(stageno);
-        }
-        public void StopCharging(int stageno)
-        {
-            _EQProcess.StopCharging(stageno);
         }
         public void RunPreChargerCmd(string cmd, int stageno)
         {
@@ -452,42 +348,7 @@ namespace PreCharger
         {
             _EQProcess.SetPCError(stageno, nValue);
         }
-        public bool ReadTrayId(int nIndex, out string trayid)
-        {
-            _EQProcess.ReadTrayId(nIndex, out trayid);
-            RaiseOnOnLabelTrayId(nIndex, trayid);
-
-            if (trayid == string.Empty || trayid.Length == 0)
-                return false;
-
-            return true;
-
-            //nForm[nIndex].tbTrayId.Text = trayid;
-            //SetTrayId(nIndex, trayid);
-        }
-
-        public bool LoadTrayInfo(int nIndex, string trayid)
-        {
-            string fileName = _Constant.TRAY_PATH + trayid + ".Tray";
-
-            if (File.Exists(fileName))
-            {
-                SetTrayInfo(nIndex, fileName);
-
-                return true;
-            }
-            else return false;
-        }
-
-        public void ReadCellInfo(int stageno)
-        {
-            string file = string.Empty;
-            file = _Constant.BIN_PATH + "SystemInfo_" + stageno.ToString() + ".inf";
-            IniFile ini = new IniFile();
-            ini.Load(file);
-            _PREData[stageno].CELLMODEL = ini["CELL_INFO"]["CELL_MODEL"].ToString();
-            _PREData[stageno].LOTNUMBER = ini["CELL_INFO"]["LOT_NUMBER"].ToString();
-        }
+        
 
         public void OnTrayIn(int stageno, int iValue)
         {
