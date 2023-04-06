@@ -497,16 +497,16 @@ namespace PreCharger
                 }
 
                 //* data:log?
-                //double logCount = PRECHARGER[stageno].GetLogCount();
-                //if(logCount > 0)
-                //{
-                //    PRECHARGER[stageno].GetDataLog();
-                //}
+                double logCount = PRECHARGER[stageno].GetLogCount();
+                if (logCount > 0)
+                {
+                    PRECHARGER[stageno].GetDataLog();
+                }
 
                 //* meas values
-                PRECHARGER[stageno].GetVoltage();
-                await Task.Delay(100);
-                PRECHARGER[stageno].GetCurrent();
+                //PRECHARGER[stageno].GetVoltage();
+                //await Task.Delay(100);
+                //PRECHARGER[stageno].GetCurrent();
             }
         }
         public void StopCharging(int stageno)
