@@ -488,7 +488,7 @@ namespace PreCharger
             while (isRead)
             {
                 //* verbose 현재 sequence step 확인위해 - 테스트용
-                if(PRECHARGER[stageno].GetCellVerbose(1) == true)
+                if(PRECHARGER[stageno].GetCellVerbose(33) == true)
                 {
                     //* stat:cell:rep? (@1001:1032)
                     //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
@@ -497,13 +497,16 @@ namespace PreCharger
                 }
 
                 //* data:log?
-                double logCount = PRECHARGER[stageno].GetLogCount();
-                if(logCount > 0)
-                {
-                    PRECHARGER[stageno].GetDataLog();
-                }
+                //double logCount = PRECHARGER[stageno].GetLogCount();
+                //if(logCount > 0)
+                //{
+                //    PRECHARGER[stageno].GetDataLog();
+                //}
 
-                //await Task.Delay(100);
+                //* meas values
+                PRECHARGER[stageno].GetVoltage();
+                await Task.Delay(100);
+                PRECHARGER[stageno].GetCurrent();
             }
         }
         public void StopCharging(int stageno)

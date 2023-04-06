@@ -634,18 +634,57 @@ namespace PreCharger
             else
                 return ",,,";
         }
-        private string[] GetVoltage()
+        public async void GetMeas()
+        {
+            string[] cmdResponse;
+            string strString = string.Empty;
+            try
+            {
+                CMD = "MEAS:VOLT? 0000";
+                util.SaveLog(STAGENO, "Send> " + CMD);
+                GG.WriteLine(CMD);
+                cmdResponse = GG.ReadLine().Split(',');
+                for (int i = 0; i < cmdResponse.Length; i++)
+                    strString += i.ToString("D3") + "-" + cmdResponse[i];
+                util.SaveLog(STAGENO, "Recv> " + strString);
+                await Task.Delay(100);
+
+                CMD = "MEAS:CURR? 0000";
+                util.SaveLog(STAGENO, "Send> " + CMD);
+                GG.WriteLine(CMD);
+                cmdResponse = GG.ReadLine().Split(',');
+                for (int i = 0; i < cmdResponse.Length; i++)
+                    strString += i.ToString("D3") + "-" + cmdResponse[i];
+                util.SaveLog(STAGENO, "Recv> " + strString);
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(STAGENO, "GetCellReport Error. : " + ex.ToString());
+            }
+
+        }
+        public string[] GetVoltage()
         {
             //Voltage
+            string strString = string.Empty;
             CMD = "MEAS:VOLT? 0000";
             string[] results = RunCommand(CMD).Split(',');
+            
+            for (int i = 0; i < results.Length; i++)
+                strString += (i+1).ToString("D3") + "-" + results[i] + "\t";
+            util.SaveLog(STAGENO, "Recv> " + strString);
             return results;
         }
-        private string[] GetCurrent()
+        public string[] GetCurrent()
         {
             //Current
+            string strString = string.Empty;
             CMD = "MEAS:CURR? 0000";
             string[] results = RunCommand(CMD).Split(',');
+            
+            for (int i = 0; i < results.Length; i++)
+                strString += (i + 1).ToString("D3") + "-" + results[i] + "\t";
+            util.SaveLog(STAGENO, "Recv> " + strString);
             return results;
         }
         #endregion
