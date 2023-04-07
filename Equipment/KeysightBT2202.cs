@@ -605,9 +605,9 @@ namespace PreCharger
                         //strString += (cIndex + 1).ToString("D3") + "-";
                         strString += oDataLogQuery[i].CellId[cIndex] + "-";
                         //strString += oDataLogQuery[i].TimeStamp + "-";
-                        strString += oDataLogQuery[i].IMon[cIndex].ToString("F3") + "-";
-                        strString += oDataLogQuery[i].VSense[cIndex].ToString("F5") + "-";
-                        strString += oDataLogQuery[i].VLocal[cIndex].ToString("F5") + "-";
+                        strString += (oDataLogQuery[i].IMon[cIndex] * 1000.0).ToString("F3") + "-";
+                        strString += (oDataLogQuery[i].VSense[cIndex] * 1000.0).ToString("F5") + "-";
+                        strString += (oDataLogQuery[i].VLocal[cIndex] * 1000.0).ToString("F5") + "-";
                         strString += oDataLogQuery[i].Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir1[cIndex] + "-";
                         strString += oDataLogQuery[i].Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir2[cIndex] + "-";
                         strString += oDataLogQuery[i].SequenceState[cIndex] + "\t";
