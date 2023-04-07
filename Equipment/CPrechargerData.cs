@@ -339,10 +339,24 @@ namespace PreCharger
                 default:
                     break;
             }
-
-
         }
-
+        public void SetTrayInfo(bool[] bExist)
+        {
+            for (int i = 0; i < bExist.Length; i++)
+                _bCell[i] = bExist[i];
+        }
+        public void SetTrayInfo(int iChannel, bool bExist)
+        {
+            _bCell[iChannel] = bExist;
+        }
+        public void SetDataLog(GgDataLogNamespace.GgBinData oDataLogQuery)
+        {
+            for (int cIndex = 0; cIndex < 256; cIndex++)
+            {
+                _sCurr[cIndex] = oDataLogQuery.IMon[cIndex].ToString("F3");
+                _sVolt[cIndex] = oDataLogQuery.VSense[cIndex].ToString("F5");
+            }
+        }
         
         public void SetStatusData(string sData)
         {
@@ -450,10 +464,7 @@ namespace PreCharger
             }
         }
 
-        public void SetTrayInfo()
-        {
-
-        }
+        
 
         public void SetParms()
         {

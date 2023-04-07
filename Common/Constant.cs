@@ -11,6 +11,7 @@ namespace PreCharger.Common
     {
         public static readonly int frmCount =4;
         public static readonly int StartPosition = 4;
+        public static readonly int ChannelCount = 256;
 
         #region PATH
         public static readonly string APP_PATH = @"D:\Precharger\\";

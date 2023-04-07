@@ -488,25 +488,31 @@ namespace PreCharger
             while (isRead)
             {
                 //* verbose 현재 sequence step 확인위해 - 테스트용
-                if(PRECHARGER[stageno].GetCellVerbose(33) == true)
-                {
-                    //* stat:cell:rep? (@1001:1032)
-                    //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
-                    if (PRECHARGER[stageno].GetCellReports(8) == false)
-                        StopCharging(stageno);
-                }
+                //if(PRECHARGER[stageno].GetCellVerbose(33) == true)
+                //{
+                //    //* stat:cell:rep? (@1001:1032)
+                //    //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
+                //    if (PRECHARGER[stageno].GetCellReports(8) == false)
+                //        StopCharging(stageno);
+                //}
+
+                //* stat:cell:rep? (@1001:1032)
+                if (PRECHARGER[stageno].GetCellReports(8) == false)
+                    StopCharging(stageno);
 
                 //* data:log?
                 double logCount = PRECHARGER[stageno].GetLogCount();
                 if (logCount > 0)
                 {
-                    PRECHARGER[stageno].GetDataLog();
+                    GgDataLogNamespace.GgBinData oDataLogQuery = PRECHARGER[stageno].GetDataLog();
+                    PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
+                    MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
                 }
 
                 //* meas values
-                PRECHARGER[stageno].GetVoltage();
+                //PRECHARGER[stageno].GetVoltage();
                 //await Task.Delay(100);
-                PRECHARGER[stageno].GetCurrent();
+                //PRECHARGER[stageno].GetCurrent();
             }
         }
         public void StopCharging(int stageno)
@@ -759,8 +765,13 @@ namespace PreCharger
         #region TRAY Info
         public void SetTrayInfo(int stageno)
         {
-            for (int nIndex = 0; nIndex < 256; nIndex++)
-                _PreChargerData[stageno].CELL[nIndex] = true;
+            bool[] bCell = new bool[_Constant.ChannelCount];
+            for (int nIndex = 0; nIndex < _Constant.ChannelCount; nIndex++)
+                bCell[nIndex] = true;
+            PRECHARGERDATA[stageno].SetTrayInfo(bCell);
+
+            //for (int nIndex = 0; nIndex < _Constant.ChannelCount; nIndex++)
+            //    PRECHARGERDATA[stageno].SetTrayInfo(nIndex, true);
         }
 
         public void SetTrayInfo(int stageno, string filename)

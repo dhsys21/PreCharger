@@ -583,8 +583,10 @@ namespace PreCharger
             double logCount = GetDoubleResult("Data:log:records:available?");
             return logCount;
         }
-        public byte[] GetDataLog()
+        public GgDataLogNamespace.GgBinData GetDataLog()
         {
+            List<GgDataLogNamespace.GgBinData> oDataLogQuery = null;
+
             CMD = "DATA:LOG?";
             string cmdResponse = string.Empty;
             byte[] ResultsArray = null;
@@ -593,7 +595,7 @@ namespace PreCharger
                 sendSCPI(CMD);
                 byte[] bBlock = readBinaryBlock();
 
-                List<GgDataLogNamespace.GgBinData> oDataLogQuery = GgDataLogNamespace.DataLogQueryClass.dataLogQuery(bBlock);
+                oDataLogQuery = GgDataLogNamespace.DataLogQueryClass.dataLogQuery(bBlock);
                 string strString = string.Empty;
                 strString = "Recv (log:data?) [CellId-IMon-VSense-VLocal-Dcir1-Dcir2-SeqState]\n";
                 for(int i = 0; i < oDataLogQuery.Count; i++)
@@ -613,6 +615,7 @@ namespace PreCharger
                     util.SaveLog(STAGENO, strString);
                     strString = string.Empty;
                 }
+                return oDataLogQuery[0];
             }
             catch (Exception ex)
             {
