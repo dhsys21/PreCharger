@@ -504,9 +504,9 @@ namespace PreCharger
                 }
 
                 //* meas values
-                //PRECHARGER[stageno].GetVoltage();
+                PRECHARGER[stageno].GetVoltage();
                 //await Task.Delay(100);
-                //PRECHARGER[stageno].GetCurrent();
+                PRECHARGER[stageno].GetCurrent();
             }
         }
         public void StopCharging(int stageno)
