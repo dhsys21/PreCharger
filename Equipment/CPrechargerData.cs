@@ -353,8 +353,8 @@ namespace PreCharger
         {
             for (int cIndex = 0; cIndex < 256; cIndex++)
             {
-                _sCurr[cIndex] = oDataLogQuery.IMon[cIndex].ToString("F3");
-                _sVolt[cIndex] = oDataLogQuery.VSense[cIndex].ToString("F5");
+                _sCurr[cIndex] = (oDataLogQuery.IMon[cIndex] * 1000.0).ToString("F3");
+                _sVolt[cIndex] = (oDataLogQuery.VSense[cIndex] * 1000.0).ToString("F5");
             }
         }
         
