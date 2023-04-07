@@ -109,6 +109,26 @@ namespace PreCharger
                 }
             }
         }
+        public void initGridView(bool bInitValue)
+        {
+            int nRow, nCol, nIdx;
+            for (int nRowIndex = 0; nRowIndex < 16; nRowIndex++)
+            {
+                for (int nColIndex = 0; nColIndex < 16; nColIndex++)
+                {
+                    nIdx = nRowIndex * 16 + nColIndex;
+
+                    util.ChangeMapToGridView(nIdx, out nRow, out nCol);
+                    nRow = nRow * 2;
+
+                    /// Voltage
+                    gridView.Rows[nRow].Cells[nCol].Value = (nIdx + 1).ToString();
+                    gridView.Rows[nRow].Cells[nCol].Style.BackColor = _Constant.ColorVoltage;
+                    /// Current
+                    gridView.Rows[nRow + 1].Cells[nCol].Value = (nIdx + 16) / 16 + " - " + ((nIdx % 16) + 1);
+                }
+            }
+        }
 
         public void initGridView2_oldversion()
         {

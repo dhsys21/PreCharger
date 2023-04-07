@@ -434,7 +434,7 @@ namespace PreCharger
         public void InitDisplayInfo(int stageno)
         {
             nForm[stageno].initGridView();
-            MeasureInfo[stageno].initGridView();
+            MeasureInfo[stageno].initGridView(true);
         }
         #endregion
 
