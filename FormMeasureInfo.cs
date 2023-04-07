@@ -234,7 +234,8 @@ namespace PreCharger
         private void RunSTART()
         {
             _EQProcess.SetTrayInfo(this._iStage);
-            _EQProcess.InitDisplayInfo(this._iStage);
+            //_EQProcess.InitDisplayInfo(this._iStage);
+            //initGridView(true);
             _EQProcess.StartCharging(this._iStage);
         }
 
