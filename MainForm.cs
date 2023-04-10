@@ -32,7 +32,7 @@ namespace PreCharger
         PLCForm plcForm;
         ConfigForm configForm;
         //public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
-        public FormMeasureInfo MeasureInfo;
+        FormMeasureInfo MeasureInfo;
         public System.Windows.Forms.Timer[] SendTimer = new Timer[_Constant.frmCount];
         private Timer StatusTimer1 = null;
 
@@ -55,7 +55,6 @@ namespace PreCharger
             plcForm = PLCForm.GetInstance();
             configForm = new ConfigForm();
             _System = CEquipmentData.GetInstance();
-            MeasureInfo = FormMeasureInfo.GetInstance();
 
             StatusTimer1 = new Timer();
             StatusTimer1.Interval = 1000;
@@ -79,10 +78,11 @@ namespace PreCharger
                 #endregion
             }
 
-            lblLineNo.Text = "#" + _System.SLINENO;
-
             //makepanel();
             makefolder();
+
+            MeasureInfo = FormMeasureInfo.GetInstance();
+            lblLineNo.Text = "#" + _System.SLINENO;
         }
 
 

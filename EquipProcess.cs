@@ -21,6 +21,7 @@ namespace PreCharger
         public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
 
         public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
+        public FormMeasureInfo measureinfo;
         
         int AutoInspectionIndex = 0;
         public enumInspectionType enumInspType;
@@ -38,6 +39,8 @@ namespace PreCharger
         #endregion
 
         #region delegate 정의
+        public delegate void delegateDoWork();
+
         public delegate void delegateReport_AddPanel(DoubleBufferedPanel pnl);
         public event delegateReport_AddPanel OnAddPanel = null;
         protected void RaiseOnAddPanel(DoubleBufferedPanel pnl)
@@ -54,7 +57,11 @@ namespace PreCharger
         {
             if (OnShowData != null)
             {
-                OnShowData(nIndex, cData);
+                new delegateDoWork(delegate ()
+                {
+                    OnShowData(nIndex, cData);
+                }).BeginInvoke(null, null);
+                
             }
         }
 
@@ -232,6 +239,8 @@ namespace PreCharger
                 _deviceClearCount[nIndex] = 0;
             }
             #endregion
+
+            //measureinfo = FormMeasureInfo.GetInstance();
 
             #region PLC 
             int mode_no = -1;
@@ -514,9 +523,11 @@ namespace PreCharger
                     GgDataLogNamespace.GgBinData oDataLogQuery = PRECHARGER[stageno].GetDataLog();
                     PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
 
+
                     //* 2023 04 10 직접 데이터를 쓰지 않고 delegate를 이용한다
                     RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
                     //MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
+                    //measureinfo.DisplayChannelInfo(PRECHARGERDATA[stageno]);
                 }
 
                 //* meas values

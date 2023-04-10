@@ -27,7 +27,7 @@ namespace PreCharger
         public FormMeasureInfo()
         {
             InitializeComponent();
-
+            measureinfoForm = this;
             util = new Util();
             _EQProcess = EquipProcess.GetInstance();
 
