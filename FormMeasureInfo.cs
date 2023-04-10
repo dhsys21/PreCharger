@@ -136,38 +136,6 @@ namespace PreCharger
             }
         }
 
-        public void initGridView2_oldversion()
-        {
-            gridView.RowsDefaultCellStyle.BackColor = _Constant.ColorVoltage;
-            gridView.AlternatingRowsDefaultCellStyle.BackColor = _Constant.ColorCurrent;
-            gridView.ClearSelection();
-            gridView.DefaultCellStyle.Font = new Font("Times New Roman", 10);
-
-            int nRow, nCol, nIdx;
-            for (int nRowIndex = 0; nRowIndex < 16; nRowIndex++)
-            {
-                for (int nColIndex = 0; nColIndex < 16; nColIndex++)
-                {
-                    nCol = nColIndex;
-                    nRow = nRowIndex * 2;
-                    nIdx = nRowIndex * 16 + nColIndex;
-
-                    /// Voltage
-                    gridView.Rows[nRow].Cells[nCol].Value = (nIdx + 1).ToString();
-                    gridView.Rows[nRow].Cells[nCol].Style.BackColor = _Constant.ColorVoltage;
-                    /// Current
-                    gridView.Rows[nRow + 1].Cells[nCol].Value = (nIdx + 16) / 16 + " - " + ((nIdx % 16) + 1);
-                    gridView.Rows[nRow + 1].Cells[nCol].Style.BackColor = _Constant.ColorCurrent;
-                    /// Divider line
-                    gridView.Rows[nRow + 1].DividerHeight = 2;
-
-                    /// Row Height
-                    gridView.Rows[nRow].Height = 24;
-                    gridView.Rows[nRow + 1].Height = 24;
-                }
-            }
-        }
-
         public void DisplayChannelInfo(CPrechargerData CPreData)
         {
             int nIndex;
@@ -242,22 +210,20 @@ namespace PreCharger
         {
             int nIndex;
             int nRow_Volt, nRow_Curr, nCol;
-            this.Invoke((MethodInvoker)delegate {
-                for (int rowIndex = 0; rowIndex < 16; rowIndex++)
+            for (int rowIndex = 0; rowIndex < 16; rowIndex++)
+            {
+                for (int colIndex = 0; colIndex < 16; colIndex++)
                 {
-                    for (int colIndex = 0; colIndex < 16; colIndex++)
-                    {
-                        nIndex = rowIndex * 16 + colIndex;
+                    nIndex = rowIndex * 16 + colIndex;
 
-                        util.ChangeMapToGridView(nIndex, out nRow_Volt, out nCol);
-                        nRow_Volt = nRow_Volt * 2;
-                        nRow_Curr = nRow_Volt + 1;
+                    //util.ChangeMapToGridView(nIndex, out nRow_Volt, out nCol);
+                    //nRow_Volt = nRow_Volt * 2;
+                    //nRow_Curr = nRow_Volt + 1;
 
-                        gridView.Rows[nRow_Volt].Cells[nCol].Value = CPreData.VOLT[nIndex];
-                        gridView.Rows[nRow_Curr].Cells[nCol].Value = CPreData.CURR[nIndex];
-                    }
+                    //gridView.Rows[nRow_Volt].Cells[nCol].Value = CPreData.VOLT[nIndex];
+                    //gridView.Rows[nRow_Curr].Cells[nCol].Value = CPreData.CURR[nIndex];
                 }
-            });
+            }
         }
         private void RunSTART()
         {

@@ -199,6 +199,7 @@ namespace PreCharger
 
                 //* FormTotal
                 nForm[nIndex] = TotalForm.GetInstance(nIndex);
+                nForm[nIndex].OnViewMeasureInfo += _TotalForm_OnViewMeasureInfo;
 
                 //* PreCharger
                 _PreCharger[nIndex] = KeysightBT2202.GetInstance(nIndex);
@@ -236,7 +237,8 @@ namespace PreCharger
             }
             #endregion
 
-            //measureinfo = FormMeasureInfo.GetInstance();
+            measureinfo = FormMeasureInfo.GetInstance();
+            //measureinfo = new FormMeasureInfo();
 
             #region PLC 
             int mode_no = -1;
@@ -471,6 +473,7 @@ namespace PreCharger
                         //_tmrGetDataLog[stageno].Enabled = true;
                         PRECHARGER[stageno].ClearDataLog();
                         isRead = true;
+                        //measureinfo = new FormMeasureInfo();
                         GetDateLogWhile(stageno);
                     }
                 }
@@ -521,9 +524,9 @@ namespace PreCharger
 
 
                     //* 2023 04 10 직접 데이터를 쓰지 않고 delegate를 이용한다
-                    RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
+                    //RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
                     //MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
-                    //measureinfo.DisplayChannelInfo(PRECHARGERDATA[stageno]);
+                    //measureinfo.DisplayChannelInfo2(PRECHARGERDATA[stageno]);
                 }
 
                 //* meas values
@@ -567,6 +570,8 @@ namespace PreCharger
         }
         #endregion
 
+        #region Delegate Method
+
         int iState = 0;     // 1 = Normal, 2 = Error
         int oState = 0;
         private void _PreCharger_OnReceived(string strMessage, int stageno)
@@ -587,6 +592,16 @@ namespace PreCharger
             //    BaseForm.frmMain.nForm[0].OnConnectInfo(iState);
             oState = iState;
         }
+
+        private void _TotalForm_OnViewMeasureInfo(int stageno)
+        {
+            measureinfo.SetStage(stageno);
+            measureinfo.Visible = true; ;
+            measureinfo.BringToFront();
+            measureinfo.SetManualMode(true);
+        }
+
+        #endregion
 
         #region SET BIT (PROBE CLOSE, PROBE OPEN, TRAY OUT, PC ERROR, PC AUTO/MAN, CHARGING
 

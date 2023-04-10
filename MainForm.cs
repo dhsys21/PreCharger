@@ -32,7 +32,7 @@ namespace PreCharger
         PLCForm plcForm;
         ConfigForm configForm;
         //public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
-        FormMeasureInfo MeasureInfo;
+        
         public System.Windows.Forms.Timer[] SendTimer = new Timer[_Constant.frmCount];
         private Timer StatusTimer1 = null;
 
@@ -81,7 +81,8 @@ namespace PreCharger
             //makepanel();
             makefolder();
 
-            MeasureInfo = FormMeasureInfo.GetInstance();
+            //MeasureInfo = new FormMeasureInfo();
+            //MeasureInfo = FormMeasureInfo.GetInstance();
             lblLineNo.Text = "#" + _System.SLINENO;
         }
 
@@ -157,7 +158,8 @@ namespace PreCharger
         /// </summary>
         private void _EQProcess_OnShowData(int nIndex, CPrechargerData cData)
         {
-            MeasureInfo.DisplayChannelInfo2(cData);
+
+            //MeasureInfo.DisplayChannelInfo2(cData);
         }
 
         /// <summary>

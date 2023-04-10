@@ -20,25 +20,28 @@ namespace PreCharger
 		//* keysight
 		// Constants
 		int NUM_CHANNELS = 32;
-
 		double remain = 0.0;
 		double timeInterval = 0.0;
 		double duration = 0.0;
-
 		bool TraceUpdateOn = true;
-
 		string returnValue = @"";
 
-
-		//public static TotalForm totalForm = null;
 		private Util util;
 		private EquipProcess _EQProcess = null;
-		private FormMeasureInfo _measureinfoform = null;
-		//public DoubleBufferedPanel[] panel = null;
-
-		//delegate void ctrlTextBox_Invoke(TextBox ctrlTextBox, String message, String Netmessage);
-		//delegate void ctrlLabel_Invoke(Label ctrlLabel, String message, String Netmessage);
+		
 		public int stage;
+
+		#region Delegate
+		public delegate void delegateReport_ViewMeasureInfo(int stageno);
+		public event delegateReport_ViewMeasureInfo OnViewMeasureInfo = null;
+		protected void RaiseOnViewMeasureInfo(int stageno)
+		{
+			if (OnViewMeasureInfo != null)
+			{
+				OnViewMeasureInfo(stageno);
+			}
+		}
+		#endregion
 
 		private static TotalForm[] totalForm = new TotalForm[_Constant.frmCount];
 		public static TotalForm GetInstance(int nIndex)
@@ -52,7 +55,7 @@ namespace PreCharger
 			//totalForm = this;
 			util = new Util();
 			_EQProcess = EquipProcess.GetInstance();
-			_measureinfoform = FormMeasureInfo.GetInstance();
+			//_measureinfoform = FormMeasureInfo.GetInstance();
 			//panel = new DoubleBufferedPanel[256];
 
 			gridView.DoubleBuffered(true);
@@ -496,16 +499,18 @@ namespace PreCharger
 
 		private void ViewMeasureInfo(bool bValue)
         {
-			_measureinfoform.SetStage(this.stage);
-			_measureinfoform.Visible = true; ;
-			_measureinfoform.BringToFront();
-			_measureinfoform.SetManualMode(bValue);
+			//_measureinfoform.SetStage(this.stage);
+			//_measureinfoform.Visible = true; ;
+			//_measureinfoform.BringToFront();
+			//_measureinfoform.SetManualMode(bValue);
 		}
 
         private void btnViewMeasureInfo_Click(object sender, EventArgs e)
         {
-			ViewMeasureInfo(false);
-        }
+			//ViewMeasureInfo(false);
+			RaiseOnViewMeasureInfo(this.stage);
+
+		}
 
         private void btnTrayOut_Click(object sender, EventArgs e)
         {
@@ -524,7 +529,8 @@ namespace PreCharger
 
         private void btnManualTest_Click(object sender, EventArgs e)
         {
-			ViewMeasureInfo(true);
+			RaiseOnViewMeasureInfo(this.stage);
+			//ViewMeasureInfo(true);
 		}
 
         private void button3_Click(object sender, EventArgs e)
