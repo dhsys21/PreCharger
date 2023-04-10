@@ -192,6 +192,7 @@ namespace PreCharger
             #region TotalForm, MeasureInfoForm
             measureinfo = FormMeasureInfo.GetInstance();
             measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
+
             //measureinfo = new FormMeasureInfo();
 
             string config_fn;
