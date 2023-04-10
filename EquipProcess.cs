@@ -57,11 +57,7 @@ namespace PreCharger
         {
             if (OnShowData != null)
             {
-                new delegateDoWork(delegate ()
-                {
-                    OnShowData(nIndex, cData);
-                }).BeginInvoke(null, null);
-                
+                OnShowData(nIndex, cData);
             }
         }
 

@@ -172,70 +172,71 @@ namespace PreCharger
         {
             int nIndex;
             int nRow_Volt, nRow_Curr, nCol;
-
-            for (int rowIndex = 0; rowIndex < 16; rowIndex++)
-            {
-                for(int colIndex = 0; colIndex < 16; colIndex++)
+            this.Invoke((MethodInvoker)delegate{
+                for (int rowIndex = 0; rowIndex < 16; rowIndex++)
                 {
-                    nIndex = rowIndex * 16 + colIndex;
-                    //nRow_Volt = rowIndex * 2;
-                    //nRow_Curr = rowIndex * 2 + 1;
-                    //nCol = colIndex;
-
-                    util.ChangeMapToGridView(nIndex, out nRow_Volt, out nCol);
-                    nRow_Volt = nRow_Volt * 2;
-                    nRow_Curr = nRow_Volt + 1;
-
-                    enumChannelStatus eChannelStatus = CPreData.ChannelStatus[nIndex];
-                    Color clrChannelColor = CPreData.CHANNELCOLOR[nIndex];
-                    string errormsg = CPreData.ERRORMSG[nIndex];
-                    bool iCellExist = CPreData.CELL[nIndex];
-
-                    if(iCellExist == false)
+                    for (int colIndex = 0; colIndex < 16; colIndex++)
                     {
-                        /// 1번
-                        //gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = clrChannelColor;
-                        //gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = clrChannelColor;
+                        nIndex = rowIndex * 16 + colIndex;
+                        //nRow_Volt = rowIndex * 2;
+                        //nRow_Curr = rowIndex * 2 + 1;
+                        //nCol = colIndex;
 
-                        /// 2번
-                        if (clrChannelColor == _Constant.ColorError || clrChannelColor == _Constant.ColorFlow)
+                        util.ChangeMapToGridView(nIndex, out nRow_Volt, out nCol);
+                        nRow_Volt = nRow_Volt * 2;
+                        nRow_Curr = nRow_Volt + 1;
+
+                        enumChannelStatus eChannelStatus = CPreData.ChannelStatus[nIndex];
+                        Color clrChannelColor = CPreData.CHANNELCOLOR[nIndex];
+                        string errormsg = CPreData.ERRORMSG[nIndex];
+                        bool iCellExist = CPreData.CELL[nIndex];
+
+                        if (iCellExist == false)
                         {
-                            gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = clrChannelColor;
-                            gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = clrChannelColor;
+                            /// 1번
+                            //gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = clrChannelColor;
+                            //gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = clrChannelColor;
+
+                            /// 2번
+                            if (clrChannelColor == _Constant.ColorError || clrChannelColor == _Constant.ColorFlow)
+                            {
+                                gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = clrChannelColor;
+                                gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = clrChannelColor;
+                            }
+                            else
+                            {
+                                gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = _Constant.ColorNoCell;
+                                gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = _Constant.ColorNoCell;
+                            }
                         }
                         else
                         {
-                            gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = _Constant.ColorNoCell;
-                            gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = _Constant.ColorNoCell;
+                            if (clrChannelColor == _Constant.ColorReady || clrChannelColor == _Constant.ColorCharging || clrChannelColor == _Constant.ColorFinish)
+                            {
+                                gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = _Constant.ColorVoltage;
+                                gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = _Constant.ColorCurrent;
+                            }
                         }
-                    }
-                    else
-                    {
-                        if(clrChannelColor == _Constant.ColorReady || clrChannelColor == _Constant.ColorCharging || clrChannelColor == _Constant.ColorFinish)
-                        {
-                            gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = _Constant.ColorVoltage;
-                            gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = _Constant.ColorCurrent;
-                        }
-                    }
 
-                    if(errormsg != string.Empty && clrChannelColor == _Constant.ColorError)
-                    {
-                        gridView.DefaultCellStyle.Font = new Font("Times New Roman", 8);
-                        gridView.Rows[nRow_Volt].Cells[nCol].Value = "ERROR";
-                        gridView.Rows[nRow_Curr].Cells[nCol].Value = errormsg;
-                        gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = clrChannelColor;
-                        gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = clrChannelColor;
-                    }
-                    else if(clrChannelColor != _Constant.ColorNoCell)
-                    {
-                        gridView.DefaultCellStyle.Font = new Font("Times New Roman", 10);
-                        gridView.Rows[nRow_Volt].Cells[nCol].Value = CPreData.VOLT[nIndex];
-                        gridView.Rows[nRow_Curr].Cells[nCol].Value = CPreData.CURR[nIndex];
+                        if (errormsg != string.Empty && clrChannelColor == _Constant.ColorError)
+                        {
+                            gridView.DefaultCellStyle.Font = new Font("Times New Roman", 8);
+                            gridView.Rows[nRow_Volt].Cells[nCol].Value = "ERROR";
+                            gridView.Rows[nRow_Curr].Cells[nCol].Value = errormsg;
+                            gridView.Rows[nRow_Volt].Cells[nCol].Style.BackColor = clrChannelColor;
+                            gridView.Rows[nRow_Curr].Cells[nCol].Style.BackColor = clrChannelColor;
+                        }
+                        else if (clrChannelColor != _Constant.ColorNoCell)
+                        {
+                            gridView.DefaultCellStyle.Font = new Font("Times New Roman", 10);
+                            gridView.Rows[nRow_Volt].Cells[nCol].Value = CPreData.VOLT[nIndex];
+                            gridView.Rows[nRow_Curr].Cells[nCol].Value = CPreData.CURR[nIndex];
+                        }
+
                     }
 
                 }
-                
-            }
+            });
         }
         private void RunSTART()
         {
