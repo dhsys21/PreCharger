@@ -238,6 +238,27 @@ namespace PreCharger
                 }
             });
         }
+        public void DisplayChannelInfo2(CPrechargerData CPreData)
+        {
+            int nIndex;
+            int nRow_Volt, nRow_Curr, nCol;
+            this.Invoke((MethodInvoker)delegate {
+                for (int rowIndex = 0; rowIndex < 16; rowIndex++)
+                {
+                    for (int colIndex = 0; colIndex < 16; colIndex++)
+                    {
+                        nIndex = rowIndex * 16 + colIndex;
+
+                        util.ChangeMapToGridView(nIndex, out nRow_Volt, out nCol);
+                        nRow_Volt = nRow_Volt * 2;
+                        nRow_Curr = nRow_Volt + 1;
+
+                        gridView.Rows[nRow_Volt].Cells[nCol].Value = CPreData.VOLT[nIndex];
+                        gridView.Rows[nRow_Curr].Cells[nCol].Value = CPreData.CURR[nIndex];
+                    }
+                }
+            });
+        }
         private void RunSTART()
         {
             _EQProcess.SetTrayInfo(this._iStage);

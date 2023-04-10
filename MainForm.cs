@@ -157,7 +157,7 @@ namespace PreCharger
         /// </summary>
         private void _EQProcess_OnShowData(int nIndex, CPrechargerData cData)
         {
-            MeasureInfo.DisplayChannelInfo(cData);
+            MeasureInfo.DisplayChannelInfo2(cData);
         }
 
         /// <summary>
