@@ -21,7 +21,7 @@ namespace PreCharger
         public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
 
         public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
-        public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
+        
         int AutoInspectionIndex = 0;
         public enumInspectionType enumInspType;
 
@@ -45,6 +45,16 @@ namespace PreCharger
             if (OnAddPanel != null)
             {
                 OnAddPanel(pnl);
+            }
+        }
+
+        public delegate void delegateReport_ShowData(int nIndex, CPrechargerData cData);
+        public event delegateReport_ShowData OnShowData = null;
+        protected void RaiseOnShowData(int nIndex, CPrechargerData cData)
+        {
+            if (OnShowData != null)
+            {
+                OnShowData(nIndex, cData);
             }
         }
 
@@ -186,9 +196,6 @@ namespace PreCharger
 
                 //* FormTotal
                 nForm[nIndex] = TotalForm.GetInstance(nIndex);
-
-                //* Measure Info Form
-                MeasureInfo[nIndex] = new FormMeasureInfo();
 
                 //* PreCharger
                 _PreCharger[nIndex] = KeysightBT2202.GetInstance(nIndex);
@@ -433,8 +440,8 @@ namespace PreCharger
         }
         public void InitDisplayInfo(int stageno)
         {
-            nForm[stageno].initGridView();
-            MeasureInfo[stageno].initGridView(true);
+            //nForm[stageno].initGridView();
+            //MeasureInfo[stageno].initGridView(true);
         }
         #endregion
 
@@ -506,7 +513,10 @@ namespace PreCharger
                 {
                     GgDataLogNamespace.GgBinData oDataLogQuery = PRECHARGER[stageno].GetDataLog();
                     PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
-                    MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
+
+                    //* 2023 04 10 직접 데이터를 쓰지 않고 delegate를 이용한다
+                    RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
+                    //MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
                 }
 
                 //* meas values

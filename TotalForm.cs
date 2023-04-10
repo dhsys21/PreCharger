@@ -33,6 +33,7 @@ namespace PreCharger
 		//public static TotalForm totalForm = null;
 		private Util util;
 		private EquipProcess _EQProcess = null;
+		private FormMeasureInfo _measureinfoform = null;
 		//public DoubleBufferedPanel[] panel = null;
 
 		//delegate void ctrlTextBox_Invoke(TextBox ctrlTextBox, String message, String Netmessage);
@@ -51,6 +52,7 @@ namespace PreCharger
 			//totalForm = this;
 			util = new Util();
 			_EQProcess = EquipProcess.GetInstance();
+			_measureinfoform = FormMeasureInfo.GetInstance();
 			//panel = new DoubleBufferedPanel[256];
 
 			gridView.DoubleBuffered(true);
@@ -494,10 +496,10 @@ namespace PreCharger
 
 		private void ViewMeasureInfo(bool bValue)
         {
-			EquipProcess.equipprocess.MeasureInfo[this.stage].SetStage(this.stage);
-			EquipProcess.equipprocess.MeasureInfo[this.stage].Visible = true; ;
-			EquipProcess.equipprocess.MeasureInfo[this.stage].BringToFront();
-			EquipProcess.equipprocess.MeasureInfo[this.stage].SetManualMode(bValue);
+			_measureinfoform.SetStage(this.stage);
+			_measureinfoform.Visible = true; ;
+			_measureinfoform.BringToFront();
+			_measureinfoform.SetManualMode(bValue);
 		}
 
         private void btnViewMeasureInfo_Click(object sender, EventArgs e)

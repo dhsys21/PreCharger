@@ -18,6 +18,12 @@ namespace PreCharger
         public bool _bManualMode;
         Util util;
         private EquipProcess _EQProcess = null;
+        private static FormMeasureInfo measureinfoForm = new FormMeasureInfo();
+        public static FormMeasureInfo GetInstance()
+        {
+            if (measureinfoForm == null) measureinfoForm = new FormMeasureInfo();
+            return measureinfoForm;
+        }
         public FormMeasureInfo()
         {
             InitializeComponent();

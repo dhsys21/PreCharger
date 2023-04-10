@@ -31,7 +31,8 @@ namespace PreCharger
         Util util;
         PLCForm plcForm;
         ConfigForm configForm;
-
+        //public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
+        public FormMeasureInfo MeasureInfo;
         public System.Windows.Forms.Timer[] SendTimer = new Timer[_Constant.frmCount];
         private Timer StatusTimer1 = null;
 
@@ -54,6 +55,7 @@ namespace PreCharger
             plcForm = PLCForm.GetInstance();
             configForm = new ConfigForm();
             _System = CEquipmentData.GetInstance();
+            MeasureInfo = FormMeasureInfo.GetInstance();
 
             StatusTimer1 = new Timer();
             StatusTimer1.Interval = 1000;
@@ -64,6 +66,9 @@ namespace PreCharger
 
             for (int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
             {
+                //* Measure Info Form
+                //MeasureInfo[nIndex] = new FormMeasureInfo();
+
                 //* PreCharger Data
                 #region Precharger 수정필요
                 _PREData[nIndex] = new CPrechargerData();
@@ -92,6 +97,7 @@ namespace PreCharger
             _EQProcess.OnStepCharging += _EQProcess_OnStepCharging;
             _EQProcess.OnStepStop += _EQProcess_OnStepStop;
             _EQProcess.OnStepFinish += _EQProcess_OnStepFinish;
+            _EQProcess.OnShowData += _EQProcess_OnShowData;
             _EQProcess.makepanel();
             StatusTimer1.Enabled = true;
 
@@ -102,7 +108,21 @@ namespace PreCharger
             if (_EQProcess != null) _EQProcess.Close();
             Application.Exit();
         }
-
+        private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Are you want to exit PRECHARGER?", "EXIT ACS", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                //* Thread stop
+                Process.GetCurrentProcess().Kill();
+                // application stop
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
 
         private void makefolder()
         {
@@ -113,18 +133,11 @@ namespace PreCharger
             if (Directory.Exists(_Constant.TRAY_PATH) == false) Directory.CreateDirectory(_Constant.TRAY_PATH);
         }
 
-
+        #region EQProcess Event
         private void _EQProcess_OnAddPanel(DoubleBufferedPanel pnl)
         {
             BasePanel.Controls.Add(pnl);
         }
-
-
-        
-
-        #region Event
-
-
         private void _EQProcess_OnPLCStatus(int nIndex, int iAddress, int iValue)
         {
             //if (iAddress == _Constant.PLC_PRE_ATUO_MANUAL)
@@ -138,19 +151,27 @@ namespace PreCharger
             //else if (iAddress == _Constant.PLC_PRE_PROB_CLOSE)
             //    nForm[nIndex].OnProbeClose(iValue);
         }
-        #endregion
 
-        #region STEP Ready, TRAYIN, TrayInfo, PROBECLOSE, Charging, finish, PROBEOPEN, TrayOut
-        //* Tray In = 0 & Ams = false                   : Ready                     : Wait
-        //* Tray In = 1                                 : Barcode -> Probe Close    : initialize -> get tray info
-        //* Tray In = 1 & Probe Close = 1               : Charging                  : ams
-        //* Tray In = 1 & Probe Close = 1 & amf = true  : Finish -> Probe Open      : amf
-        //* Tray In = 1 & Probe Open = 1                : Tray Out                  : write result
+        /// <summary>
+        /// Display PreCharger Data to MeasureInfoForm
+        /// </summary>
+        private void _EQProcess_OnShowData(int nIndex, CPrechargerData cData)
+        {
+            MeasureInfo.DisplayChannelInfo(cData);
+        }
 
+        /// <summary>
+        /// STEP Ready, TRAYIN, TrayInfo, PROBECLOSE, Charging, finish, PROBEOPEN, TrayOut
+        /// Tray In = 0 & Ams = false                   : Ready                     : Wait
+        /// Tray In = 1                                 : Barcode -> Probe Close    : initialize -> get tray info
+        /// Tray In = 1 & Probe Close = 1               : Charging                  : ams
+        /// Tray In = 1 & Probe Close = 1 & amf = true  : Finish -> Probe Open      : amf
+        /// Tray In = 1 & Probe Open = 1                : Tray Out                  : write result
+        /// </summary>
         private void _EQProcess_OnStepTrayInfo(int nIndex)
         {
-            
-            
+
+
         }
 
         private void _EQProcess_OnStepCharging(int nIndex)
@@ -169,20 +190,20 @@ namespace PreCharger
             //        _EQProcess.PRECHARGER[nIndex].EQUIPSTATUS = enumEquipStatus.StepRun;
             //        global::System.Threading.Thread.Sleep(1000);
             //    }
-                
+
             //}
         }
 
         private void _EQProcess_OnStepStop(int nIndex)
         {
-            if (_EQProcess.PRECHARGER[nIndex].EQUIPSTATUS == enumEquipStatus.StepRun 
+            if (_EQProcess.PRECHARGER[nIndex].EQUIPSTATUS == enumEquipStatus.StepRun
                 && _PREData[nIndex].ENDCHARGING == true && _PREData[nIndex].AMF == true)
                 CmdStop(nIndex, _PREData[nIndex]);
         }
 
         private void _EQProcess_OnStepFinish(int nIndex)
         {
-            if(_EQProcess.PRECHARGER[nIndex].EQUIPSTATUS == enumEquipStatus.StepEnd)
+            if (_EQProcess.PRECHARGER[nIndex].EQUIPSTATUS == enumEquipStatus.StepEnd)
             {
                 util.NGInformation(_PREData[nIndex]);
                 util.SaveResultFile(nIndex, _PREData[nIndex]);
@@ -192,6 +213,7 @@ namespace PreCharger
             }
         }
         #endregion
+
 
         #region PreCharger 명령보내기 / 받기 / 상태정보
         private void StatusTimer1_Tick(object sender, EventArgs e)
@@ -431,20 +453,6 @@ namespace PreCharger
             configForm.ShowDialog();
         }
 
-        private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            var result = MessageBox.Show("Are you want to exit PRECHARGER?", "EXIT ACS", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                //* Thread stop
-                Process.GetCurrentProcess().Kill();
-                // application stop
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+        
     }
 }
