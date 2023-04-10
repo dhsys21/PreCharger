@@ -238,6 +238,7 @@ namespace PreCharger
             #endregion
 
             measureinfo = FormMeasureInfo.GetInstance();
+            measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
             //measureinfo = new FormMeasureInfo();
 
             #region PLC 
@@ -526,7 +527,7 @@ namespace PreCharger
                     //* 2023 04 10 직접 데이터를 쓰지 않고 delegate를 이용한다
                     //RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
                     //MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
-                    //measureinfo.DisplayChannelInfo2(PRECHARGERDATA[stageno]);
+                    measureinfo.DisplayChannelInfo(PRECHARGERDATA[stageno]);
                 }
 
                 //* meas values
@@ -601,6 +602,13 @@ namespace PreCharger
             measureinfo.SetManualMode(true);
         }
 
+        private void _MeasureInfoForm_OnStartCharging(int stageno)
+        {
+            SetTrayInfo(stageno);
+            //_EQProcess.InitDisplayInfo(this._iStage);
+            //initGridView(true);
+            StartCharging(stageno);
+        }
         #endregion
 
         #region SET BIT (PROBE CLOSE, PROBE OPEN, TRAY OUT, PC ERROR, PC AUTO/MAN, CHARGING

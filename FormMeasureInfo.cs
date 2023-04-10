@@ -18,6 +18,19 @@ namespace PreCharger
         public bool _bManualMode;
         Util util;
         private EquipProcess _EQProcess = null;
+
+        #region Delegate
+        public delegate void delegateReport_StartCharging(int stageno);
+        public event delegateReport_StartCharging OnStartCharging = null;
+        protected void RaiseOnStartCharging(int stageno)
+        {
+            if (OnStartCharging != null)
+            {
+                OnStartCharging(stageno);
+            }
+        }
+        #endregion
+
         private static FormMeasureInfo measureinfoForm = new FormMeasureInfo();
         public static FormMeasureInfo GetInstance()
         {
@@ -227,6 +240,8 @@ namespace PreCharger
         }
         private void RunSTART()
         {
+            
+            
             _EQProcess.SetTrayInfo(this._iStage);
             //_EQProcess.InitDisplayInfo(this._iStage);
             //initGridView(true);
@@ -264,7 +279,8 @@ namespace PreCharger
 
         private void btnRunStart_Click(object sender, EventArgs e)
         {
-            RunSTART();
+            RaiseOnStartCharging(this._iStage);
+            //RunSTART();
         }
 
         private void btnRunStop_Click(object sender, EventArgs e)
