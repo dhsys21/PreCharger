@@ -190,6 +190,10 @@ namespace PreCharger
             _system = CEquipmentData.GetInstance();
 
             #region TotalForm, MeasureInfoForm
+            measureinfo = FormMeasureInfo.GetInstance();
+            measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
+            //measureinfo = new FormMeasureInfo();
+
             string config_fn;
             string HOST;
             int PORT;
@@ -236,10 +240,6 @@ namespace PreCharger
                 _deviceClearCount[nIndex] = 0;
             }
             #endregion
-
-            measureinfo = FormMeasureInfo.GetInstance();
-            measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
-            //measureinfo = new FormMeasureInfo();
 
             #region PLC 
             int mode_no = -1;
