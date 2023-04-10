@@ -486,13 +486,6 @@ namespace PreCharger
                     await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
                     StartCharging(stageno);
                 }
-
-
-                //* for test
-                //PRECHARGER[stageno].ClearDataLog();
-                //isRead = true;
-                //GetDateLogWhile(stageno);
-                //_tmrGetDataLog[stageno].Enabled = true;
             }
             catch (Exception ex)
             {
@@ -505,15 +498,6 @@ namespace PreCharger
         {
             while (isRead)
             {
-                //* verbose 현재 sequence step 확인위해 - 테스트용
-                //if(PRECHARGER[stageno].GetCellVerbose(33) == true)
-                //{
-                //    //* stat:cell:rep? (@1001:1032)
-                //    //* rep는 따로 함수 만들것. runcommand에서는 결과같이 너무 많이 나오는 문제있음
-                //    if (PRECHARGER[stageno].GetCellReports(8) == false)
-                //        StopCharging(stageno);
-                //}
-
                 //* stat:cell:rep? (@1001:1032)
                 if (PRECHARGER[stageno].GetCellReports(8) == false)
                     StopCharging(stageno);
@@ -525,17 +509,12 @@ namespace PreCharger
                     GgDataLogNamespace.GgBinData oDataLogQuery = PRECHARGER[stageno].GetDataLog();
                     PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
 
-
                     //* 2023 04 10 직접 데이터를 쓰지 않고 delegate를 이용한다
                     //RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
-                    //MeasureInfo[stageno].DisplayChannelInfo(PRECHARGERDATA[stageno]);
                     measureinfo.DisplayChannelInfo(PRECHARGERDATA[stageno]);
                 }
 
-                //* meas values
-                //PRECHARGER[stageno].GetVoltage();
-                //await Task.Delay(100);
-                //PRECHARGER[stageno].GetCurrent();
+                await Task.Delay(200);
             }
         }
         public void StopCharging(int stageno)

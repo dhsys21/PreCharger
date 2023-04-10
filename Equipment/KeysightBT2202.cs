@@ -14,6 +14,7 @@ namespace PreCharger
     {
         Util util = new Util();
         public string VISA_ADDRESS;
+        public string VISA_ADDRESS2;
         private ResourceManager manager;
         private TcpipSession session;
         private TcpipSocketSession session2;
@@ -104,23 +105,24 @@ namespace PreCharger
             PORT = port;
             //VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::" + PORT + "::SOCKET";
             VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::inst0::INSTR";
-            //VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::5025::SOCKET";
+            VISA_ADDRESS2 = "TCPIP0::" + IPADDRESS + "::5025::SOCKET";
             manager = new ResourceManager();
 
             try
             {
                 session = (TcpipSession)manager.Open(VISA_ADDRESS, Ivi.Visa.AccessModes.None, TIMEOUT);
-                //session2 = (TcpipSocketSession)manager.Open(VISA_ADDRESS, Ivi.Visa.AccessModes.None, TIMEOUT);
+                //session2 = (TcpipSocketSession)manager.Open(VISA_ADDRESS2, Ivi.Visa.AccessModes.None, TIMEOUT);
+
                 GG = session.FormattedIO;
                 GGraw = session.RawIO;
                 //timeout does not seem to stick when opening so set it explicitly
                 session.TimeoutMilliseconds = 3000;
                 
-                runRST();
-                await Task.Delay(5000);
+                //runRST();
+                //await Task.Delay(5000);
 
-                runCLEAR();
-                await Task.Delay(1000);
+                //runCLEAR();
+                //await Task.Delay(1000);
             }
             catch (Exception ex) {
                 util.SaveLog(STAGENO, "Connection Error : " + VISA_ADDRESS + ", Error Msg : " + ex.ToString());
