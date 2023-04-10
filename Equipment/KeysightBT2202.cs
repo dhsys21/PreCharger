@@ -16,6 +16,7 @@ namespace PreCharger
         public string VISA_ADDRESS;
         private ResourceManager manager;
         private TcpipSession session;
+        private TcpipSocketSession session2;
         private IMessageBasedFormattedIO GG;
         private IMessageBasedRawIO GGraw;
         private string IPADDRESS = string.Empty;
@@ -102,14 +103,14 @@ namespace PreCharger
             IPADDRESS = ipaddress;
             PORT = port;
             //VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::" + PORT + "::SOCKET";
-            VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::5025::SOCKET";
             VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::inst0::INSTR";
+            //VISA_ADDRESS = "TCPIP0::" + IPADDRESS + "::5025::SOCKET";
             manager = new ResourceManager();
-            
 
             try
             {
                 session = (TcpipSession)manager.Open(VISA_ADDRESS, Ivi.Visa.AccessModes.None, TIMEOUT);
+                //session2 = (TcpipSocketSession)manager.Open(VISA_ADDRESS, Ivi.Visa.AccessModes.None, TIMEOUT);
                 GG = session.FormattedIO;
                 GGraw = session.RawIO;
                 //timeout does not seem to stick when opening so set it explicitly
@@ -122,7 +123,7 @@ namespace PreCharger
                 await Task.Delay(1000);
             }
             catch (Exception ex) {
-                util.SaveLog(STAGENO, "Connection Error : " + VISA_ADDRESS);
+                util.SaveLog(STAGENO, "Connection Error : " + VISA_ADDRESS + ", Error Msg : " + ex.ToString());
             }
 
             string strResult = Connect();
@@ -288,8 +289,8 @@ namespace PreCharger
             try
             {
                 util.SaveLog(STAGENO, "Send> " + cmd);
-                if(GG != null)
-                    GG.PrintfAndFlush(cmd);
+                if (GG != null)
+                    GG.WriteLine(cmd);//GG.PrintfAndFlush(cmd);
                 else
                     util.SaveLog(STAGENO, "RunCommandOnly Error : Keysight BT2200 is not connected!");
             }

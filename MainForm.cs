@@ -101,7 +101,6 @@ namespace PreCharger
             _EQProcess.OnShowData += _EQProcess_OnShowData;
             _EQProcess.makepanel();
             StatusTimer1.Enabled = true;
-
         }
 
         private void BaseForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -215,7 +214,6 @@ namespace PreCharger
             }
         }
         #endregion
-
 
         #region PreCharger 명령보내기 / 받기 / 상태정보
         private void StatusTimer1_Tick(object sender, EventArgs e)
