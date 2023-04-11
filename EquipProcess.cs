@@ -537,7 +537,7 @@ namespace PreCharger
             while (isRead)
             {
                 dtCharging[stageno] = DateTime.Now;
-                tsChargingTime[stageno] = dtCharging[stageno] - dtChargingStart[stageno];
+                tsChargingTime[stageno] = dtCharging[stageno].Subtract(dtChargingStart[stageno]);
 
                 //*시간 표시
                 measureinfo.SetChargingTime(tsChargingTime[stageno].Seconds);
