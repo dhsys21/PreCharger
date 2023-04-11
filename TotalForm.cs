@@ -110,9 +110,12 @@ namespace PreCharger
         {
 			SetLabelColor(lblPLCError, iValue);
         }
-        #endregion
-
-        public void SetLabelColor(Label lbl, int iValue)
+		#endregion
+		public void SetChargingTime(int nSeconds)
+		{
+			lblTestTime.Text = nSeconds.ToString();
+		}
+		public void SetLabelColor(Label lbl, int iValue)
         {
 			if (iValue == 1)
 			{

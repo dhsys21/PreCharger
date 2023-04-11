@@ -21,6 +21,9 @@ namespace PreCharger
         public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
 
         private int[] CheckSetValueCount = new int[_Constant.frmCount];
+        private DateTime[] dtChargingStart = new DateTime[_Constant.frmCount];
+        private DateTime[] dtCharging = new DateTime[_Constant.frmCount];
+        private TimeSpan[] tsChargingTime = new TimeSpan[_Constant.frmCount];
 
         public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
         public FormMeasureInfo measureinfo;
@@ -193,7 +196,11 @@ namespace PreCharger
                 nForm[nIndex] = TotalForm.GetInstance(nIndex);
                 nForm[nIndex].OnViewMeasureInfo += _TotalForm_OnViewMeasureInfo;
 
+                //* 변수 초기화
                 CheckSetValueCount[nIndex] = 0;
+                dtChargingStart[nIndex] = new DateTime();
+                dtCharging[nIndex] = new DateTime();
+                tsChargingTime[nIndex] = new TimeSpan();
 
                 //* PreCharger
                 _PreCharger[nIndex] = KeysightBT2202.GetInstance(nIndex);
@@ -500,6 +507,7 @@ namespace PreCharger
                 //* Check Setting value and Step Definition
                 if (await PRECHARGER[nStage].CheckStepDefinition() == true)
                 {
+                    dtChargingStart[nStage] = DateTime.Now;
                     //* if equal, Start Charging
                     if (await PRECHARGER[nStage].StartCharging() == true)
                     {
@@ -528,6 +536,13 @@ namespace PreCharger
         {
             while (isRead)
             {
+                dtCharging[stageno] = DateTime.Now;
+                tsChargingTime[stageno] = dtCharging[stageno] - dtChargingStart[stageno];
+
+                //*시간 표시
+                measureinfo.SetChargingTime(tsChargingTime[stageno].Seconds);
+                nForm[stageno].SetChargingTime(tsChargingTime[stageno].Seconds);
+
                 //* stat:cell:rep? (@1001:1032)
                 if (PRECHARGER[stageno].GetCellReports(8) == false)
                     StopCharging(stageno);
