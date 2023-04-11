@@ -54,31 +54,30 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnProbeOpen = new System.Windows.Forms.Button();
             this.btnProbeClose = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnRunStart = new System.Windows.Forms.Button();
             this.btnRunStop = new System.Windows.Forms.Button();
             this.gbManualMode = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnInit = new System.Windows.Forms.Button();
             this.lblTestTime = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnDischargingStart = new System.Windows.Forms.Button();
+            this.btnDischargingStop = new System.Windows.Forms.Button();
             this.pBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
             this.gbManualMode.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pBase
@@ -406,33 +405,9 @@
             this.panel1.Size = new System.Drawing.Size(254, 231);
             this.panel1.TabIndex = 0;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel3);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 40);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(250, 145);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "PROBE";
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.btnProbeOpen);
-            this.flowLayoutPanel3.Controls.Add(this.btnProbeClose);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 32);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(244, 109);
-            this.flowLayoutPanel3.TabIndex = 0;
-            // 
             // btnProbeOpen
             // 
-            this.btnProbeOpen.Location = new System.Drawing.Point(3, 4);
+            this.btnProbeOpen.Location = new System.Drawing.Point(3, 44);
             this.btnProbeOpen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProbeOpen.Name = "btnProbeOpen";
             this.btnProbeOpen.Size = new System.Drawing.Size(114, 75);
@@ -443,7 +418,7 @@
             // 
             // btnProbeClose
             // 
-            this.btnProbeClose.Location = new System.Drawing.Point(123, 4);
+            this.btnProbeClose.Location = new System.Drawing.Point(124, 44);
             this.btnProbeClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProbeClose.Name = "btnProbeClose";
             this.btnProbeClose.Size = new System.Drawing.Size(114, 75);
@@ -452,33 +427,9 @@
             this.btnProbeClose.UseVisualStyleBackColor = true;
             this.btnProbeClose.Click += new System.EventHandler(this.btnProbeClose_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 217);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(250, 151);
-            this.groupBox3.TabIndex = 42;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PRECHARGER";
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.btnRunStart);
-            this.flowLayoutPanel4.Controls.Add(this.btnRunStop);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 32);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(244, 115);
-            this.flowLayoutPanel4.TabIndex = 1;
-            // 
             // btnRunStart
             // 
-            this.btnRunStart.Location = new System.Drawing.Point(3, 4);
+            this.btnRunStart.Location = new System.Drawing.Point(3, 46);
             this.btnRunStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRunStart.Name = "btnRunStart";
             this.btnRunStart.Size = new System.Drawing.Size(114, 75);
@@ -489,7 +440,7 @@
             // 
             // btnRunStop
             // 
-            this.btnRunStop.Location = new System.Drawing.Point(123, 4);
+            this.btnRunStop.Location = new System.Drawing.Point(124, 46);
             this.btnRunStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRunStop.Name = "btnRunStop";
             this.btnRunStop.Size = new System.Drawing.Size(114, 75);
@@ -500,27 +451,18 @@
             // 
             // gbManualMode
             // 
+            this.gbManualMode.Controls.Add(this.groupBox5);
             this.gbManualMode.Controls.Add(this.groupBox3);
-            this.gbManualMode.Controls.Add(this.flowLayoutPanel5);
             this.gbManualMode.Controls.Add(this.groupBox2);
             this.gbManualMode.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.gbManualMode.Location = new System.Drawing.Point(1231, 103);
             this.gbManualMode.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
             this.gbManualMode.Name = "gbManualMode";
             this.gbManualMode.Padding = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.gbManualMode.Size = new System.Drawing.Size(256, 379);
+            this.gbManualMode.Size = new System.Drawing.Size(256, 676);
             this.gbManualMode.TabIndex = 43;
             this.gbManualMode.TabStop = false;
             this.gbManualMode.Text = "Manual Mode";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 185);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(250, 32);
-            this.flowLayoutPanel5.TabIndex = 45;
             // 
             // btnInit
             // 
@@ -567,6 +509,59 @@
             this.label14.Text = "Charging Time :";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnProbeOpen);
+            this.groupBox2.Controls.Add(this.btnProbeClose);
+            this.groupBox2.Location = new System.Drawing.Point(7, 46);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(241, 136);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PROBE";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnRunStart);
+            this.groupBox3.Controls.Add(this.btnRunStop);
+            this.groupBox3.Location = new System.Drawing.Point(7, 206);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(241, 138);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Charging";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnDischargingStart);
+            this.groupBox5.Controls.Add(this.btnDischargingStop);
+            this.groupBox5.Location = new System.Drawing.Point(7, 366);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(241, 138);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Discharging";
+            // 
+            // btnDischargingStart
+            // 
+            this.btnDischargingStart.Location = new System.Drawing.Point(3, 46);
+            this.btnDischargingStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDischargingStart.Name = "btnDischargingStart";
+            this.btnDischargingStart.Size = new System.Drawing.Size(114, 75);
+            this.btnDischargingStart.TabIndex = 1;
+            this.btnDischargingStart.Text = "START";
+            this.btnDischargingStart.UseVisualStyleBackColor = true;
+            // 
+            // btnDischargingStop
+            // 
+            this.btnDischargingStop.Location = new System.Drawing.Point(124, 46);
+            this.btnDischargingStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDischargingStop.Name = "btnDischargingStop";
+            this.btnDischargingStop.Size = new System.Drawing.Size(114, 75);
+            this.btnDischargingStop.TabIndex = 2;
+            this.btnDischargingStop.Text = "STOP";
+            this.btnDischargingStop.UseVisualStyleBackColor = true;
+            // 
             // FormMeasureInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -591,12 +586,11 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.flowLayoutPanel4.ResumeLayout(false);
             this.gbManualMode.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -624,21 +618,21 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnProbeOpen;
         private System.Windows.Forms.Button btnProbeClose;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnRunStop;
         private System.Windows.Forms.Button btnRunStart;
         private System.Windows.Forms.GroupBox gbManualMode;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Button btnInit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbTime;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label lblTestTime;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnDischargingStart;
+        private System.Windows.Forms.Button btnDischargingStop;
     }
 }

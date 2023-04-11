@@ -629,8 +629,7 @@ namespace PreCharger
         private void _MeasureInfoForm_OnStartCharging(int stageno)
         {
             SetTrayInfo(stageno);
-            //_EQProcess.InitDisplayInfo(this._iStage);
-            //initGridView(true);
+            InitDisplayInfo(stageno);
 
             //* 일반호출
             //StartCharging(stageno);
@@ -777,7 +776,7 @@ namespace PreCharger
         }
         #endregion
 
-        #region Show Data in DataGridView
+        #region PLCDriver Show Data in DataGridView
         //* nIndex => plc - stage number
         private void _PLCDriver_OnShowData(int[] pc_iScanData, int[] plc_iScanData, int nIndex)
         {
