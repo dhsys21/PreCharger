@@ -540,8 +540,8 @@ namespace PreCharger
                 tsChargingTime[stageno] = (dtCharging[stageno] - dtChargingStart[stageno]).Duration();
 
                 //*시간 표시
-                measureinfo.SetChargingTime(tsChargingTime[stageno].Seconds);
-                nForm[stageno].SetChargingTime(tsChargingTime[stageno].Seconds);
+                measureinfo.SetChargingTime((int)tsChargingTime[stageno].TotalSeconds);
+                nForm[stageno].SetChargingTime((int)tsChargingTime[stageno].TotalSeconds);
 
                 //* stat:cell:rep? (@1001:1032)
                 if (PRECHARGER[stageno].GetCellReports(8) == false)
