@@ -624,6 +624,8 @@ namespace PreCharger
             measureinfo.Visible = true; ;
             measureinfo.BringToFront();
             measureinfo.SetManualMode(bManualMode);
+
+            InitDisplayInfo(stageno);
         }
 
         private void _MeasureInfoForm_OnStartCharging(int stageno)
