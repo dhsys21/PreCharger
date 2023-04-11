@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pBase = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.tbTime = new System.Windows.Forms.TextBox();
@@ -63,11 +63,11 @@
             this.btnRunStart = new System.Windows.Forms.Button();
             this.btnRunStop = new System.Windows.Forms.Button();
             this.gbManualMode = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnInit = new System.Windows.Forms.Button();
             this.lblTestTime = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.pBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -96,27 +96,27 @@
             // gridView
             // 
             this.gridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridView.BackgroundColor = System.Drawing.Color.White;
             this.gridView.ColumnHeadersHeight = 29;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(2, 2);
             this.gridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridView.RowTemplate.Height = 23;
             this.gridView.Size = new System.Drawing.Size(1194, 1014);
             this.gridView.TabIndex = 0;
@@ -149,7 +149,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClose.Location = new System.Drawing.Point(1360, 15);
+            this.btnClose.Location = new System.Drawing.Point(1361, 22);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 50);
@@ -500,28 +500,18 @@
             // 
             // gbManualMode
             // 
-            this.gbManualMode.Controls.Add(this.flowLayoutPanel7);
             this.gbManualMode.Controls.Add(this.groupBox3);
             this.gbManualMode.Controls.Add(this.flowLayoutPanel5);
             this.gbManualMode.Controls.Add(this.groupBox2);
             this.gbManualMode.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.gbManualMode.Location = new System.Drawing.Point(1232, 102);
+            this.gbManualMode.Location = new System.Drawing.Point(1231, 103);
             this.gbManualMode.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
             this.gbManualMode.Name = "gbManualMode";
             this.gbManualMode.Padding = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.gbManualMode.Size = new System.Drawing.Size(256, 705);
+            this.gbManualMode.Size = new System.Drawing.Size(256, 379);
             this.gbManualMode.TabIndex = 43;
             this.gbManualMode.TabStop = false;
             this.gbManualMode.Text = "Manual Mode";
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 368);
-            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(250, 32);
-            this.flowLayoutPanel7.TabIndex = 46;
             // 
             // flowLayoutPanel5
             // 
@@ -535,7 +525,7 @@
             // btnInit
             // 
             this.btnInit.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnInit.Location = new System.Drawing.Point(1224, 15);
+            this.btnInit.Location = new System.Drawing.Point(1228, 22);
             this.btnInit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInit.Name = "btnInit";
             this.btnInit.Size = new System.Drawing.Size(126, 50);
@@ -547,25 +537,35 @@
             // lblTestTime
             // 
             this.lblTestTime.BackColor = System.Drawing.Color.White;
-            this.lblTestTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTestTime.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTestTime.Location = new System.Drawing.Point(81, 25);
+            this.lblTestTime.Location = new System.Drawing.Point(175, 25);
             this.lblTestTime.Name = "lblTestTime";
-            this.lblTestTime.Size = new System.Drawing.Size(228, 43);
+            this.lblTestTime.Size = new System.Drawing.Size(94, 43);
             this.lblTestTime.TabIndex = 45;
             this.lblTestTime.Text = "-";
             this.lblTestTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.lblTestTime);
             this.groupBox4.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox4.Location = new System.Drawing.Point(897, 12);
+            this.groupBox4.Location = new System.Drawing.Point(945, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(322, 81);
+            this.groupBox4.Size = new System.Drawing.Size(276, 81);
             this.groupBox4.TabIndex = 46;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Charging Time";
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.White;
+            this.label14.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label14.Location = new System.Drawing.Point(13, 25);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(150, 43);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "Charging Time :";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormMeasureInfo
             // 
@@ -636,9 +636,9 @@
         private System.Windows.Forms.Button btnInit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbTime;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label lblTestTime;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label14;
     }
 }
