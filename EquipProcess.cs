@@ -19,7 +19,7 @@ namespace PreCharger
         public Timer[] AutoInspectionTimer = new Timer[_Constant.frmCount];
         public Timer[] _tmrGetDataLog = new Timer[_Constant.frmCount];
         public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
-
+        
         public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
         public FormMeasureInfo measureinfo;
         
@@ -493,6 +493,37 @@ namespace PreCharger
                 Console.WriteLine(ex.ToString());
             }
         }
+        public async void StartCharging(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            try
+            {
+                //* Check Setting value and Step Definition
+                if (await PRECHARGER[nStage].CheckStepDefinition() == true)
+                {
+                    //* if equal, Start Charging
+                    if (await PRECHARGER[nStage].StartCharging() == true)
+                    {
+                        //_tmrGetDataLog[stageno].Enabled = true;
+                        PRECHARGER[nStage].ClearDataLog();
+                        isRead = true;
+                        //measureinfo = new FormMeasureInfo();
+                        GetDateLogWhile(nStage);
+                    }
+                }
+                else
+                {
+                    //* if not equal, Set Step Definition
+                    await PRECHARGER[nStage].SetStepDefinition().ConfigureAwait(false);
+                    StartCharging(stageno);
+                }
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(nStage, "StartPrecharging error => " + ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+        }
         bool isRead = false;
         private async void GetDateLogWhile(int stageno)
         {
@@ -588,7 +619,11 @@ namespace PreCharger
             SetTrayInfo(stageno);
             //_EQProcess.InitDisplayInfo(this._iStage);
             //initGridView(true);
-            StartCharging(stageno);
+
+            //* 일반호출
+            //StartCharging(stageno);
+            //* Task 사용
+            Task.Factory.StartNew(new Action<object>(StartCharging), (object)stageno);
         }
         #endregion
 
