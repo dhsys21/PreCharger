@@ -149,10 +149,13 @@ namespace PreCharger
             }
         }
 
-        public void DisplayChannelInfo(CPrechargerData CPreData)
+        public void DisplayChannelInfo(int stageno, CPrechargerData CPreData)
         {
             int nIndex;
             int nRow_Volt, nRow_Curr, nCol;
+
+            if (stageno != _iStage) return;
+
             this.Invoke((MethodInvoker)delegate{
                 for (int rowIndex = 0; rowIndex < 16; rowIndex++)
                 {
@@ -256,12 +259,6 @@ namespace PreCharger
             //BaseForm.frmMain.SetBitPLC(this._iStage, "PROBEOPEN", 1);
         }
 
-        private void RunSET()
-        {
-            _EQProcess.SetPrecharger(this._iStage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
-            //BaseForm.frmMain.RunPreChargerCmd("SET", this._iStage);
-        }
-
         private void RunProbeOpen()
         {
             BaseForm.frmMain.SetBitPLC(this._iStage, "PROBEOPEN");
@@ -296,13 +293,6 @@ namespace PreCharger
         private void btnProbeClose_Click(object sender, EventArgs e)
         {
             RunProbeClose();
-        }
-
-        private void btnSet_Click(object sender, EventArgs e)
-        {
-             RunSET();
-            //BaseForm.frmMain.CmdSet(this._iStage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
-            //BaseForm.frmMain.CmdSet(this._iStage);
         }
 
         private void btnInit_Click(object sender, EventArgs e)

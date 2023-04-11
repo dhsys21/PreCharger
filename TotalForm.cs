@@ -32,13 +32,13 @@ namespace PreCharger
 		public int stage;
 
 		#region Delegate
-		public delegate void delegateReport_ViewMeasureInfo(int stageno);
+		public delegate void delegateReport_ViewMeasureInfo(int stageno, bool bManualMode);
 		public event delegateReport_ViewMeasureInfo OnViewMeasureInfo = null;
-		protected void RaiseOnViewMeasureInfo(int stageno)
+		protected void RaiseOnViewMeasureInfo(int stageno, bool bManualMode)
 		{
 			if (OnViewMeasureInfo != null)
 			{
-				OnViewMeasureInfo(stageno);
+				OnViewMeasureInfo(stageno, bManualMode);
 			}
 		}
 		#endregion
@@ -508,7 +508,7 @@ namespace PreCharger
         private void btnViewMeasureInfo_Click(object sender, EventArgs e)
         {
 			//ViewMeasureInfo(false);
-			RaiseOnViewMeasureInfo(this.stage);
+			RaiseOnViewMeasureInfo(this.stage, false);
 
 		}
 
@@ -529,7 +529,7 @@ namespace PreCharger
 
         private void btnManualTest_Click(object sender, EventArgs e)
         {
-			RaiseOnViewMeasureInfo(this.stage);
+			RaiseOnViewMeasureInfo(this.stage, true);
 			//ViewMeasureInfo(true);
 		}
 

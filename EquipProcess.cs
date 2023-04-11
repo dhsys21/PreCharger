@@ -53,16 +53,6 @@ namespace PreCharger
             }
         }
 
-        public delegate void delegateReport_ShowData(int nIndex, CPrechargerData cData);
-        public event delegateReport_ShowData OnShowData = null;
-        protected void RaiseOnShowData(int nIndex, CPrechargerData cData)
-        {
-            if (OnShowData != null)
-            {
-                OnShowData(nIndex, cData);
-            }
-        }
-
         public delegate void delegateReport_PrechargerDoWork(int nIndex, string sData);
         public event delegateReport_PrechargerDoWork OnPrechargerDoWork = null;
         protected void RaiseOnPrechargerDoWork(int nIndex, string sData)
@@ -454,8 +444,8 @@ namespace PreCharger
         }
         public void InitDisplayInfo(int stageno)
         {
-            //nForm[stageno].initGridView();
-            //MeasureInfo[stageno].initGridView(true);
+            nForm[stageno].initGridView();
+            measureinfo.initGridView(true);
         }
         #endregion
 
@@ -549,12 +539,10 @@ namespace PreCharger
                     GgDataLogNamespace.GgBinData oDataLogQuery = PRECHARGER[stageno].GetDataLog();
                     PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
 
-                    //* 2023 04 10 직접 데이터를 쓰지 않고 delegate를 이용한다
-                    //RaiseOnShowData(stageno, PRECHARGERDATA[stageno]);
-                    measureinfo.DisplayChannelInfo(PRECHARGERDATA[stageno]);
+                    measureinfo.DisplayChannelInfo(stageno, PRECHARGERDATA[stageno]);
                 }
 
-                await Task.Delay(200);
+                await Task.Delay(100);
             }
         }
         public void StopCharging(int stageno)
@@ -615,12 +603,12 @@ namespace PreCharger
             oState = iState;
         }
 
-        private void _TotalForm_OnViewMeasureInfo(int stageno)
+        private void _TotalForm_OnViewMeasureInfo(int stageno, bool bManualMode)
         {
             measureinfo.SetStage(stageno);
             measureinfo.Visible = true; ;
             measureinfo.BringToFront();
-            measureinfo.SetManualMode(true);
+            measureinfo.SetManualMode(bManualMode);
         }
 
         private void _MeasureInfoForm_OnStartCharging(int stageno)

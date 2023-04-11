@@ -98,7 +98,6 @@ namespace PreCharger
             _EQProcess.OnStepCharging += _EQProcess_OnStepCharging;
             _EQProcess.OnStepStop += _EQProcess_OnStepStop;
             _EQProcess.OnStepFinish += _EQProcess_OnStepFinish;
-            _EQProcess.OnShowData += _EQProcess_OnShowData;
             _EQProcess.makepanel();
             StatusTimer1.Enabled = true;
         }
@@ -158,7 +157,7 @@ namespace PreCharger
         private void _EQProcess_OnShowData(int nIndex, CPrechargerData cData)
         {
 
-            //MeasureInfo.DisplayChannelInfo2(cData);
+            MeasureInfo.DisplayChannelInfo(cData);
         }
 
         /// <summary>
