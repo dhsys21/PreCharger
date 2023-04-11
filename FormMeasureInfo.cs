@@ -42,8 +42,8 @@ namespace PreCharger
             InitializeComponent();
 
             this.Height = 940;
-
             measureinfoForm = this;
+
             util = new Util();
             _EQProcess = EquipProcess.GetInstance();
 
