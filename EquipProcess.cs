@@ -207,6 +207,7 @@ namespace PreCharger
                 _PreCharger[nIndex].Open(HOST, PORT.ToString(), nIndex);
                 _PreCharger[nIndex].SetPrechargeParameter(_system.IPRETIME, _system.IPRECURRENT, _system.IPREVOLTAGE);
                 _PreCharger[nIndex].SetChargeParameter(_system.ITime, _system.ICurrent, _system.IVoltage);
+                _PreCharger[nIndex].SetDischargeParameter(_system.IDischargeTime, _system.IDischargeCurrent, _system.IDischargeVoltage);
 
                 _PreCharger[nIndex].AUTOMODE = true;
                 _PreCharger[nIndex].EQUIPSTATUS = enumEquipStatus.StepVacancy;
@@ -239,6 +240,7 @@ namespace PreCharger
 
             measureinfo = FormMeasureInfo.GetInstance();
             measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
+            measureinfo.OnStartDischarging += _MeasureInfoForm_OnStartDischarging;
 
             //measureinfo = new FormMeasureInfo();
 
@@ -464,48 +466,14 @@ namespace PreCharger
             _PreChargerData[stageno].SETTIME = sTime;
             _PreChargerData[stageno].SetParms();
         }
-        public async void StartCharging(int stageno)
-        {
-            try
-            {
-                CheckSetValueCount[stageno]++;
-                //* CheckSetValue count가 3회 이상이면 에러발생.
-
-                await PRECHARGER[stageno].SetStepDefinition();
-                //* Check Setting value and Step Definition
-                if (await PRECHARGER[stageno].CheckStepDefinition() == true)
-                {
-                    //* if equal, Start Charging
-                    if (await PRECHARGER[stageno].StartCharging() == true)
-                    {
-                        //_tmrGetDataLog[stageno].Enabled = true;
-                        PRECHARGER[stageno].ClearDataLog();
-                        isRead = true;
-                        //measureinfo = new FormMeasureInfo();
-                        GetDateLogWhile(stageno);
-                    }
-                }
-                else
-                {
-                    //* if not equal, Set Step Definition
-                    await PRECHARGER[stageno].SetStepDefinition().ConfigureAwait(false);
-                    StartCharging(stageno);
-                }
-            }
-            catch (Exception ex)
-            {
-                util.SaveLog(stageno, "StartPrecharging error => " + ex.ToString());
-                Console.WriteLine(ex.ToString());
-            }
-        }
         public async void StartCharging(object stageno)
         {
             int nStage = Convert.ToInt16(stageno.ToString());
             try
             {
-                await PRECHARGER[nStage].SetStepDefinition();
+                await PRECHARGER[nStage].SetStepChargeDef();
                 //* Check Setting value and Step Definition
-                if (await PRECHARGER[nStage].CheckStepDefinition() == true)
+                if (await PRECHARGER[nStage].CheckStepChargeDef() == true)
                 {
                     dtChargingStart[nStage] = DateTime.Now;
                     //* if equal, Start Charging
@@ -521,8 +489,41 @@ namespace PreCharger
                 else
                 {
                     //* if not equal, Set Step Definition
-                    await PRECHARGER[nStage].SetStepDefinition().ConfigureAwait(false);
+                    await PRECHARGER[nStage].SetStepChargeDef().ConfigureAwait(false);
                     StartCharging(stageno);
+                }
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(nStage, "StartPrecharging error => " + ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        public async void StartDischarging(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            try
+            {
+                await PRECHARGER[nStage].SetStepDischargeDef();
+                //* Check Setting value and Step Definition
+                if (await PRECHARGER[nStage].CheckStepDischargeDef() == true)
+                {
+                    dtChargingStart[nStage] = DateTime.Now;
+                    //* if equal, Start Charging
+                    if (await PRECHARGER[nStage].StartDischarging() == true)
+                    {
+                        //_tmrGetDataLog[stageno].Enabled = true;
+                        PRECHARGER[nStage].ClearDataLog();
+                        isRead = true;
+                        //measureinfo = new FormMeasureInfo();
+                        GetDateLogWhile(nStage);
+                    }
+                }
+                else
+                {
+                    //* if not equal, Set Step Definition
+                    await PRECHARGER[nStage].SetStepDischargeDef();
+                    StartDischarging(stageno);
                 }
             }
             catch (Exception ex)
@@ -637,6 +638,16 @@ namespace PreCharger
             //StartCharging(stageno);
             //* Task 사용
             Task.Factory.StartNew(new Action<object>(StartCharging), (object)stageno);
+        }
+        private void _MeasureInfoForm_OnStartDischarging(int stageno)
+        {
+            SetTrayInfo(stageno);
+            InitDisplayInfo(stageno);
+
+            //* 일반호출
+            //StartCharging(stageno);
+            //* Task 사용
+            Task.Factory.StartNew(new Action<object>(StartDischarging), (object)stageno);
         }
         #endregion
 

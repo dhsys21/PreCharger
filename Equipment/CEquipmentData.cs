@@ -36,6 +36,9 @@ namespace PreCharger
         private int _iPreVoltage;
         private int _iPreCurrent;
         private int _iPreTime;
+        private int _iDischargeVoltage;
+        private int _iDischargeCurrent;
+        private int _iDischargeTime;
 
         private string _sCell_Model;
         private string _sLot_Number;
@@ -83,6 +86,9 @@ namespace PreCharger
         public int IPREVOLTAGE { get => _iPreVoltage; set => _iPreVoltage = value; }
         public int IPRECURRENT { get => _iPreCurrent; set => _iPreCurrent = value; }
         public int IPRETIME { get => _iPreTime; set => _iPreTime = value; }
+        public int IDischargeVoltage { get => _iDischargeVoltage; set => _iDischargeVoltage = value; }
+        public int IDischargeCurrent { get => _iDischargeCurrent; set => _iDischargeCurrent = value; }
+        public int IDischargeTime { get => _iDischargeTime; set => _iDischargeTime = value; }
 
         private static CEquipmentData equipmentdata;
 

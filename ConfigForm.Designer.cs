@@ -101,6 +101,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbLotNumber = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbPrechargeSetting = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbPreVoltage = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbPreCurrent = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbPreTime = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.gbChargeSetting = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblVoltage = new System.Windows.Forms.Label();
             this.tbVoltage = new System.Windows.Forms.TextBox();
@@ -118,16 +128,15 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbMaxTime = new System.Windows.Forms.TextBox();
             this.btnMaxSet = new System.Windows.Forms.Button();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.tbPreVoltage = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.tbPreCurrent = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.tbPreTime = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.gbDischargeSetting = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tbDischargeVolt = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.tbDischargeCurr = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tbDischargeTime = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -150,12 +159,14 @@
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel9.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.gbPrechargeSetting.SuspendLayout();
+            this.flowLayoutPanel13.SuspendLayout();
+            this.gbChargeSetting.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.gbMaxSetting.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.flowLayoutPanel13.SuspendLayout();
+            this.gbDischargeSetting.SuspendLayout();
+            this.flowLayoutPanel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -338,7 +349,7 @@
             // 
             this.groupBox9.Controls.Add(this.flowLayoutPanel10);
             this.groupBox9.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox9.Location = new System.Drawing.Point(975, 554);
+            this.groupBox9.Location = new System.Drawing.Point(975, 574);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -354,7 +365,7 @@
             this.flowLayoutPanel10.Controls.Add(this.chkAgingUse);
             this.flowLayoutPanel10.Controls.Add(this.label9);
             this.flowLayoutPanel10.Controls.Add(this.tbAgingTime);
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(33, 45);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(33, 40);
             this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
             this.flowLayoutPanel10.Size = new System.Drawing.Size(305, 60);
@@ -400,11 +411,11 @@
             // 
             this.groupBox8.Controls.Add(this.chkSaveAllLog);
             this.groupBox8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox8.Location = new System.Drawing.Point(975, 674);
+            this.groupBox8.Location = new System.Drawing.Point(975, 697);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox8.Size = new System.Drawing.Size(339, 112);
+            this.groupBox8.Size = new System.Drawing.Size(339, 90);
             this.groupBox8.TabIndex = 19;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "LOG";
@@ -1084,18 +1095,144 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.groupBox13);
-            this.groupBox2.Controls.Add(this.groupBox12);
+            this.groupBox2.Controls.Add(this.gbDischargeSetting);
+            this.groupBox2.Controls.Add(this.gbPrechargeSetting);
+            this.groupBox2.Controls.Add(this.gbChargeSetting);
             this.groupBox2.Controls.Add(this.gbMaxSetting);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(672, 100);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(641, 436);
+            this.groupBox2.Size = new System.Drawing.Size(641, 473);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PRECHARGER SETTING";
+            // 
+            // gbPrechargeSetting
+            // 
+            this.gbPrechargeSetting.Controls.Add(this.flowLayoutPanel13);
+            this.gbPrechargeSetting.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.gbPrechargeSetting.Location = new System.Drawing.Point(11, 34);
+            this.gbPrechargeSetting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbPrechargeSetting.Name = "gbPrechargeSetting";
+            this.gbPrechargeSetting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbPrechargeSetting.Size = new System.Drawing.Size(615, 90);
+            this.gbPrechargeSetting.TabIndex = 17;
+            this.gbPrechargeSetting.TabStop = false;
+            this.gbPrechargeSetting.Text = "PRECHARGING SETTING";
+            // 
+            // flowLayoutPanel13
+            // 
+            this.flowLayoutPanel13.AutoSize = true;
+            this.flowLayoutPanel13.Controls.Add(this.label25);
+            this.flowLayoutPanel13.Controls.Add(this.tbPreVoltage);
+            this.flowLayoutPanel13.Controls.Add(this.label26);
+            this.flowLayoutPanel13.Controls.Add(this.tbPreCurrent);
+            this.flowLayoutPanel13.Controls.Add(this.label27);
+            this.flowLayoutPanel13.Controls.Add(this.tbPreTime);
+            this.flowLayoutPanel13.Controls.Add(this.button1);
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(16, 25);
+            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(1);
+            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(591, 60);
+            this.flowLayoutPanel13.TabIndex = 6;
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.SkyBlue;
+            this.label25.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label25.Location = new System.Drawing.Point(6, 4);
+            this.label25.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
+            this.label25.Name = "label25";
+            this.label25.Padding = new System.Windows.Forms.Padding(1);
+            this.label25.Size = new System.Drawing.Size(74, 44);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Voltage";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPreVoltage
+            // 
+            this.tbPreVoltage.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbPreVoltage.Location = new System.Drawing.Point(83, 4);
+            this.tbPreVoltage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbPreVoltage.Name = "tbPreVoltage";
+            this.tbPreVoltage.Size = new System.Drawing.Size(85, 42);
+            this.tbPreVoltage.TabIndex = 6;
+            this.tbPreVoltage.Text = "4200";
+            this.tbPreVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.SkyBlue;
+            this.label26.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label26.Location = new System.Drawing.Point(171, 4);
+            this.label26.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label26.Name = "label26";
+            this.label26.Padding = new System.Windows.Forms.Padding(1);
+            this.label26.Size = new System.Drawing.Size(74, 44);
+            this.label26.TabIndex = 11;
+            this.label26.Text = "Current";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPreCurrent
+            // 
+            this.tbPreCurrent.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbPreCurrent.Location = new System.Drawing.Point(248, 4);
+            this.tbPreCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbPreCurrent.Name = "tbPreCurrent";
+            this.tbPreCurrent.Size = new System.Drawing.Size(85, 42);
+            this.tbPreCurrent.TabIndex = 8;
+            this.tbPreCurrent.Text = "1600";
+            this.tbPreCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.SkyBlue;
+            this.label27.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label27.Location = new System.Drawing.Point(336, 4);
+            this.label27.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label27.Name = "label27";
+            this.label27.Padding = new System.Windows.Forms.Padding(1);
+            this.label27.Size = new System.Drawing.Size(74, 44);
+            this.label27.TabIndex = 12;
+            this.label27.Text = "Time";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPreTime
+            // 
+            this.tbPreTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbPreTime.Location = new System.Drawing.Point(413, 4);
+            this.tbPreTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbPreTime.Name = "tbPreTime";
+            this.tbPreTime.Size = new System.Drawing.Size(85, 42);
+            this.tbPreTime.TabIndex = 10;
+            this.tbPreTime.Text = "30";
+            this.tbPreTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(504, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 44);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "SET";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // gbChargeSetting
+            // 
+            this.gbChargeSetting.Controls.Add(this.flowLayoutPanel2);
+            this.gbChargeSetting.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.gbChargeSetting.Location = new System.Drawing.Point(11, 137);
+            this.gbChargeSetting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbChargeSetting.Name = "gbChargeSetting";
+            this.gbChargeSetting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbChargeSetting.Size = new System.Drawing.Size(615, 90);
+            this.gbChargeSetting.TabIndex = 16;
+            this.gbChargeSetting.TabStop = false;
+            this.gbChargeSetting.Text = "CHARGING SETTING";
             // 
             // flowLayoutPanel2
             // 
@@ -1202,7 +1339,7 @@
             // 
             this.gbMaxSetting.Controls.Add(this.flowLayoutPanel3);
             this.gbMaxSetting.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.gbMaxSetting.Location = new System.Drawing.Point(11, 282);
+            this.gbMaxSetting.Location = new System.Drawing.Point(11, 240);
             this.gbMaxSetting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbMaxSetting.Name = "gbMaxSetting";
             this.gbMaxSetting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1311,130 +1448,117 @@
             this.btnMaxSet.UseVisualStyleBackColor = true;
             this.btnMaxSet.Click += new System.EventHandler(this.btnMaxSet_Click);
             // 
-            // groupBox12
+            // gbDischargeSetting
             // 
-            this.groupBox12.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox12.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox12.Location = new System.Drawing.Point(11, 179);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox12.Size = new System.Drawing.Size(615, 90);
-            this.groupBox12.TabIndex = 16;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "CHARGING SETTING";
+            this.gbDischargeSetting.Controls.Add(this.flowLayoutPanel14);
+            this.gbDischargeSetting.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.gbDischargeSetting.Location = new System.Drawing.Point(11, 344);
+            this.gbDischargeSetting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbDischargeSetting.Name = "gbDischargeSetting";
+            this.gbDischargeSetting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbDischargeSetting.Size = new System.Drawing.Size(615, 90);
+            this.gbDischargeSetting.TabIndex = 18;
+            this.gbDischargeSetting.TabStop = false;
+            this.gbDischargeSetting.Text = "DISCHARGE SETTING";
             // 
-            // groupBox13
+            // flowLayoutPanel14
             // 
-            this.groupBox13.Controls.Add(this.flowLayoutPanel13);
-            this.groupBox13.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox13.Location = new System.Drawing.Point(11, 76);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox13.Size = new System.Drawing.Size(615, 90);
-            this.groupBox13.TabIndex = 17;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "PRECHARGING SETTING";
+            this.flowLayoutPanel14.AutoSize = true;
+            this.flowLayoutPanel14.Controls.Add(this.label28);
+            this.flowLayoutPanel14.Controls.Add(this.tbDischargeVolt);
+            this.flowLayoutPanel14.Controls.Add(this.label29);
+            this.flowLayoutPanel14.Controls.Add(this.tbDischargeCurr);
+            this.flowLayoutPanel14.Controls.Add(this.label30);
+            this.flowLayoutPanel14.Controls.Add(this.tbDischargeTime);
+            this.flowLayoutPanel14.Controls.Add(this.button2);
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(16, 29);
+            this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(1);
+            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(587, 60);
+            this.flowLayoutPanel14.TabIndex = 6;
             // 
-            // flowLayoutPanel13
+            // label28
             // 
-            this.flowLayoutPanel13.AutoSize = true;
-            this.flowLayoutPanel13.Controls.Add(this.label25);
-            this.flowLayoutPanel13.Controls.Add(this.tbPreVoltage);
-            this.flowLayoutPanel13.Controls.Add(this.label26);
-            this.flowLayoutPanel13.Controls.Add(this.tbPreCurrent);
-            this.flowLayoutPanel13.Controls.Add(this.label27);
-            this.flowLayoutPanel13.Controls.Add(this.tbPreTime);
-            this.flowLayoutPanel13.Controls.Add(this.button1);
-            this.flowLayoutPanel13.Location = new System.Drawing.Point(16, 25);
-            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(1);
-            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(591, 60);
-            this.flowLayoutPanel13.TabIndex = 6;
+            this.label28.BackColor = System.Drawing.Color.SkyBlue;
+            this.label28.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label28.Location = new System.Drawing.Point(6, 4);
+            this.label28.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
+            this.label28.Name = "label28";
+            this.label28.Padding = new System.Windows.Forms.Padding(1);
+            this.label28.Size = new System.Drawing.Size(74, 44);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Voltage";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label25
+            // tbDischargeVolt
             // 
-            this.label25.BackColor = System.Drawing.Color.SkyBlue;
-            this.label25.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label25.Location = new System.Drawing.Point(6, 4);
-            this.label25.Margin = new System.Windows.Forms.Padding(6, 4, 0, 0);
-            this.label25.Name = "label25";
-            this.label25.Padding = new System.Windows.Forms.Padding(1);
-            this.label25.Size = new System.Drawing.Size(74, 44);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Voltage";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tbDischargeVolt.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbDischargeVolt.Location = new System.Drawing.Point(83, 4);
+            this.tbDischargeVolt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbDischargeVolt.Name = "tbDischargeVolt";
+            this.tbDischargeVolt.Size = new System.Drawing.Size(85, 42);
+            this.tbDischargeVolt.TabIndex = 6;
+            this.tbDischargeVolt.Text = "2800";
+            this.tbDischargeVolt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbPreVoltage
+            // label29
             // 
-            this.tbPreVoltage.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPreVoltage.Location = new System.Drawing.Point(83, 4);
-            this.tbPreVoltage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbPreVoltage.Name = "tbPreVoltage";
-            this.tbPreVoltage.Size = new System.Drawing.Size(85, 42);
-            this.tbPreVoltage.TabIndex = 6;
-            this.tbPreVoltage.Text = "4200";
-            this.tbPreVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label29.BackColor = System.Drawing.Color.SkyBlue;
+            this.label29.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label29.Location = new System.Drawing.Point(171, 4);
+            this.label29.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label29.Name = "label29";
+            this.label29.Padding = new System.Windows.Forms.Padding(1);
+            this.label29.Size = new System.Drawing.Size(74, 44);
+            this.label29.TabIndex = 11;
+            this.label29.Text = "Current";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label26
+            // tbDischargeCurr
             // 
-            this.label26.BackColor = System.Drawing.Color.SkyBlue;
-            this.label26.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label26.Location = new System.Drawing.Point(171, 4);
-            this.label26.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label26.Name = "label26";
-            this.label26.Padding = new System.Windows.Forms.Padding(1);
-            this.label26.Size = new System.Drawing.Size(74, 44);
-            this.label26.TabIndex = 11;
-            this.label26.Text = "Current";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tbDischargeCurr.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbDischargeCurr.Location = new System.Drawing.Point(248, 4);
+            this.tbDischargeCurr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbDischargeCurr.Name = "tbDischargeCurr";
+            this.tbDischargeCurr.Size = new System.Drawing.Size(85, 42);
+            this.tbDischargeCurr.TabIndex = 8;
+            this.tbDischargeCurr.Text = "3500";
+            this.tbDischargeCurr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbPreCurrent
+            // label30
             // 
-            this.tbPreCurrent.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPreCurrent.Location = new System.Drawing.Point(248, 4);
-            this.tbPreCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbPreCurrent.Name = "tbPreCurrent";
-            this.tbPreCurrent.Size = new System.Drawing.Size(85, 42);
-            this.tbPreCurrent.TabIndex = 8;
-            this.tbPreCurrent.Text = "1600";
-            this.tbPreCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label30.BackColor = System.Drawing.Color.SkyBlue;
+            this.label30.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label30.Location = new System.Drawing.Point(336, 4);
+            this.label30.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label30.Name = "label30";
+            this.label30.Padding = new System.Windows.Forms.Padding(1);
+            this.label30.Size = new System.Drawing.Size(74, 44);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Time";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label27
+            // tbDischargeTime
             // 
-            this.label27.BackColor = System.Drawing.Color.SkyBlue;
-            this.label27.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label27.Location = new System.Drawing.Point(336, 4);
-            this.label27.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label27.Name = "label27";
-            this.label27.Padding = new System.Windows.Forms.Padding(1);
-            this.label27.Size = new System.Drawing.Size(74, 44);
-            this.label27.TabIndex = 12;
-            this.label27.Text = "Time";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tbDischargeTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbDischargeTime.Location = new System.Drawing.Point(413, 4);
+            this.tbDischargeTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbDischargeTime.Name = "tbDischargeTime";
+            this.tbDischargeTime.Size = new System.Drawing.Size(85, 42);
+            this.tbDischargeTime.TabIndex = 10;
+            this.tbDischargeTime.Text = "1800";
+            this.tbDischargeTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbPreTime
+            // button2
             // 
-            this.tbPreTime.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPreTime.Location = new System.Drawing.Point(413, 4);
-            this.tbPreTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbPreTime.Name = "tbPreTime";
-            this.tbPreTime.Size = new System.Drawing.Size(85, 42);
-            this.tbPreTime.TabIndex = 10;
-            this.tbPreTime.Text = "30";
-            this.tbPreTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(504, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 44);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "SET";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(504, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(74, 44);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "SET";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // ConfigForm
             // 
@@ -1446,7 +1570,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ConfigForm";
-            this.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Padding = new System.Windows.Forms.Padding(6);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigForm";
             this.panel1.ResumeLayout(false);
@@ -1491,18 +1615,22 @@
             this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel9.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.gbPrechargeSetting.ResumeLayout(false);
+            this.gbPrechargeSetting.PerformLayout();
+            this.flowLayoutPanel13.ResumeLayout(false);
+            this.flowLayoutPanel13.PerformLayout();
+            this.gbChargeSetting.ResumeLayout(false);
+            this.gbChargeSetting.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.gbMaxSetting.ResumeLayout(false);
             this.gbMaxSetting.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.flowLayoutPanel13.ResumeLayout(false);
-            this.flowLayoutPanel13.PerformLayout();
+            this.gbDischargeSetting.ResumeLayout(false);
+            this.gbDischargeSetting.PerformLayout();
+            this.flowLayoutPanel14.ResumeLayout(false);
+            this.flowLayoutPanel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1599,7 +1727,7 @@
         private System.Windows.Forms.TextBox tbPLCIPAddress;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox tbPLCPort;
-        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.GroupBox gbPrechargeSetting;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox tbPreVoltage;
@@ -1608,6 +1736,15 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox tbPreTime;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox gbChargeSetting;
+        private System.Windows.Forms.GroupBox gbDischargeSetting;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox tbDischargeVolt;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox tbDischargeCurr;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tbDischargeTime;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -29,6 +29,9 @@ namespace PreCharger
         private double _voltage;
         private double _current;
         private int _time;
+        private double _dischargeVoltage;
+        private double _dischargeCurrent;
+        private int _dischargeTime;
         private int _stageno = 0;
         private bool _ConnectionState;
         private bool _bAutoMode = false;
@@ -43,6 +46,9 @@ namespace PreCharger
         public int PRETIME { get => _preTime; set => _preTime = value; }
         public enumEquipStatus EQUIPSTATUS { get => _EquipStatus; set => _EquipStatus = value; }
         public int STAGENO { get => _stageno; set => _stageno = value; }
+        public double DISCHARGEVOLTAGE { get => _dischargeVoltage; set => _dischargeVoltage = value; }
+        public double DISCHARGECURRENT { get => _dischargeCurrent; set => _dischargeCurrent = value; }
+        public int DISCHARGETIME { get => _dischargeTime; set => _dischargeTime = value; }
 
         protected System.Timers.Timer _tmrReconnect = new System.Timers.Timer(2000);
 
@@ -169,6 +175,12 @@ namespace PreCharger
             _preVoltage = (voltage / 1000.0);
             _preCurrent = (current / 1000.0);
             _preTime = time;
+        }
+        public void SetDischargeParameter(int time, double current, double voltage)
+        {
+            _dischargeVoltage = (voltage / 1000.0);
+            _dischargeCurrent = (current / 1000.0);
+            _dischargeTime = time;
         }
 
         #region BT2202A COMMANDS
@@ -373,7 +385,7 @@ namespace PreCharger
         #endregion
 
         #region Step Definition
-        public async Task<bool> CheckStepDefinition()
+        public async Task<bool> CheckStepChargeDef()
         {
             bool bPrecharge = false;
             bool bCharge = false;
@@ -384,12 +396,24 @@ namespace PreCharger
             string[] def_charge = GetStepDefinition("1", "2");
             await Task.Delay(500);
 
-            if (CheckPrechargeDefinition(def_precharge) == true && CheckChargeDefinition(def_charge) == true)
+            if (CheckPrechargeDef(def_precharge) == true && CheckChargeDef(def_charge) == true)
                 return true;
 
             return false;
         }
-        public bool CheckPrechargeDefinition(string[] def_values)
+        public async Task<bool> CheckStepDischargeDef()
+        {
+            bool bDischarge = false;
+            //* Discharge sequence -> 1, step -> 1
+            string[] def_discharge = GetStepDefinition("1", "1");
+            await Task.Delay(500);
+
+            if (CheckDischargeDef(def_discharge) == true)
+                return true;
+
+            return false;
+        }
+        public bool CheckPrechargeDef(string[] def_values)
         {
             if (def_values[0] == "PRECHARGE" && Convert.ToDouble(def_values[1]) == PRETIME
                 && Convert.ToDouble(def_values[2]) == PRECURRENT && Convert.ToDouble(def_values[3]) == PREVOLTAGE)
@@ -397,10 +421,18 @@ namespace PreCharger
 
             return false;
         }
-        public bool CheckChargeDefinition(string[] def_values)
+        public bool CheckChargeDef(string[] def_values)
         {
             if (def_values[0] == "CHARGE" && Convert.ToDouble(def_values[1]) == TIME
                 && Convert.ToDouble(def_values[2]) == CURRENT && Convert.ToDouble(def_values[3]) == VOLTAGE)
+                return true;
+
+            return false;
+        }
+        public bool CheckDischargeDef(string[] def_values)
+        {
+            if (def_values[0] == "DISCHARGE" && Convert.ToDouble(def_values[1]) == DISCHARGETIME
+                && Convert.ToDouble(def_values[2]) == DISCHARGECURRENT && Convert.ToDouble(def_values[3]) == DISCHARGEVOLTAGE)
                 return true;
 
             return false;
@@ -419,14 +451,15 @@ namespace PreCharger
             string[] splitData = strData.Split(',');
             return splitData;
         }
-        private void SetStepDefinition(string type, string step_id, int time, double current, double voltage)
+        private void SetStepChargeDef(string type, string step_id, int time, double current, double voltage)
         {
             //* Ex Command : "SEQ:STEP:DEF 1,1,PRECHARGE,30,1.0,1.0";
             //* Ex Command : "SEQ:STEP:DEF 1,2,CHARGE,180,2.0,4.2";
+            //* Ex Command : "SEQ:STEP:DEF 1,1,DISCHARGE,1800,3.25,2.8";
             CMD = "SEQ:STEP:DEF 1," + step_id + "," + type + "," + time.ToString() + "," + current.ToString() + "," + voltage.ToString();
             RunCommandOnly(CMD);
         }
-        public async Task SetStepDefinition()
+        public async Task SetStepChargeDef()
         {
             runCLEAR();
             await Task.Delay(100);
@@ -434,9 +467,9 @@ namespace PreCharger
             await Task.Delay(100);
             setDEFQuick();
             await Task.Delay(100);
-            SetStepDefinition("PRECHARGE", "1", _preTime, _preCurrent, _preVoltage);
+            SetStepChargeDef("PRECHARGE", "1", _preTime, _preCurrent, _preVoltage);
             await Task.Delay(200);
-            SetStepDefinition("CHARGE", "2", _time, _current, _voltage);
+            SetStepChargeDef("CHARGE", "2", _time, _current, _voltage);
             await Task.Delay(200);
 
             //* 전압으로 판단할 때 애매한 경우가 있음
@@ -444,6 +477,17 @@ namespace PreCharger
             //            {
             //                SETCHARGECONDITION("2", "1", "VOLT_LE", voltCondition.ToString(), "BEFORE", "90");
             //            }
+        }
+        public async Task SetStepDischargeDef()
+        {
+            runCLEAR();
+            await Task.Delay(100);
+            setPROBELIMIT(2);
+            await Task.Delay(100);
+            setDEFQuick();
+            await Task.Delay(100);
+            SetStepChargeDef("DISCHARGE", "1", _dischargeTime, _dischargeCurrent, _dischargeVoltage);
+            await Task.Delay(200);
         }
         #endregion
 
@@ -477,6 +521,20 @@ namespace PreCharger
             initCMD = "CELL:INIT (@1001:8032)";
             RunCommandOnly(initCMD);
             //await Task.Delay(1000);
+
+            return true;
+        }
+        public async Task<bool> StartDischarging()
+        {
+            string enableCMD = string.Empty;
+            string initCMD = string.Empty;
+
+            enableCMD = "CELL:ENABLE (@1001:8032),1";
+            RunCommandOnly(enableCMD);
+            await Task.Delay(100);
+
+            initCMD = "CELL:INIT (@1001:8032)";
+            RunCommandOnly(initCMD);
 
             return true;
         }

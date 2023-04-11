@@ -38,17 +38,21 @@ namespace PreCharger
         public void SaveConfigFile()
         {
             string filename1 = _Constant.BIN_PATH + "SystemInfo_0.inf";
-            util.saveConfig(filename1, "CONDITION", "1", tbVoltage.Text);
-            util.saveConfig(filename1, "CONDITION", "2", tbCurrent.Text);
-            util.saveConfig(filename1, "CONDITION", "3", tbTime.Text);
+            util.saveConfig(filename1, "CHARGE", "VOLTAGE", tbVoltage.Text);
+            util.saveConfig(filename1, "CHARGE", "CURRENT", tbCurrent.Text);
+            util.saveConfig(filename1, "CHARGE", "TIME", tbTime.Text);
 
-            util.saveConfig(filename1, "PRE_CONDITION", "1", tbPreVoltage.Text);
-            util.saveConfig(filename1, "PRE_CONDITION", "2", tbPreCurrent.Text);
-            util.saveConfig(filename1, "PRE_CONDITION ", "3", tbPreTime.Text);
+            util.saveConfig(filename1, "PRECHARGE", "VOLTAGE", tbPreVoltage.Text);
+            util.saveConfig(filename1, "PRECHARGE", "CURRENT", tbPreCurrent.Text);
+            util.saveConfig(filename1, "PRECHARGE ", "TIME", tbPreTime.Text);
 
-            util.saveConfig(filename1, "MAX_CONDITION", "volt", tbMaxVoltage.Text);
-            util.saveConfig(filename1, "MAX_CONDITION", "curr", tbMaxCurrent.Text);
-            util.saveConfig(filename1, "MAX_CONDITION", "time", tbMaxTime.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "VOLTAGE", tbMaxVoltage.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "CURRENT", tbMaxCurrent.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "TIME", tbMaxTime.Text);
+
+            util.saveConfig(filename1, "DISCHARGE", "VOLTAGE", tbDischargeVolt.Text);
+            util.saveConfig(filename1, "DISCHARGE", "CURRENT", tbDischargeCurr.Text);
+            util.saveConfig(filename1, "DISCHARGE", "TIME", tbDischargeTime.Text);
 
             util.saveConfig(filename1, "COMMUNICATION", "IP01", tbIPAddress01.Text);
             util.saveConfig(filename1, "COMMUNICATION", "PORT01", tbPort01.Text);
@@ -86,31 +90,39 @@ namespace PreCharger
             string filename1 = _Constant.BIN_PATH + "SystemInfo_0.inf";
 
             //* Max Value
-            _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "volt"), 4200);
-            _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "curr"), 1600);
-            _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "time"), 300);
+            _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "VOLTAGE"), 4200);
+            _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "CURRENT"), 1600);
+            _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "TIME"), 300);
 
             tbMaxVoltage.Text = _system.IMaxVoltage.ToString();
             tbMaxCurrent.Text = _system.IMaxCurrent.ToString();
             tbMaxTime.Text = _system.IMaxTime.ToString();
 
             //* Setting Value
-            _system.IVoltage = util.TryParseInt(util.readConfig(filename1, "CONDITION", "1"), 4200);
-            _system.ICurrent = util.TryParseInt(util.readConfig(filename1, "CONDITION", "2"), 1600);
-            _system.ITime = util.TryParseInt(util.readConfig(filename1, "CONDITION", "3"), 180);
+            _system.IVoltage = util.TryParseInt(util.readConfig(filename1, "CHARGE", "VOLTAGE"), 4200);
+            _system.ICurrent = util.TryParseInt(util.readConfig(filename1, "CHARGE", "CURRENT"), 1600);
+            _system.ITime = util.TryParseInt(util.readConfig(filename1, "CHARGE", "TIME"), 180);
 
             tbVoltage.Text = _system.IVoltage.ToString();
             tbCurrent.Text = _system.ICurrent.ToString();
             tbTime.Text = _system.ITime.ToString();
 
             //* Precharge Setting Value
-            _system.IPREVOLTAGE = util.TryParseInt(util.readConfig(filename1, "PRE_CONDITION", "1"), 2000);
-            _system.IPRECURRENT = util.TryParseInt(util.readConfig(filename1, "PRE_CONDITION", "2"), 1000);
-            _system.IPRETIME = util.TryParseInt(util.readConfig(filename1, "PRE_CONDITION", "3"), 60);
+            _system.IPREVOLTAGE = util.TryParseInt(util.readConfig(filename1, "PRECHARGE", "VOLTAGE"), 2000);
+            _system.IPRECURRENT = util.TryParseInt(util.readConfig(filename1, "PRECHARGE", "CURRENT"), 1000);
+            _system.IPRETIME = util.TryParseInt(util.readConfig(filename1, "PRECHARGE", "TIME"), 60);
 
             tbPreVoltage.Text = _system.IPREVOLTAGE.ToString();
             tbPreCurrent.Text = _system.IPRECURRENT.ToString();
             tbPreTime.Text = _system.IPRETIME.ToString();
+
+            _system.IDischargeVoltage = util.TryParseInt(util.readConfig(filename1, "DISCHARGE", "VOLTAGE"), 2800);
+            _system.IDischargeCurrent = util.TryParseInt(util.readConfig(filename1, "DISCHARGE", "CURRENT"), 3500);
+            _system.IDischargeTime = util.TryParseInt(util.readConfig(filename1, "DISCHARGE", "TIME"), 1800);
+
+            tbDischargeVolt.Text = _system.IDischargeVoltage.ToString();
+            tbDischargeCurr.Text = _system.IDischargeCurrent.ToString();
+            tbDischargeTime.Text = _system.IDischargeTime.ToString();
 
             //* PreCharger IP Address
             _system.SIPAddress01 = util.readConfig(filename1, "COMMUNICATION", "IP01");

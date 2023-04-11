@@ -29,6 +29,15 @@ namespace PreCharger
                 OnStartCharging(stageno);
             }
         }
+        public delegate void delegateReport_StartDischarging(int stageno);
+        public event delegateReport_StartDischarging OnStartDischarging = null;
+        protected void RaiseOnStartDischarging(int stageno)
+        {
+            if (OnStartDischarging != null)
+            {
+                OnStartDischarging(stageno);
+            }
+        }
         #endregion
 
         private static FormMeasureInfo measureinfoForm = new FormMeasureInfo();
@@ -238,24 +247,6 @@ namespace PreCharger
                 lblTestTime.Text = nSeconds.ToString();
             }
         }
-        private void RunSTART()
-        {
-            
-            
-            _EQProcess.SetTrayInfo(this._iStage);
-            //_EQProcess.InitDisplayInfo(this._iStage);
-            //initGridView(true);
-            _EQProcess.StartCharging(this._iStage);
-        }
-
-        private void RunSTOP()
-        {
-            _EQProcess.StopCharging(this._iStage);
-           // BaseForm.frmMain.RunPreChargerCmd("AMF", this._iStage);
-            RunProbeOpen();
-            //BaseForm.frmMain.SetBitPLC(this._iStage, "PROBEOPEN", 1);
-        }
-
         private void RunProbeOpen()
         {
             BaseForm.frmMain.SetBitPLC(this._iStage, "PROBEOPEN");
@@ -274,12 +265,13 @@ namespace PreCharger
         private void btnRunStart_Click(object sender, EventArgs e)
         {
             RaiseOnStartCharging(this._iStage);
-            //RunSTART();
         }
 
         private void btnRunStop_Click(object sender, EventArgs e)
         {
-            RunSTOP();
+            _EQProcess.StopCharging(this._iStage);
+            // BaseForm.frmMain.RunPreChargerCmd("AMF", this._iStage);
+            RunProbeOpen();
         }
 
         private void btnProbeOpen_Click(object sender, EventArgs e)
@@ -295,6 +287,18 @@ namespace PreCharger
         private void btnInit_Click(object sender, EventArgs e)
         {
             initGridView();
+        }
+
+        private void btnDischargingStart_Click(object sender, EventArgs e)
+        {
+            RaiseOnStartDischarging(this._iStage);
+        }
+
+        private void btnDischargingStop_Click(object sender, EventArgs e)
+        {
+            _EQProcess.StopCharging(this._iStage);
+            // BaseForm.frmMain.RunPreChargerCmd("AMF", this._iStage);
+            RunProbeOpen();
         }
     }
 
