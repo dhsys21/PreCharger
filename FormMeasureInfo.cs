@@ -41,7 +41,7 @@ namespace PreCharger
         {
             InitializeComponent();
 
-            this.Height = 1100;
+            this.Height = 1000;
 
             measureinfoForm = this;
             util = new Util();
