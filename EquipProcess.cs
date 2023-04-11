@@ -467,6 +467,7 @@ namespace PreCharger
         {
             try
             {
+                await PRECHARGER[stageno].SetStepDefinition();
                 //* Check Setting value and Step Definition
                 if (await PRECHARGER[stageno].CheckStepDefinition() == true)
                 {
@@ -498,6 +499,7 @@ namespace PreCharger
             int nStage = Convert.ToInt16(stageno.ToString());
             try
             {
+                await PRECHARGER[nStage].SetStepDefinition();
                 //* Check Setting value and Step Definition
                 if (await PRECHARGER[nStage].CheckStepDefinition() == true)
                 {
@@ -704,6 +706,7 @@ namespace PreCharger
         #endregion
 
         // Heart Beat
+        #region Heart Beat
         void SeqTimer_Tick(object sender, EventArgs e)
         {
             //* PreCharger 1
@@ -762,6 +765,7 @@ namespace PreCharger
                 _PLCDriver.WriteBit(_Constant.PC_D_START_NUM[3] + _Constant.PC_HEART_BEAT, 0, true);
             }
         }
+        #endregion
 
         #region Show Data in DataGridView
         //* nIndex => plc - stage number
