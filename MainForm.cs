@@ -152,15 +152,6 @@ namespace PreCharger
         }
 
         /// <summary>
-        /// Display PreCharger Data to MeasureInfoForm
-        /// </summary>
-        private void _EQProcess_OnShowData(int nIndex, CPrechargerData cData)
-        {
-
-            MeasureInfo.DisplayChannelInfo(cData);
-        }
-
-        /// <summary>
         /// STEP Ready, TRAYIN, TrayInfo, PROBECLOSE, Charging, finish, PROBEOPEN, TrayOut
         /// Tray In = 0 & Ams = false                   : Ready                     : Wait
         /// Tray In = 1                                 : Barcode -> Probe Close    : initialize -> get tray info
