@@ -224,7 +224,16 @@ namespace PreCharger
         }
         public void SetChargingTime(int nSeconds)
         {
-            lblTestTime.Text = nSeconds.ToString();
+            if (lblTestTime.InvokeRequired)
+            {
+                // 작업쓰레드인 경우
+                lblTestTime.BeginInvoke(new Action(() => lblTestTime.Text = nSeconds.ToString()));
+            }
+            else
+            {
+                // UI 쓰레드인 경우
+                lblTestTime.Text = nSeconds.ToString();
+            }
         }
         private void RunSTART()
         {
