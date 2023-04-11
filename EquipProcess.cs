@@ -19,7 +19,9 @@ namespace PreCharger
         public Timer[] AutoInspectionTimer = new Timer[_Constant.frmCount];
         public Timer[] _tmrGetDataLog = new Timer[_Constant.frmCount];
         public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
-        
+
+        private int[] CheckSetValueCount = new int[_Constant.frmCount];
+
         public TotalForm[] nForm = new TotalForm[_Constant.frmCount];
         public FormMeasureInfo measureinfo;
         
@@ -200,6 +202,8 @@ namespace PreCharger
                 //* FormTotal
                 nForm[nIndex] = TotalForm.GetInstance(nIndex);
                 nForm[nIndex].OnViewMeasureInfo += _TotalForm_OnViewMeasureInfo;
+
+                CheckSetValueCount[nIndex] = 0;
 
                 //* PreCharger
                 _PreCharger[nIndex] = KeysightBT2202.GetInstance(nIndex);
@@ -467,6 +471,9 @@ namespace PreCharger
         {
             try
             {
+                CheckSetValueCount[stageno]++;
+                //* CheckSetValue count가 3회 이상이면 에러발생.
+
                 await PRECHARGER[stageno].SetStepDefinition();
                 //* Check Setting value and Step Definition
                 if (await PRECHARGER[stageno].CheckStepDefinition() == true)
