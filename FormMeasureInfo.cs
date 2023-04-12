@@ -274,7 +274,7 @@ namespace PreCharger
 
         private void btnRunStart_Click(object sender, EventArgs e)
         {
-            RaiseOnStartCharging(this._iStage);
+            RaiseOnStartCharging(this._iStage, chkVerbose.Checked);
         }
 
         private void btnRunStop_Click(object sender, EventArgs e)
@@ -313,7 +313,7 @@ namespace PreCharger
 
         private void btnMeasureStart_Click(object sender, EventArgs e)
         {
-            RaiseOnStartMeasuring(this._iStage, chkVerbose.Checked);
+            RaiseOnStartMeasuring(this._iStage);
         }
 
         private void btnMeasureStop_Click(object sender, EventArgs e)
