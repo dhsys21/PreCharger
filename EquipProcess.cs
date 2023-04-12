@@ -20,6 +20,7 @@ namespace PreCharger
         public Timer[] _tmrGetDataLog = new Timer[_Constant.frmCount];
         public Timer[] _tmrIDN = new Timer[_Constant.frmCount];
 
+        private bool[] bVerbosed = new bool[_Constant.frmCount];
         private int[] CheckSetValueCount = new int[_Constant.frmCount];
         private DateTime[] dtChargingStart = new DateTime[_Constant.frmCount];
         private DateTime[] dtCharging = new DateTime[_Constant.frmCount];
@@ -196,6 +197,7 @@ namespace PreCharger
                 nForm[nIndex].OnViewMeasureInfo += _TotalForm_OnViewMeasureInfo;
 
                 //* 변수 초기화
+                bVerbosed[nIndex] = false;
                 CheckSetValueCount[nIndex] = 0;
                 dtChargingStart[nIndex] = new DateTime();
                 dtCharging[nIndex] = new DateTime();
@@ -552,6 +554,10 @@ namespace PreCharger
                 measureinfo.SetChargingTime((int)tsChargingTime[stageno].TotalSeconds);
                 nForm[stageno].SetChargingTime((int)tsChargingTime[stageno].TotalSeconds);
 
+                //* verbose 현재 sequence step 확인위해 - 테스트용
+                if(bVerbosed[stageno] == true)
+                    PRECHARGER[stageno].GetCellVerbose(33);
+                
                 //* stat:cell:rep? (@1001:1032)
                 if (PRECHARGER[stageno].GetCellReports(8) == false)
                     StopCharging(stageno);
@@ -660,8 +666,9 @@ namespace PreCharger
             InitDisplayInfo(stageno);
         }
 
-        private void _MeasureInfoForm_OnStartCharging(int stageno)
+        private void _MeasureInfoForm_OnStartCharging(int stageno, bool bVerbose)
         {
+            bVerbosed[stageno] = bVerbose;
             SetTrayInfo(stageno);
             InitDisplayInfo(stageno);
 
@@ -670,8 +677,9 @@ namespace PreCharger
             //* Task 사용
             Task.Factory.StartNew(new Action<object>(StartCharging), (object)stageno);
         }
-        private void _MeasureInfoForm_OnStartDischarging(int stageno)
+        private void _MeasureInfoForm_OnStartDischarging(int stageno, bool bVerbose)
         {
+            bVerbosed[stageno] = bVerbose;
             SetTrayInfo(stageno);
             InitDisplayInfo(stageno);
 

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pBase = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.tbTime = new System.Windows.Forms.TextBox();
@@ -71,6 +71,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnMeasureStart = new System.Windows.Forms.Button();
             this.btnMeasureStop = new System.Windows.Forms.Button();
+            this.chkVerbose = new System.Windows.Forms.CheckBox();
             this.pBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -99,27 +100,27 @@
             // gridView
             // 
             this.gridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridView.BackgroundColor = System.Drawing.Color.White;
             this.gridView.ColumnHeadersHeight = 29;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(2, 2);
             this.gridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridView.RowTemplate.Height = 23;
             this.gridView.Size = new System.Drawing.Size(1194, 1014);
             this.gridView.TabIndex = 0;
@@ -455,6 +456,7 @@
             // 
             // gbManualMode
             // 
+            this.gbManualMode.Controls.Add(this.chkVerbose);
             this.gbManualMode.Controls.Add(this.groupBox6);
             this.gbManualMode.Controls.Add(this.groupBox5);
             this.gbManualMode.Controls.Add(this.groupBox3);
@@ -464,7 +466,7 @@
             this.gbManualMode.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
             this.gbManualMode.Name = "gbManualMode";
             this.gbManualMode.Padding = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.gbManualMode.Size = new System.Drawing.Size(256, 676);
+            this.gbManualMode.Size = new System.Drawing.Size(256, 745);
             this.gbManualMode.TabIndex = 43;
             this.gbManualMode.TabStop = false;
             this.gbManualMode.Text = "Manual Mode";
@@ -602,6 +604,18 @@
             this.btnMeasureStop.UseVisualStyleBackColor = true;
             this.btnMeasureStop.Click += new System.EventHandler(this.btnMeasureStop_Click);
             // 
+            // chkVerbose
+            // 
+            this.chkVerbose.AutoSize = true;
+            this.chkVerbose.ForeColor = System.Drawing.Color.Black;
+            this.chkVerbose.Location = new System.Drawing.Point(14, 703);
+            this.chkVerbose.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
+            this.chkVerbose.Name = "chkVerbose";
+            this.chkVerbose.Size = new System.Drawing.Size(124, 28);
+            this.chkVerbose.TabIndex = 7;
+            this.chkVerbose.Text = "Verbose";
+            this.chkVerbose.UseVisualStyleBackColor = true;
+            // 
             // FormMeasureInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -627,6 +641,7 @@
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.gbManualMode.ResumeLayout(false);
+            this.gbManualMode.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -678,5 +693,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnMeasureStart;
         private System.Windows.Forms.Button btnMeasureStop;
+        private System.Windows.Forms.CheckBox chkVerbose;
     }
 }

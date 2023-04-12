@@ -21,22 +21,22 @@ namespace PreCharger
 
         #region Delegate - EquipProcess 에서 사용
         
-        public delegate void delegateReport_StartCharging(int stageno);
+        public delegate void delegateReport_StartCharging(int stageno, bool bVerbose);
         public event delegateReport_StartCharging OnStartCharging = null;
-        protected void RaiseOnStartCharging(int stageno)
+        protected void RaiseOnStartCharging(int stageno, bool bVerbose)
         {
             if (OnStartCharging != null)
             {
-                OnStartCharging(stageno);
+                OnStartCharging(stageno, bVerbose);
             }
         }
-        public delegate void delegateReport_StartDischarging(int stageno);
+        public delegate void delegateReport_StartDischarging(int stageno, bool bVerbose);
         public event delegateReport_StartDischarging OnStartDischarging = null;
-        protected void RaiseOnStartDischarging(int stageno)
+        protected void RaiseOnStartDischarging(int stageno, bool bVerbose)
         {
             if (OnStartDischarging != null)
             {
-                OnStartDischarging(stageno);
+                OnStartDischarging(stageno, bVerbose);
             }
         }
         public delegate void delegateReport_StartMeasuring(int stageno);
@@ -301,7 +301,7 @@ namespace PreCharger
 
         private void btnDischargingStart_Click(object sender, EventArgs e)
         {
-            RaiseOnStartDischarging(this._iStage);
+            RaiseOnStartDischarging(this._iStage, chkVerbose.Checked);
         }
 
         private void btnDischargingStop_Click(object sender, EventArgs e)
@@ -313,7 +313,7 @@ namespace PreCharger
 
         private void btnMeasureStart_Click(object sender, EventArgs e)
         {
-            RaiseOnStartMeasuring(this._iStage);
+            RaiseOnStartMeasuring(this._iStage, chkVerbose.Checked);
         }
 
         private void btnMeasureStop_Click(object sender, EventArgs e)
