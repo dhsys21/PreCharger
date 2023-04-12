@@ -48,6 +48,15 @@ namespace PreCharger
                 OnStartMeasuring(stageno);
             }
         }
+        public delegate void delegateReport_ResetKeysight(int stageno);
+        public event delegateReport_ResetKeysight OnResetKeysight = null;
+        protected void RaiseOnResetKeysight(int stageno)
+        {
+            if (OnResetKeysight != null)
+            {
+                OnResetKeysight(stageno);
+            }
+        }
         #endregion
 
         private static FormMeasureInfo measureinfoForm = new FormMeasureInfo();
@@ -319,6 +328,11 @@ namespace PreCharger
         private void btnMeasureStop_Click(object sender, EventArgs e)
         {
             _EQProcess.StopMeasuring(this._iStage);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            RaiseOnResetKeysight(this._iStage);
         }
     }
 

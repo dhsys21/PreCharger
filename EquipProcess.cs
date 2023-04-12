@@ -239,10 +239,12 @@ namespace PreCharger
                 _deviceClearCount[nIndex] = 0;
             }
 
+            //* MeasureInfo Form 정의
             measureinfo = FormMeasureInfo.GetInstance();
             measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
             measureinfo.OnStartDischarging += _MeasureInfoForm_OnStartDischarging;
             measureinfo.OnStartMeasuring += _MeasureInfoForm_OnStartMeasuring;
+            measureinfo.OnResetKeysight += _MeasureInfoForm_OnResetKeysight;
 
             //measureinfo = new FormMeasureInfo();
 
@@ -461,6 +463,12 @@ namespace PreCharger
         #endregion
 
         #region PreCharger Command
+        public void ResetKeysight(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+
+            PRECHARGER[nStage].Reset();
+        }
         public async void StartCharging(object stageno)
         {
             int nStage = Convert.ToInt16(stageno.ToString());
@@ -692,6 +700,10 @@ namespace PreCharger
         private void _MeasureInfoForm_OnStartMeasuring(int stageno)
         {
             Task.Factory.StartNew(new Action<object>(StartMeasuring), (object)stageno);
+        }
+        private void _MeasureInfoForm_OnResetKeysight(int stageno)
+        {
+            Task.Factory.StartNew(new Action<object>(ResetKeysight), (object)stageno);
         }
         #endregion
 

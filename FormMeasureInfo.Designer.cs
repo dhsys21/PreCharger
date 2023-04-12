@@ -72,6 +72,7 @@
             this.btnMeasureStart = new System.Windows.Forms.Button();
             this.btnMeasureStop = new System.Windows.Forms.Button();
             this.chkVerbose = new System.Windows.Forms.CheckBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -380,7 +381,7 @@
             // 
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(1227, 864);
+            this.groupBox1.Location = new System.Drawing.Point(1317, 1113);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -456,6 +457,7 @@
             // 
             // gbManualMode
             // 
+            this.gbManualMode.Controls.Add(this.btnReset);
             this.gbManualMode.Controls.Add(this.chkVerbose);
             this.gbManualMode.Controls.Add(this.groupBox6);
             this.gbManualMode.Controls.Add(this.groupBox5);
@@ -466,7 +468,7 @@
             this.gbManualMode.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
             this.gbManualMode.Name = "gbManualMode";
             this.gbManualMode.Padding = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.gbManualMode.Size = new System.Drawing.Size(256, 745);
+            this.gbManualMode.Size = new System.Drawing.Size(256, 920);
             this.gbManualMode.TabIndex = 43;
             this.gbManualMode.TabStop = false;
             this.gbManualMode.Text = "Manual Mode";
@@ -616,6 +618,17 @@
             this.chkVerbose.Text = "Verbose";
             this.chkVerbose.UseVisualStyleBackColor = true;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(71, 799);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(114, 75);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // FormMeasureInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -694,5 +707,6 @@
         private System.Windows.Forms.Button btnMeasureStart;
         private System.Windows.Forms.Button btnMeasureStop;
         private System.Windows.Forms.CheckBox chkVerbose;
+        private System.Windows.Forms.Button btnReset;
     }
 }

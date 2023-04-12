@@ -382,6 +382,17 @@ namespace PreCharger
             }
             return false;
         }
+        public void Reset()
+        {
+            try
+            {
+                runRST();
+            }
+            catch(Exception ex)
+            {
+                util.SaveLog(STAGENO, "RESET Error : " + ex.ToString());
+            }
+        }
         #endregion
 
         #region Step Definition
