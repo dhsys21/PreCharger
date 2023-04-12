@@ -567,7 +567,8 @@ namespace PreCharger
                 if (logCount > 0)
                 {
                     GgDataLogNamespace.GgBinData oDataLogQuery = PRECHARGER[stageno].GetDataLog();
-                    PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
+                    if(oDataLogQuery != null)
+                        PRECHARGERDATA[stageno].SetDataLog(oDataLogQuery);
 
                     measureinfo.DisplayChannelInfo(stageno, PRECHARGERDATA[stageno]);
                 }
