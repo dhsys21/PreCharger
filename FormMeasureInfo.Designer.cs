@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pBase = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.tbTime = new System.Windows.Forms.TextBox();
@@ -59,25 +59,29 @@
             this.btnRunStart = new System.Windows.Forms.Button();
             this.btnRunStop = new System.Windows.Forms.Button();
             this.gbManualMode = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnDischargingStart = new System.Windows.Forms.Button();
+            this.btnDischargingStop = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnInit = new System.Windows.Forms.Button();
             this.lblTestTime = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnDischargingStart = new System.Windows.Forms.Button();
-            this.btnDischargingStop = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnMeasureStart = new System.Windows.Forms.Button();
+            this.btnMeasureStop = new System.Windows.Forms.Button();
             this.pBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbManualMode.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pBase
@@ -95,27 +99,27 @@
             // gridView
             // 
             this.gridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridView.BackgroundColor = System.Drawing.Color.White;
             this.gridView.ColumnHeadersHeight = 29;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(2, 2);
             this.gridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.gridView.RowTemplate.Height = 23;
             this.gridView.Size = new System.Drawing.Size(1194, 1014);
             this.gridView.TabIndex = 0;
@@ -451,6 +455,7 @@
             // 
             // gbManualMode
             // 
+            this.gbManualMode.Controls.Add(this.groupBox6);
             this.gbManualMode.Controls.Add(this.groupBox5);
             this.gbManualMode.Controls.Add(this.groupBox3);
             this.gbManualMode.Controls.Add(this.groupBox2);
@@ -463,6 +468,61 @@
             this.gbManualMode.TabIndex = 43;
             this.gbManualMode.TabStop = false;
             this.gbManualMode.Text = "Manual Mode";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnDischargingStart);
+            this.groupBox5.Controls.Add(this.btnDischargingStop);
+            this.groupBox5.Location = new System.Drawing.Point(7, 366);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(241, 138);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Discharging";
+            // 
+            // btnDischargingStart
+            // 
+            this.btnDischargingStart.Location = new System.Drawing.Point(3, 46);
+            this.btnDischargingStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDischargingStart.Name = "btnDischargingStart";
+            this.btnDischargingStart.Size = new System.Drawing.Size(114, 75);
+            this.btnDischargingStart.TabIndex = 1;
+            this.btnDischargingStart.Text = "START";
+            this.btnDischargingStart.UseVisualStyleBackColor = true;
+            this.btnDischargingStart.Click += new System.EventHandler(this.btnDischargingStart_Click);
+            // 
+            // btnDischargingStop
+            // 
+            this.btnDischargingStop.Location = new System.Drawing.Point(124, 46);
+            this.btnDischargingStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDischargingStop.Name = "btnDischargingStop";
+            this.btnDischargingStop.Size = new System.Drawing.Size(114, 75);
+            this.btnDischargingStop.TabIndex = 2;
+            this.btnDischargingStop.Text = "STOP";
+            this.btnDischargingStop.UseVisualStyleBackColor = true;
+            this.btnDischargingStop.Click += new System.EventHandler(this.btnDischargingStop_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnRunStart);
+            this.groupBox3.Controls.Add(this.btnRunStop);
+            this.groupBox3.Location = new System.Drawing.Point(7, 206);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(241, 138);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Charging";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnProbeOpen);
+            this.groupBox2.Controls.Add(this.btnProbeClose);
+            this.groupBox2.Location = new System.Drawing.Point(7, 46);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(241, 136);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PROBE";
             // 
             // btnInit
             // 
@@ -509,60 +569,37 @@
             this.label14.Text = "Charging Time :";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox2
+            // groupBox6
             // 
-            this.groupBox2.Controls.Add(this.btnProbeOpen);
-            this.groupBox2.Controls.Add(this.btnProbeClose);
-            this.groupBox2.Location = new System.Drawing.Point(7, 46);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(241, 136);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "PROBE";
+            this.groupBox6.Controls.Add(this.btnMeasureStart);
+            this.groupBox6.Controls.Add(this.btnMeasureStop);
+            this.groupBox6.Location = new System.Drawing.Point(7, 523);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(241, 138);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Measuring";
             // 
-            // groupBox3
+            // btnMeasureStart
             // 
-            this.groupBox3.Controls.Add(this.btnRunStart);
-            this.groupBox3.Controls.Add(this.btnRunStop);
-            this.groupBox3.Location = new System.Drawing.Point(7, 206);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(241, 138);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Charging";
+            this.btnMeasureStart.Location = new System.Drawing.Point(3, 46);
+            this.btnMeasureStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMeasureStart.Name = "btnMeasureStart";
+            this.btnMeasureStart.Size = new System.Drawing.Size(114, 75);
+            this.btnMeasureStart.TabIndex = 1;
+            this.btnMeasureStart.Text = "START";
+            this.btnMeasureStart.UseVisualStyleBackColor = true;
+            this.btnMeasureStart.Click += new System.EventHandler(this.btnMeasureStart_Click);
             // 
-            // groupBox5
+            // btnMeasureStop
             // 
-            this.groupBox5.Controls.Add(this.btnDischargingStart);
-            this.groupBox5.Controls.Add(this.btnDischargingStop);
-            this.groupBox5.Location = new System.Drawing.Point(7, 366);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(241, 138);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Discharging";
-            // 
-            // btnDischargingStart
-            // 
-            this.btnDischargingStart.Location = new System.Drawing.Point(3, 46);
-            this.btnDischargingStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDischargingStart.Name = "btnDischargingStart";
-            this.btnDischargingStart.Size = new System.Drawing.Size(114, 75);
-            this.btnDischargingStart.TabIndex = 1;
-            this.btnDischargingStart.Text = "START";
-            this.btnDischargingStart.UseVisualStyleBackColor = true;
-            this.btnDischargingStart.Click += new System.EventHandler(this.btnDischargingStart_Click);
-            // 
-            // btnDischargingStop
-            // 
-            this.btnDischargingStop.Location = new System.Drawing.Point(124, 46);
-            this.btnDischargingStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDischargingStop.Name = "btnDischargingStop";
-            this.btnDischargingStop.Size = new System.Drawing.Size(114, 75);
-            this.btnDischargingStop.TabIndex = 2;
-            this.btnDischargingStop.Text = "STOP";
-            this.btnDischargingStop.UseVisualStyleBackColor = true;
-            this.btnDischargingStop.Click += new System.EventHandler(this.btnDischargingStop_Click);
+            this.btnMeasureStop.Location = new System.Drawing.Point(124, 46);
+            this.btnMeasureStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMeasureStop.Name = "btnMeasureStop";
+            this.btnMeasureStop.Size = new System.Drawing.Size(114, 75);
+            this.btnMeasureStop.TabIndex = 2;
+            this.btnMeasureStop.Text = "STOP";
+            this.btnMeasureStop.UseVisualStyleBackColor = true;
             // 
             // FormMeasureInfo
             // 
@@ -589,10 +626,11 @@
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.gbManualMode.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -636,5 +674,8 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnDischargingStart;
         private System.Windows.Forms.Button btnDischargingStop;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnMeasureStart;
+        private System.Windows.Forms.Button btnMeasureStop;
     }
 }

@@ -349,7 +349,7 @@ namespace PreCharger
 
 		private void gridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			int rowIndex, colIndex, tag;
+			int tag;
 			try
             {
 				if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -496,11 +496,6 @@ namespace PreCharger
 			/// init formtotal panel, measureinfoform
 			//BaseForm.frmMain.InitDisplayInfo(this.stage);
 			EquipProcess.equipprocess.InitDisplayInfo(this.stage);
-		}
-
-		public void CmdSet()
-        {
-			_EQProcess.SetPrecharger(this.stage, tbVoltage.Text, tbCurrent.Text, tbTime.Text);
 		}
         #endregion
 

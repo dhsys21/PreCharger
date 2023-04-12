@@ -185,7 +185,6 @@ namespace PreCharger
             _system = CEquipmentData.GetInstance();
 
             #region TotalForm, MeasureInfoForm
-            string config_fn;
             string HOST;
             int PORT;
             for (int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
@@ -241,6 +240,7 @@ namespace PreCharger
             measureinfo = FormMeasureInfo.GetInstance();
             measureinfo.OnStartCharging += _MeasureInfoForm_OnStartCharging;
             measureinfo.OnStartDischarging += _MeasureInfoForm_OnStartDischarging;
+            measureinfo.OnStartMeasuring += _MeasureInfoForm_OnStartMeasuring;
 
             //measureinfo = new FormMeasureInfo();
 
@@ -459,13 +459,6 @@ namespace PreCharger
         #endregion
 
         #region PreCharger Command
-        public void SetPrecharger(int stageno, string sVolt, string sCurr, string sTime)
-        {
-            _PreChargerData[stageno].SETVOLTAGE = sVolt;
-            _PreChargerData[stageno].SETCURRENT = sCurr;
-            _PreChargerData[stageno].SETTIME = sTime;
-            _PreChargerData[stageno].SetParms();
-        }
         public async void StartCharging(object stageno)
         {
             int nStage = Convert.ToInt16(stageno.ToString());
@@ -532,6 +525,21 @@ namespace PreCharger
                 Console.WriteLine(ex.ToString());
             }
         }
+        public async void StartMeasuring(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            try
+            {
+                isRead = true;
+                //measureinfo = new FormMeasureInfo();
+                GetMeasureInfoWhile(nStage);
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(nStage, "StartPrecharging error => " + ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+        }
         bool isRead = false;
         private async void GetDateLogWhile(int stageno)
         {
@@ -559,6 +567,24 @@ namespace PreCharger
                 }
 
                 await Task.Delay(100);
+            }
+        }
+        private async void GetMeasureInfoWhile(int stageno)
+        {
+            while (isRead)
+            {
+                dtCharging[stageno] = DateTime.Now;
+                tsChargingTime[stageno] = (dtCharging[stageno] - dtChargingStart[stageno]).Duration();
+
+                double[] voltages = PRECHARGER[stageno].GetVoltage();
+                PRECHARGERDATA[stageno].SetVoltages(voltages);
+                await Task.Delay(100);
+
+                double[] currents = PRECHARGER[stageno].GetCurrent();
+                PRECHARGERDATA[stageno].SetCurrents(currents);
+                await Task.Delay(100);
+
+                measureinfo.DisplayChannelInfo(stageno, PRECHARGERDATA[stageno]);
             }
         }
         public void StopCharging(int stageno)
@@ -648,6 +674,10 @@ namespace PreCharger
             //StartCharging(stageno);
             //* Task 사용
             Task.Factory.StartNew(new Action<object>(StartDischarging), (object)stageno);
+        }
+        private void _MeasureInfoForm_OnStartMeasuring(int stageno)
+        {
+            Task.Factory.StartNew(new Action<object>(StartMeasuring), (object)stageno);
         }
         #endregion
 

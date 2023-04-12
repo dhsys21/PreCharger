@@ -357,7 +357,21 @@ namespace PreCharger
                 _sVolt[cIndex] = (oDataLogQuery.VSense[cIndex] * 1000.0).ToString("F2");
             }
         }
-        
+        public void SetVoltages(double[] voltages)
+        {
+            for(int cIndex = 0; cIndex < 256; cIndex++)
+            {
+                _sVolt[cIndex] = (voltages[cIndex] * 1000.0).ToString("F1");
+            }
+        }
+        public void SetCurrents(double[] currents)
+        {
+            for (int cIndex = 0; cIndex < 256; cIndex++)
+            {
+                _sCurr[cIndex] = (currents[cIndex] * 1000.0).ToString("F2");
+            }
+        }
+
         public void SetStatusData(string sData)
         {
             string param = "";
@@ -395,9 +409,9 @@ namespace PreCharger
             param = param.Remove(0, 19);
 
             int index = 0, mapping_index = 0;
-            string code = "", tmpStr = "", msg = "";
+            string code = "", tmpStr = "";
             int ivolt = 0, icurr = 0, icapa = 0;
-            double dVolt, dVCrr, dCapa;
+            double dVolt;
             int iLength = param.Length - 10;
             int cnt = 1;
             while (iLength > cnt)
@@ -431,7 +445,7 @@ namespace PreCharger
         public void SetResultData(int stageno, CPrechargerData CPreData)
         {
             int pos = 0;
-            double dTempVolt = 0.0, dTempCurr = 0.0;
+            double dTempCurr = 0.0;
 
             for (int nIndex = 0; nIndex < 256; nIndex++)
             {

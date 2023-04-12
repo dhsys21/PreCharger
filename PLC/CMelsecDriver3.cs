@@ -268,7 +268,6 @@ namespace PreCharger.Common
         public void ReadWord(int iAddress, int iSize, out ushort[] asValue)
         {
             string sAddr;
-            string sOutMsg = "";
             ushort[] asValues = new ushort[1];
             //asValue[0] = asValues[0];
             asValue = asValues;
@@ -279,7 +278,6 @@ namespace PreCharger.Common
         public void ReadWord(int iAddress, out ushort asValue)
         {
             string sAddr;
-            string sOutMsg = "";
             int iSize = 1;
             ushort[] asValues = new ushort[1];
             asValue = 0;
@@ -294,7 +292,6 @@ namespace PreCharger.Common
         {
             bValue = false;
             string sAddr;
-            string sOutMsg = "";
             int iSize = 1;
             ushort[] asValue = new ushort[1];
 
@@ -308,7 +305,6 @@ namespace PreCharger.Common
         {
             StringBuilder sb = new StringBuilder();
             string sAddr;
-            string sOutMsg = "";
             strValue = "";
 
             int iMemoryLength = (iSize + 1) / 2;
@@ -335,7 +331,6 @@ namespace PreCharger.Common
         {
             try
             {
-                string sMsg = "";
                 string sAddr;
                 string sWrites = iData.ToString();
                 string[] sWrite = new string[1];
@@ -364,7 +359,6 @@ namespace PreCharger.Common
         {
             try
             {
-                string sMsg = "";
                 string sAddr;
                 bool[] abb = new bool[1];
                 abb[0] = bValue;

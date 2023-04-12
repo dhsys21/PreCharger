@@ -225,16 +225,12 @@ namespace PreCharger
 
         public void ReadMaxConfigFile()
         {
-            int nValue = 0;
-            bool bValue = false;
-
             string filename1 = _Constant.BIN_PATH + "MainSystemInfo.inf";
 
             //* Max Value
             _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "VOLTAGE"), 4200);
             _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "CURRENT"), 1600);
             _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "TIME"), 300);
-
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e)

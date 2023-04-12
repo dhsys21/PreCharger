@@ -523,7 +523,6 @@ namespace PreCharger.Common
         {
             try
             {
-                string sMsg = "";
                 string sAddr;
                 bool[] abb = new bool[1];
                 abb[0] = bValue;

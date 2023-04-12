@@ -387,8 +387,6 @@ namespace PreCharger
         #region Step Definition
         public async Task<bool> CheckStepChargeDef()
         {
-            bool bPrecharge = false;
-            bool bCharge = false;
             //* Precharge sequence -> 1, step -> 1
             //* Charge sequence -> 1, step -> 2
             string[] def_precharge = GetStepDefinition("1", "1");
@@ -396,14 +394,13 @@ namespace PreCharger
             string[] def_charge = GetStepDefinition("1", "2");
             await Task.Delay(500);
 
-            if (CheckPrecharge2Def(def_precharge) == true && CheckChargeDef(def_charge) == true)
+            if (CheckPrechargeDef(def_precharge) == true && CheckChargeDef(def_charge) == true)
                 return true;
 
             return false;
         }
         public async Task<bool> CheckStepDischargeDef()
         {
-            bool bDischarge = false;
             //* Discharge sequence -> 1, step -> 1
             string[] def_discharge = GetStepDefinition("1", "1");
             await Task.Delay(500);
@@ -475,7 +472,7 @@ namespace PreCharger
             await Task.Delay(100);
             setDEFQuick();
             await Task.Delay(100);
-            SetStepChargeDef("PRECHARGE2", "1", _preTime, _preCurrent, _preVoltage);
+            SetStepChargeDef("PRECHARGE", "1", _preTime, _preCurrent, _preVoltage);
             await Task.Delay(200);
             SetStepChargeDef("CHARGE", "2", _time, _current, _voltage);
             await Task.Delay(200);
@@ -658,7 +655,6 @@ namespace PreCharger
 
             CMD = "DATA:LOG?";
             string cmdResponse = string.Empty;
-            byte[] ResultsArray = null;
             try
             {
                 sendSCPI(CMD);
@@ -733,31 +729,68 @@ namespace PreCharger
             {
                 util.SaveLog(STAGENO, "GetCellReport Error. : " + ex.ToString());
             }
-
         }
-        public string[] GetVoltage()
+        public async void GetMeas2()
+        {
+            string[] cmdResponse;
+            string strString = string.Empty;
+            try
+            {
+                CMD = "MEAS:VOLT? 0000";
+                util.SaveLog(STAGENO, "Send> " + CMD);
+                GG.WriteLine(CMD);
+                cmdResponse = GG.ReadLine().Split(',');
+                for (int i = 0; i < cmdResponse.Length; i++)
+                    strString += i.ToString("D3") + "-" + cmdResponse[i];
+                util.SaveLog(STAGENO, "Recv> " + strString);
+                await Task.Delay(100);
+
+                CMD = "MEAS:CURR? 0000";
+                util.SaveLog(STAGENO, "Send> " + CMD);
+                GG.WriteLine(CMD);
+                cmdResponse = GG.ReadLine().Split(',');
+                for (int i = 0; i < cmdResponse.Length; i++)
+                    strString += i.ToString("D3") + "-" + cmdResponse[i];
+                util.SaveLog(STAGENO, "Recv> " + strString);
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(STAGENO, "GetCellReport Error. : " + ex.ToString());
+            }
+        }
+        public double[] GetVoltage()
         {
             //Voltage
             string strString = string.Empty;
             CMD = "MEAS:VOLT? 0000";
             string[] results = RunCommand(CMD).Split(',');
+            double[] voltages = new double[results.Length];
             
             for (int i = 0; i < results.Length; i++)
-                strString += (i+1).ToString("D3") + "-" + results[i] + "\t";
+            {
+                strString += (i + 1).ToString("D3") + "-" + results[i] + "\t";
+                voltages[i] = Convert.ToDouble(results[i]);
+            }
+                
             util.SaveLog(STAGENO, "Recv> " + strString);
-            return results;
+            return voltages;
         }
-        public string[] GetCurrent()
+        public double[] GetCurrent()
         {
             //Current
             string strString = string.Empty;
             CMD = "MEAS:CURR? 0000";
             string[] results = RunCommand(CMD).Split(',');
+            double[] currents = new double[results.Length];
             
             for (int i = 0; i < results.Length; i++)
+            {
                 strString += (i + 1).ToString("D3") + "-" + results[i] + "\t";
+                currents[i] = Convert.ToDouble(results[i]);
+            }
+                
             util.SaveLog(STAGENO, "Recv> " + strString);
-            return results;
+            return currents;
         }
         #endregion
 

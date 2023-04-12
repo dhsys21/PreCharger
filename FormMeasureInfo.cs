@@ -38,6 +38,15 @@ namespace PreCharger
                 OnStartDischarging(stageno);
             }
         }
+        public delegate void delegateReport_StartMeasuring(int stageno);
+        public event delegateReport_StartMeasuring OnStartMeasuring = null;
+        protected void RaiseOnStartMeasuring(int stageno)
+        {
+            if (OnStartMeasuring != null)
+            {
+                OnStartMeasuring(stageno);
+            }
+        }
         #endregion
 
         private static FormMeasureInfo measureinfoForm = new FormMeasureInfo();
@@ -299,6 +308,11 @@ namespace PreCharger
             _EQProcess.StopCharging(this._iStage);
             // BaseForm.frmMain.RunPreChargerCmd("AMF", this._iStage);
             RunProbeOpen();
+        }
+
+        private void btnMeasureStart_Click(object sender, EventArgs e)
+        {
+            RaiseOnStartMeasuring(this._iStage);
         }
     }
 
