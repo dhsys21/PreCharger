@@ -44,7 +44,7 @@ namespace PreCharger
 
             util.saveConfig(filename1, "PRECHARGE", "VOLTAGE", tbPreVoltage.Text);
             util.saveConfig(filename1, "PRECHARGE", "CURRENT", tbPreCurrent.Text);
-            util.saveConfig(filename1, "PRECHARGE ", "TIME", tbPreTime.Text);
+            util.saveConfig(filename1, "PRECHARGE", "TIME", tbPreTime.Text);
 
             util.saveConfig(filename1, "MAX_CONDITION", "VOLTAGE", tbMaxVoltage.Text);
             util.saveConfig(filename1, "MAX_CONDITION", "CURRENT", tbMaxCurrent.Text);
@@ -196,9 +196,9 @@ namespace PreCharger
         public void SaveChargingConfigFile()
         {
             string filename1 = _Constant.BIN_PATH + "MainSystemInfo.inf";
-            util.saveConfig(filename1, "CONDITION", "1", tbMaxVoltage.Text);
-            util.saveConfig(filename1, "CONDITION", "2", tbMaxCurrent.Text);
-            util.saveConfig(filename1, "CONDITION", "3", tbMaxTime.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "VOLTAGE", tbMaxVoltage.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "CURRENT", tbMaxCurrent.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "TIME", tbMaxTime.Text);
         }
 
         public void ReadChargingConfigFile()
@@ -206,9 +206,9 @@ namespace PreCharger
             string filename1 = _Constant.BIN_PATH + "MainSystemInfo.inf";
 
             //* Max Value
-            _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "volt"), 4200);
-            _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "curr"), 1600);
-            _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "time"), 180);
+            _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "VOLTAGE"), 4200);
+            _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "CURRENT"), 1600);
+            _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "TIME"), 180);
             
             tbMaxVoltage.Text = _system.IMaxVoltage.ToString();
             tbMaxCurrent.Text = _system.IMaxCurrent.ToString();
@@ -218,9 +218,9 @@ namespace PreCharger
         public void SaveMaxConfigFile()
         {
             string filename1 = _Constant.BIN_PATH + "MainSystemInfo.inf";
-            util.saveConfig(filename1, "MAX_CONDITION", "volt", tbMaxVoltage.Text);
-            util.saveConfig(filename1, "MAX_CONDITION", "curr", tbMaxCurrent.Text);
-            util.saveConfig(filename1, "MAX_CONDITION", "time", tbMaxTime.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "VOLTAGE", tbMaxVoltage.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "CURRENT", tbMaxCurrent.Text);
+            util.saveConfig(filename1, "MAX_CONDITION", "TIME", tbMaxTime.Text);
         }
 
         public void ReadMaxConfigFile()
@@ -231,9 +231,9 @@ namespace PreCharger
             string filename1 = _Constant.BIN_PATH + "MainSystemInfo.inf";
 
             //* Max Value
-            _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "volt"), 4200);
-            _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "curr"), 1600);
-            _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "time"), 300);
+            _system.IMaxVoltage = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "VOLTAGE"), 4200);
+            _system.IMaxCurrent = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "CURRENT"), 1600);
+            _system.IMaxTime = util.TryParseInt(util.readConfig(filename1, "MAX_CONDITION", "TIME"), 300);
 
         }
 
