@@ -673,10 +673,10 @@ namespace PreCharger
                         strString += (oDataLogQuery[i].IMon[cIndex] * 1000.0).ToString("F1") + "-";
                         strString += (oDataLogQuery[i].VSense[cIndex] * 1000.0).ToString("F2") + "-";
                         strString += (oDataLogQuery[i].VLocal[cIndex] * 1000.0).ToString("F2") + "-";
-                        //strString += oDataLogQuery[i].Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir1[cIndex] + "-";
-                        strString += oDataLogQuery[i].Dcir1[cIndex].ToString("F1") + "-";
-                        //strString += oDataLogQuery[i].Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir2[cIndex] + "-";
-                        strString += oDataLogQuery[i].Dcir2[cIndex].ToString("F1") + "-";
+                        strString += oDataLogQuery[i].Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir1[cIndex] + "-";
+                        //strString += oDataLogQuery[i].Dcir1[cIndex].ToString("F1") + "-";
+                        strString += oDataLogQuery[i].Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir2[cIndex] + "-";
+                        //strString += oDataLogQuery[i].Dcir2[cIndex].ToString("F1") + "-";
                         strString += oDataLogQuery[i].SequenceState[cIndex] + "\t";
                     }
                     util.SaveLog(STAGENO, strString);
