@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pBase = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.tbTime = new System.Windows.Forms.TextBox();
@@ -99,27 +99,27 @@
             // gridView
             // 
             this.gridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.gridView.BackgroundColor = System.Drawing.Color.White;
             this.gridView.ColumnHeadersHeight = 29;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(2, 2);
             this.gridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.gridView.RowTemplate.Height = 23;
             this.gridView.Size = new System.Drawing.Size(1194, 1014);
             this.gridView.TabIndex = 0;
@@ -600,6 +600,7 @@
             this.btnMeasureStop.TabIndex = 2;
             this.btnMeasureStop.Text = "STOP";
             this.btnMeasureStop.UseVisualStyleBackColor = true;
+            this.btnMeasureStop.Click += new System.EventHandler(this.btnMeasureStop_Click);
             // 
             // FormMeasureInfo
             // 

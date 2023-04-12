@@ -593,6 +593,11 @@ namespace PreCharger
             isRead = false;
             //_tmrGetDataLog[stageno].Enabled = false;
         }
+        public void StopMeasuring(int stageno)
+        {
+            isRead = false;
+            util.SaveLog(stageno, "Stop Measuring...");
+        }
 
         private void _tmrGetDataLog_Tick(object sender, EventArgs e)
         {

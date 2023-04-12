@@ -19,7 +19,8 @@ namespace PreCharger
         Util util;
         private EquipProcess _EQProcess = null;
 
-        #region Delegate
+        #region Delegate - EquipProcess 에서 사용
+        
         public delegate void delegateReport_StartCharging(int stageno);
         public event delegateReport_StartCharging OnStartCharging = null;
         protected void RaiseOnStartCharging(int stageno)
@@ -313,6 +314,11 @@ namespace PreCharger
         private void btnMeasureStart_Click(object sender, EventArgs e)
         {
             RaiseOnStartMeasuring(this._iStage);
+        }
+
+        private void btnMeasureStop_Click(object sender, EventArgs e)
+        {
+            _EQProcess.StopMeasuring(this._iStage);
         }
     }
 
