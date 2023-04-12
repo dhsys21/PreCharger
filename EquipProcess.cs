@@ -525,7 +525,7 @@ namespace PreCharger
                 Console.WriteLine(ex.ToString());
             }
         }
-        public async void StartMeasuring(object stageno)
+        public void StartMeasuring(object stageno)
         {
             int nStage = Convert.ToInt16(stageno.ToString());
             try
