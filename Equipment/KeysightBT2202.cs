@@ -396,7 +396,7 @@ namespace PreCharger
             string[] def_charge = GetStepDefinition("1", "2");
             await Task.Delay(500);
 
-            if (CheckPrechargeDef(def_precharge) == true && CheckChargeDef(def_charge) == true)
+            if (CheckPrecharge2Def(def_precharge) == true && CheckChargeDef(def_charge) == true)
                 return true;
 
             return false;
@@ -416,6 +416,14 @@ namespace PreCharger
         public bool CheckPrechargeDef(string[] def_values)
         {
             if (def_values[0] == "PRECHARGE" && Convert.ToDouble(def_values[1]) == PRETIME
+                && Convert.ToDouble(def_values[2]) == PRECURRENT && Convert.ToDouble(def_values[3]) == PREVOLTAGE)
+                return true;
+
+            return false;
+        }
+        public bool CheckPrecharge2Def(string[] def_values)
+        {
+            if (def_values[0] == "PRECHARGE2" && Convert.ToDouble(def_values[1]) == PRETIME
                 && Convert.ToDouble(def_values[2]) == PRECURRENT && Convert.ToDouble(def_values[3]) == PREVOLTAGE)
                 return true;
 
@@ -467,7 +475,7 @@ namespace PreCharger
             await Task.Delay(100);
             setDEFQuick();
             await Task.Delay(100);
-            SetStepChargeDef("PRECHARGE", "1", _preTime, _preCurrent, _preVoltage);
+            SetStepChargeDef("PRECHARGE2", "1", _preTime, _preCurrent, _preVoltage);
             await Task.Delay(200);
             SetStepChargeDef("CHARGE", "2", _time, _current, _voltage);
             await Task.Delay(200);
