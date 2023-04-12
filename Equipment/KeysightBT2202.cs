@@ -670,11 +670,13 @@ namespace PreCharger
                         //strString += (cIndex + 1).ToString("D3") + "-";
                         strString += oDataLogQuery[i].CellId[cIndex] + "-";
                         //strString += oDataLogQuery[i].TimeStamp + "-";
-                        strString += (oDataLogQuery[i].IMon[cIndex] * 1000.0).ToString("F3") + "-";
-                        strString += (oDataLogQuery[i].VSense[cIndex] * 1000.0).ToString("F5") + "-";
-                        strString += (oDataLogQuery[i].VLocal[cIndex] * 1000.0).ToString("F5") + "-";
-                        strString += oDataLogQuery[i].Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir1[cIndex] + "-";
-                        strString += oDataLogQuery[i].Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir2[cIndex] + "-";
+                        strString += (oDataLogQuery[i].IMon[cIndex] * 1000.0).ToString("F1") + "-";
+                        strString += (oDataLogQuery[i].VSense[cIndex] * 1000.0).ToString("F2") + "-";
+                        strString += (oDataLogQuery[i].VLocal[cIndex] * 1000.0).ToString("F2") + "-";
+                        //strString += oDataLogQuery[i].Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir1[cIndex] + "-";
+                        strString += oDataLogQuery[i].Dcir1[cIndex].ToString("F1") + "-";
+                        //strString += oDataLogQuery[i].Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery[i].Dcir2[cIndex] + "-";
+                        strString += oDataLogQuery[i].Dcir2[cIndex].ToString("F1") + "-";
                         strString += oDataLogQuery[i].SequenceState[cIndex] + "\t";
                     }
                     util.SaveLog(STAGENO, strString);
@@ -768,8 +770,8 @@ namespace PreCharger
             
             for (int i = 0; i < results.Length; i++)
             {
-                strString += (i + 1).ToString("D3") + "-" + results[i] + "\t";
                 voltages[i] = Convert.ToDouble(results[i]);
+                strString += (i + 1).ToString("D3") + "-" + voltages[i].ToString("F2") + "\t";
             }
                 
             util.SaveLog(STAGENO, "Recv> " + strString);
@@ -785,8 +787,8 @@ namespace PreCharger
             
             for (int i = 0; i < results.Length; i++)
             {
-                strString += (i + 1).ToString("D3") + "-" + results[i] + "\t";
                 currents[i] = Convert.ToDouble(results[i]);
+                strString += (i + 1).ToString("D3") + "-" + currents[i].ToString("F1") + "\t";
             }
                 
             util.SaveLog(STAGENO, "Recv> " + strString);
