@@ -104,7 +104,16 @@ namespace PreCharger
 
         public void SetResult(string results)
         {
-            tbMsg.Text += results;
+            if (tbMsg.InvokeRequired)
+            {
+                // 작업쓰레드인 경우
+                tbMsg.BeginInvoke(new Action(() => tbMsg.AppendText(results + Environment.NewLine + Environment.NewLine)));
+            }
+            else
+            {
+                // UI 쓰레드인 경우
+                tbMsg.AppendText(results + Environment.NewLine + Environment.NewLine);
+            }
         }
 
         

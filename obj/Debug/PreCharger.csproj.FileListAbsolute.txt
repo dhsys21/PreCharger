@@ -556,3 +556,4 @@ D:\Project\Keysight\git_dhsys21\PreCharger\bin\Debug\DevExpress.XtraEditors.v22.
 D:\Project\Keysight\git_dhsys21\PreCharger\bin\Debug\DevExpress.Pdf.v22.2.Core.xml
 D:\Project\Keysight\git_dhsys21\PreCharger\bin\Debug\DevExpress.Pdf.v22.2.Drawing.xml
 D:\Project\Keysight\git_dhsys21\PreCharger\obj\Debug\PreCharger.KeysightForm.resources
+C:\Users\DHS_2\source\repos\PreCharger3\obj\Debug\PreCharger.KeysightForm.resources

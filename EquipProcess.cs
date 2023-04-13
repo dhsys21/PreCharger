@@ -466,8 +466,15 @@ namespace PreCharger
         public string SendCommand(object stageno, string CMD)
         {
             int nStage = Convert.ToInt16(stageno.ToString());
-
-            string cmdResponse = PRECHARGER[nStage].RunCommand(CMD);
+            string cmdResponse = string.Empty;
+            try
+            {
+                cmdResponse = PRECHARGER[nStage].RunCommand(CMD);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
             return cmdResponse;
         }
         public void ResetKeysight(object stageno)

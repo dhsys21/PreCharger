@@ -219,7 +219,9 @@ namespace PreCharger
         }
         private void KeysightSendCommand(int stageno, string command)
         {
-            string cmdResponse = _EQProcess.SendCommand(stageno, command);
+            string cmdResponse = string.Empty;
+            cmdResponse = _EQProcess.SendCommand(stageno, command);
+            Task.Delay(300);
             keysightForm.SetResult(cmdResponse);
         }
         #endregion
