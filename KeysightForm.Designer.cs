@@ -271,6 +271,7 @@ namespace PreCharger
             this.btnSendCommand.TabIndex = 19;
             this.btnSendCommand.Text = "SEND";
             this.btnSendCommand.UseVisualStyleBackColor = true;
+            this.btnSendCommand.Click += new System.EventHandler(this.btnSendCommand_Click);
             // 
             // lblCmd21
             // 
@@ -524,7 +525,7 @@ namespace PreCharger
             this.cbKeysigt.Name = "cbKeysigt";
             this.cbKeysigt.Size = new System.Drawing.Size(231, 28);
             this.cbKeysigt.TabIndex = 4;
-            this.cbKeysigt.Text = "KEYSIGHT 001";
+            this.cbKeysigt.Text = "Select Keysight";
             // 
             // label4
             // 
@@ -832,7 +833,7 @@ namespace PreCharger
             this.tabPage3.Text = "SELECT MODULE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // KeysightFrom
+            // KeysightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -840,7 +841,7 @@ namespace PreCharger
             this.Controls.Add(this.tabSetting);
             this.Controls.Add(this.gbCommands);
             this.Controls.Add(this.tbMsg);
-            this.Name = "KeysightFrom";
+            this.Name = "KeysightForm";
             this.Text = "KEYSIGHT COMMAND";
             this.gbCommands.ResumeLayout(false);
             this.gbCommands.PerformLayout();

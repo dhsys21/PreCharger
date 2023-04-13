@@ -463,6 +463,13 @@ namespace PreCharger
         #endregion
 
         #region PreCharger Command
+        public string SendCommand(object stageno, string CMD)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+
+            string cmdResponse = PRECHARGER[nStage].RunCommand(CMD);
+            return cmdResponse;
+        }
         public void ResetKeysight(object stageno)
         {
             int nStage = Convert.ToInt16(stageno.ToString());

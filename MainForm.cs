@@ -54,7 +54,7 @@ namespace PreCharger
             frmMain = this;
             util = new Util();
             plcForm = PLCForm.GetInstance();
-            configForm = new ConfigForm();
+            
             keysightForm = new KeysightForm();
             _System = CEquipmentData.GetInstance();
 
@@ -62,7 +62,12 @@ namespace PreCharger
             StatusTimer1.Interval = 1000;
             StatusTimer1.Tick += new EventHandler(StatusTimer1_Tick);
 
+            //* Keysight Command Execute
+            keysightForm = new KeysightForm();
+            keysightForm.OnSendCommand += _KeysightForm_OnSendCommand;
+
             //* ReadSystemInfo
+            configForm = new ConfigForm();
             configForm.ReadConfigFile();
 
             for (int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
@@ -87,8 +92,6 @@ namespace PreCharger
             //MeasureInfo = FormMeasureInfo.GetInstance();
             lblLineNo.Text = "#" + _System.SLINENO;
         }
-
-
         private void BaseForm_Load(object sender, EventArgs e)
         {
             //_EQProcess = new EquipProcess();
@@ -204,6 +207,20 @@ namespace PreCharger
                 _EQProcess.PRECHARGER[nIndex].EQUIPSTATUS = enumEquipStatus.StepTrayOut;
                 _EQProcess.SetTrayOut(nIndex, 1);
             }
+        }
+        #endregion
+
+        #region Keysight Form Event
+        private void _KeysightForm_OnSendCommand(int stageno, string command)
+        {
+            //* Task 사용
+            //Task.Factory.StartNew(new Action<string[]>(KeysightSendCommand), sParams);
+            Task.Run(() => KeysightSendCommand(stageno, command));
+        }
+        private void KeysightSendCommand(int stageno, string command)
+        {
+            string cmdResponse = _EQProcess.SendCommand(stageno, command);
+            keysightForm.SetResult(cmdResponse);
         }
         #endregion
 

@@ -12,17 +12,24 @@ namespace PreCharger
 {
     public partial class KeysightForm : Form
     {
+        #region Delegate - MainForm에서 사용
+        public delegate void delegateReport_SendCommand(int stageno, string command);
+        public event delegateReport_SendCommand OnSendCommand = null;
+        protected void RaiseOnSendCommand(int stageno, string command)
+        {
+            if (OnSendCommand != null)
+            {
+                OnSendCommand(stageno, command);
+            }
+        }
+        #endregion
         public KeysightForm()
         {
             InitializeComponent();
         }
 
-        private void lblCmd_Click(object sender, EventArgs e)
-        {
-            Label lbl = (Label)sender;
-            int nCommandIndex = int.Parse(lbl.Tag.ToString());
-            SetCommand(nCommandIndex, lbl.Text);
-        }
+        
+        #region Keysight Command
         private void SetCommand(int nCommandIndex, string command)
         {
             string commandtype = string.Empty;
@@ -60,6 +67,9 @@ namespace PreCharger
         private void SENDCOMMAND()
         {
             string CMD = tbCommand.Text;
+            int stageno = cbKeysigt.SelectedIndex;
+            RaiseOnSendCommand(stageno, CMD);
+
         }
         private void SET()
         {
@@ -77,5 +87,26 @@ namespace PreCharger
         {
 
         }
+        #endregion
+
+        #region Event
+        private void btnSendCommand_Click(object sender, EventArgs e)
+        {
+            SENDCOMMAND();
+        }
+        private void lblCmd_Click(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            int nCommandIndex = int.Parse(lbl.Tag.ToString());
+            SetCommand(nCommandIndex, lbl.Text);
+        }
+        #endregion
+
+        public void SetResult(string results)
+        {
+            tbMsg.Text += results;
+        }
+
+        
     }
 }
