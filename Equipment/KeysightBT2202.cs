@@ -283,7 +283,7 @@ namespace PreCharger
                             cmdResponse += (i + 1).ToString("D3") + "-" + (Convert.ToDouble(results[i]) * 1000).ToString("F2") + ",";
                         cmdResponse += nLength.ToString("D3") + "-" + (Convert.ToDouble(results[nLength - 1]) * 1000).ToString("F2");
                     }
-                    if (cmd.ToUpper().Contains("STAT:CELL:REP"))
+                    else if (cmd.ToUpper().Contains("STAT:CELL:REP"))
                     {
                         string[] results = GG.ReadLine().Split(',');
                         int nLength = results.Length;
