@@ -291,7 +291,7 @@ namespace PreCharger
                             cmdResponse += (i + 1).ToString("D3") + "-" + results[i] + ",";
                         cmdResponse += nLength.ToString("D3") + "-" + results[nLength - 1];
                     }
-                    else
+                    else if(cmd.Contains("?"))
                     {
                         cmdResponse = GG.ReadLine();
                     }
