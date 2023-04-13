@@ -280,7 +280,7 @@ namespace PreCharger
                     //cmdResponse = GG.ReadLine();
                     for (int i = 0; i < nLength - 1; i++)
                         cmdResponse += (i + 1).ToString("D3") + "-" + results[i] + ",";
-                    cmdResponse += nLength.ToString("D3") + "-" + results[nLength];
+                    cmdResponse += nLength.ToString("D3") + "-" + results[nLength - 1];
                 }
                 else
                 {
