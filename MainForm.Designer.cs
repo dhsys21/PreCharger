@@ -30,32 +30,27 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblLineNo = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnWriteBit = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnPLC = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BasePanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGreen;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblLineNo);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.btnConfig);
-            this.panel1.Controls.Add(this.btnPLC);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1914, 73);
+            this.panel1.Size = new System.Drawing.Size(2187, 91);
             this.panel1.TabIndex = 0;
             // 
             // lblLineNo
@@ -63,77 +58,21 @@
             this.lblLineNo.AutoSize = true;
             this.lblLineNo.Font = new System.Drawing.Font("굴림", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblLineNo.ForeColor = System.Drawing.Color.White;
-            this.lblLineNo.Location = new System.Drawing.Point(295, 9);
+            this.lblLineNo.Location = new System.Drawing.Point(337, 11);
             this.lblLineNo.Name = "lblLineNo";
-            this.lblLineNo.Size = new System.Drawing.Size(57, 48);
+            this.lblLineNo.Size = new System.Drawing.Size(70, 60);
             this.lblLineNo.TabIndex = 11;
             this.lblLineNo.Text = "#";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.btnWriteBit);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(721, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 60);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            this.groupBox1.Visible = false;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(77, 8);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(263, 49);
-            this.textBox5.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(360, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "120";
-            // 
-            // btnWriteBit
-            // 
-            this.btnWriteBit.Location = new System.Drawing.Point(466, 11);
-            this.btnWriteBit.Name = "btnWriteBit";
-            this.btnWriteBit.Size = new System.Drawing.Size(75, 23);
-            this.btnWriteBit.TabIndex = 6;
-            this.btnWriteBit.Text = "Write Bit";
-            this.btnWriteBit.UseVisualStyleBackColor = true;
-            this.btnWriteBit.Click += new System.EventHandler(this.btnWriteBit_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(466, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "CONNECT";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(360, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "1";
             // 
             // btnConfig
             // 
             this.btnConfig.BackColor = System.Drawing.Color.Ivory;
-            this.btnConfig.Location = new System.Drawing.Point(1701, 7);
+            this.btnConfig.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnConfig.Location = new System.Drawing.Point(125, 5);
+            this.btnConfig.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(100, 60);
+            this.btnConfig.Padding = new System.Windows.Forms.Padding(5);
+            this.btnConfig.Size = new System.Drawing.Size(110, 75);
             this.btnConfig.TabIndex = 9;
             this.btnConfig.Text = "Config";
             this.btnConfig.UseVisualStyleBackColor = false;
@@ -142,9 +81,12 @@
             // btnPLC
             // 
             this.btnPLC.BackColor = System.Drawing.Color.Red;
-            this.btnPLC.Location = new System.Drawing.Point(1807, 7);
+            this.btnPLC.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPLC.Location = new System.Drawing.Point(245, 5);
+            this.btnPLC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPLC.Name = "btnPLC";
-            this.btnPLC.Size = new System.Drawing.Size(100, 60);
+            this.btnPLC.Padding = new System.Windows.Forms.Padding(5);
+            this.btnPLC.Size = new System.Drawing.Size(110, 75);
             this.btnPLC.TabIndex = 5;
             this.btnPLC.Text = "PLC";
             this.btnPLC.UseVisualStyleBackColor = false;
@@ -155,29 +97,58 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(21, 9);
+            this.label1.Location = new System.Drawing.Point(24, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 48);
+            this.label1.Size = new System.Drawing.Size(344, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "PreCharger";
             // 
             // BasePanel
             // 
             this.BasePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BasePanel.Location = new System.Drawing.Point(0, 73);
+            this.BasePanel.Location = new System.Drawing.Point(0, 91);
+            this.BasePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BasePanel.Name = "BasePanel";
-            this.BasePanel.Size = new System.Drawing.Size(1914, 928);
+            this.BasePanel.Size = new System.Drawing.Size(2187, 1160);
             this.BasePanel.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Ivory;
+            this.button1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.Location = new System.Drawing.Point(5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5);
+            this.button1.Size = new System.Drawing.Size(110, 75);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "KEYSIGHT";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnPLC);
+            this.panel2.Controls.Add(this.btnConfig);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Location = new System.Drawing.Point(1820, 3);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.panel2.Size = new System.Drawing.Size(360, 85);
+            this.panel2.TabIndex = 14;
             // 
             // BaseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1914, 1001);
+            this.ClientSize = new System.Drawing.Size(2187, 1251);
             this.Controls.Add(this.BasePanel);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "BaseForm";
             this.Text = "PreCharger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseForm_FormClosing);
@@ -185,8 +156,7 @@
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -195,16 +165,12 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnPLC;
-        private System.Windows.Forms.Button btnWriteBit;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnConfig;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblLineNo;
         public System.Windows.Forms.Panel BasePanel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

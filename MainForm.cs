@@ -31,6 +31,7 @@ namespace PreCharger
         Util util;
         PLCForm plcForm;
         ConfigForm configForm;
+        KeysightForm keysightForm;
         //public FormMeasureInfo[] MeasureInfo = new FormMeasureInfo[_Constant.frmCount];
         
         public System.Windows.Forms.Timer[] SendTimer = new Timer[_Constant.frmCount];
@@ -54,6 +55,7 @@ namespace PreCharger
             util = new Util();
             plcForm = PLCForm.GetInstance();
             configForm = new ConfigForm();
+            keysightForm = new KeysightForm();
             _System = CEquipmentData.GetInstance();
 
             StatusTimer1 = new Timer();
@@ -443,6 +445,9 @@ namespace PreCharger
             configForm.ShowDialog();
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            keysightForm.ShowDialog();
+        }
     }
 }

@@ -185,7 +185,7 @@ namespace PreCharger
             util = new Util();
             _system = CEquipmentData.GetInstance();
 
-            #region TotalForm, MeasureInfoForm
+            #region Precharger, TotalForm, MeasureInfoForm
             string HOST;
             int PORT;
             for (int nIndex = 0; nIndex < _Constant.frmCount; nIndex++)
