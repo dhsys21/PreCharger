@@ -471,8 +471,9 @@ namespace PreCharger
             {
                 cmdResponse = PRECHARGER[nStage].RunCommand(CMD);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                cmdResponse = "Command (" + CMD + ") Error > " + ex.ToString();
                 Console.WriteLine(ex.ToString());
             }
             return cmdResponse;

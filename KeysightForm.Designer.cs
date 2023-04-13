@@ -89,6 +89,8 @@ namespace PreCharger
             this.lblConnectionStatus = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbShowChannel = new System.Windows.Forms.CheckBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.gbCommands.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -114,7 +116,7 @@ namespace PreCharger
             this.tbCommand.Location = new System.Drawing.Point(148, 234);
             this.tbCommand.Multiline = true;
             this.tbCommand.Name = "tbCommand";
-            this.tbCommand.Size = new System.Drawing.Size(637, 38);
+            this.tbCommand.Size = new System.Drawing.Size(583, 38);
             this.tbCommand.TabIndex = 1;
             this.tbCommand.Text = "*IDN?";
             // 
@@ -157,6 +159,7 @@ namespace PreCharger
             // gbCommands
             // 
             this.gbCommands.BackColor = System.Drawing.Color.White;
+            this.gbCommands.Controls.Add(this.btnClear);
             this.gbCommands.Controls.Add(this.lblCmd24);
             this.gbCommands.Controls.Add(this.lblCmd12);
             this.gbCommands.Controls.Add(this.lblCmd10);
@@ -265,9 +268,9 @@ namespace PreCharger
             // btnSendCommand
             // 
             this.btnSendCommand.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSendCommand.Location = new System.Drawing.Point(792, 212);
+            this.btnSendCommand.Location = new System.Drawing.Point(737, 212);
             this.btnSendCommand.Name = "btnSendCommand";
-            this.btnSendCommand.Size = new System.Drawing.Size(112, 60);
+            this.btnSendCommand.Size = new System.Drawing.Size(92, 60);
             this.btnSendCommand.TabIndex = 19;
             this.btnSendCommand.Text = "SEND";
             this.btnSendCommand.UseVisualStyleBackColor = true;
@@ -779,6 +782,7 @@ namespace PreCharger
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cbShowChannel);
             this.tabPage1.Controls.Add(this.lblConnectionStatus);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.btnKeysightOpen);
@@ -832,6 +836,30 @@ namespace PreCharger
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "SELECT MODULE";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // cbShowChannel
+            // 
+            this.cbShowChannel.AutoSize = true;
+            this.cbShowChannel.Checked = true;
+            this.cbShowChannel.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbShowChannel.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbShowChannel.Location = new System.Drawing.Point(73, 198);
+            this.cbShowChannel.Name = "cbShowChannel";
+            this.cbShowChannel.Size = new System.Drawing.Size(182, 21);
+            this.cbShowChannel.TabIndex = 8;
+            this.cbShowChannel.Text = "Show Channel Info";
+            this.cbShowChannel.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClear.Location = new System.Drawing.Point(837, 212);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(92, 60);
+            this.btnClear.TabIndex = 26;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // KeysightForm
             // 
@@ -924,5 +952,7 @@ namespace PreCharger
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label lblConnectionStatus;
+        private System.Windows.Forms.CheckBox cbShowChannel;
+        private System.Windows.Forms.Button btnClear;
     }
 }

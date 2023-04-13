@@ -34,7 +34,7 @@
             this.btnPLC = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BasePanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnKeysight = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -112,26 +112,26 @@
             this.BasePanel.Size = new System.Drawing.Size(2187, 1160);
             this.BasePanel.TabIndex = 1;
             // 
-            // button1
+            // btnKeysight
             // 
-            this.button1.BackColor = System.Drawing.Color.Ivory;
-            this.button1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(5, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5);
-            this.button1.Size = new System.Drawing.Size(110, 75);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "KEYSIGHT";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnKeysight.BackColor = System.Drawing.Color.Ivory;
+            this.btnKeysight.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnKeysight.Location = new System.Drawing.Point(5, 5);
+            this.btnKeysight.Margin = new System.Windows.Forms.Padding(5);
+            this.btnKeysight.Name = "btnKeysight";
+            this.btnKeysight.Padding = new System.Windows.Forms.Padding(5);
+            this.btnKeysight.Size = new System.Drawing.Size(110, 75);
+            this.btnKeysight.TabIndex = 12;
+            this.btnKeysight.Text = "KEYSIGHT";
+            this.btnKeysight.UseVisualStyleBackColor = false;
+            this.btnKeysight.Click += new System.EventHandler(this.btnKeysight_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnPLC);
             this.panel2.Controls.Add(this.btnConfig);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnKeysight);
             this.panel2.Location = new System.Drawing.Point(1820, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
@@ -169,7 +169,7 @@
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Label lblLineNo;
         public System.Windows.Forms.Panel BasePanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnKeysight;
         private System.Windows.Forms.Panel panel2;
     }
 }

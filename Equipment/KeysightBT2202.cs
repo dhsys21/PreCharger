@@ -274,13 +274,23 @@ namespace PreCharger
                 if (GG != null)
                 {
                     GG.WriteLine(cmd);
-                    cmdResponse = GG.ReadLine();
+
+                    string[] results = GG.ReadLine().Split(',');
+                    int nLength = results.Length;
+                    //cmdResponse = GG.ReadLine();
+                    for (int i = 0; i < nLength - 1; i++)
+                        cmdResponse += (i + 1).ToString("D3") + "-" + results[i] + ",";
+                    cmdResponse += nLength.ToString("D3") + "-" + results[nLength];
                 }
                 else
+                {
                     util.SaveLog(STAGENO, "RunCommand Error : Keysight BT2200 is not connected!");
+                    cmdResponse = "RunCommand Error : Keysight BT2200 is not connected!";
+                }
             }
             catch (Exception ex)
             {
+                cmdResponse = "Error : " + ex.ToString();
                 Console.WriteLine(ex.ToString());
                 util.SaveLog(STAGENO, "Command Error (" + cmd + ") > " + ex.ToString());
             }

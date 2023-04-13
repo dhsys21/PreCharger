@@ -100,6 +100,10 @@ namespace PreCharger
             int nCommandIndex = int.Parse(lbl.Tag.ToString());
             SetCommand(nCommandIndex, lbl.Text);
         }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearResult();
+        }
         #endregion
 
         public void SetResult(string results)
@@ -115,7 +119,9 @@ namespace PreCharger
                 tbMsg.AppendText(results + Environment.NewLine + Environment.NewLine);
             }
         }
-
-        
+        private void ClearResult()
+        {
+            tbMsg.Text = "";
+        }
     }
 }

@@ -445,18 +445,6 @@ namespace PreCharger
         {
             plcForm.ShowDialog();
         }
-        /// <summary>
-        /// BIT 쓰기 테스트 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnWriteBit_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
@@ -464,7 +452,7 @@ namespace PreCharger
             configForm.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnKeysight_Click(object sender, EventArgs e)
         {
             keysightForm.ShowDialog();
         }
