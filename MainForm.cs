@@ -247,7 +247,7 @@ namespace PreCharger
         }
         private void KeysightStartSequence(int stageno)
         {
-            _EQProcess.StartCharging(stageno);
+            _EQProcess.StartSequence(stageno);
             Task.Delay(300);
             keysightForm.SetResult("START SEQUENCE");
         }
