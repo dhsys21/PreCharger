@@ -12,6 +12,7 @@ namespace PreCharger
 {
     public partial class KeysightForm : Form
     {
+        bool isReadDataLog;
         string _cmdtype;
         string precharge_time, charge_time, discharge_time;
         double precharge_current, precharge_voltage;
@@ -68,19 +69,40 @@ namespace PreCharger
                 OnAbortSequence(stageno);
             }
         }
+
+        public delegate void delegateReport_GetDataLog(int stageno);
+        public event delegateReport_GetDataLog OnGetDataLog = null;
+        protected void RaiseOnGetDataLog(int stageno)
+        {
+            if (OnGetDataLog != null)
+            {
+                OnGetDataLog(stageno);
+            }
+        }
+
+        public delegate void delegateReport_DeviceClear(int stageno);
+        public event delegateReport_DeviceClear OnDeviceClear = null;
+        protected void RaiseOnDeviceClear(int stageno)
+        {
+            if (OnDeviceClear != null)
+            {
+                OnDeviceClear(stageno);
+            }
+        }
         #endregion
 
         public KeysightForm()
         {
             InitializeComponent();
 
+            isReadDataLog = false;
             _cmdtype = "0";
             precharge_current = precharge_voltage = charge_current = charge_voltage = discharge_current = discharge_voltage = 0.0;
             precharge_time = "0";
             charge_time = "0";
             discharge_time = "0";
         }
-        
+
         #region Keysight Command
         private void SetCommand(int nCommandIndex, string command)
         {
@@ -204,6 +226,25 @@ namespace PreCharger
         {
             RaiseOnAbortSequence(stageno);
         }
+        private void GETDATALOG(int stageno)
+        {
+            GetDataLogWhile(stageno);
+        }
+        private void STOPDATALOG(int stageno)
+        {
+            isReadDataLog = false;
+        }
+        private void GetDataLogWhile(int stageno)
+        {
+            while(isReadDataLog)
+            {
+                RaiseOnGetDataLog(stageno);
+            }
+        }
+        private void DEVICECLEAR(int stageno)
+        {
+            RaiseOnDeviceClear(stageno);
+        }
         #endregion
 
         #region Event
@@ -216,6 +257,15 @@ namespace PreCharger
             Label lbl = (Label)sender;
             int nCommandIndex = int.Parse(lbl.Tag.ToString());
             SetCommand(nCommandIndex, lbl.Text);
+        }
+        private void lblCmd2_Click(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            int nCommandIndex = int.Parse(lbl.Tag.ToString());
+            int stageno = cbKeysigt.SelectedIndex;
+            if (nCommandIndex == 31) DEVICECLEAR(stageno);
+            else if (nCommandIndex == 32) GETDATALOG(stageno);
+            else if (nCommandIndex == 33) STOPDATALOG(stageno);
         }
         private void btnClear_Click(object sender, EventArgs e)
         {

@@ -36,6 +36,7 @@ namespace PreCharger
         
         public System.Windows.Forms.Timer[] SendTimer = new Timer[_Constant.frmCount];
         private Timer StatusTimer1 = null;
+        public Timer _tmrDataLog = new Timer();
 
         public delegate void delegateReport_OnLabelTrayId(int nIndex, string trayid);
         public event delegateReport_OnLabelTrayId OnLabelTrayId = null;
@@ -62,6 +63,9 @@ namespace PreCharger
             StatusTimer1.Interval = 1000;
             StatusTimer1.Tick += new EventHandler(StatusTimer1_Tick);
 
+            _tmrDataLog.Interval = 3000;
+            _tmrDataLog.Tick += new EventHandler(_tmrDataLog_Tick);
+
             //* Keysight Command Execute
             keysightForm = new KeysightForm();
             keysightForm.OnSendCommand += _KeysightForm_OnSendCommand;
@@ -69,6 +73,8 @@ namespace PreCharger
             keysightForm.OnSetDischarging += _KeysightForm_OnSetDischarging;
             keysightForm.OnStartSequence += _KeysightForm_OnStartSequence;
             keysightForm.OnAbortSequence += _KeysightForm_OnAbortSequence;
+            keysightForm.OnStartDataLog += _KeysightForm_OnGetDataLog;
+            keysightForm.OnDeviceClear += _KeysightForm_OnDeviceClear;
 
             //* ReadSystemInfo
             configForm = new ConfigForm();
@@ -215,6 +221,18 @@ namespace PreCharger
         #endregion
 
         #region Keysight Form Event
+        private void _tmrDataLog_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void _KeysightForm_OnGetDataLog(int stageno)
+        {
+            Task.Run(() => KeysightGetDataLog(stageno));
+        }
+        private void _KeysightForm_OnDeviceClear(int stageno)
+        {
+            KeysightDeviceClear(stageno);
+        }
         private void _KeysightForm_OnSendCommand(int stageno, string command)
         {
             //* Task 사용
@@ -244,6 +262,40 @@ namespace PreCharger
             cmdResponse = _EQProcess.SendCommand(stageno, command);
             Task.Delay(300);
             keysightForm.SetResult(cmdResponse);
+        }
+        private void KeysightGetDataLog(int stageno)
+        {
+            GgDataLogNamespace.GgBinData oDataLogQuery = null;
+            string strString = string.Empty;
+            try
+            {
+                oDataLogQuery = _EQProcess.GetDataLog(stageno);
+
+                for (int cIndex = 0; cIndex < 256; cIndex++)
+                {
+                    //strString += (cIndex + 1).ToString("D3") + "-";
+                    strString += oDataLogQuery.CellId[cIndex] + "-";
+                    //strString += oDataLogQuery.TimeStamp + "-";
+                    strString += (oDataLogQuery.IMon[cIndex] * 1000.0).ToString("F1") + "-";
+                    strString += (oDataLogQuery.VSense[cIndex] * 1000.0).ToString("F2") + "-";
+                    strString += (oDataLogQuery.VLocal[cIndex] * 1000.0).ToString("F2") + "-";
+                    strString += oDataLogQuery.Dcir1[cIndex] > 1000 ? "999-" : oDataLogQuery.Dcir1[cIndex] + "-";
+                    //strString += oDataLogQuery.Dcir1[cIndex].ToString("F1") + "-";
+                    strString += oDataLogQuery.Dcir2[cIndex] > 1000 ? "999-" : oDataLogQuery.Dcir2[cIndex] + "-";
+                    //strString += oDataLogQuery.Dcir2[cIndex].ToString("F1") + "-";
+                    strString += oDataLogQuery.SequenceState[cIndex] + "\t";
+                }
+
+                keysightForm.SetResult(strString);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        private void KeysightDeviceClear(int stageno)
+        {
+            _EQProcess.DeviceClear(stageno);
         }
         private void KeysightStartSequence(int stageno)
         {

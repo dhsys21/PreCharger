@@ -498,6 +498,22 @@ namespace PreCharger
             int nStage = Convert.ToInt16(stageno.ToString());
             await PRECHARGER[nStage].StopCharging();
         }
+        public GgDataLogNamespace.GgBinData GetDataLog(int stageno)
+        {
+            //* data:log?
+            double logCount = PRECHARGER[stageno].GetLogCount();
+            GgDataLogNamespace.GgBinData oDataLogQuery = null;
+            if (logCount > 0)
+            {
+                oDataLogQuery = PRECHARGER[stageno].GetDataLog();
+            }
+            return oDataLogQuery;
+        }
+        public void DeviceClear(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            PRECHARGER[nStage].DeviceClear();
+        }
         #endregion
 
         #region PreCharger Command
@@ -525,7 +541,7 @@ namespace PreCharger
                         PRECHARGER[nStage].ClearDataLog();
                         isRead = true;
                         //measureinfo = new FormMeasureInfo();
-                        GetDateLogWhile(nStage);
+                        GetDataLogWhile(nStage);
                     }
                 }
                 else
@@ -558,7 +574,7 @@ namespace PreCharger
                         PRECHARGER[nStage].ClearDataLog();
                         isRead = true;
                         //measureinfo = new FormMeasureInfo();
-                        GetDateLogWhile(nStage);
+                        GetDataLogWhile(nStage);
                     }
                 }
                 else
@@ -590,7 +606,7 @@ namespace PreCharger
             }
         }
         bool isRead = false;
-        private async void GetDateLogWhile(int stageno)
+        private async void GetDataLogWhile(int stageno)
         {
             while (isRead)
             {

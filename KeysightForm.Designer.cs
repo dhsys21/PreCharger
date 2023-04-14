@@ -35,7 +35,7 @@ namespace PreCharger
             this.lblCmd1 = new System.Windows.Forms.Label();
             this.lblCmd2 = new System.Windows.Forms.Label();
             this.gbCommands = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDeviceClear = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.lblCmd24 = new System.Windows.Forms.Label();
             this.lblCmd12 = new System.Windows.Forms.Label();
@@ -97,6 +97,8 @@ namespace PreCharger
             this.btnCloseCharging = new System.Windows.Forms.Button();
             this.tbCharging = new System.Windows.Forms.TextBox();
             this.btnCharging = new System.Windows.Forms.Button();
+            this.lblStartDataLog = new System.Windows.Forms.Label();
+            this.lblStopDataLog = new System.Windows.Forms.Label();
             this.gbCommands.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -120,7 +122,7 @@ namespace PreCharger
             // tbCommand
             // 
             this.tbCommand.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbCommand.Location = new System.Drawing.Point(148, 234);
+            this.tbCommand.Location = new System.Drawing.Point(184, 234);
             this.tbCommand.Multiline = true;
             this.tbCommand.Name = "tbCommand";
             this.tbCommand.Size = new System.Drawing.Size(583, 38);
@@ -130,7 +132,7 @@ namespace PreCharger
             // lblCommand
             // 
             this.lblCommand.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCommand.Location = new System.Drawing.Point(24, 234);
+            this.lblCommand.Location = new System.Drawing.Point(60, 234);
             this.lblCommand.Name = "lblCommand";
             this.lblCommand.Size = new System.Drawing.Size(118, 38);
             this.lblCommand.TabIndex = 2;
@@ -141,7 +143,7 @@ namespace PreCharger
             // 
             this.lblCmd1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd1.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd1.Location = new System.Drawing.Point(53, 30);
+            this.lblCmd1.Location = new System.Drawing.Point(12, 30);
             this.lblCmd1.Name = "lblCmd1";
             this.lblCmd1.Size = new System.Drawing.Size(165, 42);
             this.lblCmd1.TabIndex = 3;
@@ -154,7 +156,7 @@ namespace PreCharger
             // 
             this.lblCmd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd2.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd2.Location = new System.Drawing.Point(224, 30);
+            this.lblCmd2.Location = new System.Drawing.Point(183, 30);
             this.lblCmd2.Name = "lblCmd2";
             this.lblCmd2.Size = new System.Drawing.Size(165, 42);
             this.lblCmd2.TabIndex = 4;
@@ -166,7 +168,9 @@ namespace PreCharger
             // gbCommands
             // 
             this.gbCommands.BackColor = System.Drawing.Color.White;
-            this.gbCommands.Controls.Add(this.label1);
+            this.gbCommands.Controls.Add(this.lblStopDataLog);
+            this.gbCommands.Controls.Add(this.lblStartDataLog);
+            this.gbCommands.Controls.Add(this.lblDeviceClear);
             this.gbCommands.Controls.Add(this.btnClear);
             this.gbCommands.Controls.Add(this.lblCmd24);
             this.gbCommands.Controls.Add(this.lblCmd12);
@@ -188,29 +192,30 @@ namespace PreCharger
             this.gbCommands.Controls.Add(this.lblCommand);
             this.gbCommands.Controls.Add(this.tbCommand);
             this.gbCommands.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.gbCommands.Location = new System.Drawing.Point(833, 22);
+            this.gbCommands.Location = new System.Drawing.Point(730, 13);
             this.gbCommands.Name = "gbCommands";
-            this.gbCommands.Size = new System.Drawing.Size(937, 281);
+            this.gbCommands.Size = new System.Drawing.Size(1040, 281);
             this.gbCommands.TabIndex = 6;
             this.gbCommands.TabStop = false;
             this.gbCommands.Text = "COMMANDS";
             // 
-            // label1
+            // lblDeviceClear
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(737, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 42);
-            this.label1.TabIndex = 27;
-            this.label1.Tag = "19";
-            this.label1.Text = "31. DEVICE CLEAR";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDeviceClear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeviceClear.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblDeviceClear.Location = new System.Drawing.Point(696, 130);
+            this.lblDeviceClear.Name = "lblDeviceClear";
+            this.lblDeviceClear.Size = new System.Drawing.Size(165, 42);
+            this.lblDeviceClear.TabIndex = 27;
+            this.lblDeviceClear.Tag = "31";
+            this.lblDeviceClear.Text = "31. DEVICE CLEAR";
+            this.lblDeviceClear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDeviceClear.Click += new System.EventHandler(this.lblCmd2_Click);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClear.Location = new System.Drawing.Point(837, 234);
+            this.btnClear.Location = new System.Drawing.Point(873, 234);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(92, 38);
             this.btnClear.TabIndex = 26;
@@ -222,7 +227,7 @@ namespace PreCharger
             // 
             this.lblCmd24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd24.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd24.Location = new System.Drawing.Point(566, 180);
+            this.lblCmd24.Location = new System.Drawing.Point(525, 180);
             this.lblCmd24.Name = "lblCmd24";
             this.lblCmd24.Size = new System.Drawing.Size(165, 42);
             this.lblCmd24.TabIndex = 25;
@@ -235,7 +240,7 @@ namespace PreCharger
             // 
             this.lblCmd12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd12.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd12.Location = new System.Drawing.Point(657, 130);
+            this.lblCmd12.Location = new System.Drawing.Point(274, 130);
             this.lblCmd12.Name = "lblCmd12";
             this.lblCmd12.Size = new System.Drawing.Size(245, 42);
             this.lblCmd12.TabIndex = 24;
@@ -248,7 +253,7 @@ namespace PreCharger
             // 
             this.lblCmd10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd10.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd10.Location = new System.Drawing.Point(53, 130);
+            this.lblCmd10.Location = new System.Drawing.Point(867, 80);
             this.lblCmd10.Name = "lblCmd10";
             this.lblCmd10.Size = new System.Drawing.Size(165, 42);
             this.lblCmd10.TabIndex = 23;
@@ -261,7 +266,7 @@ namespace PreCharger
             // 
             this.lblCmd11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd11.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd11.Location = new System.Drawing.Point(395, 130);
+            this.lblCmd11.Location = new System.Drawing.Point(12, 130);
             this.lblCmd11.Name = "lblCmd11";
             this.lblCmd11.Size = new System.Drawing.Size(256, 42);
             this.lblCmd11.TabIndex = 22;
@@ -274,7 +279,7 @@ namespace PreCharger
             // 
             this.lblCmd23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd23.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd23.Location = new System.Drawing.Point(395, 180);
+            this.lblCmd23.Location = new System.Drawing.Point(354, 180);
             this.lblCmd23.Name = "lblCmd23";
             this.lblCmd23.Size = new System.Drawing.Size(165, 42);
             this.lblCmd23.TabIndex = 21;
@@ -287,7 +292,7 @@ namespace PreCharger
             // 
             this.lblCmd22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd22.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd22.Location = new System.Drawing.Point(224, 180);
+            this.lblCmd22.Location = new System.Drawing.Point(183, 180);
             this.lblCmd22.Name = "lblCmd22";
             this.lblCmd22.Size = new System.Drawing.Size(165, 42);
             this.lblCmd22.TabIndex = 20;
@@ -299,7 +304,7 @@ namespace PreCharger
             // btnSendCommand
             // 
             this.btnSendCommand.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSendCommand.Location = new System.Drawing.Point(741, 234);
+            this.btnSendCommand.Location = new System.Drawing.Point(777, 234);
             this.btnSendCommand.Name = "btnSendCommand";
             this.btnSendCommand.Size = new System.Drawing.Size(92, 38);
             this.btnSendCommand.TabIndex = 19;
@@ -311,7 +316,7 @@ namespace PreCharger
             // 
             this.lblCmd21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd21.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd21.Location = new System.Drawing.Point(53, 180);
+            this.lblCmd21.Location = new System.Drawing.Point(12, 180);
             this.lblCmd21.Name = "lblCmd21";
             this.lblCmd21.Size = new System.Drawing.Size(165, 42);
             this.lblCmd21.TabIndex = 18;
@@ -324,7 +329,7 @@ namespace PreCharger
             // 
             this.lblCmd5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd5.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd5.Location = new System.Drawing.Point(737, 30);
+            this.lblCmd5.Location = new System.Drawing.Point(696, 30);
             this.lblCmd5.Name = "lblCmd5";
             this.lblCmd5.Size = new System.Drawing.Size(165, 42);
             this.lblCmd5.TabIndex = 17;
@@ -337,7 +342,7 @@ namespace PreCharger
             // 
             this.lblCmd9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd9.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd9.Location = new System.Drawing.Point(657, 80);
+            this.lblCmd9.Location = new System.Drawing.Point(616, 80);
             this.lblCmd9.Name = "lblCmd9";
             this.lblCmd9.Size = new System.Drawing.Size(245, 42);
             this.lblCmd9.TabIndex = 16;
@@ -350,7 +355,7 @@ namespace PreCharger
             // 
             this.lblCmd8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd8.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd8.Location = new System.Drawing.Point(395, 80);
+            this.lblCmd8.Location = new System.Drawing.Point(354, 80);
             this.lblCmd8.Name = "lblCmd8";
             this.lblCmd8.Size = new System.Drawing.Size(256, 42);
             this.lblCmd8.TabIndex = 15;
@@ -363,7 +368,7 @@ namespace PreCharger
             // 
             this.lblCmd4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd4.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd4.Location = new System.Drawing.Point(566, 30);
+            this.lblCmd4.Location = new System.Drawing.Point(525, 30);
             this.lblCmd4.Name = "lblCmd4";
             this.lblCmd4.Size = new System.Drawing.Size(165, 42);
             this.lblCmd4.TabIndex = 14;
@@ -376,7 +381,7 @@ namespace PreCharger
             // 
             this.lblCmd7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd7.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd7.Location = new System.Drawing.Point(224, 80);
+            this.lblCmd7.Location = new System.Drawing.Point(183, 80);
             this.lblCmd7.Name = "lblCmd7";
             this.lblCmd7.Size = new System.Drawing.Size(165, 42);
             this.lblCmd7.TabIndex = 13;
@@ -389,7 +394,7 @@ namespace PreCharger
             // 
             this.lblCmd6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd6.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd6.Location = new System.Drawing.Point(53, 80);
+            this.lblCmd6.Location = new System.Drawing.Point(12, 80);
             this.lblCmd6.Name = "lblCmd6";
             this.lblCmd6.Size = new System.Drawing.Size(165, 42);
             this.lblCmd6.TabIndex = 12;
@@ -402,7 +407,7 @@ namespace PreCharger
             // 
             this.lblCmd3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCmd3.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCmd3.Location = new System.Drawing.Point(395, 30);
+            this.lblCmd3.Location = new System.Drawing.Point(354, 30);
             this.lblCmd3.Name = "lblCmd3";
             this.lblCmd3.Size = new System.Drawing.Size(165, 42);
             this.lblCmd3.TabIndex = 5;
@@ -417,7 +422,7 @@ namespace PreCharger
             this.cbModule1.Checked = true;
             this.cbModule1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule1.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule1.Location = new System.Drawing.Point(69, 55);
+            this.cbModule1.Location = new System.Drawing.Point(45, 58);
             this.cbModule1.Name = "cbModule1";
             this.cbModule1.Size = new System.Drawing.Size(116, 21);
             this.cbModule1.TabIndex = 0;
@@ -430,7 +435,7 @@ namespace PreCharger
             this.cbModule2.Checked = true;
             this.cbModule2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule2.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule2.Location = new System.Drawing.Point(228, 55);
+            this.cbModule2.Location = new System.Drawing.Point(204, 58);
             this.cbModule2.Name = "cbModule2";
             this.cbModule2.Size = new System.Drawing.Size(116, 21);
             this.cbModule2.TabIndex = 1;
@@ -443,7 +448,7 @@ namespace PreCharger
             this.cbModule3.Checked = true;
             this.cbModule3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule3.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule3.Location = new System.Drawing.Point(390, 55);
+            this.cbModule3.Location = new System.Drawing.Point(366, 58);
             this.cbModule3.Name = "cbModule3";
             this.cbModule3.Size = new System.Drawing.Size(116, 21);
             this.cbModule3.TabIndex = 2;
@@ -456,7 +461,7 @@ namespace PreCharger
             this.cbModule4.Checked = true;
             this.cbModule4.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule4.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule4.Location = new System.Drawing.Point(539, 55);
+            this.cbModule4.Location = new System.Drawing.Point(515, 58);
             this.cbModule4.Name = "cbModule4";
             this.cbModule4.Size = new System.Drawing.Size(117, 21);
             this.cbModule4.TabIndex = 3;
@@ -469,7 +474,7 @@ namespace PreCharger
             this.cbModule8.Checked = true;
             this.cbModule8.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule8.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule8.Location = new System.Drawing.Point(539, 135);
+            this.cbModule8.Location = new System.Drawing.Point(515, 138);
             this.cbModule8.Name = "cbModule8";
             this.cbModule8.Size = new System.Drawing.Size(116, 21);
             this.cbModule8.TabIndex = 7;
@@ -482,7 +487,7 @@ namespace PreCharger
             this.cbModule7.Checked = true;
             this.cbModule7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule7.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule7.Location = new System.Drawing.Point(390, 135);
+            this.cbModule7.Location = new System.Drawing.Point(366, 138);
             this.cbModule7.Name = "cbModule7";
             this.cbModule7.Size = new System.Drawing.Size(116, 21);
             this.cbModule7.TabIndex = 6;
@@ -495,7 +500,7 @@ namespace PreCharger
             this.cbModule6.Checked = true;
             this.cbModule6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule6.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule6.Location = new System.Drawing.Point(228, 135);
+            this.cbModule6.Location = new System.Drawing.Point(204, 138);
             this.cbModule6.Name = "cbModule6";
             this.cbModule6.Size = new System.Drawing.Size(116, 21);
             this.cbModule6.TabIndex = 5;
@@ -508,7 +513,7 @@ namespace PreCharger
             this.cbModule5.Checked = true;
             this.cbModule5.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbModule5.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbModule5.Location = new System.Drawing.Point(69, 135);
+            this.cbModule5.Location = new System.Drawing.Point(45, 138);
             this.cbModule5.Name = "cbModule5";
             this.cbModule5.Size = new System.Drawing.Size(116, 21);
             this.cbModule5.TabIndex = 4;
@@ -518,7 +523,7 @@ namespace PreCharger
             // btnKeysightOpen
             // 
             this.btnKeysightOpen.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnKeysightOpen.Location = new System.Drawing.Point(546, 134);
+            this.btnKeysightOpen.Location = new System.Drawing.Point(471, 154);
             this.btnKeysightOpen.Name = "btnKeysightOpen";
             this.btnKeysightOpen.Size = new System.Drawing.Size(106, 77);
             this.btnKeysightOpen.TabIndex = 2;
@@ -593,7 +598,7 @@ namespace PreCharger
             this.groupBox5.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox5.Location = new System.Drawing.Point(15, 29);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(240, 193);
+            this.groupBox5.Size = new System.Drawing.Size(220, 193);
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "PRECHARGE SETTING";
@@ -601,7 +606,7 @@ namespace PreCharger
             // tbPrechargeTime
             // 
             this.tbPrechargeTime.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPrechargeTime.Location = new System.Drawing.Point(111, 45);
+            this.tbPrechargeTime.Location = new System.Drawing.Point(122, 45);
             this.tbPrechargeTime.Name = "tbPrechargeTime";
             this.tbPrechargeTime.Size = new System.Drawing.Size(90, 27);
             this.tbPrechargeTime.TabIndex = 10;
@@ -610,7 +615,7 @@ namespace PreCharger
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label20.Location = new System.Drawing.Point(27, 128);
+            this.label20.Location = new System.Drawing.Point(38, 128);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(74, 25);
             this.label20.TabIndex = 7;
@@ -620,7 +625,7 @@ namespace PreCharger
             // tbPrechargeCurrent
             // 
             this.tbPrechargeCurrent.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPrechargeCurrent.Location = new System.Drawing.Point(111, 85);
+            this.tbPrechargeCurrent.Location = new System.Drawing.Point(122, 85);
             this.tbPrechargeCurrent.Name = "tbPrechargeCurrent";
             this.tbPrechargeCurrent.Size = new System.Drawing.Size(90, 27);
             this.tbPrechargeCurrent.TabIndex = 8;
@@ -629,7 +634,7 @@ namespace PreCharger
             // tbPrechargeVoltage
             // 
             this.tbPrechargeVoltage.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbPrechargeVoltage.Location = new System.Drawing.Point(111, 126);
+            this.tbPrechargeVoltage.Location = new System.Drawing.Point(122, 126);
             this.tbPrechargeVoltage.Name = "tbPrechargeVoltage";
             this.tbPrechargeVoltage.Size = new System.Drawing.Size(90, 27);
             this.tbPrechargeVoltage.TabIndex = 6;
@@ -638,7 +643,7 @@ namespace PreCharger
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(27, 44);
+            this.label21.Location = new System.Drawing.Point(38, 44);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 25);
             this.label21.TabIndex = 11;
@@ -648,7 +653,7 @@ namespace PreCharger
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label22.Location = new System.Drawing.Point(27, 88);
+            this.label22.Location = new System.Drawing.Point(38, 88);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(74, 25);
             this.label22.TabIndex = 9;
@@ -664,9 +669,9 @@ namespace PreCharger
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox4.Location = new System.Drawing.Point(281, 29);
+            this.groupBox4.Location = new System.Drawing.Point(240, 29);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(240, 193);
+            this.groupBox4.Size = new System.Drawing.Size(220, 193);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "CHARGE SETTING";
@@ -737,9 +742,9 @@ namespace PreCharger
             this.groupBox6.Controls.Add(this.label24);
             this.groupBox6.Controls.Add(this.label25);
             this.groupBox6.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox6.Location = new System.Drawing.Point(542, 29);
+            this.groupBox6.Location = new System.Drawing.Point(470, 29);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(240, 193);
+            this.groupBox6.Size = new System.Drawing.Size(220, 193);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DISCHARGE SETTING";
@@ -809,7 +814,7 @@ namespace PreCharger
             this.tabSetting.Location = new System.Drawing.Point(12, 22);
             this.tabSetting.Name = "tabSetting";
             this.tabSetting.SelectedIndex = 0;
-            this.tabSetting.Size = new System.Drawing.Size(805, 272);
+            this.tabSetting.Size = new System.Drawing.Size(712, 272);
             this.tabSetting.TabIndex = 12;
             // 
             // tabPage1
@@ -825,7 +830,7 @@ namespace PreCharger
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(797, 243);
+            this.tabPage1.Size = new System.Drawing.Size(704, 243);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CONNECTION";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -833,7 +838,7 @@ namespace PreCharger
             // btnKeysightClose
             // 
             this.btnKeysightClose.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnKeysightClose.Location = new System.Drawing.Point(658, 134);
+            this.btnKeysightClose.Location = new System.Drawing.Point(583, 154);
             this.btnKeysightClose.Name = "btnKeysightClose";
             this.btnKeysightClose.Size = new System.Drawing.Size(106, 77);
             this.btnKeysightClose.TabIndex = 9;
@@ -856,9 +861,9 @@ namespace PreCharger
             // lblConnectionStatus
             // 
             this.lblConnectionStatus.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblConnectionStatus.Location = new System.Drawing.Point(23, 134);
+            this.lblConnectionStatus.Location = new System.Drawing.Point(23, 113);
             this.lblConnectionStatus.Name = "lblConnectionStatus";
-            this.lblConnectionStatus.Size = new System.Drawing.Size(506, 25);
+            this.lblConnectionStatus.Size = new System.Drawing.Size(666, 25);
             this.lblConnectionStatus.TabIndex = 7;
             this.lblConnectionStatus.Text = "KEYSIGHT 192.168.250.211 IS CONNECTED";
             this.lblConnectionStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -871,7 +876,7 @@ namespace PreCharger
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(797, 243);
+            this.tabPage2.Size = new System.Drawing.Size(704, 243);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SETTING";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -888,7 +893,7 @@ namespace PreCharger
             this.tabPage3.Controls.Add(this.cbModule4);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(797, 243);
+            this.tabPage3.Size = new System.Drawing.Size(704, 243);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "SELECT MODULE";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -898,7 +903,7 @@ namespace PreCharger
             this.pnlCharging.Controls.Add(this.btnCloseCharging);
             this.pnlCharging.Controls.Add(this.tbCharging);
             this.pnlCharging.Controls.Add(this.btnCharging);
-            this.pnlCharging.Location = new System.Drawing.Point(886, 322);
+            this.pnlCharging.Location = new System.Drawing.Point(914, 318);
             this.pnlCharging.Name = "pnlCharging";
             this.pnlCharging.Padding = new System.Windows.Forms.Padding(10);
             this.pnlCharging.Size = new System.Drawing.Size(678, 279);
@@ -938,6 +943,32 @@ namespace PreCharger
             this.btnCharging.Text = "SEND";
             this.btnCharging.UseVisualStyleBackColor = true;
             this.btnCharging.Click += new System.EventHandler(this.btnCharging_Click);
+            // 
+            // lblStartDataLog
+            // 
+            this.lblStartDataLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblStartDataLog.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblStartDataLog.Location = new System.Drawing.Point(696, 180);
+            this.lblStartDataLog.Name = "lblStartDataLog";
+            this.lblStartDataLog.Size = new System.Drawing.Size(165, 42);
+            this.lblStartDataLog.TabIndex = 28;
+            this.lblStartDataLog.Tag = "32";
+            this.lblStartDataLog.Text = "32. START DATA:LOG?";
+            this.lblStartDataLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStartDataLog.Click += new System.EventHandler(this.lblCmd2_Click);
+            // 
+            // lblStopDataLog
+            // 
+            this.lblStopDataLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblStopDataLog.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblStopDataLog.Location = new System.Drawing.Point(867, 180);
+            this.lblStopDataLog.Name = "lblStopDataLog";
+            this.lblStopDataLog.Size = new System.Drawing.Size(165, 42);
+            this.lblStopDataLog.TabIndex = 29;
+            this.lblStopDataLog.Tag = "33";
+            this.lblStopDataLog.Text = "33. STOP DATA:LOG?";
+            this.lblStopDataLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStopDataLog.Click += new System.EventHandler(this.lblCmd2_Click);
             // 
             // KeysightForm
             // 
@@ -1040,6 +1071,8 @@ namespace PreCharger
         private System.Windows.Forms.Button btnCharging;
         private System.Windows.Forms.Button btnCloseCharging;
         private System.Windows.Forms.Button btnKeysightClose;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDeviceClear;
+        private System.Windows.Forms.Label lblStartDataLog;
+        private System.Windows.Forms.Label lblStopDataLog;
     }
 }
