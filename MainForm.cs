@@ -73,7 +73,7 @@ namespace PreCharger
             keysightForm.OnSetDischarging += _KeysightForm_OnSetDischarging;
             keysightForm.OnStartSequence += _KeysightForm_OnStartSequence;
             keysightForm.OnAbortSequence += _KeysightForm_OnAbortSequence;
-            keysightForm.OnStartDataLog += _KeysightForm_OnGetDataLog;
+            keysightForm.OnGetDataLog += _KeysightForm_OnGetDataLog;
             keysightForm.OnDeviceClear += _KeysightForm_OnDeviceClear;
 
             //* ReadSystemInfo
