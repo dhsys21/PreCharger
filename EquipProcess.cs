@@ -462,7 +462,7 @@ namespace PreCharger
         }
         #endregion
 
-        #region PreCharger Command
+        #region MainForm Keysight Command Call
         public string SendCommand(object stageno, string CMD)
         {
             int nStage = Convert.ToInt16(stageno.ToString());
@@ -478,6 +478,30 @@ namespace PreCharger
             }
             return cmdResponse;
         }
+        public void SetStepCharge(object stageno, string[] prechargevalues, string[] chargevalue)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            PRECHARGER[nStage].SetStepCharge(prechargevalues, chargevalue);
+        }
+        public void SetStepDischarge(object stageno, string[] dischargevalues)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            PRECHARGER[nStage].SetStepDischarge(dischargevalues);
+        }
+        public async void StartSequence(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            await PRECHARGER[nStage].StartCharging();
+        }
+        public async void AbortSequence(object stageno)
+        {
+            int nStage = Convert.ToInt16(stageno.ToString());
+            await PRECHARGER[nStage].StopCharging();
+        }
+        #endregion
+
+        #region PreCharger Command
+
         public void ResetKeysight(object stageno)
         {
             int nStage = Convert.ToInt16(stageno.ToString());

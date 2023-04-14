@@ -65,6 +65,10 @@ namespace PreCharger
             //* Keysight Command Execute
             keysightForm = new KeysightForm();
             keysightForm.OnSendCommand += _KeysightForm_OnSendCommand;
+            keysightForm.OnSetCharging += _KeysightForm_OnSetCharging;
+            keysightForm.OnSetDischarging += _KeysightForm_OnSetDischarging;
+            keysightForm.OnStartSequence += _KeysightForm_OnStartSequence;
+            keysightForm.OnAbortSequence += _KeysightForm_OnAbortSequence;
 
             //* ReadSystemInfo
             configForm = new ConfigForm();
@@ -217,12 +221,53 @@ namespace PreCharger
             //Task.Factory.StartNew(new Action<string[]>(KeysightSendCommand), sParams);
             Task.Run(() => KeysightSendCommand(stageno, command));
         }
+        private void _KeysightForm_OnStartSequence(int stageno)
+        {
+            Task.Run(() => KeysightStartSequence(stageno));
+        }
+        private void _KeysightForm_OnAbortSequence(int stageno)
+        {
+            Task.Run(() => KeysightAbortSequence(stageno));
+        }
+        private void _KeysightForm_OnSetCharging(int stageno, string[] prechargevalues, string[] chargevalues)
+        {
+            Task.Run(() => KeysightSetCharge(stageno, prechargevalues, chargevalues));
+        }
+        private void _KeysightForm_OnSetDischarging(int stageno, string[] dischargevalues)
+        {
+            Task.Run(() => KeysightSetDischarge(stageno, dischargevalues));
+        }
+        
         private void KeysightSendCommand(int stageno, string command)
         {
             string cmdResponse = string.Empty;
             cmdResponse = _EQProcess.SendCommand(stageno, command);
             Task.Delay(300);
             keysightForm.SetResult(cmdResponse);
+        }
+        private void KeysightStartSequence(int stageno)
+        {
+            _EQProcess.StartCharging(stageno);
+            Task.Delay(300);
+            keysightForm.SetResult("START SEQUENCE");
+        }
+        private void KeysightAbortSequence(int stageno)
+        {
+            _EQProcess.AbortSequence(stageno);
+            Task.Delay(300);
+            keysightForm.SetResult("ABORT SEQUENCE");
+        }
+        private void KeysightSetCharge(int stageno, string[] prechargevalues, string[] chargevalues)
+        {
+            _EQProcess.SetStepCharge(stageno, prechargevalues, chargevalues);
+            Task.Delay(300);
+            keysightForm.SetResult("SET CHARGE");
+        }
+        private void KeysightSetDischarge(int stageno, string[] dischargevalues)
+        {
+            _EQProcess.SetStepDischarge(stageno, dischargevalues);
+            Task.Delay(300);
+            keysightForm.SetResult("SET DISCHARGE");
         }
         #endregion
 

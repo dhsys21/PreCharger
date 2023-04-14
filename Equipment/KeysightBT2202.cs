@@ -518,6 +518,26 @@ namespace PreCharger
             //                SETCHARGECONDITION("2", "1", "VOLT_LE", voltCondition.ToString(), "BEFORE", "90");
             //            }
         }
+        public async void SetStepCharge(string[] prechargevalues, string[] chargevalues)
+        {
+            try
+            {
+                _preTime = Convert.ToInt16(prechargevalues[0]);
+                _preCurrent = Convert.ToDouble(prechargevalues[1]);
+                _preVoltage = Convert.ToDouble(prechargevalues[2]);
+
+                _time = Convert.ToInt16(chargevalues[0]);
+                _current = Convert.ToDouble(chargevalues[1]);
+                _voltage = Convert.ToDouble(chargevalues[2]);
+
+                await SetStepChargeDef();
+            }
+            catch(Exception ex)
+            {
+                util.SaveLog(STAGENO, "SetStepCharge Error : " + ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+        }
         public async Task SetStepDischargeDef()
         {
             runCLEAR();
@@ -529,10 +549,26 @@ namespace PreCharger
             SetStepChargeDef("DISCHARGE", "1", _dischargeTime, _dischargeCurrent, _dischargeVoltage);
             await Task.Delay(200);
         }
+        public async void SetStepDischarge(string[] dischargevalues)
+        {
+            try
+            {
+                _dischargeTime = Convert.ToInt16(dischargevalues[0]);
+                _dischargeCurrent = Convert.ToDouble(dischargevalues[1]);
+                _dischargeVoltage = Convert.ToDouble(dischargevalues[2]);
+
+                await SetStepDischargeDef();
+            }
+            catch (Exception ex)
+            {
+                util.SaveLog(STAGENO, "SetStepCharge Error : " + ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+        }
         #endregion
 
         #region Charging
-        public void StopCharging()
+        public async Task StopCharging()
         {
             CMD = "SEQ:ABORT";
             RunCommandOnly(CMD);

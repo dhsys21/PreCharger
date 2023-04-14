@@ -35,6 +35,8 @@ namespace PreCharger
             this.lblCmd1 = new System.Windows.Forms.Label();
             this.lblCmd2 = new System.Windows.Forms.Label();
             this.gbCommands = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             this.lblCmd24 = new System.Windows.Forms.Label();
             this.lblCmd12 = new System.Windows.Forms.Label();
             this.lblCmd10 = new System.Windows.Forms.Label();
@@ -86,11 +88,15 @@ namespace PreCharger
             this.label25 = new System.Windows.Forms.Label();
             this.tabSetting = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnKeysightClose = new System.Windows.Forms.Button();
+            this.cbShowChannel = new System.Windows.Forms.CheckBox();
             this.lblConnectionStatus = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cbShowChannel = new System.Windows.Forms.CheckBox();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.pnlCharging = new System.Windows.Forms.Panel();
+            this.btnCloseCharging = new System.Windows.Forms.Button();
+            this.tbCharging = new System.Windows.Forms.TextBox();
+            this.btnCharging = new System.Windows.Forms.Button();
             this.gbCommands.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,6 +105,7 @@ namespace PreCharger
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.pnlCharging.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMsg
@@ -159,6 +166,7 @@ namespace PreCharger
             // gbCommands
             // 
             this.gbCommands.BackColor = System.Drawing.Color.White;
+            this.gbCommands.Controls.Add(this.label1);
             this.gbCommands.Controls.Add(this.btnClear);
             this.gbCommands.Controls.Add(this.lblCmd24);
             this.gbCommands.Controls.Add(this.lblCmd12);
@@ -187,6 +195,29 @@ namespace PreCharger
             this.gbCommands.TabStop = false;
             this.gbCommands.Text = "COMMANDS";
             // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(737, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 42);
+            this.label1.TabIndex = 27;
+            this.label1.Tag = "19";
+            this.label1.Text = "31. DEVICE CLEAR";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClear.Location = new System.Drawing.Point(837, 234);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(92, 38);
+            this.btnClear.TabIndex = 26;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // lblCmd24
             // 
             this.lblCmd24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -196,7 +227,7 @@ namespace PreCharger
             this.lblCmd24.Size = new System.Drawing.Size(165, 42);
             this.lblCmd24.TabIndex = 25;
             this.lblCmd24.Tag = "24";
-            this.lblCmd24.Text = "24. ABORT (STOP)";
+            this.lblCmd24.Text = "24. ABORT SEQ.";
             this.lblCmd24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCmd24.Click += new System.EventHandler(this.lblCmd_Click);
             // 
@@ -206,7 +237,7 @@ namespace PreCharger
             this.lblCmd12.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblCmd12.Location = new System.Drawing.Point(657, 130);
             this.lblCmd12.Name = "lblCmd12";
-            this.lblCmd12.Size = new System.Drawing.Size(247, 42);
+            this.lblCmd12.Size = new System.Drawing.Size(245, 42);
             this.lblCmd12.TabIndex = 24;
             this.lblCmd12.Tag = "12";
             this.lblCmd12.Text = "12. SEQ:STEP:DEF? 1,1";
@@ -248,7 +279,7 @@ namespace PreCharger
             this.lblCmd23.Size = new System.Drawing.Size(165, 42);
             this.lblCmd23.TabIndex = 21;
             this.lblCmd23.Tag = "23";
-            this.lblCmd23.Text = "23. DISCHARGING";
+            this.lblCmd23.Text = "23. START SEQ.";
             this.lblCmd23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCmd23.Click += new System.EventHandler(this.lblCmd_Click);
             // 
@@ -261,16 +292,16 @@ namespace PreCharger
             this.lblCmd22.Size = new System.Drawing.Size(165, 42);
             this.lblCmd22.TabIndex = 20;
             this.lblCmd22.Tag = "22";
-            this.lblCmd22.Text = "22. CHARGING";
+            this.lblCmd22.Text = "22. SET DISCHARGING";
             this.lblCmd22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCmd22.Click += new System.EventHandler(this.lblCmd_Click);
             // 
             // btnSendCommand
             // 
             this.btnSendCommand.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSendCommand.Location = new System.Drawing.Point(737, 212);
+            this.btnSendCommand.Location = new System.Drawing.Point(741, 234);
             this.btnSendCommand.Name = "btnSendCommand";
-            this.btnSendCommand.Size = new System.Drawing.Size(92, 60);
+            this.btnSendCommand.Size = new System.Drawing.Size(92, 38);
             this.btnSendCommand.TabIndex = 19;
             this.btnSendCommand.Text = "SEND";
             this.btnSendCommand.UseVisualStyleBackColor = true;
@@ -285,7 +316,7 @@ namespace PreCharger
             this.lblCmd21.Size = new System.Drawing.Size(165, 42);
             this.lblCmd21.TabIndex = 18;
             this.lblCmd21.Tag = "21";
-            this.lblCmd21.Text = "21. SET";
+            this.lblCmd21.Text = "21. SET CHARGING";
             this.lblCmd21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCmd21.Click += new System.EventHandler(this.lblCmd_Click);
             // 
@@ -487,17 +518,18 @@ namespace PreCharger
             // btnKeysightOpen
             // 
             this.btnKeysightOpen.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnKeysightOpen.Location = new System.Drawing.Point(624, 69);
+            this.btnKeysightOpen.Location = new System.Drawing.Point(546, 134);
             this.btnKeysightOpen.Name = "btnKeysightOpen";
-            this.btnKeysightOpen.Size = new System.Drawing.Size(129, 111);
+            this.btnKeysightOpen.Size = new System.Drawing.Size(106, 77);
             this.btnKeysightOpen.TabIndex = 2;
             this.btnKeysightOpen.Text = "OPEN";
             this.btnKeysightOpen.UseVisualStyleBackColor = true;
+            this.btnKeysightOpen.Click += new System.EventHandler(this.btnKeysightOpen_Click);
             // 
             // tbKeysightIPAddress
             // 
             this.tbKeysightIPAddress.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbKeysightIPAddress.Location = new System.Drawing.Point(342, 69);
+            this.tbKeysightIPAddress.Location = new System.Drawing.Point(295, 67);
             this.tbKeysightIPAddress.Name = "tbKeysightIPAddress";
             this.tbKeysightIPAddress.Size = new System.Drawing.Size(234, 30);
             this.tbKeysightIPAddress.TabIndex = 3;
@@ -524,7 +556,7 @@ namespace PreCharger
             "KEYSIGHT 013",
             "KEYSIGHT 014",
             "KEYSIGHT 015"});
-            this.cbKeysigt.Location = new System.Drawing.Point(70, 69);
+            this.cbKeysigt.Location = new System.Drawing.Point(23, 67);
             this.cbKeysigt.Name = "cbKeysigt";
             this.cbKeysigt.Size = new System.Drawing.Size(231, 28);
             this.cbKeysigt.TabIndex = 4;
@@ -533,7 +565,7 @@ namespace PreCharger
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(70, 39);
+            this.label4.Location = new System.Drawing.Point(23, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(231, 25);
             this.label4.TabIndex = 5;
@@ -543,7 +575,7 @@ namespace PreCharger
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(342, 39);
+            this.label5.Location = new System.Drawing.Point(295, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(234, 25);
             this.label5.TabIndex = 6;
@@ -782,6 +814,7 @@ namespace PreCharger
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnKeysightClose);
             this.tabPage1.Controls.Add(this.cbShowChannel);
             this.tabPage1.Controls.Add(this.lblConnectionStatus);
             this.tabPage1.Controls.Add(this.label5);
@@ -797,10 +830,33 @@ namespace PreCharger
             this.tabPage1.Text = "CONNECTION";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnKeysightClose
+            // 
+            this.btnKeysightClose.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnKeysightClose.Location = new System.Drawing.Point(658, 134);
+            this.btnKeysightClose.Name = "btnKeysightClose";
+            this.btnKeysightClose.Size = new System.Drawing.Size(106, 77);
+            this.btnKeysightClose.TabIndex = 9;
+            this.btnKeysightClose.Text = "CLOSE";
+            this.btnKeysightClose.UseVisualStyleBackColor = true;
+            // 
+            // cbShowChannel
+            // 
+            this.cbShowChannel.AutoSize = true;
+            this.cbShowChannel.Checked = true;
+            this.cbShowChannel.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbShowChannel.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbShowChannel.Location = new System.Drawing.Point(23, 187);
+            this.cbShowChannel.Name = "cbShowChannel";
+            this.cbShowChannel.Size = new System.Drawing.Size(182, 21);
+            this.cbShowChannel.TabIndex = 8;
+            this.cbShowChannel.Text = "Show Channel Info";
+            this.cbShowChannel.UseVisualStyleBackColor = true;
+            // 
             // lblConnectionStatus
             // 
             this.lblConnectionStatus.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblConnectionStatus.Location = new System.Drawing.Point(70, 155);
+            this.lblConnectionStatus.Location = new System.Drawing.Point(23, 134);
             this.lblConnectionStatus.Name = "lblConnectionStatus";
             this.lblConnectionStatus.Size = new System.Drawing.Size(506, 25);
             this.lblConnectionStatus.TabIndex = 7;
@@ -837,35 +893,58 @@ namespace PreCharger
             this.tabPage3.Text = "SELECT MODULE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // cbShowChannel
+            // pnlCharging
             // 
-            this.cbShowChannel.AutoSize = true;
-            this.cbShowChannel.Checked = true;
-            this.cbShowChannel.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbShowChannel.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbShowChannel.Location = new System.Drawing.Point(73, 198);
-            this.cbShowChannel.Name = "cbShowChannel";
-            this.cbShowChannel.Size = new System.Drawing.Size(182, 21);
-            this.cbShowChannel.TabIndex = 8;
-            this.cbShowChannel.Text = "Show Channel Info";
-            this.cbShowChannel.UseVisualStyleBackColor = true;
+            this.pnlCharging.Controls.Add(this.btnCloseCharging);
+            this.pnlCharging.Controls.Add(this.tbCharging);
+            this.pnlCharging.Controls.Add(this.btnCharging);
+            this.pnlCharging.Location = new System.Drawing.Point(886, 322);
+            this.pnlCharging.Name = "pnlCharging";
+            this.pnlCharging.Padding = new System.Windows.Forms.Padding(10);
+            this.pnlCharging.Size = new System.Drawing.Size(678, 279);
+            this.pnlCharging.TabIndex = 13;
+            this.pnlCharging.Visible = false;
             // 
-            // btnClear
+            // btnCloseCharging
             // 
-            this.btnClear.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClear.Location = new System.Drawing.Point(837, 212);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(92, 60);
-            this.btnClear.TabIndex = 26;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnCloseCharging.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCloseCharging.Location = new System.Drawing.Point(518, 211);
+            this.btnCloseCharging.Name = "btnCloseCharging";
+            this.btnCloseCharging.Padding = new System.Windows.Forms.Padding(3);
+            this.btnCloseCharging.Size = new System.Drawing.Size(150, 60);
+            this.btnCloseCharging.TabIndex = 22;
+            this.btnCloseCharging.Text = "CLOSE";
+            this.btnCloseCharging.UseVisualStyleBackColor = true;
+            this.btnCloseCharging.Click += new System.EventHandler(this.btnCloseCharging_Click);
+            // 
+            // tbCharging
+            // 
+            this.tbCharging.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbCharging.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbCharging.Location = new System.Drawing.Point(10, 10);
+            this.tbCharging.Multiline = true;
+            this.tbCharging.Name = "tbCharging";
+            this.tbCharging.Size = new System.Drawing.Size(658, 192);
+            this.tbCharging.TabIndex = 21;
+            // 
+            // btnCharging
+            // 
+            this.btnCharging.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCharging.Location = new System.Drawing.Point(360, 211);
+            this.btnCharging.Name = "btnCharging";
+            this.btnCharging.Padding = new System.Windows.Forms.Padding(3);
+            this.btnCharging.Size = new System.Drawing.Size(150, 60);
+            this.btnCharging.TabIndex = 20;
+            this.btnCharging.Text = "SEND";
+            this.btnCharging.UseVisualStyleBackColor = true;
+            this.btnCharging.Click += new System.EventHandler(this.btnCharging_Click);
             // 
             // KeysightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 953);
+            this.Controls.Add(this.pnlCharging);
             this.Controls.Add(this.tabSetting);
             this.Controls.Add(this.gbCommands);
             this.Controls.Add(this.tbMsg);
@@ -885,6 +964,8 @@ namespace PreCharger
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pnlCharging.ResumeLayout(false);
+            this.pnlCharging.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -954,5 +1035,11 @@ namespace PreCharger
         private System.Windows.Forms.Label lblConnectionStatus;
         private System.Windows.Forms.CheckBox cbShowChannel;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Panel pnlCharging;
+        private System.Windows.Forms.TextBox tbCharging;
+        private System.Windows.Forms.Button btnCharging;
+        private System.Windows.Forms.Button btnCloseCharging;
+        private System.Windows.Forms.Button btnKeysightClose;
+        private System.Windows.Forms.Label label1;
     }
 }
